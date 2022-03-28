@@ -797,7 +797,8 @@ html body .bg-white {
 
 .table td 
 {
-    font-size: 10px;
+    font-size: 12px;
+    color: black;
     padding: 5px;
 }
 .table th {

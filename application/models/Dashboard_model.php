@@ -17,7 +17,7 @@
     }
 
     public function chart_list(){
-        $sql = "SELECT DATE_FORMAT(tanggal, '%d %M') tanggal,we_nilai we,hs_nilai hs,populis_nilai populis,topcore,we_tv FROM web_rank ORDER BY `tanggal`  LIMIT 7";
+        $sql = "SELECT DATE_FORMAT(tanggal, '%d %M') tanggal,we_nilai we,hs_nilai hs,populis_nilai populis,topcore,we_tv FROM web_rank where tanggal > '2022-03-20' ORDER BY `tanggal`  LIMIT 7";
         $query=$this->db->query($sql);
         
         return $query->result_array();
@@ -29,6 +29,12 @@
         
         return $query->result();
 
+    }
+    public function chart_web_last(){
+        $sql = "SELECT DATE_FORMAT(tanggal, '%d %M') tanggal,we,hs,populis,topcore,we_tv FROM web_rank ORDER BY `tanggal`  desc LIMIT 1,1";
+        $query=$this->db->query($sql);
+        $result = $query->row();
+        return $result;
     }
        
     }

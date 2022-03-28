@@ -103,11 +103,14 @@ $(function() {
 		  };
 	
 		  var ctx = document.getElementById("myChart").getContext("2d");
-	
+		  
 		  var LineGraph = new Chart(ctx, {
 			type: 'line',
 			
-			data: chartdata
+			data: chartdata,
+			options: {
+				maintainAspectRatio: false,
+			}
 		  });
 		},
 		error : function(data) {
