@@ -37,7 +37,7 @@
                                         else echo "<font color='blue'> &uarr;(".$nilai_we1.") </font>";
                                     ?>
                                 </h1>
-                                <img src="<?php echo base_url();?>assets/images/we_logo.JPEG" />
+                                <img src="<?php echo base_url();?>assets/images/we_logo.jpeg" />
                             </div>
                         </div>
                     </div>
@@ -61,7 +61,7 @@
                                     ?>
                                 
                                 </h1>
-                                <img src="<?php echo base_url();?>assets/images/populis.JPEG" />
+                                <img src="<?php echo base_url();?>assets/images/populis.jpeg" />
                             </div>
                           
                         </div>
@@ -86,7 +86,7 @@
                                     ?>
                                 
                                 </h1>
-                                <img src="<?php echo base_url();?>assets/images/hs.JPEG" style="width:150px;height:25px;"/>
+                                <img src="<?php echo base_url();?>assets/images/hs.jpeg" style="width:150px;height:25px;"/>
                             </div>
                         </div>
                     </div>
@@ -107,7 +107,7 @@
                                         else  if($nilai_tc_now > $nilai_tc_last) echo "<font color='red'>&darr; (".$nilai_tc.") </font>";
                                         else echo "<font color='blue'> &uarr;(".$nilai_tc1.") </font>";
                                     ?></h1>
-                                <img src="<?php echo base_url();?>assets/images/topcore.JPEG" style="width:150px;height:25px;"/>
+                                <img src="<?php echo base_url();?>assets/images/topcore.jpeg" style="width:150px;height:25px;"/>
                             </div>
                         </div>
                     </div>
