@@ -95,19 +95,19 @@
                         <div class="card card-inverse">
                             <div class="box text-center">
                             <?php 
-                                    $nilai_tc_now=$rank->topcore;
-                                    $nilai_tc_last= $rank_last->topcore;
+                                    $nilai_tc_now=$rank->we_tv;
+                                    $nilai_tc_last= $rank_last->we_tv;
                                     $nilai_tc =$nilai_tc_now -  $nilai_tc_last ;
                                     $nilai_tc1 =$nilai_tc_last -  $nilai_tc_now ;
                                 ?>
                                 <h1 class="font-light">
-                                    <?php echo $rank->topcore; ?>
+                                    <?php echo $rank->we_tv; ?>
                                     <?php 
                                         if($nilai_tc_now == $nilai_tc_last) echo "(=)"; 
                                         else  if($nilai_tc_now > $nilai_tc_last) echo "<font color='red'>&darr; (".$nilai_tc.") </font>";
                                         else echo "<font color='blue'> &uarr;(".$nilai_tc1.") </font>";
                                     ?></h1>
-                                <img src="<?php echo base_url();?>assets/images/topcore.jpeg" style="width:150px;height:25px;"/>
+                                <h5 class="font-bold text-black"> WE TV </h4>
                             </div>
                         </div>
                     </div>
@@ -130,7 +130,7 @@
                     <div class="col-lg-6"  >
                         <div class="card">
                             <div class="card-body" style="height:370px;">
-                            <h4 class="card-title">Website Rank List </h4>
+                            <h4 class="card-title">Website * TV Rank List </h4>
                                 <div class="" >
                                     <table id="weblist" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                                         <thead>
@@ -139,7 +139,7 @@
                                                 <th>WE</th>
                                                 <th>HS </th>
                                                 <th>Populis </th>
-                                                <th>Topcore</th>
+                                               
                                                 <th>WE TV</th>
                                             </tr>
                                         </thead>
@@ -151,7 +151,7 @@
                                                 <td><?php echo $value->we; ?></td>
                                                 <td><?php echo $value->hs; ?></td>
                                                 <td><?php echo $value->populis; ?></td>
-                                                <td><?php echo $value->topcore; ?></td>
+                                               
                                                 <td><?php echo $value->we_tv; ?></td>
                                                
                                             </tr>
