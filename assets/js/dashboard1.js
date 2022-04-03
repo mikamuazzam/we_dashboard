@@ -37,64 +37,34 @@ $(function() {
 			datasets: [
 			  {
 				label: "we",
-				backgroundColor: [
-					'rgba(137, 3, 30, 0.5)',
-					'rgba(86, 6, 6, 0.9)',
-					'rgba(255, 206, 86, 0.2)',
-					'rgba(86, 6, 6, 0.9)',
-					'rgba(86, 6, 6, 0.9)',
-					'rgba(255, 159, 64, 0.2)'
-					],
-					borderColor: [
-					'rgba(148, 1, 25, 0.88)',
-					'rgba(54, 162, 235, 1)',
-					'rgba(148, 1, 25, 0.88)',
-					'rgba(75, 192, 192, 1)',
-					'rgba(153, 102, 255, 1)',
+				backgroundColor: 
+					'rgba(137, 3, 30, 0.5)'
+					,
+					borderColor: 
 					'rgba(148, 1, 25, 0.88)'
-					],
+					,
 					borderWidth: 1,
 				data: we_dt
 			  },
 			  {
 				label: "populis",
-				backgroundColor: [
-					'rgba(29, 208, 81, 0.7)',
-					'rgba(54, 162, 235, 0.2)',
-					'rgba(36, 135, 58, 0.22)',
-					'rgba(75, 192, 192, 0.2)',
-					'rgba(153, 102, 255, 0.2)',
-					'rgba(36, 135, 58, 0.22)'
-					],
-					borderColor: [
-					'rgba(36, 135, 58, 0.71)',
-					'rgba(54, 162, 235, 1)',
-					'rgba(60, 206, 86, 1)',
-					'rgba(75, 192, 192, 1)',
-					'rgba(153, 102, 255, 1)',
+				backgroundColor: 
+					'rgba(29, 208, 81, 0.7)'
+					,
+					borderColor: 
 					'rgba(36, 135, 58, 0.71)'
-					],
+					,
 					borderWidth: 1,
 				data: populis_dt
 			  },
 			  {
 				label: "HS",
-				backgroundColor: [
-					'rgba(230, 141, 141, 0.7)',
-					'rgba(54, 162, 235, 0.2)',
-					'rgba(238, 126, 145, 0.23)',
-					'rgba(75, 192, 192, 0.2)',
-					'rgba(153, 102, 255, 0.2)',
-					'rgba(238, 126, 145, 0.23)'
-					],
-					borderColor: [
+				backgroundColor: 
+					'rgba(230, 141, 141, 0.7)'
+					
+					,
+					borderColor: 
 					'rgba(238, 126, 145, 0.41)',
-					'rgba(54, 162, 235, 1)',
-					'rgba(238, 126, 145, 0.41)',
-					'rgba(75, 192, 192, 1)',
-					'rgba(153, 102, 255, 1)',
-					'rgba(238, 126, 145, 0.41)'
-					],
 					borderWidth: 1,
 				data: hs_dt
 			  }
@@ -109,7 +79,14 @@ $(function() {
 			
 			data: chartdata,
 			options: {
-				maintainAspectRatio: false,
+				scales: {
+					yAxes: [{
+					  ticks: {
+						stepSize: 1,
+						beginAtZero: false,
+					  },
+					}],
+				  },
 			}
 		  });
 		},
