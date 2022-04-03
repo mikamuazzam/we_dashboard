@@ -28,7 +28,7 @@
                                         echo $comp->jum; 
                                     ?>
                                 </h1>
-                                <h4 class="font-light text-white">
+                                <h5 class="font-light text-white">
                                 Companies
                                 </h4>
                             </div>
@@ -42,7 +42,7 @@
                                         echo $deals_all->jum; 
                                     ?>
                                 </h1>
-                                <h4 class="font-light text-white">
+                                <h5 class="font-light text-white">
                                 Deals
                                 </h4>
                             </div>
@@ -57,8 +57,8 @@
                                         echo $deals_all->jum; 
                                     ?>     
                                 </h1>
-                                <h4 class="font-light text-white">
-                                Deals Progress
+                                <h5 class="font-light text-white">
+                                Progress
                                 </h4>
                             </div>
                           
@@ -72,7 +72,7 @@
                                         //echo $rank->populis; 
                                     ?>     
                                 </h1>
-                                <h4 class="font-light text-white">
+                                <h5 class="font-light text-white">
                                 Deals Won
                                 </h4>
                             </div>
@@ -87,7 +87,7 @@
                                         //echo $rank->hs; 
                                     ?>
                                 </h1>
-                                <h4 class="font-light text-white">  Deals Lost </h4>
+                                <h5 class="font-light text-white">  Deals Lost </h4>
                             </div>
                         </div>
                     </div>
@@ -100,7 +100,7 @@
                                         echo "0"; 
                                     ?>  
                                 </h1>
-                                <h4 class="font-light text-white"> Outstanding Inv </h4>
+                                <h5 class="font-light text-white"> Outs Inv </h4>
                             </div>
                         </div>
                     </div>
@@ -124,7 +124,7 @@
                                                 <th>Start</th>
                                                 <th>Finish</th>
                                                 <th>Title</th>
-                                                <th>Venue </th>
+                                                <th>Desc </th>
                                                
                                             </tr>
                                         </thead>
@@ -164,7 +164,7 @@
                     <div class="col-lg-4">
                         <div class="card">
                             <div class="card-body">
-                            <h4 class="card-title">programmatic ads </h4>
+                            <h4 class="card-title">Total Presentasi Pencapaian</h4>
                             <canvas id="progChart" style="position: relative; height:360px; width:100%"></canvas>
                             </div>
                         </div>
