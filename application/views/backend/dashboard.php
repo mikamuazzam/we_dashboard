@@ -130,7 +130,7 @@
                     <div class="col-lg-6"  >
                         <div class="card">
                             <div class="card-body" style="height:370px;">
-                            <h4 class="card-title">Website * TV Rank List </h4>
+                            <h4 class="card-title">Website / TV Rank List </h4>
                                 <div class="" >
                                     <table id="weblist" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                                         <thead>

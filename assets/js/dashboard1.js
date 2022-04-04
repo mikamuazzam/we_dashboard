@@ -35,17 +35,17 @@ $(function() {
 			labels: labeldt,
 			
 			datasets: [
-			  {
-				label: "we",
-				backgroundColor: 
-					'rgba(149, 10, 9, 0.9)'
-					,
-					borderColor: 
-					'rgba(148, 1, 25, 0.88)'
-					,
-					borderWidth: 1,
-				data: we_dt
-			  },
+				{
+					label: "HS",
+					backgroundColor: 
+						'rgba(230, 141, 141, 0.7)'
+						
+						,
+						borderColor: 
+						'rgba(238, 126, 145, 0.41)',
+						borderWidth: 1,
+					data: hs_dt
+				  },
 			  {
 				label: "populis",
 				backgroundColor: 
@@ -58,15 +58,15 @@ $(function() {
 				data: populis_dt
 			  },
 			  {
-				label: "HS",
+				label: "we",
 				backgroundColor: 
-					'rgba(230, 141, 141, 0.7)'
-					
+					'rgba(149, 10, 9, 0.9)'
 					,
 					borderColor: 
-					'rgba(238, 126, 145, 0.41)',
+					'rgba(148, 1, 25, 0.88)'
+					,
 					borderWidth: 1,
-				data: hs_dt
+				data: we_dt
 			  }
 			  
 			]
@@ -83,7 +83,7 @@ $(function() {
 					yAxes: [{
 					  ticks: {
 						stepSize: 1,
-						beginAtZero: false,
+						beginAtZero: true
 					  },
 					}],
 				  },
