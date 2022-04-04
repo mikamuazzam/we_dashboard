@@ -38,7 +38,7 @@ $(function() {
 			  {
 				label: "we",
 				backgroundColor: 
-					'rgba(137, 3, 30, 0.5)'
+					'rgba(149, 10, 9, 0.9)'
 					,
 					borderColor: 
 					'rgba(148, 1, 25, 0.88)'
