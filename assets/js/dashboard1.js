@@ -1,7 +1,7 @@
 
 $(function() {
     $.ajax({
-		url : base_url+"/dashboard/chart_list",
+		url : base_url+"/dashboard/chart_web",
 		type : "GET",
 		success : function(data){
 			data = JSON.parse(data);
