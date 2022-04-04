@@ -30,7 +30,6 @@ class Dashboard extends CI_Controller {
             $data['rank'] = $this->dashboard_model->get_rank();
             $data['web_list'] = $this->dashboard_model->chart_web();
             $data['rank_last'] = $this->dashboard_model->chart_web_last();
-            
         $this->load->view('backend/dashboard',$data);
         }
     else{
