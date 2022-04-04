@@ -41,9 +41,9 @@
         return $result;
 
     }
-    public function deals($tipe){
+    public function deals($stage){
         
-        $sql = "SELECT count(*)jum,stage from deals group by stage";
+        $sql = "SELECT count(*)jum,stage from deals where stage='$stage' ";
         $query=$this->db->query($sql);
         $result = $query->row();
 

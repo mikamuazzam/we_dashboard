@@ -39,7 +39,8 @@
                             <div class="box bg-info text-center">
                                 <h1 class="font-light text-white">
                                     <?php 
-                                        echo $deals_all->jum; 
+                                         $deals_all= $deals_new->jum + $deals_won->jum +$deals_lost->jum; 
+                                        echo $deals_all;
                                     ?>
                                 </h1>
                                 <h5 class="font-light text-white">
@@ -54,7 +55,7 @@
                         <div class="box bg-primary text-center">
                                 <h1 class="font-light text-white">
                                 <?php 
-                                        echo $deals_all->jum; 
+                                        echo $deals_new->jum; 
                                     ?>     
                                 </h1>
                                 <h5 class="font-light text-white">
@@ -83,8 +84,8 @@
                     <div class="col-md-5 col-lg-2 col-xlg-2">
                         <div class="card card-inverse card-danger">
                             <div class="box text-center">
-                            <h1 class="font-light text-white"> 0<?php 
-                                        //echo $rank->hs; 
+                            <h1 class="font-light text-white"> <?php 
+                                        echo $deals_lost->jum; 
                                     ?>
                                 </h1>
                                 <h5 class="font-light text-white">  Deals Lost </h4>
