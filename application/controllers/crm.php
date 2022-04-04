@@ -28,7 +28,6 @@ class Crm extends CI_Controller {
     function crm(){
         if($this->session->userdata('user_login_access') != False) {
             $data['comp'] = $this->crm_model->companies();
-            
             $data['deals_new'] = $this->crm_model->deals('New Progress');
             $data['deals_won'] = $this->crm_model->deals(3);
             $data['deals_lost'] = $this->crm_model->deals('Lost');
