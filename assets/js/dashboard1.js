@@ -1,7 +1,7 @@
 
 $(function() {
     $.ajax({
-		url : base_url+"/dashboard/chart_web",
+		url : base_url+"/dashboard/chart_list",
 		type : "GET",
 		success : function(data){
 			data = JSON.parse(data);
@@ -13,7 +13,7 @@ $(function() {
 			const tc_dt= [];
         
             for (var dt of data) {
-                var tanggal_rank = dt.tanggal;
+                var tanggal_rank = dt.tgl;
                 labeldt.push(tanggal_rank)
 
                 var get_we= parseInt(dt.we) || 0;

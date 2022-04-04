@@ -37,7 +37,7 @@ class Dashboard extends CI_Controller {
 		redirect(base_url() , 'refresh');
 	}            
     }
-    function chart_web()
+    function chart_list()
     {
         $this->load->model('dashboard_model');
         $data= $this->dashboard_model->chart_list();

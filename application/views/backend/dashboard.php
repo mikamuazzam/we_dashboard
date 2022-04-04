@@ -147,7 +147,7 @@
                                         <tbody>
                                            <?php foreach($web_list as $value): ?>
                                             <tr align="center" >
-                                                <td><?php echo $value->tanggal; ?></td>
+                                                <td><?php echo $value->tgl; ?></td>
                                                 <td><?php echo $value->we; ?></td>
                                                 <td><?php echo $value->hs; ?></td>
                                                 <td><?php echo $value->populis; ?></td>
