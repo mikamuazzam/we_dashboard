@@ -17,7 +17,7 @@
     }
 
     public function chart_list(){
-        $sql = "SELECT DATE_FORMAT(tanggal, '%d %M') tgl,we_nilai we,hs_nilai hs,populis_nilai populis,topcore,we_tv FROM web_rank  where tanggal >'2022-03-27' ORDER BY `tanggal` LIMIT 7";
+        $sql = "SELECT DATE_FORMAT(tanggal, '%d %M') tanggal ,we_nilai we,hs_nilai hs,populis_nilai populis,topcore,we_tv FROM web_rank  where tanggal >'2022-03-27'  LIMIT 7";
         $query=$this->db->query($sql);
         
         return $query->result_array();

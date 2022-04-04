@@ -13,7 +13,7 @@ $(function() {
 			const tc_dt= [];
         
             for (var dt of data) {
-                var tanggal_rank = dt.tgl;
+                var tanggal_rank = dt.tanggal;
                 labeldt.push(tanggal_rank)
 
                 var get_we= parseInt(dt.we) || 0;
