@@ -10,13 +10,19 @@
    
     
     
-    public function chart_list(){
-        $sql = "SELECT CONCAT(divisi,' ', core_bisnis ) as corebisnis,pencapaian from performance";
-        $query=$this->db->query($sql);
+    public function chart_list($core)
+    {
+        $sql = "SELECT  core_bisnis  corebisnis,pencapaian, case when pencapaian <=40 then '#691f15'
+                when pencapaian between 41 and 60 then'#ded43c'
+                when pencapaian between 61 and 80 then '#6b4c1e' 
+                when pencapaian between 81 and 100 then '#1e6b24'
+                when pencapaian > 100 then '#3cb5de' else 'grey' end warna from performance where divisi='$core'";
+                $query=$this->db->query($sql);
         
         return $query->result_array();
 
     }
+
 
     public function comp_list(){
         $sql = "SELECT name ,sum(size)/1000000 jumlah FROM deals group by name order by sum(size) desc LIMIT 0,10";

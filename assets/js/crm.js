@@ -1,18 +1,19 @@
 
 $(function() {
     
-     
+	
+	
 	  //chart 1
 	  $.ajax({
-		url : base_url+"/crm/chart_web",
+		url : base_url+"/crm/chart_web_we",
 		type : "GET",
-		success : function(data){
-			data = JSON.parse(data);
-           
+		success : function(data)
+		{
+		
+			data = JSON.parse(data);  
             const labeldt = [];
             const val_dt= [];
-		
-        
+			const val_warna=[];
             for (var dt of data) {
                 var cb = dt.corebisnis;
                 labeldt.push(cb)
@@ -20,59 +21,232 @@ $(function() {
                 var get_val= parseInt(dt.pencapaian) || 0;
                 val_dt.push(get_val)
 
+				var get_warna = dt.warna;
+                val_warna.push(get_warna)
+
 				
             }
-
-	  
-	  var myData = {
-		labels:labeldt,
-		datasets: [{
-			label: "Core Bisnis Target (%)",
-			fill: false,
-			backgroundColor: 
-				
-				'rgba(54, 162, 235, 0.8)',
 			
-			data: val_dt,
-		}]
-	};
+			var myData = {
+				labels:labeldt,
+				datasets: [{
+					label: "Core Bisnis Target (%)",
+					fill: false,
+					backgroundColor: val_warna,
+					data: val_dt,
+				}]
+			};
 	
-	var myoption = {
-		tooltips: {
-			enabled: true
-		},
-		hover: {
-			animationDuration: 1
-		},
-		animation: {
-		duration: 1,
-		onComplete: function () {
-			var chartInstance = this.chart,
-				ctx = chartInstance.ctx;
-				ctx.textAlign = 'center';
-				ctx.fillStyle = "rgba(0, 0, 0, 1)";
-				ctx.textBaseline = 'bottom';
-				// Loop through each data in the datasets
-				this.data.datasets.forEach(function (dataset, i) {
-					var meta = chartInstance.controller.getDatasetMeta(i);
-					meta.data.forEach(function (bar, index) {
-						var data = dataset.data[index];
-						ctx.fillText(data, bar._model.x, bar._model.y - 5);
-					});
-				});
-			}
-		}
-	};
-	// Code to draw Chart
-	var ctx = document.getElementById('compChart').getContext('2d');
-	var myChart = new Chart(ctx, {
-		type: 'bar',        // Define chart type
-		data: myData,    	// Chart data
-		options: myoption 	// Chart Options [This is optional paramenter use to add some extra things in the chart].
+			var myoption = {
+				tooltips: {
+					enabled: true
+				},
+				hover: {
+					animationDuration: 1
+				},
+				scales: {
+					yAxes: [{
+						ticks: {
+						stepSize: 20,
+						beginAtZero: true,
+						max:100
+						},
+					}],
+					},
+				animation: {
+							duration: 1,
+							onComplete: function () {
+								var chartInstance = this.chart,
+									ctx = chartInstance.ctx;
+									ctx.textAlign = 'center';
+									ctx.fillStyle = "rgba(0, 0, 0, 1)";
+									ctx.textBaseline = 'bottom';
+									// Loop through each data in the datasets
+									this.data.datasets.forEach(function (dataset, i) {
+										var meta = chartInstance.controller.getDatasetMeta(i);
+										meta.data.forEach(function (bar, index) {
+											var data = dataset.data[index];
+											ctx.fillText(data, bar._model.x, bar._model.y - 5);
+										});
+									});
+								}
+							}
+			};
+			// Code to draw Chart
+			var ctx = document.getElementById('compChartWE').getContext('2d');
+			var myChart = new Chart(ctx, {
+				type: 'bar',        // Define chart type
+				data: myData,    	// Chart data
+				options: myoption 	// Chart Options [This is optional paramenter use to add some extra things in the chart].
+			});
+	}
 	});
-}
-});
 
+	//chart core HS
+	 //chart 2
+	$.ajax({
+		url : base_url+"crm/chart_web_hs",
+		type : "GET",
+		success : function(data)
+		{
+		
+			data = JSON.parse(data);  
+            const labeldt = [];
+            const val_dt= [];
+			const val_warna=[];
+            for (var dt of data) {
+                var cb = dt.corebisnis;
+                labeldt.push(cb)
+
+                var get_val= parseInt(dt.pencapaian) || 0;
+                val_dt.push(get_val)
+
+				var get_warna = dt.warna;
+                val_warna.push(get_warna)
+
+				
+            }
+			var myData = {
+				labels:labeldt,
+				datasets: [{
+					label: "Core Bisnis Target (%)",
+					fill: false,
+					backgroundColor: 
+						
+					val_warna,
+					
+					data: val_dt,
+				}]
+			};
+	
+			var myoption = {
+				tooltips: {
+					enabled: true
+				},
+				hover: {
+					animationDuration: 1
+				},
+				scales: {
+					yAxes: [{
+						ticks: {
+						stepSize: 20,
+						beginAtZero: true,
+						max:200
+						},
+					}],
+					},
+				animation: {
+							duration: 1,
+							onComplete: function () {
+								var chartInstance = this.chart,
+									ctx = chartInstance.ctx;
+									ctx.textAlign = 'center';
+									ctx.fillStyle = "rgba(0, 0, 0, 1)";
+									ctx.textBaseline = 'bottom';
+									// Loop through each data in the datasets
+									this.data.datasets.forEach(function (dataset, i) {
+										var meta = chartInstance.controller.getDatasetMeta(i);
+										meta.data.forEach(function (bar, index) {
+											var data = dataset.data[index];
+											ctx.fillText(data, bar._model.x, bar._model.y - 5);
+										});
+									});
+								}
+							}
+			};
+			// Code to draw Chart
+			var ctx = document.getElementById('compChartHS').getContext('2d');
+			var myChart = new Chart(ctx, {
+				type: 'bar',        // Define chart type
+				data: myData,    	// Chart data
+				options: myoption 	// Chart Options [This is optional paramenter use to add some extra things in the chart].
+			});
+		}
+	});
+
+	//chart 3
+	$.ajax({
+		url : base_url+"/crm/chart_web_pop",
+		type : "GET",
+		success : function(data)
+		{
+		
+			data = JSON.parse(data);  
+            const labeldt = [];
+            const val_dt= [];
+			const val_warna=[];
+			
+            for (var dt of data) {
+                var cb = dt.corebisnis;
+                labeldt.push(cb)
+
+                var get_val= parseInt(dt.pencapaian) || 0;
+                val_dt.push(get_val)
+
+				var get_warna = dt.warna;
+                val_warna.push(get_warna)
+
+				
+            }
+			var myData = {
+				labels:labeldt,
+				datasets: [{
+					label: "Core Bisnis Target (%)",
+					fill: false,
+					backgroundColor: 
+						
+						val_warna,
+					
+					data: val_dt,
+				}]
+			};
+	
+			var myoption = {
+				tooltips: {
+					enabled: true
+				},
+				hover: {
+					animationDuration: 1
+				},
+				
+				scales: {
+					yAxes: [{
+						ticks: {
+						stepSize: 100,
+						beginAtZero: true,
+						max:300
+						},
+					}],
+					},
+				
+				animation: {
+							duration: 1,
+							onComplete: function () {
+								var chartInstance = this.chart,
+									ctx = chartInstance.ctx;
+									ctx.textAlign = 'center';
+									ctx.fillStyle = "rgba(0, 0, 0, 1)";
+									ctx.textBaseline = 'bottom';
+									// Loop through each data in the datasets
+									this.data.datasets.forEach(function (dataset, i) {
+										var meta = chartInstance.controller.getDatasetMeta(i);
+										meta.data.forEach(function (bar, index) {
+											var data = dataset.data[index];
+											ctx.fillText(data, bar._model.x, bar._model.y - 5);
+										});
+									});
+								}
+							}
+			};
+			// Code to draw Chart
+			var ctx = document.getElementById('compChartPOP').getContext('2d');
+			var myChart = new Chart(ctx, {
+				type: 'bar',        // Define chart type
+				data: myData,    	// Chart data
+				options: myoption 	// Chart Options [This is optional paramenter use to add some extra things in the chart].
+			});
+	}
+	});
 
 
 //chart 3

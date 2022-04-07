@@ -40,12 +40,25 @@ class Crm extends CI_Controller {
             redirect(base_url() , 'refresh');
         }
     }
-    function chart_web()
+    function chart_web_pop()
     {
         $this->load->model('crm_model');
-        $data= $this->crm_model->chart_list();
+        $data= $this->crm_model->chart_list('POPULIS');
         echo json_encode($data);
-    }  function comp_list()
+    }  
+    function chart_web_hs()
+    {
+        $this->load->model('crm_model');
+        $data= $this->crm_model->chart_list('HS');
+        echo json_encode($data);
+    }  
+    function chart_web_we()
+    {
+        $this->load->model('crm_model');
+        $data= $this->crm_model->chart_list('WE');
+        echo json_encode($data);
+    }  
+    function comp_list()
     {
         $this->load->model('crm_model');
         $data= $this->crm_model->comp_list();

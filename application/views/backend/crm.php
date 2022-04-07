@@ -149,20 +149,53 @@
                     </div>
                    
                     
-            </div>  
+            </div>
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-8">
+                    <div class="col-lg-4">
                         <div class="card">
                             <div class="card-body">
-                            <h4 class="card-title">Core Bisnis </h4>
-                            <canvas id="compChart" style="position: relative; height:350px; width:100%"></canvas>  
+                            <h4 class="card-title">Core Bisnis WE</h4>
+                            <canvas id="compChartWE" style="position: relative; height:350px; width:100%"></canvas>  
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <div class="card-body">
+                            <h4 class="card-title">Core Bisnis HS </h4>
+                            <canvas id="compChartHS" style="position: relative; height:350px; width:100%"></canvas>  
                             </div>
                             <br>
                         </div>
                     </div>
                     <!-- Column -->
                     <div class="col-lg-4">
+                    <div class="card">
+                            <div class="card-body">
+                            <h4 class="card-title">Core Bisnis Populis </h4>
+                            <canvas id="compChartPOP" style="position: relative; height:350px; width:100%"></canvas>  
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                    
+            </div>  
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                            <h4 class="card-title">KGI Sales </h4>
+                            <canvas id="kgiChart" style="position: relative; height:350px; width:100%"></canvas>  
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                    <div class="col-lg-6">
                         <div class="card">
                             <div class="card-body">
                             <h4 class="card-title">Total Presentasi Pencapaian</h4>
@@ -174,7 +207,7 @@
             </div>  
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-8">
+                    <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
                             <h4 class="card-title">Top Companies </h4>
@@ -183,15 +216,7 @@
                             <br>
                         </div>
                     </div>
-                    <!-- Column -->
-                    <div class="col-lg-4">
-                        <div class="card">
-                            <div class="card-body">
-                            <h4 class="card-title">KGI Sales </h4>
-                            <canvas id="kgiChart" style="position: relative; height:360px; width:100%"></canvas>
-                            </div>
-                        </div>
-                    </div>
+                   
                     
             </div>  
             
