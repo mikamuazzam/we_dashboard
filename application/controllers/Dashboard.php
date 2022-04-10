@@ -38,6 +38,12 @@ class Dashboard extends CI_Controller {
     }
 
    
+    function chart_web()
+    {
+        $this->load->model('dashboard_model');
+        $data= $this->dashboard_model->chart_list();
+        echo json_encode($data);
+    }
     function chart_web_we()
     {
         $this->load->model('dashboard_model');

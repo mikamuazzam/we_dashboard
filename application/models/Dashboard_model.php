@@ -48,6 +48,14 @@
         return $query->result_array();
 
     }
+    public function chart_list(){
+        $sql = "SELECT DATE_FORMAT(tanggal, '%d %M') tgl ,we_tv tv FROM web_rank  
+        where DATE(tanggal) > DATE_SUB(CURDATE(), INTERVAL 14 DAY) order by tanggal    LIMIT 7";
+        $query=$this->db->query($sql);
+        
+        return $query->result_array();
+
+    }
     public function chart_web(){
         $sql = "SELECT DATE_FORMAT(tanggal, '%d %M') tgl,we,hs,populis,topcore,we_tv FROM web_rank  ORDER BY `tanggal` desc  LIMIT 7";
         $query=$this->db->query($sql);
