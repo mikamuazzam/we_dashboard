@@ -173,61 +173,6 @@ $(function() {
 		}
 	  }); 
 
-	   //chart TV
-	 $.ajax({
-		url : base_url+"dashboard/chart_web_tv",
-		type : "GET",
-		success : function(data){
-			data = JSON.parse(data);
-            const labeldt = [];
-            const tv_dt= [];
-            for (var dt of data) {
-                var tanggal_rank = dt.tgl;
-                labeldt.push(tanggal_rank)
-
-                var get_tv= parseInt(dt.tv) || 0;
-                tv_dt.push(get_tv)
-
-            }
-		  	var chartdata = {
-			labels: labeldt,
-			datasets: [
-				
-			  	{
-				label: "WE TV",
-				backgroundColor: 
-					'rgba(29, 208, 81, 0.7)'
-					,
-					borderColor: 
-					'rgba(36, 135, 58, 0.71)'
-					,
-					borderWidth: 1,
-				data: tv_dt
-			  	}
-			  
-			]
-		  };
-	
-		  var ctx = document.getElementById("myChartTV").getContext("2d");
-		  
-		  var LineGraph = new Chart(ctx, {
-			type: 'line',
-			data: chartdata,
-			options: {
-				scales: {
-					yAxes: [{
-					  ticks: {
-						stepSize: 1000,
-						beginAtZero: true
-					  },
-					}],
-				  },
-			}
-		  });
-		},
-		error : function(data) {
-	
-		}
-	  }); 
+	   
 	
 });
