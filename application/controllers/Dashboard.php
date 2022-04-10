@@ -32,16 +32,37 @@ class Dashboard extends CI_Controller {
             $data['rank_last'] = $this->dashboard_model->chart_web_last();
         $this->load->view('backend/dashboard',$data);
         }
-    else{
-		redirect(base_url() , 'refresh');
-	}            
+        else{
+            redirect(base_url() , 'refresh');
+        }            
     }
-    function chart_web()
+
+   
+    function chart_web_we()
     {
         $this->load->model('dashboard_model');
-        $data= $this->dashboard_model->chart_list();
+        $data= $this->dashboard_model->chart_list_we();
         echo json_encode($data);
     }
+    function chart_web_populis()
+    {
+        $this->load->model('dashboard_model');
+        $data= $this->dashboard_model->chart_list_populis();
+        echo json_encode($data);
+    }
+    function chart_web_hs()
+    {
+        $this->load->model('dashboard_model');
+        $data= $this->dashboard_model->chart_list_hs();
+        echo json_encode($data);
+    }
+    function chart_web_tv()
+    {
+        $this->load->model('dashboard_model');
+        $data= $this->dashboard_model->chart_list_tv();
+        echo json_encode($data);
+    }
+
 
     
     

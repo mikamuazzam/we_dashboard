@@ -117,17 +117,39 @@
             </div> 
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-6 "  >
+                    <div class="col-lg-4"  >
                         <div class="card">
-                            <div class="card-body" style="height:350px;">
-                            <h4 class="card-title">Alexa Website Rank </h4>
-                            <canvas id="myChart" ></canvas>  
+                            <div class="card-body" style="height:250px;">
+                            <h4 class="card-title">Alexa WartaEkonomi Rank </h4>
+                            <canvas id="myChartWE" ></canvas>  
                             </div>
                             <br>
                         </div>
                     </div>
                     <!-- Column -->
-                    <div class="col-lg-6"  >
+                    <div class="col-lg-4"  >
+                        <div class="card">
+                            <div class="card-body" style="height:250px;">
+                            <h4 class="card-title">Alexa Herstory Rank </h4>
+                            <canvas id="myChartHS" ></canvas>  
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="col-lg-4"  >
+                        <div class="card">
+                            <div class="card-body" style="height:250px;">
+                            <h4 class="card-title">Alexa Populis Rank </h4>
+                            <canvas id="myChartPop" ></canvas>  
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+            </div>  
+            
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12"  >
                         <div class="card">
                             <div class="card-body" style="height:370px;">
                             <h4 class="card-title">Website / TV Rank List </h4>
@@ -163,7 +185,6 @@
                         </div>
                     </div>
             </div>  
-
             
         </div>
                
