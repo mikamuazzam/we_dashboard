@@ -4,7 +4,7 @@ $(function() {
 	
 	 //chart WE
 	 $.ajax({
-		url : base_url+"/dashboard/chart_web_we",
+		url : base_url+"dashboard/chart_web_we",
 		type : "GET",
 		success : function(data){
 			data = JSON.parse(data);
@@ -62,7 +62,7 @@ $(function() {
 
 	   //chart HS
 	 $.ajax({
-		url : base_url+"/dashboard/chart_web_hs",
+		url : base_url+"dashboard/chart_web_hs",
 		type : "GET",
 		success : function(data){
 			data = JSON.parse(data);
@@ -118,7 +118,7 @@ $(function() {
 
 	  //chart Populis
 	 $.ajax({
-		url : base_url+"/dashboard/chart_web_populis",
+		url : base_url+"dashboard/chart_web_populis",
 		type : "GET",
 		success : function(data){
 			data = JSON.parse(data);
@@ -175,7 +175,7 @@ $(function() {
 
 	   //chart TV
 	 $.ajax({
-		url : base_url+"/dashboard/chart_web_tv",
+		url : base_url+"dashboard/chart_web_tv",
 		type : "GET",
 		success : function(data){
 			data = JSON.parse(data);
