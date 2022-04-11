@@ -40,7 +40,7 @@
     }
     
     public function companies(){
-        $sql = "SELECT count(*) jum,`name` from companies";
+        $sql = "SELECT count(DISTINCT(`name`)) jum from deals";
         $query=$this->db->query($sql);
         $result = $query->row();
 
