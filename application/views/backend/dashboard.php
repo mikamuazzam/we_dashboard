@@ -156,7 +156,7 @@
                                 <div class="" >
                                     <table id="weblist" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                                         <thead>
-                                        <tr align="center" >
+                                        <tr align="centre"  bgcolor="#b7c4c9">
                                                 <th>Date</th>
                                                 <th>WE</th>
                                                 <th>HS </th>
