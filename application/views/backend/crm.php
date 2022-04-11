@@ -137,7 +137,7 @@
                                                 <td><?php echo $value->start_time; ?></td>
                                                 <td><?php echo $value->finish_time; ?></td>
                                                 <td><?php echo $value->acara; ?></td>
-                                                <td><?php echo $value->venue; ?></td>
+                                                <td><?php echo $value->present; ?></td>
                                                 
                                             </tr>
                                             <?php endforeach; ?>

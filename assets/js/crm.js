@@ -214,7 +214,7 @@ $(function() {
 						ticks: {
 						stepSize: 100,
 						beginAtZero: true,
-						max:300
+						max:500
 						},
 					}],
 					},
@@ -348,22 +348,10 @@ $.ajax({
 	datasets: [{
 		label: "Ads (%)",
 		fill: false,
-		backgroundColor: [
-			'rgba(238, 126, 145, 0.23)',
+		backgroundColor:
 			'rgba(54, 162, 235, 0.2)',
-			'rgba(238, 126, 145, 0.23)',
-			'rgba(75, 192, 192, 0.2)',
-			'rgba(153, 102, 255, 0.2)',
-			'rgba(238, 126, 145, 0.23)'
-			],
-			borderColor: [
-			'rgba(238, 126, 145, 0.41)',
+			borderColor:
 			'rgba(54, 162, 235, 1)',
-			'rgba(238, 126, 145, 0.41)',
-			'rgba(75, 192, 192, 1)',
-			'rgba(153, 102, 255, 1)',
-			'rgba(238, 126, 145, 0.41)'
-			],
 			borderWidth: 1,
 		data: val_dt2,
 	}]
