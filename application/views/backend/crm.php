@@ -190,7 +190,7 @@
                     <div class="col-lg-4">
                         <div class="card">
                             <div class="card-body">
-                            <h5 class="card-title"> Core Bisnis WE (Value) - <?php echo date('M Y');?></h54>
+                            <h7 class="card-title"> Core Bisnis WE (Value) - <?php echo date('M Y');?></h7>
                             <canvas id="ChartWEValue" style="position: relative; height:300px; width:100%"></canvas>  
                             </div>
                             <br>
@@ -199,7 +199,7 @@
                     <div class="col-lg-4">
                         <div class="card">
                             <div class="card-body">
-                            <h5 class="card-title">Core Bisnis HS (Value) - <?php echo date('M Y');?></h5>
+                            <h7 class="card-title">Core Bisnis HS (Value) - <?php echo date('M Y');?></h7>
                             <canvas id="ChartHSValue" style="position: relative; height:300px; width:100%"></canvas>  
                             </div>
                             <br>
@@ -211,7 +211,7 @@
                     <div class="col-lg-4">
                     <div class="card">
                             <div class="card-body">
-                            <h5 class="card-title">Core Bisnis Populis (Value) - <?php echo date('M Y');?></h5>
+                            <h7 class="card-title">Core Bisnis Populis (Value) - <?php echo date('M Y');?></h7>
                             <canvas id="ChartPOPValue" style="position: relative; height:300px; width:100%"></canvas>  
                             </div>
                             <br>
