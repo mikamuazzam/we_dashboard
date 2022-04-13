@@ -55,7 +55,7 @@
     
 
     public function comp_list(){
-        $sql = "SELECT name ,sum(size)/1000000 jumlah FROM deals group by name order by sum(size) desc LIMIT 0,10";
+        $sql = "SELECT name ,sum(size)/1000000 jumlah FROM deals where name not like '%Rina%' group by name order by sum(size) desc LIMIT 0,10";
         $query=$this->db->query($sql);
         
         return $query->result_array();
