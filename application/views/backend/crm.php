@@ -155,8 +155,8 @@
                     <div class="col-lg-4">
                         <div class="card">
                             <div class="card-body">
-                            <h4 class="card-title">Core Bisnis WE</h4>
-                            <canvas id="compChartWE" style="position: relative; height:350px; width:100%"></canvas>  
+                            <h5 class="card-title"> Core Bisnis WE (%) - <?php echo date('M Y');?></h5>
+                            <canvas id="ChartWEPersen" style="position: relative; height:300px; width:100%"></canvas>  
                             </div>
                             <br>
                         </div>
@@ -164,18 +164,89 @@
                     <div class="col-lg-4">
                         <div class="card">
                             <div class="card-body">
-                            <h4 class="card-title">Core Bisnis HS </h4>
-                            <canvas id="compChartHS" style="position: relative; height:350px; width:100%"></canvas>  
+                            <h5 class="card-title">Core Bisnis HS (%) - <?php echo date('M Y');?></h5>
+                            <canvas id="ChartHSPersen" style="position: relative; height:300px; width:100%"></canvas>  
                             </div>
                             <br>
                         </div>
                     </div>
+
+
                     <!-- Column -->
                     <div class="col-lg-4">
                     <div class="card">
                             <div class="card-body">
-                            <h4 class="card-title">Core Bisnis Populis </h4>
-                            <canvas id="compChartPOP" style="position: relative; height:350px; width:100%"></canvas>  
+                            <h5 class="card-title">Core Bisnis Populis (%) - <?php echo date('M Y');?></h5>
+                            <canvas id="ChartPOPPersen" style="position: relative; height:300px; width:100%"></canvas>  
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                    
+            </div>  
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <div class="card-body">
+                            <h5 class="card-title"> Core Bisnis WE (Value) - <?php echo date('M Y');?></h54>
+                            <canvas id="ChartWEValue" style="position: relative; height:300px; width:100%"></canvas>  
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <div class="card-body">
+                            <h5 class="card-title">Core Bisnis HS (Value) - <?php echo date('M Y');?></h5>
+                            <canvas id="ChartHSValue" style="position: relative; height:300px; width:100%"></canvas>  
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+
+                    
+                    <!-- Column -->
+                    <div class="col-lg-4">
+                    <div class="card">
+                            <div class="card-body">
+                            <h5 class="card-title">Core Bisnis Populis (Value) - <?php echo date('M Y');?></h5>
+                            <canvas id="ChartPOPValue" style="position: relative; height:300px; width:100%"></canvas>  
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                    
+            </div>  
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <div class="card-body">
+                            <h5 class="card-title">Monthly Core Bisnis WE - <?php echo date('Y');?></h4>
+                            <canvas id="ChartWEMonthly" style="position: relative; height:300px; width:100%"></canvas>  
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <div class="card-body">
+                            <h5 class="card-title">Monthly Core Bisnis HS - <?php echo date('Y');?></h4>
+                            <canvas id="ChartHSMonthly" style="position: relative; height:300px; width:100%"></canvas>  
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+
+                    
+                    <!-- Column -->
+                    <div class="col-lg-4">
+                    <div class="card">
+                            <div class="card-body">
+                            <h5 class="card-title">Monthly Core Bisnis Populis <?php echo date ('Y');?></h4>
+                            <canvas id="ChartPOPMonthly" style="position: relative; height:300px; width:100%"></canvas>  
                             </div>
                             <br>
                         </div>

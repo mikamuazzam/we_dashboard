@@ -47,10 +47,14 @@ $(function() {
 					yAxes: [{
 					  ticks: {
 						stepSize: 1,
-						beginAtZero: true
+						beginAtZero: true,
+						max :6,
+						min :-6
 					  },
 					}],
 				  },
+				  responsive: true,
+				  maintainAspectRatio: false
 			}
 		  });
 		},
@@ -104,10 +108,14 @@ $(function() {
 					yAxes: [{
 					  ticks: {
 						stepSize: 1,
-						beginAtZero: true
+						beginAtZero: true,
+						max : 6,
+						min :-6
 					  },
 					}],
 				  },
+				  responsive: true,
+				  maintainAspectRatio: false
 			}
 		  });
 		},
@@ -161,10 +169,14 @@ $(function() {
 					yAxes: [{
 					  ticks: {
 						stepSize: 1,
-						beginAtZero: true
+						beginAtZero: true,
+						max:6,
+						min :-6
 					  },
 					}],
 				  },
+				  responsive: true,
+				  maintainAspectRatio: false
 			}
 		  });
 		},

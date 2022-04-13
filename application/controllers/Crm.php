@@ -46,16 +46,52 @@ class Crm extends CI_Controller {
         $data= $this->crm_model->chart_list('POPULIS');
         echo json_encode($data);
     }  
+    function chart_web_pop_val()
+    {
+        $this->load->model('crm_model');
+        $data= $this->crm_model->chart_list_val('POPULIS');
+        echo json_encode($data);
+    }  
+    function chart_month_pop_val()
+    {
+        $this->load->model('crm_model');
+        $data= $this->crm_model->chart_month_val('POPULIS');
+        echo json_encode($data);
+    } 
     function chart_web_hs()
     {
         $this->load->model('crm_model');
         $data= $this->crm_model->chart_list('HS');
+        echo json_encode($data);
+    } 
+    function chart_web_hs_val()
+    {
+        $this->load->model('crm_model');
+        $data= $this->crm_model->chart_list_val('HS');
+        echo json_encode($data);
+    }  
+    function chart_month_hs_val()
+    {
+        $this->load->model('crm_model');
+        $data= $this->crm_model->chart_month_val('HS');
         echo json_encode($data);
     }  
     function chart_web_we()
     {
         $this->load->model('crm_model');
         $data= $this->crm_model->chart_list('WE');
+        echo json_encode($data);
+    } 
+    function chart_web_we_val()
+    {
+        $this->load->model('crm_model');
+        $data= $this->crm_model->chart_list_val('WE');
+        echo json_encode($data);
+    }  
+    function chart_month_we_val()
+    {
+        $this->load->model('crm_model');
+        $data= $this->crm_model->chart_month_val('WE');
         echo json_encode($data);
     }  
     function comp_list()

@@ -119,7 +119,7 @@
                 <div class="row">
                     <div class="col-lg-4"  >
                         <div class="card">
-                            <div class="card-body" style="height:250px;">
+                            <div class="card-body" style="height:300px;">
                             <h4 class="card-title">Alexa WartaEkonomi Rank </h4>
                             <canvas id="myChartWE" ></canvas>  
                             </div>
@@ -129,7 +129,7 @@
                     <!-- Column -->
                     <div class="col-lg-4"  >
                         <div class="card">
-                            <div class="card-body" style="height:250px;">
+                            <div class="card-body" style="height:300px;">
                             <h4 class="card-title">Alexa Herstory Rank </h4>
                             <canvas id="myChartHS" ></canvas>  
                             </div>
@@ -138,7 +138,7 @@
                     </div>
                     <div class="col-lg-4"  >
                         <div class="card">
-                            <div class="card-body" style="height:250px;">
+                            <div class="card-body" style="height:300px;">
                             <h4 class="card-title">Alexa Populis Rank </h4>
                             <canvas id="myChartPop" ></canvas>  
                             </div>
