@@ -116,7 +116,7 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
-                            <h4 class="card-title">Calendar Event </h4>
+                            <h4 class="card-title">Calendar Event <b> <?php echo date('M Y');?> </b></h4>
                             <div class="" >
                                     <table id="weblist" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                                         <thead>
@@ -125,6 +125,7 @@
                                                 <th>Start</th>
                                                 <th>Finish</th>
                                                 <th>Title</th>
+                                                <th>Status </th>
                                                 <th>Desc </th>
                                                
                                             </tr>
@@ -132,12 +133,13 @@
                                 
                                         <tbody>
                                            <?php foreach($venue_list as $value): ?>
-                                            <tr align="left" >
-                                                <td><?php echo $value->tanggal; ?></td>
-                                                <td><?php echo $value->start_time; ?></td>
-                                                <td><?php echo $value->finish_time; ?></td>
-                                                <td><?php echo $value->acara; ?></td>
-                                                <td><?php echo $value->present; ?></td>
+                                            <tr align="left"  >
+                                                <td bgcolor="<?php echo $value->warna;?>"><?php echo $value->tanggal; ?></td>
+                                                <td bgcolor="<?php echo $value->warna;?>"><?php echo $value->start_time; ?></td>
+                                                <td bgcolor="<?php echo $value->warna;?>"><?php echo $value->finish_time; ?></td>
+                                                <td bgcolor="<?php echo $value->warna;?>"><?php echo $value->acara; ?></td>
+                                                <td bgcolor="<?php echo $value->warna;?>"><?php echo $value->status; ?></td>
+                                                <td bgcolor="<?php echo $value->warna;?>"><?php echo $value->present; ?></td>
                                                 
                                             </tr>
                                             <?php endforeach; ?>
