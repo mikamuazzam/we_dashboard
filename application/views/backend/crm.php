@@ -271,7 +271,7 @@
                     <div class="col-lg-6">
                         <div class="card">
                             <div class="card-body">
-                            <h4 class="card-title">Total Presentasi Pencapaian</h4>
+                            <h4 class="card-title">Total  Pencapaian</h4>
                             <canvas id="progChart" style="position: relative; height:360px; width:100%"></canvas>
                             </div>
                         </div>
