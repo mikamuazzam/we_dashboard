@@ -51,9 +51,6 @@
         return $query->result_array();
 
     }
-
-    
-
     public function comp_list(){
         $sql = "SELECT name ,sum(size)/1000000 jumlah FROM deals where name not like '%Rina%' group by name order by sum(size) desc LIMIT 0,10";
         $query=$this->db->query($sql);
@@ -68,18 +65,23 @@
         return $query->result_array();
 
     }
-    
     public function companies(){
         $sql = "SELECT count(DISTINCT(`name`)) jum from deals";
         $query=$this->db->query($sql);
         $result = $query->row();
 
         return $result;
-
     }
     public function deals($stage){
-        
-        $sql = "SELECT count(*)jum,stage from deals where stage='$stage' ";
+        if($stage=='won') 
+        {
+            $sql = "SELECT count(*)jum,stage from deals where stage in ('INVOICE SENT','AGING','PAYMENT (CASH IN)')";
+        }
+        else
+        {
+            $sql = "SELECT count(*)jum,stage from deals where stage = '$stage' ";
+        }
+       
         $query=$this->db->query($sql);
         $result = $query->row();
 

@@ -30,8 +30,9 @@ class Crm extends CI_Controller {
             $data['comp'] = $this->crm_model->companies();
             $data['deals_all'] = $this->crm_model->deals(1);
             $data['deals_new'] = $this->crm_model->deals('New Progress');
-            $data['deals_won'] = $this->crm_model->deals('Won');
-            $data['deals_lost'] = $this->crm_model->deals('Lost');
+            $data['deals_won'] = $this->crm_model->deals('won');
+            $data['deals_lost'] = $this->crm_model->deals('Cancel');
+            $data['deals_inv'] = $this->crm_model->deals('INVOICE SENT');
             $data['venue_list'] = $this->crm_model->list_acara();
 
         $this->load->view('backend/crm',$data);

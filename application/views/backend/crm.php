@@ -68,9 +68,9 @@
                     <div class="col-md-5 col-lg-2 col-xlg-2">
                         <div class="card card-success card-inverse">
                             <div class="box text-center">
-                                <h1 class="font-light text-white">0
+                                <h1 class="font-light text-white">
                                 <?php 
-                                        //echo $rank->populis; 
+                                        echo $deals_won->jum; 
                                     ?>     
                                 </h1>
                                 <h5 class="font-light text-white">
@@ -88,7 +88,7 @@
                                         echo $deals_lost->jum; 
                                     ?>
                                 </h1>
-                                <h5 class="font-light text-white">  Deals Lost </h4>
+                                <h5 class="font-light text-white">  Cancel Deals  </h4>
                             </div>
                         </div>
                     </div>
@@ -98,7 +98,7 @@
                             <div class="box text-center">
                                 <h1 class="font-light text-white">
                                 <?php 
-                                        echo "0"; 
+                                        echo $deals_inv->jum; 
                                     ?>  
                                 </h1>
                                 <h5 class="font-light text-white"> Outs Inv </h4>
