@@ -97,9 +97,10 @@
     }
     public function list_acara(){
         $bulan=date('m');
+        
         $sql = "SELECT tanggal,start_time,finish_time,deskripsi acara,present,status, 
         case when tanggal between CURRENT_DATE and CURRENT_DATE+ 3 then 'pink' end as warna 
-        from cal_event where month(tanggal)= '$bulan' order by tanggal desc;";
+        from cal_event where month(tanggal)= '$bulan' order by tanggal ";  
         $query=$this->db->query($sql);
         return $query->result();
 
