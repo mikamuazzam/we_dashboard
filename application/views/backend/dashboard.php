@@ -4,20 +4,21 @@
             <div class="message"></div>
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-themecolor"><i class="fa fa-braille" style="color:#1976d2"></i>&nbsp Dashboard</h3>
+                    <h3 class="text-themecolor"><i class="fa fa-braille" style="color:#1976d2"></i>&nbsp Dashboard Website Rank</h3>
                 </div>
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                        <li class="breadcrumb-item active">Dashboard</li>
+                        <li class="breadcrumb-item active">Website Rank</li>
                     </ol>
                 </div>
             </div>
+            
             <!-- Container fluid  -->
             <!-- ============================================================== -->
             <div class="container-fluid">
                 <!-- ============================================================== -->
-            
+
                 <div class="row ">
                     <!-- Column -->
                     <div class="col-md-6 col-lg-3 col-xlg-3">
@@ -45,7 +46,6 @@
                     <div class="col-md-6 col-lg-3 col-xlg-3">
                         <div class="card  card-inverse">
                             <div class="box text-center">
-                               
                                 <?php 
                                     $nilai_populis_now=$rank->populis;
                                     $nilai_populis_last= $rank_last->populis;
@@ -59,7 +59,6 @@
                                         else  if( $nilai_populis_now > $nilai_populis_last) echo "<font color='red'>&darr; (".$nilai_populis.") </font>";
                                         else echo "<font color='blue'> &uarr;(".$nilai_populis1.") </font>";
                                     ?>
-                                
                                 </h1>
                                 <img src="<?php echo base_url();?>assets/images/populis.jpeg" />
                             </div>
@@ -101,13 +100,13 @@
                                     $nilai_tc1 =$nilai_tc_last -  $nilai_tc_now ;
                                 ?>
                                 <h1 class="font-light">
-                                    <?php echo $rank->we_tv; ?>
+                                    <?php //echo $rank->we_tv; ?>
                                     <?php 
-                                        if($nilai_tc_now == $nilai_tc_last) echo "(=)"; 
+                                      /*  if($nilai_tc_now == $nilai_tc_last) echo "(=)"; 
                                         else  if($nilai_tc_now > $nilai_tc_last) echo "<font color='red'>&darr; (".$nilai_tc.") </font>";
-                                        else echo "<font color='blue'> &uarr;(".$nilai_tc1.") </font>";
-                                    ?></h1>
-                                <h5 class="font-bold text-black"> WE TV </h4>
+                                        else echo "<font color='blue'> &uarr;(".$nilai_tc1.") </font>";*/
+                                    ?> 0</h1>
+                                <h5 class="font-bold text-black">Konten Jatim </h4>
                             </div>
                         </div>
                     </div>
@@ -117,29 +116,38 @@
             </div> 
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-4"  >
+                    <div class="col-lg-3"  >
                         <div class="card">
                             <div class="card-body" style="height:300px;">
-                            <h4 class="card-title">Alexa WartaEkonomi Rank </h4>
+                            <h4 class="card-title"> WE Rank </h4>
                             <canvas id="myChartWE" ></canvas>  
                             </div>
                             <br>
                         </div>
                     </div>
                     <!-- Column -->
-                    <div class="col-lg-4"  >
+                    <div class="col-lg-3"  >
                         <div class="card">
                             <div class="card-body" style="height:300px;">
-                            <h4 class="card-title">Alexa Herstory Rank </h4>
+                            <h4 class="card-title"> HS Rank </h4>
                             <canvas id="myChartHS" ></canvas>  
                             </div>
                             <br>
                         </div>
                     </div>
-                    <div class="col-lg-4"  >
+                    <div class="col-lg-3"  >
                         <div class="card">
                             <div class="card-body" style="height:300px;">
-                            <h4 class="card-title">Alexa Populis Rank </h4>
+                            <h4 class="card-title"> Populis Rank </h4>
+                            <canvas id="myChartPop" ></canvas>  
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="col-lg-3"  >
+                        <div class="card">
+                            <div class="card-body" style="height:300px;">
+                            <h4 class="card-title"> Konten Jatim Rank </h4>
                             <canvas id="myChartPop" ></canvas>  
                             </div>
                             <br>
@@ -152,29 +160,28 @@
                     <div class="col-lg-12"  >
                         <div class="card">
                             <div class="card-body" style="height:370px;">
-                            <h4 class="card-title">Website / TV Rank List </h4>
+                            <h4 class="card-title">Website Rank List </h4>
                                 <div class="" >
                                     <table id="weblist" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                                         <thead>
-                                        <tr align="centre"  bgcolor="#b7c4c9">
+                                        <tr>
                                                 <th>Date</th>
                                                 <th>WE</th>
                                                 <th>HS </th>
                                                 <th>Populis </th>
                                                
-                                                <th>WE TV</th>
+                                                <th>Konten Jatim</th>
                                             </tr>
                                         </thead>
-                                
                                         <tbody>
                                            <?php foreach($web_list as $value): ?>
-                                            <tr align="center" >
+                                            <tr  >
                                                 <td><?php echo $value->tgl; ?></td>
                                                 <td><?php echo $value->we; ?></td>
                                                 <td><?php echo $value->hs; ?></td>
                                                 <td><?php echo $value->populis; ?></td>
                                                
-                                                <td><?php echo $value->we_tv; ?></td>
+                                                <td><?php echo '0'; ?></td>
                                                
                                             </tr>
                                             <?php endforeach; ?>

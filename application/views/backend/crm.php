@@ -116,7 +116,7 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
-                            <h4 class="card-title">Calendar Event <b> <?php echo date('M Y');?> </b></h4>
+                            <h4 class="card-title">Calendar Event <b> April 2022 </b></h4>
                             <div class="" >
                                     <table id="weblist" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                                         <thead>
@@ -153,11 +153,30 @@
                     
             </div>
             <div class="container-fluid">
+            <div class="row page-titles">
+                        <div class="col-md-12 align-self-center">
+                            <h3 class="text-themecolor"><i class="fa fa-braille" style="color:#1976d2"></i>
+                            &nbsp Core Bisnis by Persentage
+                            (
+                                <font color="#3cb5de">>100 %</font>,
+                                <font color="#1e6b24">81-100 %</font>,
+                                <font color="#6b4c1e">61-80 %</font>,
+                                <font color="#ded43c">41-60 %</font>,
+                                <font color="red"> <= 40 %</font>
+                            )
+                        </h3>
+                            
+                        </div>
+                        <div class="col-md-7 align-self-center">
+                           
+                        </div>
+                    </div>
                 <div class="row">
+                    
                     <div class="col-lg-4">
                         <div class="card">
                             <div class="card-body">
-                            <h5 class="card-title"> Core Bisnis WE (%) - <?php echo date('M Y');?></h5>
+                            <h5 class="card-title"> Core Bisnis WE (%) - April 2022</h5>
                             <canvas id="ChartWEPersen" style="position: relative; height:300px; width:100%"></canvas>  
                             </div>
                             <br>
@@ -166,7 +185,7 @@
                     <div class="col-lg-4">
                         <div class="card">
                             <div class="card-body">
-                            <h5 class="card-title">Core Bisnis HS (%) - <?php echo date('M Y');?></h5>
+                            <h5 class="card-title">Core Bisnis HS (%) - April 2022</h5>
                             <canvas id="ChartHSPersen" style="position: relative; height:300px; width:100%"></canvas>  
                             </div>
                             <br>
@@ -178,7 +197,7 @@
                     <div class="col-lg-4">
                     <div class="card">
                             <div class="card-body">
-                            <h5 class="card-title">Core Bisnis Populis (%) - <?php echo date('M Y');?></h5>
+                            <h5 class="card-title">Core Bisnis Populis (%) - April 2022</h5>
                             <canvas id="ChartPOPPersen" style="position: relative; height:300px; width:100%"></canvas>  
                             </div>
                             <br>
@@ -188,11 +207,23 @@
             </div>  
 
             <div class="container-fluid">
+            <div class="row page-titles">
+                        <div class="col-md-12 align-self-center">
+                            <h3 class="text-themecolor"><i class="fa fa-braille" style="color:#1976d2"></i>
+                            &nbsp Core Bisnis by Value
+                           
+                        </h3>
+                            
+                        </div>
+                        <div class="col-md-7 align-self-center">
+                           
+                        </div>
+                    </div>
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="card">
                             <div class="card-body">
-                            <h7 class="card-title"> Core Bisnis WE (Value) - <?php echo date('M Y');?></h7>
+                            <h7 class="card-title"> Core Bisnis WE (Value) - April 2022</h7>
                             <canvas id="ChartWEValue" style="position: relative; height:300px; width:100%"></canvas>  
                             </div>
                             <br>
@@ -201,7 +232,7 @@
                     <div class="col-lg-4">
                         <div class="card">
                             <div class="card-body">
-                            <h7 class="card-title">Core Bisnis HS (Value) - <?php echo date('M Y');?></h7>
+                            <h7 class="card-title">Core Bisnis HS (Value) - April 2022</h7>
                             <canvas id="ChartHSValue" style="position: relative; height:300px; width:100%"></canvas>  
                             </div>
                             <br>
@@ -213,7 +244,7 @@
                     <div class="col-lg-4">
                     <div class="card">
                             <div class="card-body">
-                            <h7 class="card-title">Core Bisnis Populis (Value) - <?php echo date('M Y');?></h7>
+                            <h7 class="card-title">Core Bisnis Populis (Value) - April 2022</h7>
                             <canvas id="ChartPOPValue" style="position: relative; height:300px; width:100%"></canvas>  
                             </div>
                             <br>

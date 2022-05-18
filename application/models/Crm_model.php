@@ -7,14 +7,11 @@
 	parent::__construct();
 	
 	}
-   
-    
-    
     public function chart_list($core)
     {
         $month=date('m')-1;
         $sql = "select corebisnis,jumlah,
-                    case when jumlah <=40 then '#691f15' 
+                    case when jumlah <=40 then 'red' 
                     when jumlah between 41 and 60 then'#ded43c'
                     when jumlah between 61 and 80 then '#6b4c1e' 
                     when jumlah between 81 and 100 then '#1e6b24' 

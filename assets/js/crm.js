@@ -43,6 +43,9 @@ $(function() {
 				hover: {
 					animationDuration: 1
 				},
+				legend: {
+					display: false
+				},
 				scales: {
 					yAxes: [{
 						ticks: {
@@ -134,6 +137,9 @@ $(function() {
 				tooltips: {
 					enabled: true
 				},
+				legend: {
+					position: 'bottom'
+				},
 				scales: {
 					yAxes: [{
 						ticks: {
@@ -220,6 +226,9 @@ $(function() {
 				tooltips: {
 					enabled: true
 				},
+				legend: {
+					position: 'bottom'
+				},
 				scales: {
 					yAxes: [{
 						ticks: {
@@ -300,6 +309,9 @@ $(function() {
 			var myoption = {
 				tooltips: {
 					enabled: true
+				},
+				legend: {
+					display: false
 				},
 				hover: {
 					animationDuration: 1
@@ -394,6 +406,9 @@ $(function() {
 				tooltips: {
 					enabled: true
 				},
+				legend: {
+					position: 'bottom'
+				},
 				scales: {
 					yAxes: [{
 						ticks: {
@@ -480,6 +495,9 @@ $(function() {
 				tooltips: {
 					enabled: true
 				},
+				legend: {
+					position: 'bottom'
+				},
 				scales: {
 					yAxes: [{
 						ticks: {
@@ -561,8 +579,12 @@ $(function() {
 				tooltips: {
 					enabled: true
 				},
+
 				hover: {
 					animationDuration: 1
+				},
+				legend: {
+					display: false
 				},
 				scales: {
 					yAxes: [{
@@ -654,6 +676,9 @@ $(function() {
 				tooltips: {
 					enabled: true
 				},
+				legend: {
+					position: 'bottom'
+				},
 				scales: {
 					yAxes: [{
 						ticks: {
@@ -740,6 +765,9 @@ $(function() {
 				tooltips: {
 					enabled: true
 				},
+				legend: {
+					position: 'bottom'
+				},
 				scales: {
 					yAxes: [{
 						ticks: {
@@ -823,7 +851,9 @@ var myoption = {
 	hover: {
 		animationDuration: 1
 	},
-	
+	legend: {
+		position: 'bottom'
+	},
 	animation: {
 	duration: 1,
 	onComplete: function () {
@@ -896,7 +926,9 @@ var myoption = {
 	hover: {
 		animationDuration: 1
 	},
-	
+	legend: {
+		position: 'bottom'
+	},
 	scales: {
 		yAxes: [{
 			ticks: {
@@ -990,6 +1022,9 @@ $.ajax({
 var myoption = {
 	tooltips: {
 		enabled: true
+	},
+	legend: {
+		position: 'bottom'
 	},
 	hover: {
 		animationDuration: 1
