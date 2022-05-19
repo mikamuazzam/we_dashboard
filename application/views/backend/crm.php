@@ -155,7 +155,7 @@
             <div class="container-fluid">
             <div class="row page-titles">
                         <div class="col-md-12 align-self-center">
-                            <h3 class="text-themecolor"><i class="fa fa-braille" style="color:#1976d2"></i>
+                            <h4 class="text-themecolor"><i class="fa fa-braille" style="color:#1976d2"></i>
                             &nbsp Core Bisnis by Persentage
                             (
                                 <font color="#3cb5de">>100 %</font>,
@@ -164,7 +164,7 @@
                                 <font color="#ded43c">41-60 %</font>,
                                 <font color="red"> <= 40 %</font>
                             )
-                        </h3>
+                        </h4>
                             
                         </div>
                         <div class="col-md-7 align-self-center">
@@ -173,20 +173,20 @@
                     </div>
                 <div class="row">
                     
-                    <div class="col-lg-4">
+                    <div class="col-lg-3">
                         <div class="card">
                             <div class="card-body">
-                            <h5 class="card-title"> Core Bisnis WE (%) - April 2022</h5>
-                            <canvas id="ChartWEPersen" style="position: relative; height:300px; width:100%"></canvas>  
+                            <h6 class="card-title">  WE (%) - April 2022</h6>
+                            <canvas id="ChartWEPersen" height="400px" ></canvas>  
                             </div>
                             <br>
                         </div>
                     </div>
-                    <div class="col-lg-4">
+                    <div class="col-lg-3">
                         <div class="card">
                             <div class="card-body">
-                            <h5 class="card-title">Core Bisnis HS (%) - April 2022</h5>
-                            <canvas id="ChartHSPersen" style="position: relative; height:300px; width:100%"></canvas>  
+                            <h6 class="card-title"> HS (%) - April 2022</h6>
+                            <canvas id="ChartHSPersen" height="400px" ></canvas>  
                             </div>
                             <br>
                         </div>
@@ -194,11 +194,21 @@
 
 
                     <!-- Column -->
-                    <div class="col-lg-4">
+                    <div class="col-lg-3">
                     <div class="card">
                             <div class="card-body">
-                            <h5 class="card-title">Core Bisnis Populis (%) - April 2022</h5>
-                            <canvas id="ChartPOPPersen" style="position: relative; height:300px; width:100%"></canvas>  
+                            <h6 class="card-title"> Populis (%) - April 2022</h6>
+                            <canvas id="ChartPOPPersen" height="400px" ></canvas>  
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                    <div class="card">
+                            <div class="card-body">
+                            <h6 class="card-title"> Q1 (%) - April 2022</h6>
+                            <canvas id="ChartQ1Persen" height="400px" ></canvas>  
                             </div>
                             <br>
                         </div>
@@ -206,11 +216,67 @@
                     
             </div>  
 
+            <div class="container-fluid">
+                <div class="row page-titles">
+                        <div class="col-md-12 align-self-center">
+                            <h3 class="text-themecolor"><i class="fa fa-braille" style="color:#1976d2"></i>
+                            &nbsp Core Bisnis by Value (Juta) April <?php echo date('Y');?>
+                           
+                        </h3>
+                            
+                        </div>
+                        <div class="col-md-7 align-self-center">
+                           
+                        </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="card">
+                            <div class="card-body">
+                            <h6 class="card-title">  WE </h6>
+                            <canvas id="ChartWEValue"  height="400px;"></canvas>  
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="card">
+                            <div class="card-body">
+                            <h6 class="card-title"> HS </h6>
+                            <canvas id="ChartHSValue" height="400px;"></canvas> 
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+
+                    
+                    <!-- Column -->
+                    <div class="col-lg-3">
+                    <div class="card">
+                            <div class="card-body">
+                            <h6 class="card-title">Populis</h6>
+                            <canvas id="ChartPOPValue" height="400px;"></canvas>   
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                    <div class="card">
+                            <div class="card-body">
+                            <h6 class="card-title">Quadrant 1 </h6>
+                            <canvas id="ChartQ1Value" height="400px;"></canvas>   
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                    
+            </div>  
             <div class="container-fluid">
             <div class="row page-titles">
                         <div class="col-md-12 align-self-center">
                             <h3 class="text-themecolor"><i class="fa fa-braille" style="color:#1976d2"></i>
-                            &nbsp Core Bisnis by Value
+                            &nbsp Monthly Core Bisnis by Value (Juta) <?php echo date('Y');?>
                            
                         </h3>
                             
@@ -218,22 +284,22 @@
                         <div class="col-md-7 align-self-center">
                            
                         </div>
-                    </div>
+                </div>
                 <div class="row">
-                    <div class="col-lg-4">
+                    <div class="col-lg-3">
                         <div class="card">
                             <div class="card-body">
-                            <h7 class="card-title"> Core Bisnis WE (Value) - April 2022</h7>
-                            <canvas id="ChartWEValue" style="position: relative; height:300px; width:100%"></canvas>  
+                            <h6 class="card-title"> Warta Ekonomi </h6>
+                            <canvas id="ChartWEMonthly" height="400px;"></canvas>  
                             </div>
                             <br>
                         </div>
                     </div>
-                    <div class="col-lg-4">
+                    <div class="col-lg-3">
                         <div class="card">
                             <div class="card-body">
-                            <h7 class="card-title">Core Bisnis HS (Value) - April 2022</h7>
-                            <canvas id="ChartHSValue" style="position: relative; height:300px; width:100%"></canvas>  
+                            <h6 class="card-title"> Herstory</h6>
+                            <canvas id="ChartHSMonthly" height="400px;"></canvas>  
                             </div>
                             <br>
                         </div>
@@ -241,45 +307,22 @@
 
                     
                     <!-- Column -->
-                    <div class="col-lg-4">
+                    <div class="col-lg-3">
                     <div class="card">
                             <div class="card-body">
-                            <h7 class="card-title">Core Bisnis Populis (Value) - April 2022</h7>
-                            <canvas id="ChartPOPValue" style="position: relative; height:300px; width:100%"></canvas>  
-                            </div>
-                            <br>
-                        </div>
-                    </div>
-                    
-            </div>  
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-4">
-                        <div class="card">
-                            <div class="card-body">
-                            <h5 class="card-title">Monthly Core Bisnis WE - <?php echo date('Y');?></h4>
-                            <canvas id="ChartWEMonthly" style="position: relative; height:300px; width:100%"></canvas>  
-                            </div>
-                            <br>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="card">
-                            <div class="card-body">
-                            <h5 class="card-title">Monthly Core Bisnis HS - <?php echo date('Y');?></h4>
-                            <canvas id="ChartHSMonthly" style="position: relative; height:300px; width:100%"></canvas>  
+                            <h6 class="card-title"> Populis </h6>
+                            <canvas id="ChartPOPMonthly" height="400px;"></canvas>  
                             </div>
                             <br>
                         </div>
                     </div>
 
-                    
                     <!-- Column -->
-                    <div class="col-lg-4">
+                    <div class="col-lg-3">
                     <div class="card">
                             <div class="card-body">
-                            <h5 class="card-title">Monthly Core Bisnis Populis <?php echo date ('Y');?></h4>
-                            <canvas id="ChartPOPMonthly" style="position: relative; height:300px; width:100%"></canvas>  
+                            <h6 class="card-title"> Quadrant 1</h6>
+                            <canvas id="ChartQ1Monthly" height="400px;"></canvas>  
                             </div>
                             <br>
                         </div>

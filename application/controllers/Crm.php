@@ -41,6 +41,18 @@ class Crm extends CI_Controller {
             redirect(base_url() , 'refresh');
         }
     }
+    function chart_web_q1()
+    {
+        $this->load->model('crm_model');
+        $data= $this->crm_model->chart_list('Q1');
+        echo json_encode($data);
+    } 
+    function chart_web_q1_val()
+    {
+        $this->load->model('crm_model');
+        $data= $this->crm_model->chart_list_val('Q1');
+        echo json_encode($data);
+    }  
     function chart_web_pop()
     {
         $this->load->model('crm_model');
@@ -53,6 +65,12 @@ class Crm extends CI_Controller {
         $data= $this->crm_model->chart_list_val('POPULIS');
         echo json_encode($data);
     }  
+    function chart_month_q1_val()
+    {
+        $this->load->model('crm_model');
+        $data= $this->crm_model->chart_month_val('Q1');
+        echo json_encode($data);
+    } 
     function chart_month_pop_val()
     {
         $this->load->model('crm_model');
