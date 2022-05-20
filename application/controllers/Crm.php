@@ -131,7 +131,12 @@ class Crm extends CI_Controller {
         $data= $this->crm_model->divisi();
         echo json_encode($data);
     }
-
+    function get_div_month()
+    {
+        $this->load->model('crm_model');
+        $data= $this->crm_model->divisi_perbulan();
+        echo json_encode($data);
+    }
 
 
 

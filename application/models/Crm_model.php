@@ -9,7 +9,7 @@
 	}
     public function chart_list($core)
     {
-        $month=date('m')-1;
+        $month=date('m');
         $sql = "select corebisnis,jumlah,
                     case when jumlah <=40 then 'red' 
                     when jumlah between 41 and 60 then'#ded43c'
@@ -35,15 +35,15 @@
     }
     public function chart_month_val($core)
     {
-       
         $sql = "SELECT sum(pencapaian)/1000000 jum,sum(target)/1000000 jum_target ,
                         case when bulan=1 then 'Jan' 
                              when bulan =2 then 'Feb'
                              when bulan=3 then 'Mar'
                              when bulan=4 then 'Apr'
+                             when bulan=5 then 'Mei'
                              end as  bulan ,tahun FROM `performance` 
                     where divisi ='$core' group by bulan,tahun; ";
-                $query=$this->db->query($sql);
+        $query=$this->db->query($sql);
         
         return $query->result_array();
 
@@ -85,9 +85,26 @@
         return $result;
 
     }
-    
+    public function divisi_perbulan(){
+        $sql = " SELECT sum(pencapaian)/1000000 as jum,
+                            case when bulan=1 then 'Jan' 
+                             when bulan =2 then 'Feb'
+                             when bulan=3 then 'Mar'
+                             when bulan=4 then 'Apr'
+                             when bulan=5 then 'Mei'
+                             end as  bulan ,tahun FROM `performance` group by bulan,tahun";
+        $query=$this->db->query($sql);
+        
+        return $query->result_array();
+    }
     public function divisi(){
         $sql = "SELECT sum(pencapaian)/1000000 as jum,divisi FROM `performance` group by divisi";
+        $query=$this->db->query($sql);
+        
+        return $query->result_array();
+    }
+    public function jum_pencapaian(){
+        $sql = "SELECT sum(pencapaian)/1000000 as jum FROM `performance`;";
         $query=$this->db->query($sql);
         
         return $query->result_array();

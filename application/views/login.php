@@ -49,7 +49,7 @@
 							}
 							?>                                          
                 <form class="form-horizontal form-material" method="post" id="loginform" action="login/Login_Auth">
-                    <a href="javascript:void(0)" class="text-center db"><br/><img src="<?php echo base_url(); ?>assets/images/we_logo.JPEG" alt="Home" /></a>
+                    <a href="javascript:void(0)" class="text-center db"><br/></a>
                     <div class="form-group m-t-40">
                         <div class="col-xs-12">
                             <input class="form-control" name="email" value="<?php if(isset($_COOKIE['email'])) { echo $_COOKIE['email']; } ?>" type="text" required placeholder="Username">
@@ -60,10 +60,7 @@
                             <input class="form-control" name="password" value="<?php if(isset($_COOKIE['password'])) { echo $_COOKIE['password']; } ?>" type="password" required placeholder="Password">
                         </div>
                     </div>
-                 <div class="form-check">
-                     <input type="checkbox" name="remember" class="form-check-input" id="remember-me">
-                     <label class="form-check-label" for="remember-me">Remember me plz!</label>
-                 </div>                     
+                                 
                     <div class="form-group text-center m-t-20">
                         <div class="col-xs-12">
                             <button class="btn btn-info btn-lg btn-login btn-block text-uppercase waves-effect waves-light" type="submit">Log In</button>

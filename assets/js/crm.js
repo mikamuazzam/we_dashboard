@@ -13,14 +13,11 @@ $(function() {
 	hs_month_val();
 	populis_month_val();
 	q1_month_val();
+
+	progmonth();
 // chart value
 	
 	
-
-	
-	
-
-
 	
 //chart 3
 $.ajax({
@@ -116,9 +113,7 @@ $.ajax({
 
 			
 		}
-
-  
-  var myData = {
+  	var myData = {
 	labels:labeldt2,
 	datasets: [{
 		label: "Ads (Juta)",
@@ -146,7 +141,8 @@ var myoption = {
 		yAxes: [{
 			ticks: {
 			
-			beginAtZero: true
+			beginAtZero: true,
+			max:10000
 			},
 		}],
 		
@@ -970,7 +966,7 @@ $.ajax({
 			datasets: [{
 				label: "Core Bisnis Value (Juta)",
 				fill: false,
-				backgroundColor: '#1a5e34',
+				backgroundColor: '#DC7633',
 				data: val_dt,
 			}]
 		};
@@ -1084,7 +1080,7 @@ function we_month_val()
 						},
 					}],
 					xAxes: [{
-						barThickness :10
+						barThickness :30
 					}]
 					},
 					animation: {
@@ -1180,7 +1176,7 @@ function hs_month_val()
 						},
 					}],
 					xAxes: [{
-						barThickness :10
+						barThickness :30
 					}]
 					},
 					animation: {
@@ -1275,7 +1271,7 @@ function populis_month_val()
 					}],
 					
 						xAxes: [{
-							barThickness :10
+							barThickness :30
 						}]
 					},
 					animation: {
@@ -1341,13 +1337,13 @@ function q1_month_val()
 				datasets: [{
 					label: "Val (Juta)",
 					fill: false,
-					backgroundColor: '#59c984',
+					backgroundColor: '#F5B041',
 					data: val_dt_jum,
 				},
 				{
 					label: "Target (Juta)",
 					fill: false,
-					backgroundColor: '#1a5e34',
+					backgroundColor: '#DC7633',
 					data: val_dt_target,
 				}]
 			};
@@ -1368,7 +1364,7 @@ function q1_month_val()
 					}],
 					
 						xAxes: [{
-							barThickness :10
+							barThickness :30
 						}]
 					},
 					animation: {
@@ -1400,4 +1396,94 @@ function q1_month_val()
 			});
 	}
 	});
+}
+function progmonth()
+{
+//chart 2
+$.ajax({
+	url : base_url+"/crm/get_div_month",
+	type : "GET",
+	success : function(data){
+		data = JSON.parse(data);
+	   
+		const labeldt2 = [];
+		const val_dt2= [];
+	
+	
+		for (var dt of data) {
+			var cb = dt.bulan;
+			labeldt2.push(cb)
+
+			var get_val= parseInt(dt.jum) || 0;
+			val_dt2.push(get_val)
+
+			
+		}
+  	var myData = {
+	labels:labeldt2,
+	datasets: [{
+		label: "Pencapaian perbulan (Juta)",
+		fill: false,
+		backgroundColor:
+			'rgba(54, 162, 235, 0.2)',
+			borderColor:
+			'rgba(54, 162, 235, 1)',
+			borderWidth: 1,
+		data: val_dt2,
+	}]
+};
+// Options define for display value on top of bars
+var myoption = {
+	tooltips: {
+		enabled: true
+	},
+	hover: {
+		animationDuration: 1
+	},
+	legend: {
+		position: 'bottom'
+		
+	},
+	scales: {
+		yAxes: [{
+			ticks: {
+			
+			beginAtZero: true,
+			max:10000
+			},
+		}],
+		
+			xAxes: [{
+				barThickness :20
+			}]
+		},
+	animation: {
+	duration: 1,
+	onComplete: function () {
+		var chartInstance = this.chart,
+			ctx = chartInstance.ctx;
+			ctx.textAlign = 'center';
+			ctx.fillStyle = "rgba(0, 0, 0, 1)";
+			ctx.textBaseline = 'bottom';
+			// Loop through each data in the datasets
+			this.data.datasets.forEach(function (dataset, i) {
+				var meta = chartInstance.controller.getDatasetMeta(i);
+				meta.data.forEach(function (bar, index) {
+					var data = dataset.data[index];
+					ctx.fillText(data, bar._model.x, bar._model.y - 30);
+				});
+			});
+		}
+	}
+};
+// Code to draw Chart
+var ctx = document.getElementById('ProgChartMont').getContext('2d');
+var myChart = new Chart(ctx, {
+	type: 'bar',        // Define chart type
+	data: myData,    	// Chart data
+	options: myoption 	// Chart Options [This is optional paramenter use to add some extra things in the chart].
+});
+}
+});
+				
 }

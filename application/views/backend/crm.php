@@ -111,8 +111,7 @@
             </div> 
             
             <div class="container-fluid">
-                <div class="row">
-                    
+                <div class="row">    
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
@@ -148,31 +147,24 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                   
-                    
+                    </div>    
             </div>
             <div class="container-fluid">
-            <div class="row page-titles">
-                        <div class="col-md-12 align-self-center">
-                            <h4 class="text-themecolor"><i class="fa fa-braille" style="color:#1976d2"></i>
-                            &nbsp Core Bisnis by Persentage
-                            (
-                                <font color="#3cb5de">>100 %</font>,
-                                <font color="#1e6b24">81-100 %</font>,
-                                <font color="#6b4c1e">61-80 %</font>,
-                                <font color="#ded43c">41-60 %</font>,
-                                <font color="red"> <= 40 %</font>
-                            )
-                        </h4>
-                            
-                        </div>
-                        <div class="col-md-7 align-self-center">
-                           
-                        </div>
+                <div class="row page-titles">
+                    <div class="col-md-12 align-self-center">
+                        <h4 class="text-themecolor"><i class="fa fa-braille" style="color:#1976d2"></i>
+                        &nbsp Core Bisnis by Persentage
+                        (
+                            <font color="#3cb5de">>100 %</font>,
+                            <font color="#1e6b24">81-100 %</font>,
+                            <font color="#6b4c1e">61-80 %</font>,
+                            <font color="#ded43c">41-60 %</font>,
+                            <font color="red"> <= 40 %</font>
+                        )
+                    </h4>     
                     </div>
+                </div>
                 <div class="row">
-                    
                     <div class="col-lg-3">
                         <div class="card">
                             <div class="card-body">
@@ -213,7 +205,7 @@
                             <br>
                         </div>
                     </div>
-                    
+                </div>   
             </div>  
 
             <div class="container-fluid">
@@ -222,11 +214,7 @@
                             <h3 class="text-themecolor"><i class="fa fa-braille" style="color:#1976d2"></i>
                             &nbsp Core Bisnis by Value (Juta) April <?php echo date('Y');?>
                            
-                        </h3>
-                            
-                        </div>
-                        <div class="col-md-7 align-self-center">
-                           
+                        </h3>   
                         </div>
                 </div>
                 <div class="row">
@@ -248,7 +236,6 @@
                             <br>
                         </div>
                     </div>
-
                     
                     <!-- Column -->
                     <div class="col-lg-3">
@@ -262,77 +249,94 @@
                     </div>
 
                     <div class="col-lg-3">
-                    <div class="card">
-                            <div class="card-body">
-                            <h6 class="card-title">Quadrant 1 </h6>
-                            <canvas id="ChartQ1Value" height="400px;"></canvas>   
-                            </div>
-                            <br>
+                        <div class="card">
+                                <div class="card-body">
+                                <h6 class="card-title">Quadrant 1 </h6>
+                                <canvas id="ChartQ1Value" height="400px;"></canvas>   
+                                </div>
+                                <br>
                         </div>
                     </div>
-                    
+                </div>   
             </div>  
             <div class="container-fluid">
-            <div class="row page-titles">
-                        <div class="col-md-12 align-self-center">
-                            <h3 class="text-themecolor"><i class="fa fa-braille" style="color:#1976d2"></i>
-                            &nbsp Monthly Core Bisnis by Value (Juta) <?php echo date('Y');?>
-                           
+                <div class="row page-titles">
+                    <div class="col-md-12 align-self-center">
+                        <h3 class="text-themecolor"><i class="fa fa-braille" style="color:#1976d2"></i>
+                        &nbsp Monthly Core Bisnis by Value (Juta) <?php echo date('Y');?> 
                         </h3>
-                            
-                        </div>
-                        <div class="col-md-7 align-self-center">
-                           
-                        </div>
+                    </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-3">
+                    <div class="col-lg-6">
                         <div class="card">
                             <div class="card-body">
                             <h6 class="card-title"> Warta Ekonomi </h6>
-                            <canvas id="ChartWEMonthly" height="400px;"></canvas>  
+                            <canvas id="ChartWEMonthly" height="120px;"></canvas>  
                             </div>
                             <br>
                         </div>
                     </div>
-                    <div class="col-lg-3">
+                    <div class="col-lg-6">
                         <div class="card">
                             <div class="card-body">
                             <h6 class="card-title"> Herstory</h6>
-                            <canvas id="ChartHSMonthly" height="400px;"></canvas>  
+                            <canvas id="ChartHSMonthly" height="120px;"></canvas>  
                             </div>
                             <br>
                         </div>
                     </div>
+                </div>
+            </div>
 
-                    
-                    <!-- Column -->
-                    <div class="col-lg-3">
-                    <div class="card">
+            <div class="container-fluid">
+            <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card">
                             <div class="card-body">
                             <h6 class="card-title"> Populis </h6>
-                            <canvas id="ChartPOPMonthly" height="400px;"></canvas>  
+                            <canvas id="ChartPOPMonthly" height="120px;"></canvas>  
                             </div>
                             <br>
                         </div>
                     </div>
-
-                    <!-- Column -->
-                    <div class="col-lg-3">
-                    <div class="card">
+                    <div class="col-lg-6">
+                        <div class="card">
                             <div class="card-body">
                             <h6 class="card-title"> Quadrant 1</h6>
-                            <canvas id="ChartQ1Monthly" height="400px;"></canvas>  
+                            <canvas id="ChartQ1Monthly" height="120px;"></canvas>  
                             </div>
                             <br>
                         </div>
-                    </div>
-                    
-            </div>  
+                    </div>   
+                </div>  
+            </div>
 
             <div class="container-fluid">
                 <div class="row">
+                     <!-- Column -->
+                     <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                            <h6 class="card-title">Total  Pencapaian per divisi Tahun <?php echo date('Y');?></h6>
+                            <canvas id="progChart" height="200px;"></canvas> 
+                            </div>
+                        </div>
+                    </div>    
                     <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                            <h6 class="card-title">Total Pencapaian Perusahaan  Tahun <?php echo date('Y');?> </h6>
+                            <canvas id="ProgChartMont" height="200px;"></canvas>  
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                                  
+            </div>  
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
                             <h4 class="card-title">KGI Sales </h4>
@@ -340,18 +344,10 @@
                             </div>
                             <br>
                         </div>
-                    </div>
-                    <!-- Column -->
-                    <div class="col-lg-6">
-                        <div class="card">
-                            <div class="card-body">
-                            <h4 class="card-title">Total  Pencapaian</h4>
-                            <canvas id="progChart" style="position: relative; height:360px; width:100%"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                    
-            </div>  
+                    </div>   
+                </div>
+            </div>
+             
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
@@ -362,15 +358,11 @@
                             </div>
                             <br>
                         </div>
-                    </div>
-                   
-                    
-            </div>  
-            
+                    </div>   
+                </div>
+            </div>
         </div>
-
-        
+       
 <script src="<?php echo base_url(); ?>assets/js/crm.js"></script>              
-<script>
-</script>                                               
+                                              
 <?php $this->load->view('backend/footer'); ?>

@@ -22,7 +22,7 @@
     <script src="<?php echo base_url(); ?>assets/js/custom.min.js"></script>
 
     <!-- ============================================================== -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
     <!-- ============================================================== -->
     <!--sparkline JavaScript -->
     <script src="<?php echo base_url(); ?>assets/plugins/sparkline/jquery.sparkline.min.js"></script>
@@ -30,9 +30,10 @@
     <script src="<?php echo base_url(); ?>assets/plugins/raphael/raphael-min.js"></script>
     <script src="<?php echo base_url(); ?>assets/plugins/morrisjs/morris.js"></script>
     <!-- Chart JS -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0">
-        
-    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0">  </script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>   
+  
 
 
 
