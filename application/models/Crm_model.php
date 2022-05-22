@@ -9,7 +9,6 @@
 	}
     public function chart_list($core,$bulan='',$tahun='')
     {
-        
         $sql = "select corebisnis,jumlah,
                     case when jumlah <=40 then 'red' 
                     when jumlah between 41 and 60 then'#ded43c'
