@@ -1,13 +1,11 @@
 $(function() {
-    we_persentage();
-	hs_persentage();
-	populis_persentage();
-	q1_persentage();
 
-	we_value();
-	hs_value();
-	populis_value();
-	q1_value();
+	$( "#cari" ).click(function() {
+		load_chart();
+	});
+
+    load_chart();
+	
 
 	we_month_val();
 	hs_month_val();
@@ -15,266 +13,131 @@ $(function() {
 	q1_month_val();
 
 	progmonth();
+	progdiv();
+	comp_list();
+	kgi_sales();
 // chart value
 	
-	
-	
-//chart 3
-$.ajax({
-	url : base_url+"/crm/comp_list",
-	type : "GET",
-	success : function(data){
-		data = JSON.parse(data);
-	   
-		const labeldt2 = [];
-		const val_dt2= [];
-	
-	
-		for (var dt of data) {
-			var cb = dt.name;
-			labeldt2.push(cb)
-
-			var get_val= parseInt(dt.jumlah) || 0;
-			val_dt2.push(get_val)
-
-			
-		}
-
-  
-  var myData = {
-	labels:labeldt2,
-	
-	datasets: [{
-		label: "Top Companies Revenue (Juta)",
-		fill: false,
-		backgroundColor: 'rgba(54, 162, 235, 0.8)',
-			borderWidth: 1,
-		data: val_dt2,
-		
-	}]
-};
-// Options define for display value on top of bars
-var myoption = {
-	tooltips: {
-		enabled: true
-	},
-	hover: {
-		animationDuration: 1
-	},
-	legend: {
-		position: 'bottom'
-	},
-	animation: {
-	duration: 1,
-	onComplete: function () {
-		var chartInstance = this.chart,
-			ctx = chartInstance.ctx;
-			ctx.textAlign = 'center';
-			ctx.fillStyle = "rgba(0, 0, 0, 1)";
-			ctx.textBaseline = 'bottom';
-			// Loop through each data in the datasets
-			this.data.datasets.forEach(function (dataset, i) {
-				var meta = chartInstance.controller.getDatasetMeta(i);
-				meta.data.forEach(function (bar, index) {
-					var data = dataset.data[index];
-					ctx.fillText(data, bar._model.x, bar._model.y - 5);
-				});
-			});
-		}
-	}
-};
-// Code to draw Chart
-var ctx = document.getElementById('topComp').getContext('2d');
-var myChart = new Chart(ctx, {
-	type: 'bar',        // Define chart type
-	data: myData,    	// Chart data
-	options: myoption 	// Chart Options [This is optional paramenter use to add some extra things in the chart].
-});
-}
 });
 
-//chart 2
-$.ajax({
-	url : base_url+"/crm/get_div",
-	type : "GET",
-	success : function(data){
-		data = JSON.parse(data);
-	   
-		const labeldt2 = [];
-		const val_dt2= [];
-	
-	
-		for (var dt of data) {
-			var cb = dt.divisi;
-			labeldt2.push(cb)
-
-			var get_val= parseInt(dt.jum) || 0;
-			val_dt2.push(get_val)
-
-			
-		}
-  	var myData = {
-	labels:labeldt2,
-	datasets: [{
-		label: "Ads (Juta)",
-		fill: false,
-		backgroundColor:
-			'rgba(54, 162, 235, 0.2)',
-			borderColor:
-			'rgba(54, 162, 235, 1)',
-			borderWidth: 1,
-		data: val_dt2,
-	}]
-};
-// Options define for display value on top of bars
-var myoption = {
-	tooltips: {
-		enabled: true
-	},
-	hover: {
-		animationDuration: 1
-	},
-	legend: {
-		position: 'bottom'
-	},
-	scales: {
-		yAxes: [{
-			ticks: {
-			
-			beginAtZero: true,
-			max:10000
-			},
-		}],
-		
-			xAxes: [{
-				barThickness :20
-			}]
-		},
-	animation: {
-	duration: 1,
-	onComplete: function () {
-		var chartInstance = this.chart,
-			ctx = chartInstance.ctx;
-			ctx.textAlign = 'center';
-			ctx.fillStyle = "rgba(0, 0, 0, 1)";
-			ctx.textBaseline = 'bottom';
-			// Loop through each data in the datasets
-			this.data.datasets.forEach(function (dataset, i) {
-				var meta = chartInstance.controller.getDatasetMeta(i);
-				meta.data.forEach(function (bar, index) {
-					var data = dataset.data[index];
-					ctx.fillText(data, bar._model.x, bar._model.y - 30);
-				});
-			});
-		}
-	}
-};
-// Code to draw Chart
-var ctx = document.getElementById('progChart').getContext('2d');
-var myChart = new Chart(ctx, {
-	type: 'bar',        // Define chart type
-	data: myData,    	// Chart data
-	options: myoption 	// Chart Options [This is optional paramenter use to add some extra things in the chart].
-});
-}
-});
-				 
-//kgi sales
-
-$.ajax({
-	url : base_url+"/crm/deal_list",
-	type : "GET",
-	success : function(data){
-		data = JSON.parse(data);
-	   
-		const labeldt3 = [];
-		const val_dt3= [];
-	
-	
-		for (var dt of data) {
-			var cb = dt.salesname;
-			labeldt3.push(cb)
-
-			var get_val= parseInt(dt.jumlah) || 0;
-			val_dt3.push(get_val)
-
-			
-		}
-
-  
-  var myData = {
-	labels:labeldt3,
-	datasets: [{
-		label: "KGI Sales (Juta)",
-		fill: false,
-		backgroundColor: [
-			'rgba(238, 126, 145, 0.23)',
-			'rgba(54, 162, 235, 0.2)',
-			'rgba(238, 126, 145, 0.23)',
-			'rgba(75, 192, 192, 0.2)',
-			'rgba(153, 102, 255, 0.2)',
-			'rgba(238, 126, 145, 0.23)'
-			],
-			borderColor: [
-			'rgba(238, 126, 145, 0.41)',
-			'rgba(54, 162, 235, 1)',
-			'rgba(238, 126, 145, 0.41)',
-			'rgba(75, 192, 192, 1)',
-			'rgba(153, 102, 255, 1)',
-			'rgba(238, 126, 145, 0.41)'
-			],
-			borderWidth: 1,
-		data: val_dt3,
-	}]
-};
-// Options define for display value on top of bars
-var myoption = {
-	tooltips: {
-		enabled: true
-	},
-	legend: {
-		position: 'bottom'
-	},
-	hover: {
-		animationDuration: 1
-	},
-	
-	animation: {
-	duration: 1,
-	onComplete: function () {
-		var chartInstance = this.chart,
-			ctx = chartInstance.ctx;
-			ctx.textAlign = 'center';
-			ctx.fillStyle = "rgba(0, 0, 0, 1)";
-			ctx.textBaseline = 'bottom';
-			// Loop through each data in the datasets
-			this.data.datasets.forEach(function (dataset, i) {
-				var meta = chartInstance.controller.getDatasetMeta(i);
-				meta.data.forEach(function (bar, index) {
-					var data = dataset.data[index];
-					ctx.fillText(data, bar._model.x, bar._model.y - 30);
-				});
-			});
-		}
-	}
-};
-// Code to draw Chart
-var ctx = document.getElementById('kgiChart').getContext('2d');
-var myChart = new Chart(ctx, {
-	type: 'bar',        // Define chart type
-	data: myData,    	// Chart data
-	options: myoption 	// Chart Options [This is optional paramenter use to add some extra things in the chart].
-});
-}
-});
-
-
-});
-
-function populis_persentage()
+function load_chart()
 {
+	
+	var bulan=$('#bulan').find('option:selected').val();
+	var tahun=$('#tahun').find('option:selected').val();
+	nm_bulan= nama_bulan(bulan);
+	$("#LabelAll").html(nm_bulan+" "+tahun);
+
+	we_persentage(bulan,tahun);
+	hs_persentage(bulan,tahun);
+	populis_persentage(bulan,tahun);
+	q1_persentage(bulan,tahun);
+
+	we_value(bulan,tahun);
+	hs_value(bulan,tahun);
+	populis_value(bulan,tahun);
+	q1_value(bulan,tahun);
+
+}
+function kgi_sales()
+{
+	//kgi sales
+
+		$.ajax({
+			url : base_url+"/crm/deal_list",
+			type : "GET",
+			success : function(data){
+				data = JSON.parse(data);
+			
+				const labeldt3 = [];
+				const val_dt3= [];
+			
+			
+				for (var dt of data) {
+					var cb = dt.salesname;
+					labeldt3.push(cb)
+
+					var get_val= parseInt(dt.jumlah) || 0;
+					val_dt3.push(get_val)
+
+					
+				}
+
+		
+		var myData = {
+			labels:labeldt3,
+			datasets: [{
+				label: "KGI Sales (Juta)",
+				fill: false,
+				backgroundColor: [
+					'rgba(238, 126, 145, 0.23)',
+					'rgba(54, 162, 235, 0.2)',
+					'rgba(238, 126, 145, 0.23)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(153, 102, 255, 0.2)',
+					'rgba(238, 126, 145, 0.23)'
+					],
+					borderColor: [
+					'rgba(238, 126, 145, 0.41)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(238, 126, 145, 0.41)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(153, 102, 255, 1)',
+					'rgba(238, 126, 145, 0.41)'
+					],
+					borderWidth: 1,
+				data: val_dt3,
+			}]
+		};
+		// Options define for display value on top of bars
+		var myoption = {
+			tooltips: {
+				enabled: true
+			},
+			legend: {
+				position: 'bottom'
+			},
+			hover: {
+				animationDuration: 1
+			},
+			
+			animation: {
+			duration: 1,
+			onComplete: function () {
+				var chartInstance = this.chart,
+					ctx = chartInstance.ctx;
+					ctx.textAlign = 'center';
+					ctx.fillStyle = "rgba(0, 0, 0, 1)";
+					ctx.textBaseline = 'bottom';
+					// Loop through each data in the datasets
+					this.data.datasets.forEach(function (dataset, i) {
+						var meta = chartInstance.controller.getDatasetMeta(i);
+						meta.data.forEach(function (bar, index) {
+							var data = dataset.data[index];
+							ctx.fillText(data, bar._model.x, bar._model.y - 30);
+						});
+					});
+				}
+			}
+		};
+		// Code to draw Chart
+		var ctx = document.getElementById('kgiChart').getContext('2d');
+		var myChart = new Chart(ctx, {
+			type: 'bar',        // Define chart type
+			data: myData,    	// Chart data
+			options: myoption 	// Chart Options [This is optional paramenter use to add some extra things in the chart].
+		});
+		}
+		});
+
+}
+function populis_persentage(m,y)
+{
+	nm_bulan= nama_bulan(m);
+	$("#LabelPOP").html("Populis (%) "+nm_bulan+" "+y);
 	$.ajax({
-		url : base_url+"/crm/chart_web_pop",
+		data :{bulan:m,tahun:y,divisi:'POPULIS'},
+		url : base_url+"/crm/chart_web",
 		type : "GET",
 		success : function(data)
 		{
@@ -379,10 +242,13 @@ function populis_persentage()
 }
 
 
-function q1_persentage()
+function q1_persentage(m,y)
 {
+	nm_bulan= nama_bulan(m);
+	$("#LabelQ1").html("Quadrant 1 (%) "+nm_bulan+" "+y);
 	$.ajax({
-		url : base_url+"/crm/chart_web_q1",
+		data :{bulan:m,tahun:y,divisi:'Q1'},
+		url : base_url+"/crm/chart_web",
 		type : "GET",
 		success : function(data)
 		{
@@ -485,10 +351,13 @@ function q1_persentage()
 	});
 
 }
-function hs_persentage()
+function hs_persentage(m,y)
 {
+	nm_bulan= nama_bulan(m);
+	$("#LabelHS").html("HS (%) "+nm_bulan+" "+y);
 	$.ajax({
-		url : base_url+"/crm/chart_web_hs",
+		data :{bulan:m,tahun:y,divisi:'HS'},
+		url : base_url+"/crm/chart_web",
 		type : "GET",
 		success : function(data)
 		{
@@ -587,10 +456,32 @@ function hs_persentage()
 	}
 	});
 }
-function we_persentage()
+function nama_bulan(m)
 {
+	var nm_bulan='january';
+	if(m==1) nm_bulan='Jan';
+	if(m==2) nm_bulan='Feb';
+	if(m==3) nm_bulan='Mar';
+	if(m==4) nm_bulan='Apr';
+	if(m==5) nm_bulan='May';
+	if(m==6) nm_bulan='Jun';
+	if(m==7) nm_bulan='Jul';
+	if(m==8) nm_bulan='Aug';
+	if(m==9) nm_bulan='Sep';
+	if(m==10) nm_bulan='Oct';
+	if(m==11) nm_bulan='Nov';
+	if(m==12) nm_bulan='Dec';
+	return nm_bulan;
+
+
+}
+function we_persentage(m,y)
+{
+	nm_bulan= nama_bulan(m);
+	$("#LabelWE").html("WE (%) "+nm_bulan+" "+y);
 	$.ajax({
-		url : base_url+"/crm/chart_web_we",
+		data :{bulan:m,tahun:y,divisi:'WE'},
+		url : base_url+"/crm/chart_web",
 		type : "GET",
 		success : function(data)
 		{
@@ -690,10 +581,11 @@ function we_persentage()
 
 }
 
-function we_value()
+function we_value(m,y)
 {
 	$.ajax({
-		url : base_url+"/crm/chart_web_we_val",
+		data :{bulan:m,tahun:y,divisi:'WE'},
+		url : base_url+"/crm/chart_web_val",
 		type : "GET",
 		success : function(data)
 		{
@@ -772,12 +664,13 @@ function we_value()
 
 }
 
-function hs_value()
+function hs_value(m,y)
 {
 	
 // chart value
 $.ajax({
-	url : base_url+"/crm/chart_web_hs_val",
+	data :{bulan:m,tahun:y,divisi:'HS'},
+	url : base_url+"/crm/chart_web_val",
 	type : "GET",
 	success : function(data)
 	{
@@ -857,11 +750,12 @@ $.ajax({
 
 }
 
-function populis_value()
+function populis_value(m,y)
 {
 	// chart value
 	$.ajax({
-		url : base_url+"/crm/chart_web_pop_val",
+		data :{bulan:m,tahun:y,divisi:'POPULIS'},
+		url : base_url+"/crm/chart_web_val",
 		type : "GET",
 		success : function(data)
 		{
@@ -939,11 +833,12 @@ function populis_value()
 	});
 }
 
-function q1_value()
+function q1_value(m,y)
 {
 // chart value
 $.ajax({
-	url : base_url+"/crm/chart_web_q1_val",
+	data :{bulan:m,tahun:y,divisi:'Q1'},
+	url : base_url+"/crm/chart_web_val",
 	type : "GET",
 	success : function(data)
 	{
@@ -1415,6 +1310,7 @@ $.ajax({
 			labeldt2.push(cb)
 
 			var get_val= parseInt(dt.jum) || 0;
+			get_val=Intl.NumberFormat().format((get_val/1000))
 			val_dt2.push(get_val)
 
 			
@@ -1449,12 +1345,12 @@ var myoption = {
 			ticks: {
 			
 			beginAtZero: true,
-			max:10000
+			max:10
 			},
 		}],
 		
 			xAxes: [{
-				barThickness :20
+				barThickness :30
 			}]
 		},
 	animation: {
@@ -1486,4 +1382,171 @@ var myChart = new Chart(ctx, {
 }
 });
 				
+}
+
+function progdiv()
+{
+	//chart 2
+		$.ajax({
+			url : base_url+"/crm/get_div",
+			type : "GET",
+			success : function(data){
+				data = JSON.parse(data);
+			
+				const labeldt2 = [];
+				const val_dt2= [];
+			
+			
+				for (var dt of data) {
+					var cb = dt.divisi;
+					labeldt2.push(cb)
+
+					var get_val= parseInt(dt.jum) || 0;
+					get_val=Intl.NumberFormat().format((get_val/1000))
+					val_dt2.push(get_val)
+
+					
+				}
+			var myData = {
+			labels:labeldt2,
+			datasets: [{
+				label: "Ads (Juta)",
+				fill: false,
+				backgroundColor:
+					['#b3507d','#1a5e34','#DC7633','#7d142e','#b3507d'],
+					
+				data: val_dt2,
+			}]
+		};
+		// Options define for display value on top of bars
+		var myoption = {
+			tooltips: {
+				enabled: true
+			},
+			hover: {
+				animationDuration: 1
+			},
+			legend: {
+				position: 'bottom'
+			},
+			scales: {
+				yAxes: [{
+					ticks: {
+					
+					beginAtZero: true,
+					max:10
+					},
+				}],
+				
+					xAxes: [{
+						barThickness :40
+					}]
+				},
+			animation: {
+			duration: 1,
+			onComplete: function () {
+				var chartInstance = this.chart,
+					ctx = chartInstance.ctx;
+					ctx.textAlign = 'center';
+					ctx.fillStyle = "rgba(0, 0, 0, 1)";
+					ctx.textBaseline = 'bottom';
+					// Loop through each data in the datasets
+					this.data.datasets.forEach(function (dataset, i) {
+						var meta = chartInstance.controller.getDatasetMeta(i);
+						meta.data.forEach(function (bar, index) {
+							var data = dataset.data[index];
+							ctx.fillText(data, bar._model.x, bar._model.y - 30);
+						});
+					});
+				}
+			}
+		};
+		// Code to draw Chart
+		var ctx = document.getElementById('progChart').getContext('2d');
+		var myChart = new Chart(ctx, {
+			type: 'bar',        // Define chart type
+			data: myData,    	// Chart data
+			options: myoption 	// Chart Options [This is optional paramenter use to add some extra things in the chart].
+		});
+		}
+		});
+}
+
+function comp_list()
+{
+			//chart 3
+		$.ajax({
+			url : base_url+"/crm/comp_list",
+			type : "GET",
+			success : function(data){
+				data = JSON.parse(data);
+			
+				const labeldt2 = [];
+				const val_dt2= [];
+			
+			
+				for (var dt of data) {
+					var cb = dt.name;
+					labeldt2.push(cb)
+
+					var get_val= parseInt(dt.jumlah) || 0;
+					val_dt2.push(get_val)
+
+					
+				}
+
+		
+		var myData = {
+			labels:labeldt2,
+			
+			datasets: [{
+				label: "Top Companies Revenue (Juta)",
+				fill: false,
+				backgroundColor: 'rgba(54, 162, 235, 0.8)',
+					borderWidth: 1,
+				data: val_dt2,
+				
+			}]
+		};
+		// Options define for display value on top of bars
+		var myoption = {
+			tooltips: {
+				enabled: true
+			},
+			hover: {
+				animationDuration: 1
+			},
+			legend: {
+				position: 'bottom'
+			},
+			animation: {
+			duration: 1,
+			onComplete: function () {
+				var chartInstance = this.chart,
+					ctx = chartInstance.ctx;
+					ctx.textAlign = 'center';
+					ctx.fillStyle = "rgba(0, 0, 0, 1)";
+					ctx.textBaseline = 'bottom';
+					// Loop through each data in the datasets
+					this.data.datasets.forEach(function (dataset, i) {
+						var meta = chartInstance.controller.getDatasetMeta(i);
+						meta.data.forEach(function (bar, index) {
+							var data = dataset.data[index];
+							ctx.fillText(data, bar._model.x, bar._model.y - 5);
+						});
+					});
+				}
+			}
+		};
+		// Code to draw Chart
+		var ctx = document.getElementById('topComp').getContext('2d');
+		var myChart = new Chart(ctx, {
+			type: 'bar',        // Define chart type
+			data: myData,    	// Chart data
+			options: myoption 	// Chart Options [This is optional paramenter use to add some extra things in the chart].
+		});
+		}
+		});
+
+
 }

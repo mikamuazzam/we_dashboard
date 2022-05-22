@@ -151,7 +151,7 @@
             </div>
             <div class="container-fluid">
                 <div class="row page-titles">
-                    <div class="col-md-12 align-self-center">
+                    <div class="col-md-10 align-self-center">
                         <h4 class="text-themecolor"><i class="fa fa-braille" style="color:#1976d2"></i>
                         &nbsp Core Bisnis by Persentage
                         (
@@ -161,14 +161,45 @@
                             <font color="#ded43c">41-60 %</font>,
                             <font color="red"> <= 40 %</font>
                         )
+                        
                     </h4>     
+                    </div>
+                    <div class="col-md-2 align-self-left">
+                        <select id="bulan">
+                            <?php 
+                                $current_month =date('m');
+                                $i=1;
+                                while ($i<=12)
+                                {
+                                    if($i==$current_month)$selected='selected';
+                                    else $selected='';
+                                    echo "<option value=$i $selected>$i</option>";
+                                    $i++;
+                                }
+                            ?>
+                        </select>
+                        <select id="tahun">
+                        <?php 
+                                $current_year =date('Y');
+                                $i=0;
+                                while ($i<=2)
+                                {
+                                    $j=2022+$i;
+                                    if($i==$current_year)$selected='selected';
+                                    else $selected='';
+                                    echo "<option value=$j $selected>$j</option>";
+                                    $i++;
+                                }
+                            ?>
+                        </select>
+                        <button class="btn btn-primary" id="cari">Filter</button>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-3">
                         <div class="card">
                             <div class="card-body">
-                            <h6 class="card-title">  WE (%) - April 2022</h6>
+                            <h6 class="card-title"> <label id="LabelWE"></label></h6>
                             <canvas id="ChartWEPersen" height="400px" ></canvas>  
                             </div>
                             <br>
@@ -177,7 +208,7 @@
                     <div class="col-lg-3">
                         <div class="card">
                             <div class="card-body">
-                            <h6 class="card-title"> HS (%) - April 2022</h6>
+                            <h6 class="card-title">  <label id="LabelHS"></label></h6>
                             <canvas id="ChartHSPersen" height="400px" ></canvas>  
                             </div>
                             <br>
@@ -189,7 +220,7 @@
                     <div class="col-lg-3">
                     <div class="card">
                             <div class="card-body">
-                            <h6 class="card-title"> Populis (%) - April 2022</h6>
+                            <h6 class="card-title">  <label id="LabelPOP"></label></h6>
                             <canvas id="ChartPOPPersen" height="400px" ></canvas>  
                             </div>
                             <br>
@@ -199,7 +230,7 @@
                     <div class="col-lg-3">
                     <div class="card">
                             <div class="card-body">
-                            <h6 class="card-title"> Q1 (%) - April 2022</h6>
+                            <h6 class="card-title"> <label id="LabelQ1"></label></h6>
                             <canvas id="ChartQ1Persen" height="400px" ></canvas>  
                             </div>
                             <br>
@@ -212,7 +243,7 @@
                 <div class="row page-titles">
                         <div class="col-md-12 align-self-center">
                             <h3 class="text-themecolor"><i class="fa fa-braille" style="color:#1976d2"></i>
-                            &nbsp Core Bisnis by Value (Juta) April <?php echo date('Y');?>
+                            &nbsp Core Bisnis by Value (Juta) <label id="LabelAll"></label>
                            
                         </h3>   
                         </div>
@@ -318,7 +349,7 @@
                      <div class="col-lg-6">
                         <div class="card">
                             <div class="card-body">
-                            <h6 class="card-title">Total  Pencapaian per divisi Tahun <?php echo date('Y');?></h6>
+                            <h6 class="card-title">Total  Pencapaian per divisi Tahun <?php echo date('Y');?>  = <b><?php echo number_format($sum_pencapaian->jum,0,",",".");?>&nbsp; Juta</b></h6>
                             <canvas id="progChart" height="200px;"></canvas> 
                             </div>
                         </div>
@@ -326,7 +357,7 @@
                     <div class="col-lg-6">
                         <div class="card">
                             <div class="card-body">
-                            <h6 class="card-title">Total Pencapaian Perusahaan  Tahun <?php echo date('Y');?> </h6>
+                            <h6 class="card-title">Total Pencapaian Perusahaan  Tahun <?php echo date('Y');?> = <b><?php echo number_format($sum_pencapaian->jum,0,",",".");?>&nbsp; Juta</b></h6>
                             <canvas id="ProgChartMont" height="200px;"></canvas>  
                             </div>
                             <br>
