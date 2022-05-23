@@ -243,7 +243,7 @@
                 <div class="row page-titles">
                         <div class="col-md-12 align-self-center">
                             <h3 class="text-themecolor"><i class="fa fa-braille" style="color:#1976d2"></i>
-                            &nbsp Core Bisnis by Value (Juta) <label id="LabelAll"></label>
+                            &nbsp Core Bisnis by Value Rp. (Juta) <label id="LabelAll"></label>
                            
                         </h3>   
                         </div>
@@ -294,7 +294,7 @@
                 <div class="row page-titles">
                     <div class="col-md-12 align-self-center">
                         <h3 class="text-themecolor"><i class="fa fa-braille" style="color:#1976d2"></i>
-                        &nbsp Monthly Core Bisnis by Value (Juta) <?php echo date('Y');?> 
+                        &nbsp Monthly Core Bisnis by Value Rp. (Juta) <?php echo date('Y');?> 
                         </h3>
                     </div>
                 </div>

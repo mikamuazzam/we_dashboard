@@ -67,7 +67,7 @@ function kgi_sales()
 		var myData = {
 			labels:labeldt3,
 			datasets: [{
-				label: "KGI Sales (Juta)",
+				label: "KGI Sales Rp. (Juta)",
 				fill: false,
 				backgroundColor: [
 					'rgba(238, 126, 145, 0.23)',
@@ -606,7 +606,7 @@ function we_value(m,y)
 			var myData = {
 				labels:labeldt,
 				datasets: [{
-					label: "Core Bisnis Value (Juta)",
+					label: "Core Bisnis Value Rp. (Juta)",
 					fill: false,
 					backgroundColor: '#7d142e',
 					data: val_dt,
@@ -691,7 +691,7 @@ $.ajax({
 		var myData = {
 			labels:labeldt,
 			datasets: [{
-				label: "Core Bisnis Value (Juta)",
+				label: "Core Bisnis Value Rp. (Juta)",
 				fill: false,
 				backgroundColor: '#b3507d',
 				data: val_dt,
@@ -776,7 +776,7 @@ function populis_value(m,y)
 			var myData = {
 				labels:labeldt,
 				datasets: [{
-					label: "Core Bisnis Value (Juta)",
+					label: "Core Bisnis Value Rp.(Juta)",
 					fill: false,
 					backgroundColor: '#1a5e34',
 					data: val_dt,
@@ -859,7 +859,7 @@ $.ajax({
 		var myData = {
 			labels:labeldt,
 			datasets: [{
-				label: "Core Bisnis Value (Juta)",
+				label: "Core Bisnis Value Rp. (Juta)",
 				fill: false,
 				backgroundColor: '#DC7633',
 				data: val_dt,
@@ -936,9 +936,11 @@ function we_month_val()
                 labeldt.push(cb)
 
                 var get_val= parseInt(dt.jum) || 0;
+				
                 val_dt_jum.push(get_val)
 
 				var get_val_target= parseInt(dt.jum_target) || 0;
+				
                 val_dt_target.push(get_val_target)
 
             }
@@ -946,13 +948,13 @@ function we_month_val()
 			var myData = {
 				labels:labeldt,
 				datasets: [{
-					label: "Val (Juta)",
+					label: "Val Rp. (Juta)",
 					fill: false,
 					backgroundColor: '#bd3758',
 					data: val_dt_jum,
 				},
 				{
-					label: "Target (Juta)",
+					label: "Target Rp. (Juta)",
 					fill: false,
 					backgroundColor: '#7d142e',
 					data: val_dt_target,
@@ -971,7 +973,7 @@ function we_month_val()
 						ticks: {
 						
 						beginAtZero: true,
-						max:4000
+						max:5000
 						},
 					}],
 					xAxes: [{
@@ -1041,13 +1043,13 @@ function hs_month_val()
 			var myData = {
 				labels:labeldt,
 				datasets: [{
-					label: "Val (Juta)",
+					label: "Val Rp. (Juta)",
 					fill: false,
 					backgroundColor: '#dea4be',
 					data: val_dt_jum,
 				},
 				{
-					label: "Target (Juta)",
+					label: "Target Rp. (Juta)",
 					fill: false,
 					backgroundColor: '#b3507d',
 					data: val_dt_target,
@@ -1136,13 +1138,13 @@ function populis_month_val()
 			var myData = {
 				labels:labeldt,
 				datasets: [{
-					label: "Val (Juta)",
+					label: "Val Rp. (Juta)",
 					fill: false,
 					backgroundColor: '#59c984',
 					data: val_dt_jum,
 				},
 				{
-					label: "Target (Juta)",
+					label: "Target Rp. (Juta)",
 					fill: false,
 					backgroundColor: '#1a5e34',
 					data: val_dt_target,
@@ -1230,13 +1232,13 @@ function q1_month_val()
 			var myData = {
 				labels:labeldt,
 				datasets: [{
-					label: "Val (Juta)",
+					label: "Val Rp. (Juta)",
 					fill: false,
 					backgroundColor: '#F5B041',
 					data: val_dt_jum,
 				},
 				{
-					label: "Target (Juta)",
+					label: "Target Rp. (Juta)",
 					fill: false,
 					backgroundColor: '#DC7633',
 					data: val_dt_target,
@@ -1310,7 +1312,7 @@ $.ajax({
 			labeldt2.push(cb)
 
 			var get_val= parseInt(dt.jum) || 0;
-			get_val=Intl.NumberFormat().format((get_val/1000))
+			
 			val_dt2.push(get_val)
 
 			
@@ -1318,7 +1320,7 @@ $.ajax({
   	var myData = {
 	labels:labeldt2,
 	datasets: [{
-		label: "Pencapaian perbulan (Juta)",
+		label: "Pencapaian perbulan Rp. (Juta)",
 		fill: false,
 		backgroundColor:
 			'rgba(54, 162, 235, 0.2)',
@@ -1345,12 +1347,12 @@ var myoption = {
 			ticks: {
 			
 			beginAtZero: true,
-			max:10
+			max:10000
 			},
 		}],
 		
 			xAxes: [{
-				barThickness :30
+				barThickness :40
 			}]
 		},
 	animation: {
@@ -1402,7 +1404,7 @@ function progdiv()
 					labeldt2.push(cb)
 
 					var get_val= parseInt(dt.jum) || 0;
-					get_val=Intl.NumberFormat().format((get_val/1000))
+					
 					val_dt2.push(get_val)
 
 					
@@ -1410,7 +1412,7 @@ function progdiv()
 			var myData = {
 			labels:labeldt2,
 			datasets: [{
-				label: "Ads (Juta)",
+				label: "Ads Rp. (Juta)",
 				fill: false,
 				backgroundColor:
 					['#b3507d','#1a5e34','#DC7633','#7d142e','#b3507d'],
@@ -1434,7 +1436,7 @@ function progdiv()
 					ticks: {
 					
 					beginAtZero: true,
-					max:10
+					max:10000
 					},
 				}],
 				
@@ -1500,7 +1502,7 @@ function comp_list()
 			labels:labeldt2,
 			
 			datasets: [{
-				label: "Top Companies Revenue (Juta)",
+				label: "Top Companies Revenue Rp.(Juta)",
 				fill: false,
 				backgroundColor: 'rgba(54, 162, 235, 0.8)',
 					borderWidth: 1,
