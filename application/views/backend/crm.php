@@ -115,7 +115,7 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
-                            <h4 class="card-title">Calendar Event <b> April 2022 </b></h4>
+                            <h4 class="card-title">Calendar Event </b></h4>
                             <div class="" >
                                     <table id="weblist" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                                         <thead>
