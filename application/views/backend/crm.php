@@ -176,7 +176,7 @@
                             <font color="#ded43c">41-60 %</font>,
                             <font color="red"> <= 40 %</font>
                         )
-                        
+            
                     </h4>     
                     </div>
                 </div>

@@ -25,7 +25,6 @@ $(function() {
 
 function load_chart()
 {
-	
 	var bulan=$('#bulan').find('option:selected').val();
 	var tahun=$('#tahun').find('option:selected').val();
 	nm_bulan= nama_bulan(bulan);
