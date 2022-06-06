@@ -26,6 +26,7 @@ class Crm extends CI_Controller {
                     $this->load->view('login');
     }
     function crm(){
+        
         if($this->session->userdata('user_login_access') != False) {
             $data['comp'] = $this->crm_model->companies();
             $data['deals_all'] = $this->crm_model->deals(1);
@@ -43,7 +44,16 @@ class Crm extends CI_Controller {
         }
     }
     
-    
+    function list_acara()
+    {
+        $bulan=$_REQUEST['bulan'];
+        $tahun=$_REQUEST['tahun'];
+        
+
+        $this->load->model('crm_model');
+        $data= $this->crm_model->list_acara($bulan,$tahun);
+        echo json_encode($data);
+    } 
     function chart_month_q1_val()
     {
         $this->load->model('crm_model');

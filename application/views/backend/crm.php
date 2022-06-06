@@ -109,62 +109,13 @@
                 </div>
                 <!-- ============================================================== -->
             </div> 
-            
-            <div class="container-fluid">
-                <div class="row">    
-                    <div class="col-lg-12">
-                        <div class="card">
-                            <div class="card-body">
-                            <h4 class="card-title">Calendar Event </b></h4>
-                            <div class="" >
-                                    <table id="weblist" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
-                                        <thead>
-                                        <tr align="center" >
-                                                <th>Date</th>
-                                                <th>Start</th>
-                                                <th>Finish</th>
-                                                <th>Title</th>
-                                                <th>Status </th>
-                                                <th>Desc </th>
-                                               
-                                            </tr>
-                                        </thead>
-                                
-                                        <tbody>
-                                           <?php foreach($venue_list as $value): ?>
-                                            <tr align="left"  >
-                                                <td bgcolor="<?php echo $value->warna;?>"><?php echo $value->tanggal; ?></td>
-                                                <td bgcolor="<?php echo $value->warna;?>"><?php echo $value->start_time; ?></td>
-                                                <td bgcolor="<?php echo $value->warna;?>"><?php echo $value->finish_time; ?></td>
-                                                <td bgcolor="<?php echo $value->warna;?>"><?php echo $value->acara; ?></td>
-                                                <td bgcolor="<?php echo $value->warna;?>"><?php echo $value->status; ?></td>
-                                                <td bgcolor="<?php echo $value->warna;?>"><?php echo $value->present; ?></td>
-                                                
-                                            </tr>
-                                            <?php endforeach; ?>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>    
-            </div>
             <div class="container-fluid">
                 <div class="row page-titles">
-                    <div class="col-md-10 align-self-center">
-                        <h4 class="text-themecolor"><i class="fa fa-braille" style="color:#1976d2"></i>
-                        &nbsp Core Bisnis by Persentage
-                        (
-                            <font color="#3cb5de">>100 %</font>,
-                            <font color="#1e6b24">81-100 %</font>,
-                            <font color="#6b4c1e">61-80 %</font>,
-                            <font color="#ded43c">41-60 %</font>,
-                            <font color="red"> <= 40 %</font>
-                        )
-                        
-                    </h4>     
+                    <div class="col-md-4 align-self-right">
+                    <h4 class="text-themecolor"><i class="fa fa-braille" style="color:#1976d2"></i>
+                        Calendar Event <label id="calenderbulan"></label> </h/4>
                     </div>
-                    <div class="col-md-2 align-self-left">
+                    <div class="col-md-8 align-self-left">
                         <select id="bulan">
                             <?php 
                                 $current_month =date('m');
@@ -195,6 +146,41 @@
                         <button class="btn btn-primary" id="cari">Filter</button>
                     </div>
                 </div>
+            </div>
+                        
+            <div class="container-fluid">
+                <div class="row">    
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                           
+                            
+                            <div class="" >
+                                    <table id="weblist" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+                                       
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>    
+            </div>
+            <div class="container-fluid">
+                <div class="row page-titles">
+                    <div class="col-md-12 align-self-center">
+                        <h4 class="text-themecolor"><i class="fa fa-braille" style="color:#1976d2"></i>
+                        &nbsp Core Bisnis by Persentage
+                        (
+                            <font color="#3cb5de">>100 %</font>,
+                            <font color="#1e6b24">81-100 %</font>,
+                            <font color="#6b4c1e">61-80 %</font>,
+                            <font color="#ded43c">41-60 %</font>,
+                            <font color="red"> <= 40 %</font>
+                        )
+                        
+                    </h4>     
+                    </div>
+                </div>
+                
                 <div class="row">
                     <div class="col-lg-3">
                         <div class="card">

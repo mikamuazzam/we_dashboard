@@ -18,6 +18,9 @@ $(function() {
 	kgi_sales();
 // chart value
 	
+
+	
+	
 });
 
 function load_chart()
@@ -27,6 +30,7 @@ function load_chart()
 	var tahun=$('#tahun').find('option:selected').val();
 	nm_bulan= nama_bulan(bulan);
 	$("#LabelAll").html(nm_bulan+" "+tahun);
+	$("#calenderbulan").html(nm_bulan+" "+tahun);
 
 	we_persentage(bulan,tahun);
 	hs_persentage(bulan,tahun);
@@ -37,6 +41,46 @@ function load_chart()
 	hs_value(bulan,tahun);
 	populis_value(bulan,tahun);
 	q1_value(bulan,tahun);
+	get_list_acara(bulan,tahun);
+
+}
+function get_list_acara(m,y)
+{
+	$("#weblist").DataTable({
+		destroy: true,
+		paging: false,
+		info: false,
+		searching: false,
+		
+		pageLength: 10,
+		lengthMenu: [10, 25, 50, 75],
+		// scrollX: true,
+		// scrollCollapse: true,
+		"createdRow": function( row, data, dataIndex){
+		
+				$(row).css({"background-color":data['warna'] })
+			
+		},
+		columns: [
+			{ data: "tanggal", title: "Date" },
+			{ data: "start_time", title: "Start" },
+			{ data: "finish_time", title: "Finish" },
+			{ data: "acara", title: "Title" },
+			{ data: "status", title: "Status" },
+			{ data: "present", title: "Desc" }
+		],
+		
+		processing: true,
+		serverSide: true,
+		ajax: {
+			data :{bulan:m,tahun:y},
+			url: base_url+"/crm/list_acara",
+			type: 'post',
+			dataType: 'json',
+			dataSrc:""
+		},
+	});
+
 
 }
 function kgi_sales()
