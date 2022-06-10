@@ -157,7 +157,7 @@ function kgi_sales()
 						var meta = chartInstance.controller.getDatasetMeta(i);
 						meta.data.forEach(function (bar, index) {
 							var data = dataset.data[index];
-							ctx.fillText(data, bar._model.x, bar._model.y - 30);
+							ctx.fillText(data, bar._model.x, bar._model.y -10);
 						});
 					});
 				}
@@ -1411,7 +1411,7 @@ var myoption = {
 				var meta = chartInstance.controller.getDatasetMeta(i);
 				meta.data.forEach(function (bar, index) {
 					var data = dataset.data[index];
-					ctx.fillText(data, bar._model.x, bar._model.y - 30);
+					ctx.fillText(data, bar._model.x, bar._model.y -10);
 				});
 			});
 		}
@@ -1500,7 +1500,7 @@ function progdiv()
 						var meta = chartInstance.controller.getDatasetMeta(i);
 						meta.data.forEach(function (bar, index) {
 							var data = dataset.data[index];
-							ctx.fillText(data, bar._model.x, bar._model.y - 30);
+							ctx.fillText(data, bar._model.x, bar._model.y - 10);
 						});
 					});
 				}
