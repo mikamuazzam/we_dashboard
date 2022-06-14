@@ -4,6 +4,7 @@ $(function() {
 	
 	 //chart WE
 	 $.ajax({
+		data :{website:'we_nilai'},
 		url : base_url+"dashboard/chart_web_we",
 		type : "GET",
 		success : function(data){
@@ -14,7 +15,7 @@ $(function() {
                 var tanggal_rank = dt.tgl;
                 labeldt.push(tanggal_rank)
 
-                var get_we= parseInt(dt.we) || 0;
+                var get_we= parseInt(dt.nilai) || 0;
                 we_dt.push(get_we)
 
             }
@@ -66,7 +67,8 @@ $(function() {
 
 	   //chart HS
 	 $.ajax({
-		url : base_url+"dashboard/chart_web_hs",
+		data :{website:'hs_nilai'},
+		url : base_url+"dashboard/chart_web_we",
 		type : "GET",
 		success : function(data){
 			data = JSON.parse(data);
@@ -76,7 +78,7 @@ $(function() {
                 var tanggal_rank = dt.tgl;
                 labeldt.push(tanggal_rank)
 
-                var get_hs= parseInt(dt.hs) || 0;
+                var get_hs= parseInt(dt.nilai) || 0;
                 hs_dt.push(get_hs)
 
             }
@@ -126,7 +128,8 @@ $(function() {
 
 	  //chart Populis
 	 $.ajax({
-		url : base_url+"dashboard/chart_web_populis",
+		data :{website:'populis_nilai'},
+		url : base_url+"dashboard/chart_web_we",
 		type : "GET",
 		success : function(data){
 			data = JSON.parse(data);
@@ -136,7 +139,7 @@ $(function() {
                 var tanggal_rank = dt.tgl;
                 labeldt.push(tanggal_rank)
 
-                var get_populis= parseInt(dt.populis) || 0;
+                var get_populis= parseInt(dt.nilai) || 0;
                 populis_dt.push(get_populis)
 
             }
@@ -160,6 +163,68 @@ $(function() {
 		  };
 	
 		  var ctx = document.getElementById("myChartPop").getContext("2d");
+		  
+		  var LineGraph = new Chart(ctx, {
+			type: 'line',
+			data: chartdata,
+			options: {
+				scales: {
+					yAxes: [{
+					  ticks: {
+						stepSize: 1,
+						beginAtZero: true,
+						max:6,
+						min :-6
+					  },
+					}],
+				  },
+				  responsive: true,
+				  maintainAspectRatio: false
+			}
+		  });
+		},
+		error : function(data) {
+	
+		}
+	  }); 
+
+	   //chart Populis
+	 $.ajax({
+		data :{website:'konten_jatim_nilai'},
+		url : base_url+"dashboard/chart_web_we",
+		type : "GET",
+		success : function(data){
+			data = JSON.parse(data);
+            const labeldt = [];
+            const populis_dt= [];
+            for (var dt of data) {
+                var tanggal_rank = dt.tgl;
+                labeldt.push(tanggal_rank)
+
+                var get_populis= parseInt(dt.nilai) || 0;
+                populis_dt.push(get_populis)
+
+            }
+		  	var chartdata = {
+			labels: labeldt,
+			datasets: [
+				
+			  	{
+				label: "Populis",
+				backgroundColor: 
+					'rgba(29, 208, 81, 0.7)'
+					,
+					borderColor: 
+					'rgba(36, 135, 58, 0.71)'
+					,
+					borderWidth: 1,
+				data: populis_dt
+			  	}
+			  
+			]
+		  };
+	
+		  var ctx = document.getElementById("myChartKJ").getContext("2d");
 		  
 		  var LineGraph = new Chart(ctx, {
 			type: 'line',

@@ -94,18 +94,18 @@
                         <div class="card card-inverse">
                             <div class="box text-center">
                             <?php 
-                                    $nilai_tc_now=$rank->we_tv;
-                                    $nilai_tc_last= $rank_last->we_tv;
+                                    $nilai_tc_now=$rank->konten_jatim;
+                                    $nilai_tc_last= $rank_last->konten_jatim;
                                     $nilai_tc =$nilai_tc_now -  $nilai_tc_last ;
                                     $nilai_tc1 =$nilai_tc_last -  $nilai_tc_now ;
                                 ?>
                                 <h1 class="font-light">
-                                    <?php //echo $rank->we_tv; ?>
+                                    <?php echo $rank->konten_jatim; ?>
                                     <?php 
-                                      /*  if($nilai_tc_now == $nilai_tc_last) echo "(=)"; 
+                                       if($nilai_tc_now == $nilai_tc_last) echo "(=)"; 
                                         else  if($nilai_tc_now > $nilai_tc_last) echo "<font color='red'>&darr; (".$nilai_tc.") </font>";
-                                        else echo "<font color='blue'> &uarr;(".$nilai_tc1.") </font>";*/
-                                    ?> 0</h1>
+                                        else echo "<font color='blue'> &uarr;(".$nilai_tc1.") </font>";
+                                    ?> </h1>
                                 <h5 class="font-bold text-black">Konten Jatim </h4>
                             </div>
                         </div>
@@ -148,7 +148,7 @@
                         <div class="card">
                             <div class="card-body" style="height:300px;">
                             <h4 class="card-title"> Konten Jatim Rank </h4>
-                            <canvas id="myChartPop" ></canvas>  
+                            <canvas id="myChartKJ" ></canvas>  
                             </div>
                             <br>
                         </div>

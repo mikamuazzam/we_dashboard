@@ -38,36 +38,15 @@ class Dashboard extends CI_Controller {
     }
 
    
-    function chart_web()
-    {
-        $this->load->model('dashboard_model');
-        $data= $this->dashboard_model->chart_list();
-        echo json_encode($data);
-    }
+   
     function chart_web_we()
     {
+        $website = $_REQUEST['website'];
         $this->load->model('dashboard_model');
-        $data= $this->dashboard_model->chart_list_we();
+        $data= $this->dashboard_model->chart_list_we($website);
         echo json_encode($data);
     }
-    function chart_web_populis()
-    {
-        $this->load->model('dashboard_model');
-        $data= $this->dashboard_model->chart_list_populis();
-        echo json_encode($data);
-    }
-    function chart_web_hs()
-    {
-        $this->load->model('dashboard_model');
-        $data= $this->dashboard_model->chart_list_hs();
-        echo json_encode($data);
-    }
-    function chart_web_tv()
-    {
-        $this->load->model('dashboard_model');
-        $data= $this->dashboard_model->chart_list_tv();
-        echo json_encode($data);
-    }
+   
 
 
     

@@ -57,14 +57,14 @@
 
     }
     public function chart_web(){
-        $sql = "SELECT DATE_FORMAT(tanggal, '%d %M') tgl,we,hs,populis,topcore,we_tv FROM web_rank  ORDER BY `tanggal` desc  LIMIT 7";
+        $sql = "SELECT DATE_FORMAT(tanggal, '%d %M') tgl,we,hs,populis,konten_jatim,we_tv FROM web_rank  ORDER BY `tanggal` desc  LIMIT 7";
         $query=$this->db->query($sql);
         
         return $query->result();
 
     }
     public function chart_web_last(){
-        $sql = "SELECT DATE_FORMAT(tanggal, '%d %M') tgl,we,hs,populis,topcore,we_tv FROM web_rank ORDER BY `tanggal`  desc LIMIT 1,1";
+        $sql = "SELECT DATE_FORMAT(tanggal, '%d %M') tgl,we,hs,populis,konten_jatim,we_tv FROM web_rank ORDER BY `tanggal`  desc LIMIT 1,1";
         $query=$this->db->query($sql);
         $result = $query->row();
         return $result;
