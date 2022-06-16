@@ -9,6 +9,8 @@
 	}
     public function chart_list($core,$bulan='',$tahun='')
     {
+        if($core=='Q1') $core= "'Q1 Ide','Q1 Revitalisasi'";
+        else $core="'".$core."'";
         $sql = "select corebisnis,jumlah,
                     case when jumlah <=40 then 'red' 
                     when jumlah between 41 and 60 then'#ded43c'
@@ -16,17 +18,19 @@
                     when jumlah between 81 and 100 then '#1e6b24' 
                     when jumlah > 100 then '#3cb5de' else 'grey' end warna from 
                     ( SELECT core_bisnis corebisnis,cast(pencapaian/target*100 as integer) as jumlah
-                     from performance where divisi='$core' and bulan='$bulan' and tahun='$tahun')a";
-                $query=$this->db->query($sql);
+                     from performance where divisi in ($core) and bulan='$bulan' and tahun='$tahun')a";
+                $query=$this->db->query($sql); 
         
         return $query->result_array();
 
     }
     public function chart_list_val($core,$bulan='',$tahun='')
     {
-        
+        if($core=='Q1') $core= "'Q1 Ide','Q1 Revitalisasi'";
+        else $core="'".$core."'";
+
         $sql = "SELECT  core_bisnis  corebisnis,pencapaian/1000000 jum from performance 
-                where divisi='$core'  and bulan='$bulan' and tahun='$tahun'";
+                where divisi in ($core)  and bulan='$bulan' and tahun='$tahun'";
                 $query=$this->db->query($sql);
         
         return $query->result_array();

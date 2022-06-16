@@ -880,7 +880,7 @@ function q1_value(m,y)
 {
 // chart value
 $.ajax({
-	data :{bulan:m,tahun:y,divisi:'Q1'},
+	data :{bulan:m,tahun:y,divisi:'Q1 '},
 	url : base_url+"/crm/chart_web_val",
 	type : "GET",
 	success : function(data)
