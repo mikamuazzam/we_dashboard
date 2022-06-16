@@ -111,7 +111,7 @@
     }
     public function sum_pencapaian(){
         
-        $sql = "SELECT sum(pencapaian)/1000000 as jum FROM `performance` where divisi in('HS','POPULIS','WE','Q1','WEA');";
+        $sql = "SELECT sum(pencapaian)/1000000 as jum FROM `performance` ";
         $query=$this->db->query($sql);
         $result = $query->row();
 
