@@ -57,7 +57,7 @@ class Crm extends CI_Controller {
     function chart_month_q1_val()
     {
         $this->load->model('crm_model');
-        $data= $this->crm_model->chart_month_val('Q1');
+        $data= $this->crm_model->chart_month_val('Q1 Revitalisasi');
         echo json_encode($data);
     } 
     function chart_month_pop_val()
