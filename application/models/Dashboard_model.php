@@ -18,7 +18,7 @@
 
     public function chart_list_we($website){
         $sql = "SELECT DATE_FORMAT(tanggal, '%d %M') tgl ,$website nilai FROM web_rank  
-        where DATE(tanggal) > DATE_SUB(CURDATE(), INTERVAL 7 DAY) order by tanggal    LIMIT 7";
+        where DATE(tanggal) > DATE_SUB(CURDATE(), INTERVAL 30 DAY) order by tanggal    LIMIT 7";
         $query=$this->db->query($sql);
         
         return $query->result_array();

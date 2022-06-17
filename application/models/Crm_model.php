@@ -38,6 +38,8 @@
     }
     public function chart_month_val($core)
     {
+        if($core=='Q1') $core= "'Q1 Ide','Q1 Revitalisasi'";
+        else $core="'".$core."'";
         $sql = "SELECT sum(pencapaian)/1000000 jum,sum(target)/1000000 jum_target ,
                         case when bulan=1 then 'Jan' 
                              when bulan =2 then 'Feb'
@@ -46,7 +48,7 @@
                              when bulan=5 then 'Mei'
                              when bulan=6 then 'Jun'
                              end as  bulan ,tahun FROM `performance` 
-                    where divisi ='$core' group by bulan,tahun; ";
+                    where divisi  in ($core) group by bulan,tahun; ";
         $query=$this->db->query($sql);
         
         return $query->result_array();

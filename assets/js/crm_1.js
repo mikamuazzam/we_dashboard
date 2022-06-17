@@ -1285,7 +1285,8 @@ function q1_month_val()
 					fill: false,
 					backgroundColor: '#DC7633',
 					data: val_dt_target,
-				}]
+				}
+				]
 			};
 	
 			var myoption = {
@@ -1299,7 +1300,8 @@ function q1_month_val()
 					yAxes: [{
 						ticks: {
 						
-						beginAtZero: true
+						beginAtZero: true,
+						max:3000
 						},
 					}],
 					
