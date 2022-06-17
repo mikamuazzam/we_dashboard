@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-date_default_timezone_set('Asia/Dhaka');
+date_default_timezone_set('Asia/Jakarta');
 ?>
 <head>
+    <meta http-equiv="refresh" content="3600">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Tell the browser to be responsive to screen width -->
