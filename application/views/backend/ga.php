@@ -5,7 +5,7 @@
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
                     <h3 class="text-themecolor"><i class="fa fa-braille" style="color:#1976d2"></i>
-                    &nbsp Google Analytics Report  &nbsp; &nbsp;  &nbsp; &nbsp;<font color="black"> <?php echo date('d M Y');?></font></h3>
+                    &nbsp Google Analytics Report  &nbsp; &nbsp; <font color="black"> <?php echo date('d M Y');?></font></h3>
                 </div>
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
