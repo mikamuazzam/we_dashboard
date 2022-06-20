@@ -194,7 +194,7 @@
             </div>  
             
         </div>
-        <iframe width="600" height="800" src="https://datastudio.google.com/embed/reporting/7df2100a-3831-4a41-b7b0-88d0b08afd1b/page/1M" frameborder="0" style="border:0" allowfullscreen></iframe>    
+       
 <script src="<?php echo base_url(); ?>assets/js/dashboard.js"></script>              
 <script>
 </script>                                               
