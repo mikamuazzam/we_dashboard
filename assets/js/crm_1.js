@@ -143,7 +143,19 @@ function kgi_sales()
 			hover: {
 				animationDuration: 1
 			},
-			
+			scales: {
+				yAxes: [{
+					ticks: {
+					
+					beginAtZero: true,
+					max:3000
+					},
+				}],
+				
+					xAxes: [{
+						barThickness :40
+					}]
+				},
 			animation: {
 			duration: 1,
 			onComplete: function () {
@@ -1460,7 +1472,7 @@ function progdiv()
 				label: "Ads Rp. (Juta)",
 				fill: false,
 				backgroundColor:
-					['#b3507d','#1a5e34','#DC7633','#7d142e','#b3507d'],
+					['#b3507d','#1a5e34','#DC7633','#DC7633','#7d142e','#b3507d'],
 					
 				data: val_dt2,
 			}]
@@ -1481,7 +1493,7 @@ function progdiv()
 					ticks: {
 					
 					beginAtZero: true,
-					max:10000
+					max:15000
 					},
 				}],
 				
@@ -1566,6 +1578,19 @@ function comp_list()
 			legend: {
 				position: 'bottom'
 			},
+			scales: {
+				yAxes: [{
+					ticks: {
+					
+					beginAtZero: true,
+					max:1500
+					},
+				}],
+				
+					xAxes: [{
+						barThickness :30
+					}]
+				},
 			animation: {
 			duration: 1,
 			onComplete: function () {
