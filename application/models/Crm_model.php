@@ -47,6 +47,7 @@
                              when bulan=4 then 'Apr'
                              when bulan=5 then 'Mei'
                              when bulan=6 then 'Jun'
+                             when bulan=7 then 'Jul'
                              end as  bulan ,tahun FROM `performance` 
                     where divisi  in ($core) group by bulan,tahun; ";
         $query=$this->db->query($sql);
@@ -104,6 +105,7 @@
                              when bulan=4 then 'Apr'
                              when bulan=5 then 'Mei'
                              when bulan=6 then 'Jun'
+                             when bulan=7 then 'Jul'
                              end as  bulan ,tahun FROM `performance` group by bulan,tahun";
         $query=$this->db->query($sql);
         
