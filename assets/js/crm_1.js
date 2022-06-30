@@ -1583,7 +1583,7 @@ function comp_list()
 					ticks: {
 					
 					beginAtZero: true,
-					max:1500
+					max:2000
 					},
 				}],
 				
