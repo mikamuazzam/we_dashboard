@@ -148,7 +148,7 @@ function kgi_sales()
 					ticks: {
 					
 					beginAtZero: true,
-					max:3000
+					max:5000
 					},
 				}],
 				
