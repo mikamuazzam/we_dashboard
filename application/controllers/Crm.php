@@ -63,7 +63,7 @@ class Crm extends CI_Controller {
     function chart_month_pop_val()
     {
         $this->load->model('crm_model');
-        $data= $this->crm_model->chart_month_val('POPULIS');
+        $data= $this->crm_model->chart_month_val('3');
         echo json_encode($data);
     } 
     
@@ -71,7 +71,7 @@ class Crm extends CI_Controller {
     function chart_month_hs_val()
     {
         $this->load->model('crm_model');
-        $data= $this->crm_model->chart_month_val('HS');
+        $data= $this->crm_model->chart_month_val('2');
         echo json_encode($data);
     }  
     function chart_web()
@@ -97,7 +97,7 @@ class Crm extends CI_Controller {
     function chart_month_we_val()
     {
         $this->load->model('crm_model');
-        $data= $this->crm_model->chart_month_val('WE');
+        $data= $this->crm_model->chart_month_val('1');
         echo json_encode($data);
     }  
     function comp_list()

@@ -191,7 +191,7 @@ function populis_persentage(m,y)
 	nm_bulan= nama_bulan(m);
 	$("#LabelPOP").html("Populis (%) "+nm_bulan+" "+y);
 	$.ajax({
-		data :{bulan:m,tahun:y,divisi:'POPULIS'},
+		data :{bulan:m,tahun:y,divisi:'3'},
 		url : base_url+"/crm/chart_web",
 		type : "GET",
 		success : function(data)
@@ -302,7 +302,7 @@ function q1_persentage(m,y)
 	nm_bulan= nama_bulan(m);
 	$("#LabelQ1").html("Quadrant 1 (%) "+nm_bulan+" "+y);
 	$.ajax({
-		data :{bulan:m,tahun:y,divisi:'Q1'},
+		data :{bulan:m,tahun:y,divisi:'4'},
 		url : base_url+"/crm/chart_web",
 		type : "GET",
 		success : function(data)
@@ -352,8 +352,7 @@ function q1_persentage(m,y)
 					yAxes: [{
 						ticks: {
 						stepSize: 50,
-						beginAtZero: true,
-						max:200
+						beginAtZero: true
 						},
 					}],
 					xAxes: [{
@@ -411,7 +410,7 @@ function hs_persentage(m,y)
 	nm_bulan= nama_bulan(m);
 	$("#LabelHS").html("HS (%) "+nm_bulan+" "+y);
 	$.ajax({
-		data :{bulan:m,tahun:y,divisi:'HS'},
+		data :{bulan:m,tahun:y,divisi:'2'},
 		url : base_url+"/crm/chart_web",
 		type : "GET",
 		success : function(data)
@@ -458,8 +457,7 @@ function hs_persentage(m,y)
 					yAxes: [{
 						ticks: {
 						stepSize: 50,
-						beginAtZero: true,
-						max:200
+						beginAtZero: true
 						},
 					}],
 					xAxes: [{
@@ -535,7 +533,7 @@ function we_persentage(m,y)
 	nm_bulan= nama_bulan(m);
 	$("#LabelWE").html("WE (%) "+nm_bulan+" "+y);
 	$.ajax({
-		data :{bulan:m,tahun:y,divisi:'WE'},
+		data :{bulan:m,tahun:y,divisi:'1'},
 		url : base_url+"/crm/chart_web",
 		type : "GET",
 		success : function(data)
@@ -639,7 +637,7 @@ function we_persentage(m,y)
 function we_value(m,y)
 {
 	$.ajax({
-		data :{bulan:m,tahun:y,divisi:'WE'},
+		data :{bulan:m,tahun:y,divisi:'1'},
 		url : base_url+"/crm/chart_web_val",
 		type : "GET",
 		success : function(data)
@@ -724,7 +722,7 @@ function hs_value(m,y)
 	
 // chart value
 $.ajax({
-	data :{bulan:m,tahun:y,divisi:'HS'},
+	data :{bulan:m,tahun:y,divisi:'2'},
 	url : base_url+"/crm/chart_web_val",
 	type : "GET",
 	success : function(data)
@@ -809,7 +807,7 @@ function populis_value(m,y)
 {
 	// chart value
 	$.ajax({
-		data :{bulan:m,tahun:y,divisi:'POPULIS'},
+		data :{bulan:m,tahun:y,divisi:'3'},
 		url : base_url+"/crm/chart_web_val",
 		type : "GET",
 		success : function(data)
@@ -892,7 +890,7 @@ function q1_value(m,y)
 {
 // chart value
 $.ajax({
-	data :{bulan:m,tahun:y,divisi:'Q1'},
+	data :{bulan:m,tahun:y,divisi:'4'},
 	url : base_url+"/crm/chart_web_val",
 	type : "GET",
 	success : function(data)
@@ -1123,8 +1121,7 @@ function hs_month_val()
 					yAxes: [{
 						ticks: {
 						
-						beginAtZero: true,
-						max:1000
+						beginAtZero: true
 						},
 					}],
 					xAxes: [{

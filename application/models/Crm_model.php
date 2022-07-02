@@ -9,16 +9,19 @@
 	}
     public function chart_list($core,$bulan='',$tahun='')
     {
-        if($core=='Q1') $core= "'Q1 Ide','Q1 Revitalisasi'";
-        else $core="'".$core."'";
-        $sql = "select corebisnis,jumlah,
+        if($core=='4') $core= "4,5";
+        
+        $sql = "select  corebisnis,jumlah,
                     case when jumlah <=40 then 'red' 
                     when jumlah between 41 and 60 then'#ded43c'
                     when jumlah between 61 and 80 then '#6b4c1e' 
                     when jumlah between 81 and 100 then '#1e6b24' 
                     when jumlah > 100 then '#3cb5de' else 'grey' end warna from 
-                    ( SELECT core_bisnis corebisnis,cast(pencapaian/target*100 as integer) as jumlah
-                     from performance where divisi in ($core) and bulan='$bulan' and tahun='$tahun')a";
+                    ( SELECT nama_core_bisnis corebisnis,cast(pencapaian/target*100 as integer) as jumlah
+                     from performance a
+                     inner join divisi b on a.id_divisi = b.id
+                     inner join core_bisnis c on a.id_core_bisnis = c.id
+                     where id_divisi in ($core) and bulan='$bulan' and tahun='$tahun')a";
                 $query=$this->db->query($sql); 
         
         return $query->result_array();
@@ -26,11 +29,12 @@
     }
     public function chart_list_val($core,$bulan='',$tahun='')
     {
-        if($core=='Q1') $core= "'Q1 Ide','Q1 Revitalisasi'";
-        else $core="'".$core."'";
-
-        $sql = "SELECT  core_bisnis  corebisnis,pencapaian/1000000 jum from performance 
-                where divisi in ($core)  and bulan='$bulan' and tahun='$tahun'";
+        if($core=='4') $core= "4,5";
+        
+        $sql = "SELECT  nama_core_bisnis  corebisnis,pencapaian/1000000 jum from performance a
+                inner join divisi b on a.id_divisi = b.id
+                inner join core_bisnis c on a.id_core_bisnis = c.id
+                where id_divisi in ($core)  and bulan='$bulan' and tahun='$tahun'";
                 $query=$this->db->query($sql);
         
         return $query->result_array();
@@ -38,8 +42,8 @@
     }
     public function chart_month_val($core)
     {
-        if($core=='Q1') $core= "'Q1 Ide','Q1 Revitalisasi'";
-        else $core="'".$core."'";
+        if($core=='Q1') $core= "4,5";
+      
         $sql = "SELECT sum(pencapaian)/1000000 jum,sum(target)/1000000 jum_target ,
                         case when bulan=1 then 'Jan' 
                              when bulan =2 then 'Feb'
@@ -48,8 +52,10 @@
                              when bulan=5 then 'Mei'
                              when bulan=6 then 'Jun'
                              when bulan=7 then 'Jul'
-                             end as  bulan ,tahun FROM `performance` 
-                    where divisi  in ($core) group by bulan,tahun; ";
+                             when bulan=8 then 'Aug'
+                             end as  bulan ,tahun FROM `performance` a
+                        inner join divisi b on a.id_divisi = b.id
+                    where id_divisi  in ($core) group by bulan,tahun; ";
         $query=$this->db->query($sql);
         
         return $query->result_array();
@@ -106,13 +112,19 @@
                              when bulan=5 then 'Mei'
                              when bulan=6 then 'Jun'
                              when bulan=7 then 'Jul'
-                             end as  bulan ,tahun FROM `performance` group by bulan,tahun";
+                             when bulan =8 then 'Aug'
+                             end as  bulan ,tahun FROM `performance` 
+                             group by bulan,tahun";
         $query=$this->db->query($sql);
         
         return $query->result_array();
     }
     public function divisi(){
-        $sql = "SELECT sum(pencapaian)/1000000 as jum,divisi FROM `performance` group by divisi";
+        $sql = "SELECT sum(pencapaian)/1000000 as jum,nama_divisi divisi 
+            FROM `performance` a
+            inner join divisi b on a.id_divisi =b.id
+        
+            group by nama_divisi";
         $query=$this->db->query($sql);
         
         return $query->result_array();
