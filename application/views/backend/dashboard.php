@@ -129,8 +129,8 @@
                     <div class="col-lg-3"  >
                         <div class="card">
                             <div class="card-body" style="height:300px;">
-                            <h4 class="card-title"> HS Rank </h4>
-                            <canvas id="myChartHS" ></canvas>  
+                            <h4 class="card-title"> Populis Rank </h4>
+                            <canvas id="myChartPop" ></canvas>  
                             </div>
                             <br>
                         </div>
@@ -138,12 +138,13 @@
                     <div class="col-lg-3"  >
                         <div class="card">
                             <div class="card-body" style="height:300px;">
-                            <h4 class="card-title"> Populis Rank </h4>
-                            <canvas id="myChartPop" ></canvas>  
+                            <h4 class="card-title"> HS Rank </h4>
+                            <canvas id="myChartHS" ></canvas>  
                             </div>
                             <br>
                         </div>
                     </div>
+                    
                     <div class="col-lg-3"  >
                         <div class="card">
                             <div class="card-body" style="height:300px;">

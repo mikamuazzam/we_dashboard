@@ -46,13 +46,13 @@ $(function() {
 			options: {
 				scales: {
 					yAxes: [{
-					  ticks: {
-						stepSize: 1,
-						beginAtZero: true,
-						max :6,
-						min :-6
-					  },
-					}],
+						ticks: {
+						  stepSize: 20,
+						  beginAtZero: true,
+						  max : 100,
+						  min :-100
+						},
+					  }],
 				  },
 				  responsive: true,
 				  maintainAspectRatio: false
@@ -109,10 +109,10 @@ $(function() {
 				scales: {
 					yAxes: [{
 					  ticks: {
-						stepSize: 1,
+						stepSize: 20,
 						beginAtZero: true,
-						max : 6,
-						min :-6
+						max : 100,
+						min :-100
 					  },
 					}],
 				  },
@@ -170,13 +170,13 @@ $(function() {
 			options: {
 				scales: {
 					yAxes: [{
-					  ticks: {
-						stepSize: 1,
-						beginAtZero: true,
-						max:6,
-						min :-6
-					  },
-					}],
+						ticks: {
+						  stepSize: 20,
+						  beginAtZero: true,
+						  max : 100,
+						  min :-100
+						},
+					  }],
 				  },
 				  responsive: true,
 				  maintainAspectRatio: false
@@ -232,13 +232,13 @@ $(function() {
 			options: {
 				scales: {
 					yAxes: [{
-					  ticks: {
-						stepSize: 1,
-						beginAtZero: true,
-						max:6,
-						min :-6
-					  },
-					}],
+						ticks: {
+						  stepSize: 20,
+						  beginAtZero: true,
+						  max : 100,
+						  min :-100
+						},
+					  }],
 				  },
 				  responsive: true,
 				  maintainAspectRatio: false
