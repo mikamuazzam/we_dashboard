@@ -24,7 +24,7 @@ class Employee extends CI_Controller {
         $this->load->model('dashboard_model');
         $this->load->model('employee_model');
         $this->load->model('login_model');
-        $this->load->model('payroll_model');
+       
         $this->load->model('settings_model');
         $this->load->model('leave_model');
   
