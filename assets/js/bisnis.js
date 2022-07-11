@@ -1069,6 +1069,7 @@ function ae1_value(m,y)
 			data = JSON.parse(data);  
             const labeldt = [];
             const val_dt= [];
+			const target_dt= [];
 		
             for (var dt of data) {
                 var cb = dt.name;
@@ -1077,15 +1078,24 @@ function ae1_value(m,y)
                 var get_val= parseInt(dt.jumlah) || 0;
                 val_dt.push(get_val)
 
+				var get_target= parseInt(dt.target) || 0;
+                target_dt.push(get_target)
+
             }
 			
 			var myData = {
 				labels:labeldt,
 				datasets: [{
-					label: "New AE Performance Value Rp. (Juta)",
+					label: "Value",
 					fill: false,
 					backgroundColor: 'rgba(54, 162, 235, 0.8)',
 					data: val_dt,
+				},
+				{
+					label: "Target",
+					fill: false,
+					backgroundColor: 'rgba(23, 73, 145, 0.8)',
+					data: target_dt,
 				}]
 			};
 	
@@ -1094,7 +1104,7 @@ function ae1_value(m,y)
 					enabled: true
 				},
 				legend: {
-					display: false
+					position: 'bottom'
 				},
 				scales: {
 					yAxes: [{
@@ -1258,6 +1268,7 @@ function ae_value(m,y)
 			data = JSON.parse(data);  
             const labeldt = [];
             const val_dt= [];
+			const target_dt= [];
 		
             for (var dt of data) {
                 var cb = dt.name;
@@ -1265,16 +1276,24 @@ function ae_value(m,y)
 
                 var get_val= parseInt(dt.jumlah) || 0;
                 val_dt.push(get_val)
+				var get_target= parseInt(dt.target) || 0;
+                target_dt.push(get_target)
 
             }
 			
 			var myData = {
 				labels:labeldt,
 				datasets: [{
-					label: "New AE Performance Value Rp. (Juta)",
+					label: "Value",
 					fill: false,
 					backgroundColor: 'rgba(54, 162, 235, 0.8)',
 					data: val_dt,
+				},
+				{
+					label: "Target",
+					fill: false,
+					backgroundColor: 'rgba(23, 73, 145, 0.8)',
+					data: target_dt,
 				}]
 			};
 	
@@ -1283,7 +1302,7 @@ function ae_value(m,y)
 					enabled: true
 				},
 				legend: {
-					display: false
+					position: 'bottom'
 				},
 				scales: {
 					yAxes: [{
@@ -1291,9 +1310,6 @@ function ae_value(m,y)
 						
 						beginAtZero: true
 						},
-					}],
-					xAxes: [{
-						barThickness :50
 					}]
 					}
 					,
