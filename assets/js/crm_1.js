@@ -6,7 +6,6 @@ $(function() {
 
     load_chart();
 	
-
 	we_month_val();
 	hs_month_val();
 	populis_month_val();
@@ -17,9 +16,6 @@ $(function() {
 	comp_list();
 	kgi_sales();
 // chart value
-	
-
-	
 	
 });
 
@@ -1030,7 +1026,7 @@ function we_month_val()
 						},
 					}],
 					xAxes: [{
-						barThickness :30
+						barThickness :20
 					}]
 					},
 					animation: {
@@ -1125,7 +1121,7 @@ function hs_month_val()
 						},
 					}],
 					xAxes: [{
-						barThickness :30
+						barThickness :20
 					}]
 					},
 					animation: {
@@ -1220,7 +1216,7 @@ function populis_month_val()
 					}],
 					
 						xAxes: [{
-							barThickness :30
+							barThickness :20
 						}]
 					},
 					animation: {
@@ -1315,7 +1311,7 @@ function q1_month_val()
 					}],
 					
 						xAxes: [{
-							barThickness :30
+							barThickness :20
 						}]
 					},
 					animation: {

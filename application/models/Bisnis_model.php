@@ -10,7 +10,7 @@
    
     public function chart_month_val($core)
     {
-        if($core=='Q1') $core= "4,5";
+        
       
         $sql = "SELECT sum(pencapaian)/1000000 jum,sum(target)/1000000 jum_target ,
                         case when bulan=1 then 'Jan' 
@@ -45,26 +45,7 @@
 
         return $result;
     }
-    public function deals($stage){
-        if($stage=='won') 
-        {
-            $sql = "SELECT count(*)jum,stage from deals where stage in ('INVOICE SENT','AGING','PAYMENT (CASH IN)','WON (PO)')";
-        }
-        else if($stage=='New Progress') 
-        {
-            $sql = "SELECT count(*)jum,stage from deals where stage in ('New Progress','MEETING HELD')";
-        }
-        else
-        {
-            $sql = "SELECT count(*)jum,stage from deals where stage = '$stage' ";
-        }
-       
-        $query=$this->db->query($sql);
-        $result = $query->row();
-
-        return $result;
-
-    }
+    
     public function divisi_perbulan(){
         $sql = " SELECT sum(pencapaian)/1000000 as jum,
                             case when bulan=1 then 'Jan' 
@@ -85,7 +66,7 @@
         $sql = "SELECT sum(pencapaian)/1000000 as jum,nama_divisi divisi 
             FROM `performance` a
             inner join divisi b on a.id_divisi =b.id
-        
+            where b.id != 5
             group by nama_divisi";
         $query=$this->db->query($sql);
         
@@ -93,7 +74,7 @@
     }
     public function sum_pencapaian(){
         
-        $sql = "SELECT sum(pencapaian)/1000000 as jum FROM `performance` ";
+        $sql = "SELECT sum(pencapaian)/1000000 as jum FROM `performance`  where id_divisi != 5 ";
         $query=$this->db->query($sql);
         $result = $query->row();
 
@@ -178,5 +159,39 @@
 
     }
     
+    public function chart_list($core,$bulan='',$tahun='')
+    {
+        
+        
+        $sql = "select  corebisnis,jumlah,
+                    case when jumlah <=40 then 'red' 
+                    when jumlah between 41 and 60 then'#ded43c'
+                    when jumlah between 61 and 80 then '#6b4c1e' 
+                    when jumlah between 81 and 100 then '#1e6b24' 
+                    when jumlah > 100 then '#3cb5de' else 'grey' end warna from 
+                    ( SELECT nama_core_bisnis corebisnis,cast(pencapaian/target*100 as integer) as jumlah
+                     from performance a
+                     inner join divisi b on a.id_divisi = b.id
+                     inner join core_bisnis c on a.id_core_bisnis = c.id
+                     where id_divisi in ($core) and bulan='$bulan' and tahun='$tahun')a";
+                $query=$this->db->query($sql); 
+        
+        return $query->result_array();
+
     }
+    public function chart_list_val($core,$bulan='',$tahun='')
+    {
+       
+        
+        $sql = "SELECT  nama_core_bisnis  corebisnis,pencapaian/1000000 jum from performance a
+                inner join divisi b on a.id_divisi = b.id
+                inner join core_bisnis c on a.id_core_bisnis = c.id
+                where id_divisi =$core  and bulan='$bulan' and tahun='$tahun'";
+                $query=$this->db->query($sql);
+        
+        return $query->result_array();
+
+    }
+    
+}
 ?>

@@ -25,6 +25,33 @@ class Bisnis extends CI_Controller {
         #$data['settingsvalue'] = $this->dashboard_model->GetSettingsValue();
                     $this->load->view('login');
     }
+    function chart_month_val()
+    {
+        $coreid=$_REQUEST['divisi'];
+        $this->load->model('crm_model');
+        $data= $this->crm_model->chart_month_val($coreid);
+        echo json_encode($data);
+    }  
+    function chart_web()
+    {
+        $bulan=$_REQUEST['bulan'];
+        $tahun=$_REQUEST['tahun'];
+        $divisi=$_REQUEST['divisi'];
+
+        $this->load->model('bisnis_model');
+        $data= $this->bisnis_model->chart_list($divisi,$bulan,$tahun);
+        echo json_encode($data);
+    } 
+    function chart_web_val()
+    {
+        $bulan=$_REQUEST['bulan'];
+        $tahun=$_REQUEST['tahun'];
+        $divisi=$_REQUEST['divisi'];
+
+        $this->load->model('bisnis_model');
+        $data= $this->bisnis_model->chart_list_val($divisi,$bulan,$tahun);
+        echo json_encode($data);
+    }  
     function bisnis(){
         
         if($this->session->userdata('user_login_access') != False) {

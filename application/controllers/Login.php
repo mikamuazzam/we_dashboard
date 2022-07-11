@@ -29,8 +29,10 @@ class Login extends CI_Controller {
 	public function index()
 	{
 		#Redirect to Admin dashboard after authentication
-        if ($this->session->userdata('user_login_access') == 1)
-            redirect(base_url() . 'dashboard');
+        if ($this->session->userdata('user_login_access') == 1 and $this->session->userdata('dept')==3) 
+            redirect(base_url() . 'bisnis');
+		else
+			redirect(base_url() . 'dashboard');
             $data=array();
             #$data['settingsvalue'] = $this->dashboard_model->GetSettingsValue();
 			$this->load->view('login');

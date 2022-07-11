@@ -126,7 +126,7 @@
                         <div class="card">
                             <div class="card-body">
                             <h6 class="card-title"> <label id="LabelPersen"></label></h6>
-                            <canvas id="ChartAEPersen" height="150px" ></canvas>  
+                            <canvas id="ChartAEPersen" height="120px" ></canvas>  
                             </div>
                             <br>
                         </div>
@@ -135,7 +135,7 @@
                         <div class="card">
                             <div class="card-body">
                             <h6 class="card-title"> <label id="Labelvalue"></label></h6>
-                            <canvas id="ChartAEValue" height="150px" ></canvas>  
+                            <canvas id="ChartAEValue" height="120px" ></canvas>  
                             </div>
                             <br>
                         </div>
@@ -143,7 +143,133 @@
                    
                 </div>  
             </div>
-           
+            <div class="container-fluid">
+                <div class="row page-titles">
+                    <div class="col-md-12 align-self-center">
+                        <h4 class="text-themecolor"><i class="fa fa-braille" style="color:#1976d2"></i>
+                        &nbsp Core Bisnis by Persentage
+                        (
+                            <font color="#3cb5de">>100 %</font>,
+                            <font color="#1e6b24">81-100 %</font>,
+                            <font color="#6b4c1e">61-80 %</font>,
+                            <font color="#ded43c">41-60 %</font>,
+                            <font color="red"> <= 40 %</font>
+                        )
+            
+                    </h4>     
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <div class="card-body">
+                            <h6 class="card-title"> <label id="LabelWE"></label></h6>
+                            <canvas id="ChartWEPersen" height="300px" ></canvas>  
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <div class="card-body">
+                            <h6 class="card-title">  <label id="LabelHS"></label></h6>
+                            <canvas id="ChartHSPersen" height="300px" ></canvas>  
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                   
+                    <div class="col-lg-4">
+                    <div class="card">
+                            <div class="card-body">
+                            <h6 class="card-title"> <label id="LabelQ1"></label></h6>
+                            <canvas id="ChartQ1Persen" height="300px" ></canvas>  
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                </div>   
+            </div> 
+            
+            <div class="container-fluid">
+                <div class="row page-titles">
+                        <div class="col-md-12 align-self-center">
+                            <h3 class="text-themecolor"><i class="fa fa-braille" style="color:#1976d2"></i>
+                            &nbsp Core Bisnis by Value Rp. (Juta) <label id="LabelAll"></label>
+                           
+                        </h3>   
+                        </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <div class="card-body">
+                            <h6 class="card-title">  WE </h6>
+                            <canvas id="ChartWEValue"  height="300px;"></canvas>  
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <div class="card-body">
+                            <h6 class="card-title"> HS </h6>
+                            <canvas id="ChartHSValue" height="300px;"></canvas> 
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4">
+                        <div class="card">
+                                <div class="card-body">
+                                <h6 class="card-title">Quadrant 1 </h6>
+                                <canvas id="ChartQ1Value" height="300px;"></canvas>   
+                                </div>
+                                <br>
+                        </div>
+                    </div>
+                </div>   
+            </div>  
+            <div class="container-fluid">
+                <div class="row page-titles">
+                    <div class="col-md-12 align-self-center">
+                        <h3 class="text-themecolor"><i class="fa fa-braille" style="color:#1976d2"></i>
+                        &nbsp Monthly Core Bisnis by Value Rp. (Juta) <?php echo date('Y');?> 
+                        </h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <div class="card-body">
+                            <h6 class="card-title"> Warta Ekonomi </h6>
+                            <canvas id="ChartWEMonthly" height="200px;"></canvas>  
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <div class="card-body">
+                            <h6 class="card-title"> Herstory</h6>
+                            <canvas id="ChartHSMonthly" height="200px;"></canvas>  
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <div class="card-body">
+                            <h6 class="card-title"> Quadrant 1</h6>
+                            <canvas id="ChartQ1Monthly" height="200px;"></canvas>  
+                            </div>
+                            <br>
+                        </div>
+                    </div>  
+                </div>
+            </div>
             <div class="container-fluid">
                 <div class="row">
                      <!-- Column -->
