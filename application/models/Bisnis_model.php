@@ -116,7 +116,7 @@
         if(empty($bulan)) $bulan=date('m');
         if(empty($tahun)) $tahun=date('Y');
        
-        $sql = "SELECT name,pencapaian/1000000 as jumlah
+        $sql = "SELECT name,pencapaian/1000000 as jumlah,target/1000000 as target
                 FROM `performance_ae` a inner join employee_ae b on employee_id=b.id
                 where TIMESTAMPDIFF(MONTH, hiredate,CURRENT_DATE()) <=12 and bulan=$bulan 
                 and tahun=$tahun ";
@@ -149,7 +149,7 @@
         if(empty($bulan)) $bulan=date('m');
         if(empty($tahun)) $tahun=date('Y');
        
-        $sql = "SELECT name,pencapaian/1000000 as jumlah
+        $sql = "SELECT name,pencapaian/1000000 as jumlah,target/1000000 as target
                 FROM `performance_ae` a inner join employee_ae b on employee_id=b.id
                 where TIMESTAMPDIFF(MONTH, hiredate,CURRENT_DATE()) > 12 and bulan=$bulan 
                 and tahun=$tahun ";
@@ -161,8 +161,6 @@
     
     public function chart_list($core,$bulan='',$tahun='')
     {
-        
-        
         $sql = "select  corebisnis,jumlah,
                     case when jumlah <=40 then 'red' 
                     when jumlah between 41 and 60 then'#ded43c'
