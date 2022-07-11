@@ -106,7 +106,7 @@
                                         else  if($nilai_tc_now > $nilai_tc_last) echo "<font color='red'>&darr; (".$nilai_tc.") </font>";
                                         else echo "<font color='blue'> &uarr;(".$nilai_tc1.") </font>";
                                     ?> </h1>
-                                <h5 class="font-bold text-black">Konten Jatim </h4>
+                                 <img src="<?php echo base_url();?>assets/images/kj.jpg" style="width:150px;height:25px;"/>
                             </div>
                         </div>
                     </div>
