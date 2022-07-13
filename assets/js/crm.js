@@ -6,7 +6,6 @@ $(function() {
 
     load_chart();
 	
-
 	we_month_val();
 	hs_month_val();
 	populis_month_val();
@@ -15,11 +14,9 @@ $(function() {
 	progmonth();
 	progdiv();
 	comp_list();
+	get_comp_list();
 	kgi_sales();
 // chart value
-	
-
-	
 	
 });
 
@@ -143,7 +140,19 @@ function kgi_sales()
 			hover: {
 				animationDuration: 1
 			},
-			
+			scales: {
+				yAxes: [{
+					ticks: {
+					
+					beginAtZero: true,
+					max:5000
+					},
+				}],
+				
+					xAxes: [{
+						barThickness :40
+					}]
+				},
 			animation: {
 			duration: 1,
 			onComplete: function () {
@@ -179,7 +188,7 @@ function populis_persentage(m,y)
 	nm_bulan= nama_bulan(m);
 	$("#LabelPOP").html("Populis (%) "+nm_bulan+" "+y);
 	$.ajax({
-		data :{bulan:m,tahun:y,divisi:'POPULIS'},
+		data :{bulan:m,tahun:y,divisi:'3'},
 		url : base_url+"/crm/chart_web",
 		type : "GET",
 		success : function(data)
@@ -290,7 +299,7 @@ function q1_persentage(m,y)
 	nm_bulan= nama_bulan(m);
 	$("#LabelQ1").html("Quadrant 1 (%) "+nm_bulan+" "+y);
 	$.ajax({
-		data :{bulan:m,tahun:y,divisi:'Q1'},
+		data :{bulan:m,tahun:y,divisi:'4'},
 		url : base_url+"/crm/chart_web",
 		type : "GET",
 		success : function(data)
@@ -340,8 +349,7 @@ function q1_persentage(m,y)
 					yAxes: [{
 						ticks: {
 						stepSize: 50,
-						beginAtZero: true,
-						max:200
+						beginAtZero: true
 						},
 					}],
 					xAxes: [{
@@ -399,7 +407,7 @@ function hs_persentage(m,y)
 	nm_bulan= nama_bulan(m);
 	$("#LabelHS").html("HS (%) "+nm_bulan+" "+y);
 	$.ajax({
-		data :{bulan:m,tahun:y,divisi:'HS'},
+		data :{bulan:m,tahun:y,divisi:'2'},
 		url : base_url+"/crm/chart_web",
 		type : "GET",
 		success : function(data)
@@ -446,8 +454,7 @@ function hs_persentage(m,y)
 					yAxes: [{
 						ticks: {
 						stepSize: 50,
-						beginAtZero: true,
-						max:200
+						beginAtZero: true
 						},
 					}],
 					xAxes: [{
@@ -523,7 +530,7 @@ function we_persentage(m,y)
 	nm_bulan= nama_bulan(m);
 	$("#LabelWE").html("WE (%) "+nm_bulan+" "+y);
 	$.ajax({
-		data :{bulan:m,tahun:y,divisi:'WE'},
+		data :{bulan:m,tahun:y,divisi:'1'},
 		url : base_url+"/crm/chart_web",
 		type : "GET",
 		success : function(data)
@@ -627,7 +634,7 @@ function we_persentage(m,y)
 function we_value(m,y)
 {
 	$.ajax({
-		data :{bulan:m,tahun:y,divisi:'WE'},
+		data :{bulan:m,tahun:y,divisi:'1'},
 		url : base_url+"/crm/chart_web_val",
 		type : "GET",
 		success : function(data)
@@ -712,7 +719,7 @@ function hs_value(m,y)
 	
 // chart value
 $.ajax({
-	data :{bulan:m,tahun:y,divisi:'HS'},
+	data :{bulan:m,tahun:y,divisi:'2'},
 	url : base_url+"/crm/chart_web_val",
 	type : "GET",
 	success : function(data)
@@ -797,7 +804,7 @@ function populis_value(m,y)
 {
 	// chart value
 	$.ajax({
-		data :{bulan:m,tahun:y,divisi:'POPULIS'},
+		data :{bulan:m,tahun:y,divisi:'3'},
 		url : base_url+"/crm/chart_web_val",
 		type : "GET",
 		success : function(data)
@@ -880,7 +887,7 @@ function q1_value(m,y)
 {
 // chart value
 $.ajax({
-	data :{bulan:m,tahun:y,divisi:'Q1'},
+	data :{bulan:m,tahun:y,divisi:'4'},
 	url : base_url+"/crm/chart_web_val",
 	type : "GET",
 	success : function(data)
@@ -1020,7 +1027,7 @@ function we_month_val()
 						},
 					}],
 					xAxes: [{
-						barThickness :30
+						barThickness :20
 					}]
 					},
 					animation: {
@@ -1111,12 +1118,11 @@ function hs_month_val()
 					yAxes: [{
 						ticks: {
 						
-						beginAtZero: true,
-						max:1000
+						beginAtZero: true
 						},
 					}],
 					xAxes: [{
-						barThickness :30
+						barThickness :20
 					}]
 					},
 					animation: {
@@ -1211,7 +1217,7 @@ function populis_month_val()
 					}],
 					
 						xAxes: [{
-							barThickness :30
+							barThickness :20
 						}]
 					},
 					animation: {
@@ -1285,7 +1291,8 @@ function q1_month_val()
 					fill: false,
 					backgroundColor: '#DC7633',
 					data: val_dt_target,
-				}]
+				}
+				]
 			};
 	
 			var myoption = {
@@ -1299,12 +1306,13 @@ function q1_month_val()
 					yAxes: [{
 						ticks: {
 						
-						beginAtZero: true
+						beginAtZero: true,
+						max:3000
 						},
 					}],
 					
 						xAxes: [{
-							barThickness :30
+							barThickness :20
 						}]
 					},
 					animation: {
@@ -1458,7 +1466,7 @@ function progdiv()
 				label: "Ads Rp. (Juta)",
 				fill: false,
 				backgroundColor:
-					['#b3507d','#1a5e34','#DC7633','#7d142e','#b3507d'],
+					['#b3507d','#1a5e34','#DC7633','#DC7633','#7d142e','#b3507d'],
 					
 				data: val_dt2,
 			}]
@@ -1479,7 +1487,7 @@ function progdiv()
 					ticks: {
 					
 					beginAtZero: true,
-					max:10000
+					max:15000
 					},
 				}],
 				
@@ -1516,7 +1524,39 @@ function progdiv()
 		}
 		});
 }
+function get_comp_list()
+{
+	$("#complist").DataTable({
+		destroy: true,
+		processing: true,
+		serverSide: true,
+		paging: true,
+		info: false,
+		searching: true,
+		
+		pageLength: 10,
+		lengthMenu: [10, 25, 50, 75],
+		// scrollX: true,
+		// scrollCollapse: true,
+		"createdRow": function( row, data, dataIndex){
+				$(row).css({"background-color":data['warna'] })
+			
+		},
+		columns: [
+			{ data: "name", title: "Company name" },
+			{ data: "jumlah", title: "Revenue" ,className: "text-right"}
+		],
+		ajax: {
+			
+			url: base_url+"bisnis/comp_list_tabel",
+			type: 'post',
+			dataType: 'json',
+			dataSrc:""
+		},
+	});
 
+
+}
 function comp_list()
 {
 			//chart 3
@@ -1564,6 +1604,19 @@ function comp_list()
 			legend: {
 				position: 'bottom'
 			},
+			scales: {
+				yAxes: [{
+					ticks: {
+					
+					beginAtZero: true,
+					max:2000
+					},
+				}],
+				
+					xAxes: [{
+						barThickness :30
+					}]
+				},
 			animation: {
 			duration: 1,
 			onComplete: function () {
