@@ -25,23 +25,8 @@ class Bisnis extends CI_Controller {
         #$data['settingsvalue'] = $this->dashboard_model->GetSettingsValue();
                     $this->load->view('login');
     }
-    function chart_month_val()
-    {
-        $coreid=$_REQUEST['divisi'];
-        $this->load->model('crm_model');
-        $data= $this->crm_model->chart_month_val($coreid);
-        echo json_encode($data);
-    }  
-    function chart_web()
-    {
-        $bulan=$_REQUEST['bulan'];
-        $tahun=$_REQUEST['tahun'];
-        $divisi=$_REQUEST['divisi'];
-
-        $this->load->model('bisnis_model');
-        $data= $this->bisnis_model->chart_list($divisi,$bulan,$tahun);
-        echo json_encode($data);
-    } 
+    
+    
     function chart_web_val()
     {
         $bulan=$_REQUEST['bulan'];
@@ -120,8 +105,16 @@ class Bisnis extends CI_Controller {
     
     function comp_list()
     {
+       
         $this->load->model('bisnis_model');
         $data= $this->bisnis_model->comp_list();
+        echo json_encode($data);
+    }
+    function comp_list_tabel()
+    {
+       
+        $this->load->model('bisnis_model');
+        $data= $this->bisnis_model->comp_list_tabel();
         echo json_encode($data);
     }
     function deal_list()
@@ -130,18 +123,7 @@ class Bisnis extends CI_Controller {
         $data= $this->bisnis_model->deal_list();
         echo json_encode($data);
     }
-    function get_div()
-    {
-        $this->load->model('bisnis_model');
-        $data= $this->bisnis_model->divisi();
-        echo json_encode($data);
-    }
-    function get_div_month()
-    {
-        $this->load->model('bisnis_model');
-        $data= $this->bisnis_model->divisi_perbulan();
-        echo json_encode($data);
-    }
+   
 
 
 

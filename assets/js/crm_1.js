@@ -14,6 +14,7 @@ $(function() {
 	progmonth();
 	progdiv();
 	comp_list();
+	get_comp_list();
 	kgi_sales();
 // chart value
 	
@@ -1523,7 +1524,39 @@ function progdiv()
 		}
 		});
 }
+function get_comp_list()
+{
+	$("#complist").DataTable({
+		destroy: true,
+		processing: true,
+		serverSide: true,
+		paging: true,
+		info: false,
+		searching: true,
+		
+		pageLength: 10,
+		lengthMenu: [10, 25, 50, 75],
+		// scrollX: true,
+		// scrollCollapse: true,
+		"createdRow": function( row, data, dataIndex){
+				$(row).css({"background-color":data['warna'] })
+			
+		},
+		columns: [
+			{ data: "name", title: "Company name" },
+			{ data: "jumlah", title: "Revenue" ,className: "text-right"}
+		],
+		ajax: {
+			
+			url: base_url+"bisnis/comp_list_tabel",
+			type: 'post',
+			dataType: 'json',
+			dataSrc:""
+		},
+	});
 
+
+}
 function comp_list()
 {
 			//chart 3

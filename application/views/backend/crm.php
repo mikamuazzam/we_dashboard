@@ -378,6 +378,20 @@
                     </div>   
                 </div>
             </div>
+            <div class="container-fluid">
+                <div class="row">    
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">Company list
+                            <div class="" >
+                                    <table id="complist" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+                                       
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>    
+            </div>
         </div>
        
 <script src="<?php echo base_url(); ?>assets/js/crm_1.js"></script>              
