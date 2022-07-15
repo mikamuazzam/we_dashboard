@@ -71,6 +71,16 @@ class Bisnis extends CI_Controller {
         $data= $this->bisnis_model->ae_new_persen($bulan,$tahun);
         echo json_encode($data);
     } 
+    function divisi_quartal()
+    {
+        $divisi=$_REQUEST['divisi'];
+        $tahun=$_REQUEST['tahun'];
+        
+
+        $this->load->model('bisnis_model');
+        $data= $this->bisnis_model->divisi_quartal($tahun,$divisi);
+        echo json_encode($data);
+    } 
     function ae_new_value()
     {
         $bulan=$_REQUEST['bulan'];
@@ -99,6 +109,13 @@ class Bisnis extends CI_Controller {
 
         $this->load->model('bisnis_model');
         $data= $this->bisnis_model->ae_value($bulan,$tahun);
+        echo json_encode($data);
+    }  
+    function ae_new_quartal()
+    {
+       
+        $this->load->model('bisnis_model');
+        $data= $this->bisnis_model->ae_new_quartal();
         echo json_encode($data);
     }  
 

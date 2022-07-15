@@ -42,7 +42,7 @@ date_default_timezone_set('Asia/Jakarta');
 
 </head>
 
-<body class="fix-header fix-sidebar card-no-border">
+<body class="fix-header fix-sidebar card-no-border" >
         <?php 
             $id = $this->session->userdata('user_login_id');
             $basicinfo = $this->employee_model->GetBasic($id); 

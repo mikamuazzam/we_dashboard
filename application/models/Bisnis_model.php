@@ -11,8 +11,7 @@
    
     public function comp_list(){
         
-        
-        $sql = "SELECT name ,sum(size)/1000000 jumlah FROM deals where name not like '%Rina%'
+        $sql = "SELECT  name ,sum(size)/1000000 jumlah FROM deals where name not like '%Rina%'
                 and stage not in('CANCEL','NEW PROGRESS') group by name order by sum(size) desc 
                 LIMIT 0,10";
         $query=$this->db->query($sql);
@@ -28,7 +27,7 @@
 		$search = '%'.$this->input->post('search[value]').'%';
         if(!empty($search)) $filter=" and name like '%$search%'"; else $filter='';
 
-        $sql = "SELECT name ,FORMAT(sum(size),0) jumlah FROM deals where name not like '%Rina%'
+        $sql = "SELECT  name ,FORMAT(sum(size),0) jumlah FROM deals where name not like '%Rina%'
                 and stage not in('CANCEL','NEW PROGRESS') $filter  group by name order by sum(size) desc 
                 LIMIT $limit OFFSET $offset ";
         $query=$this->db->query($sql);
@@ -86,6 +85,44 @@
 
 
     }
+    public function ae_new_quartal(){
+    
+        $sql = "select name,
+        sum(case when bulanke in(1,2,3) then jumlah/3 else 0 end) as q1 ,
+        sum(case when bulanke in(4,5,6) then jumlah/3 else 0 end) as q2,
+        sum(case when bulanke in(7,8,9) then jumlah/3 else 0 end) as q3,
+        sum(case when bulanke in(10,11,12) then jumlah/3 else 0 end) as q4
+        from (
+       SELECT name,case when target=0 then cast(pencapaian/pencapaian *100 as integer) else 
+                   cast(pencapaian/target *100 as integer)end  as jumlah,bulan,
+                   TIMESTAMPDIFF(MONTH, hiredate,CURRENT_DATE()) masa_kerja,TIMESTAMPDIFF(MONTH, hiredate,DATE(CONCAT_WS('-', 2022, bulan, 1)))+1 as bulanke
+                       FROM `performance_ae` a inner join employee_ae b on employee_id=b.id
+                       where TIMESTAMPDIFF(MONTH, hiredate,CURRENT_DATE()) <=12 order by name,bulan
+         )a group by name;";
+         $query=$this->db->query($sql); 
+         return $query->result_array();
+
+
+    }
+    public function divisi_quartal($tahun,$divisi){
+    
+        $sql = "select name,sum(jumlah) as jumlah
+		from (
+		SELECT case when bulan in(1,2,3) then 'q1'
+            when bulan in(4,5,6) then 'q2'
+            when bulan in(7,8,9) then 'q3'
+            when bulan in(10,11,12) then 'q4'
+		 end  as name,
+		sum(pencapaian)/1000000 as jumlah,bulan
+           from performance a inner join divisi b on a.id_divisi = b.id 
+        where id_core_bisnis not in (4,10) and a.id_divisi=$divisi and tahun='$tahun' group by bulan)a
+    group by name;";
+         $query=$this->db->query($sql); 
+         return $query->result_array();
+
+
+    }
+
     public function ae_new_value($bulan='',$tahun=''){
         
         if(empty($bulan)) $bulan=date('m');

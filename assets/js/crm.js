@@ -108,23 +108,13 @@ function kgi_sales()
 			labels:labeldt3,
 			datasets: [{
 				label: "KGI Sales Rp. (Juta)",
-				fill: false,
-				backgroundColor: [
-					'rgba(238, 126, 145, 0.23)',
-					'rgba(54, 162, 235, 0.2)',
-					'rgba(238, 126, 145, 0.23)',
-					'rgba(75, 192, 192, 0.2)',
-					'rgba(153, 102, 255, 0.2)',
-					'rgba(238, 126, 145, 0.23)'
-					],
-					borderColor: [
-					'rgba(238, 126, 145, 0.41)',
-					'rgba(54, 162, 235, 1)',
-					'rgba(238, 126, 145, 0.41)',
-					'rgba(75, 192, 192, 1)',
-					'rgba(153, 102, 255, 1)',
-					'rgba(238, 126, 145, 0.41)'
-					],
+				fill: true,
+				backgroundColor:
+					'rgba(54, 162, 235, 0.2)'
+					,
+					borderColor: 
+					'rgba(54, 162, 235, 1)'
+					,
 					borderWidth: 1,
 				data: val_dt3,
 			}]
@@ -175,7 +165,7 @@ function kgi_sales()
 		// Code to draw Chart
 		var ctx = document.getElementById('kgiChart').getContext('2d');
 		var myChart = new Chart(ctx, {
-			type: 'bar',        // Define chart type
+			type: 'line',        // Define chart type
 			data: myData,    	// Chart data
 			options: myoption 	// Chart Options [This is optional paramenter use to add some extra things in the chart].
 		});
@@ -216,7 +206,17 @@ function populis_persentage(m,y)
 				datasets: [{
 					label: "Core Bisnis Target (%)",
 					fill: false,
-					backgroundColor: val_warna,
+					borderColor: 'rgba(54, 162, 235, 0.8)',
+					pointBackgroundColor :val_warna,
+					borderWidth: 1,
+					data: val_dt,
+				},
+				{
+					type:'bar',
+					label: "Core Bisnis Target (%)",
+					fill: false,
+					backgroundColor :val_warna,
+					borderWidth: 1,
 					data: val_dt,
 				}]
 			};
@@ -284,7 +284,7 @@ function populis_persentage(m,y)
 				}
 			});
 			var myChart = new Chart(ctx, {
-				type: 'bar',        // Define chart type
+				type: 'line',        // Define chart type
 				data: myData,    	// Chart data
 				options: myoption 	// Chart Options [This is optional paramenter use to add some extra things in the chart].
 			});
@@ -327,7 +327,18 @@ function q1_persentage(m,y)
 				datasets: [{
 					label: "Core Bisnis Target (%)",
 					fill: false,
-					backgroundColor: val_warna,
+					borderColor: 'rgba(54, 162, 235, 0.8)',
+					pointBackgroundColor :val_warna,
+					borderWidth: 1,
+					data: val_dt,
+				}
+				,
+				{
+					type:'bar',
+					label: "Core Bisnis Target (%)",
+					fill: false,
+					backgroundColor :val_warna,
+					borderWidth: 1,
 					data: val_dt,
 				}]
 			};
@@ -394,7 +405,7 @@ function q1_persentage(m,y)
 				}
 			});
 			var myChart = new Chart(ctx, {
-				type: 'bar',        // Define chart type
+				type: 'line',        // Define chart type
 				data: myData,    	// Chart data
 				options: myoption 	// Chart Options [This is optional paramenter use to add some extra things in the chart].
 			});
@@ -434,7 +445,18 @@ function hs_persentage(m,y)
 				datasets: [{
 					label: "Core Bisnis Target (%)",
 					fill: false,
-					backgroundColor: val_warna,
+					borderColor: 'rgba(54, 162, 235, 0.8)',
+					pointBackgroundColor :val_warna,
+					borderWidth: 1,
+					data: val_dt,
+				}
+				,
+				{
+					type:'bar',
+					label: "Core Bisnis Target (%)",
+					fill: false,
+					backgroundColor :val_warna,
+					borderWidth: 1,
 					data: val_dt,
 				}]
 			};
@@ -499,7 +521,7 @@ function hs_persentage(m,y)
 				}
 			});
 			var myChart = new Chart(ctx, {
-				type: 'bar',        // Define chart type
+				type: 'line',        // Define chart type
 				data: myData,    	// Chart data
 				options: myoption 	// Chart Options [This is optional paramenter use to add some extra things in the chart].
 			});
@@ -554,9 +576,20 @@ function we_persentage(m,y)
 			var myData = {
 				labels:labeldt,
 				datasets: [{
+					type:'line',
 					label: "Core Bisnis Target (%)",
 					fill: false,
-					backgroundColor: val_warna,
+					borderColor: 'rgba(54, 162, 235, 0.8)',
+					pointBackgroundColor :val_warna,
+					borderWidth: 1,
+					data: val_dt,
+				},
+				{
+					type:'bar',
+					label: "Core Bisnis Target (%)",
+					fill: false,
+					backgroundColor :val_warna,
+					borderWidth: 1,
 					data: val_dt,
 				}]
 			};
@@ -622,7 +655,7 @@ function we_persentage(m,y)
 				}
 			});
 			var myChart = new Chart(ctx, {
-				type: 'bar',        // Define chart type
+				type: 'line',        // Define chart type
 				data: myData,    	// Chart data
 				options: myoption 	// Chart Options [This is optional paramenter use to add some extra things in the chart].
 			});
@@ -1372,10 +1405,10 @@ $.ajax({
 	labels:labeldt2,
 	datasets: [{
 		label: "Pencapaian perbulan Rp. (Juta)",
-		fill: false,
+		fill: true,
 		backgroundColor:
 			'rgba(54, 162, 235, 0.2)',
-			borderColor:
+		borderColor:
 			'rgba(54, 162, 235, 1)',
 			borderWidth: 1,
 		data: val_dt2,
@@ -1428,7 +1461,7 @@ var myoption = {
 // Code to draw Chart
 var ctx = document.getElementById('ProgChartMont').getContext('2d');
 var myChart = new Chart(ctx, {
-	type: 'bar',        // Define chart type
+	type: 'line',        // Define chart type
 	data: myData,    	// Chart data
 	options: myoption 	// Chart Options [This is optional paramenter use to add some extra things in the chart].
 });
@@ -1464,10 +1497,11 @@ function progdiv()
 			labels:labeldt2,
 			datasets: [{
 				label: "Ads Rp. (Juta)",
-				fill: false,
-				backgroundColor:
+				fill: true,
+				pointBackgroundColor:
 					['#b3507d','#1a5e34','#DC7633','#DC7633','#7d142e','#b3507d'],
-					
+				borderColor: 'rgba(54, 162, 235, 0.8)',
+				borderWidth: 1,
 				data: val_dt2,
 			}]
 		};
@@ -1517,7 +1551,7 @@ function progdiv()
 		// Code to draw Chart
 		var ctx = document.getElementById('progChart').getContext('2d');
 		var myChart = new Chart(ctx, {
-			type: 'bar',        // Define chart type
+			type: 'line',        // Define chart type
 			data: myData,    	// Chart data
 			options: myoption 	// Chart Options [This is optional paramenter use to add some extra things in the chart].
 		});
