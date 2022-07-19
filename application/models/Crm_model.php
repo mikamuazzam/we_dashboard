@@ -70,7 +70,8 @@
 
     }
     public function deal_list(){
-        $sql = "SELECT `owner_fullname` salesname,sum(Size)/1000000 jumlah FROM `deals` group by `Owner_Fullname` order by sum(size)desc";
+        $sql = "SELECT `owner_fullname` salesname,sum(Size)/1000000 jumlah FROM `deals`
+        where  stage not in('CANCEL','NEW PROGRESS') group by `Owner_Fullname` order by sum(size)desc";
         $query=$this->db->query($sql);
         
         return $query->result_array();
