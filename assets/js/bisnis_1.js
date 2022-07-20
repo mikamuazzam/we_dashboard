@@ -788,9 +788,8 @@ function ae_persentage(m,y)
 				scales: {
 					yAxes: [{
 						ticks: {
-						stepSize: 50,
-						beginAtZero: true,
-						max:200
+						
+						beginAtZero: true
 						},
 					}],
 					xAxes: [{
@@ -1203,7 +1202,7 @@ function hs_quartal(m,y)
 function q1_quartal(m,y)
 {
 	$.ajax({
-		data :{tahun:y,divisi:'2'},
+		data :{tahun:y,divisi:'4'},
 		url : base_url+"bisnis/divisi_quartal",
 		type : "GET",
 		success : function(data)
@@ -1225,7 +1224,7 @@ function q1_quartal(m,y)
 			var myData = {
 				labels:labeldt,
 				datasets: [{
-					label: "HerStory",
+					label: "Quadrant",
 					fill: false,
 					backgroundColor:'#DC7633',
 					data: val_dt,
