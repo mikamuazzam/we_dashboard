@@ -1461,7 +1461,7 @@ var myoption = {
 // Code to draw Chart
 var ctx = document.getElementById('ProgChartMont').getContext('2d');
 var myChart = new Chart(ctx, {
-	type: 'line',        // Define chart type
+	type: 'bar',        // Define chart type
 	data: myData,    	// Chart data
 	options: myoption 	// Chart Options [This is optional paramenter use to add some extra things in the chart].
 });
