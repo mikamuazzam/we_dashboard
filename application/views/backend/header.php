@@ -39,9 +39,7 @@ date_default_timezone_set('Asia/Jakarta');
      <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
     <link href="<?php echo base_url(); ?>assets/plugins/multiselect/css/multi-select.css" rel="stylesheet" type="text/css" />   
     <link href="<?php echo base_url(); ?>assets/plugins/calendar/dist/fullcalendar.css" rel="stylesheet" type="text/css" />   
-
 </head>
-
 <body class="fix-header fix-sidebar card-no-border" >
         <?php 
             $id = $this->session->userdata('user_login_id');
@@ -50,7 +48,7 @@ date_default_timezone_set('Asia/Jakarta');
             $year =  date('y');
             $y = substr( $year, -2);
             $date = date("m/d/$y");
-    #echo $date;
+            #echo $date;
             $leavetoday = $this->leave_model->GetLeaveToday($date); 
         ?>
     <div class="preloader">
@@ -64,9 +62,8 @@ date_default_timezone_set('Asia/Jakarta');
                     <a class="navbar-brand" href="<?php echo base_url(); ?>"><b>
                         <img src="<?php echo base_url();?>assets/images/logo-icon.png" alt="DRI" class="DRI-logo" style="width:50px;"/>
                         </b>
-                        <!-- Logo text --><span>
-                        
-                         <!-- Light Logo text -->    
+                        <!-- Logo text --><span>                  
+                        <!-- Light Logo text -->    
                          </span> </a>
                 </div>
                 <div class="navbar-collapse">
