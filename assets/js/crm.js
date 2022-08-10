@@ -1639,8 +1639,7 @@ function comp_list()
 				yAxes: [{
 					ticks: {
 					
-					beginAtZero: true,
-					max:2000
+					beginAtZero: true
 					},
 				}],
 				
