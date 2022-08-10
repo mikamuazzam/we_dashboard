@@ -1638,7 +1638,6 @@ function comp_list()
 			scales: {
 				yAxes: [{
 					ticks: {
-					
 					beginAtZero: true
 					},
 				}],
