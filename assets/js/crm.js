@@ -1,11 +1,9 @@
 $(function() {
-
 	$( "#cari" ).click(function() {
 		load_chart();
 	});
 
     load_chart();
-	
 	we_month_val();
 	hs_month_val();
 	populis_month_val();
@@ -16,8 +14,7 @@ $(function() {
 	comp_list();
 	get_comp_list();
 	kgi_sales();
-// chart value
-	
+// chart value	
 });
 
 function load_chart()
