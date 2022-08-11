@@ -60,7 +60,7 @@ date_default_timezone_set('Asia/Jakarta');
             <nav class="navbar top-navbar navbar-expand-md navbar-light">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="<?php echo base_url(); ?>"><b>
-                        <img src="<?php echo base_url();?>assets/images/logo-icon.png" alt="DRI" class="DRI-logo" style="width:50px;"/>
+                        <img src="<?php echo base_url();?>assets/images/s.png" alt="DRI" class="DRI-logo" style="width:50px;"/>
                         </b>
                         <!-- Logo text --><span>                  
                         <!-- Light Logo text -->    
