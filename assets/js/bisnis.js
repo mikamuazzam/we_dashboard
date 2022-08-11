@@ -21,7 +21,7 @@ function load_chart()
 
 	ae1_persentage(bulan,tahun);
 	ae1_value(bulan,tahun);
-	
+	ae1_value_quartal(bulan,tahun);
 	
     ae_persentage(bulan,tahun);
 	ae_value(bulan,tahun);
@@ -29,6 +29,9 @@ function load_chart()
 
 	we_value(bulan,tahun);
 	hs_value(bulan,tahun);
+	we_quartal(bulan,tahun);
+	hs_quartal(bulan,tahun);
+	q1_quartal(bulan,tahun);
 	
 	q1_value(bulan,tahun);
 	get_list_acara(bulan,tahun);
@@ -162,13 +165,13 @@ $.ajax({
 		var myData = {
 			labels:labeldt,
 			datasets: [{
-				label: "Val Rp. (Juta)",
+				label: "Value",
 				fill: false,
 				backgroundColor: '#dea4be',
 				data: val_dt,
 			},
 			{
-				label: "Target Rp. (Juta)",
+				label: "Target",
 				fill: false,
 				backgroundColor: '#b3507d',
 				data: target_dt,
@@ -256,13 +259,13 @@ function we_value(m,y)
 			var myData = {
 				labels:labeldt,
 				datasets: [{
-					label: "Val Rp. (Juta)",
+					label: "Value",
 					fill: false,
 					backgroundColor: '#bd3758',
 					data: val_dt,
 				},
 				{
-					label: "Target Rp. (Juta)",
+					label: "Target",
 					fill: false,
 					backgroundColor: '#7d142e',
 					data: val_dt_target,
@@ -279,7 +282,7 @@ function we_value(m,y)
 				scales: {
 					yAxes: [{
 						ticks: {
-						max:3000,
+						max:2000,
 						beginAtZero: true
 						},
 					}],
@@ -351,13 +354,13 @@ $.ajax({
 		var myData = {
 			labels:labeldt,
 			datasets: [{
-				label: "Val Rp. (Juta)",
+				label: "Val",
 				fill: false,
 				backgroundColor: '#F5B041',
 				data: val_dt,
 			},
 			{
-				label: "Target Rp. (Juta)",
+				label: "Target",
 				fill: false,
 				backgroundColor: '#DC7633',
 				data: val_dt_target,
@@ -465,7 +468,7 @@ function ae1_persentage(m,y)
 				scales: {
 					yAxes: [{
 						ticks: {
-						stepSize: 50,
+						
 						beginAtZero: true
 						},
 					}],
@@ -576,7 +579,7 @@ function ae1_value(m,y)
 				scales: {
 					yAxes: [{
 						ticks: {
-						max:200,
+						
 						beginAtZero: true
 						},
 					}],
@@ -616,6 +619,125 @@ function ae1_value(m,y)
 	});
 
 }
+
+function ae1_value_quartal(m,y)
+{
+    nm_bulan= nama_bulan(m);
+    $("#LabelAEQuartal").html("New AE Performance Per Quartal");
+	$.ajax({
+		
+		url : base_url+"bisnis/ae_new_quartal",
+		type : "GET",
+		success : function(data)
+		{
+		
+			data = JSON.parse(data);  
+            const labeldt = [];
+            const val_q1= [];
+			const val_q2= [];
+			const val_q3= [];
+			const val_q4= [];
+			
+		
+            for (var dt of data) {
+                var cb = dt.name;
+                labeldt.push(cb)
+
+                var get_val1= parseInt(dt.q1) || 0;
+                val_q1.push(get_val1)
+
+				var get_val2= parseInt(dt.q2) || 0;
+                val_q2.push(get_val2)
+
+				var get_val3= parseInt(dt.q3) || 0;
+                val_q3.push(get_val3)
+
+				var get_val4= parseInt(dt.q4) || 0;
+                val_q4.push(get_val4)
+
+            }
+			
+			var myData = {
+				labels:labeldt,
+				datasets: [{
+					label: "Q1",
+					fill: false,
+					backgroundColor:'#34e5eb',
+					data: val_q1,
+				},
+				{
+					label: "Q2",
+					fill: false,
+					backgroundColor: '#2a8285',
+					data: val_q2,
+				}
+				,
+				{
+					label: "Q3",
+					fill: false,
+					backgroundColor: '#507d96',
+					data: val_q3,
+				}
+				,
+				{
+					label: "Q4",
+					fill: false,
+					backgroundColor: '#1d5678',
+					data: val_q4,
+				}]
+			};
+	
+			var myoption = {
+				tooltips: {
+					enabled: true
+				},
+				legend: {
+					position: 'bottom'
+				},
+				scales: {
+					yAxes: [{
+						ticks: {
+						
+						beginAtZero: true
+						},
+					}],
+					xAxes: [{
+						barThickness :20
+					}]
+					}
+					,
+				animation: {
+							duration: 1,
+							onComplete: function () {
+								var chartInstance = this.chart,
+									ctx = chartInstance.ctx;
+									ctx.textAlign = 'center';
+									ctx.fillStyle = "rgba(0, 0, 0, 1)";
+									ctx.textBaseline = 'bottom';
+									// Loop through each data in the datasets
+									this.data.datasets.forEach(function (dataset, i) {
+										var meta = chartInstance.controller.getDatasetMeta(i);
+										meta.data.forEach(function (bar, index) {
+											var data = dataset.data[index];
+											ctx.fillText(data, bar._model.x, bar._model.y - 5);
+										});
+									});
+								}
+							}
+			};
+			// Code to draw Chart
+			var ctx = document.getElementById('ChartAEQuartal').getContext('2d');
+			
+			var myChart = new Chart(ctx, {
+				type: 'bar',        // Define chart type
+				data: myData,    	// Chart data
+				options: myoption 	// Chart Options [This is optional paramenter use to add some extra things in the chart].
+			});
+	}
+	});
+
+}
+
 function ae_persentage(m,y)
 {
 	nm_bulan= nama_bulan(m);
@@ -647,7 +769,8 @@ function ae_persentage(m,y)
 				datasets: [{
 					label: "New AE Performance Target (%)",
 					fill: false,
-					backgroundColor: val_warna,
+					borderColor: 'rgba(54, 162, 235, 0.8)',
+					pointBackgroundColor :val_warna,
 					data: val_dt,
 				}]
 			};
@@ -665,7 +788,7 @@ function ae_persentage(m,y)
 				scales: {
 					yAxes: [{
 						ticks: {
-						stepSize: 50,
+						
 						beginAtZero: true
 						},
 					}],
@@ -712,7 +835,7 @@ function ae_persentage(m,y)
 				}
 			});
 			var myChart = new Chart(ctx, {
-				type: 'bar',        // Define chart type
+				type: 'line',        // Define chart type
 				data: myData,    	// Chart data
 				options: myoption 	// Chart Options [This is optional paramenter use to add some extra things in the chart].
 			});
@@ -868,8 +991,7 @@ function comp_list()
 				yAxes: [{
 					ticks: {
 					
-					beginAtZero: true,
-					max:2000
+					beginAtZero: true
 					},
 				}],
 				
@@ -906,5 +1028,255 @@ function comp_list()
 		}
 		});
 
+
+}
+
+function we_quartal(m,y)
+{
+	$.ajax({
+		data :{tahun:y,divisi:'1'},
+		url : base_url+"bisnis/divisi_quartal",
+		type : "GET",
+		success : function(data)
+		{
+		
+			data = JSON.parse(data);  
+            const labeldt = [];
+            const val_dt= [];
+			
+            for (var dt of data) {
+                var cb = dt.name;
+                labeldt.push(cb)
+
+                var get_val1= parseInt(dt.jumlah) || 0;
+                val_dt.push(get_val1)
+
+            }
+			
+			var myData = {
+				labels:labeldt,
+				datasets: [{
+					label: "Warta Ekonomi",
+					fill: false,
+					backgroundColor:'#7d142e',
+					data: val_dt,
+				}]
+			};
+	
+			
+			
+	
+			var myoption = {
+				tooltips: {
+					enabled: true
+				},
+				legend: {
+					position: 'bottom'
+				},
+				scales: {
+					yAxes: [{
+						ticks: {
+						
+						beginAtZero: true
+						},
+					}],
+					xAxes: [{
+						barThickness :20
+					}]
+					}
+					,
+				animation: {
+							duration: 1,
+							onComplete: function () {
+								var chartInstance = this.chart,
+									ctx = chartInstance.ctx;
+									ctx.textAlign = 'center';
+									ctx.fillStyle = "rgba(0, 0, 0, 1)";
+									ctx.textBaseline = 'bottom';
+									// Loop through each data in the datasets
+									this.data.datasets.forEach(function (dataset, i) {
+										var meta = chartInstance.controller.getDatasetMeta(i);
+										meta.data.forEach(function (bar, index) {
+											var data = dataset.data[index];
+											ctx.fillText(data, bar._model.x, bar._model.y - 5);
+										});
+									});
+								}
+							}
+			};
+			// Code to draw Chart
+			var ctx = document.getElementById('ChartWEQuartal').getContext('2d');
+			
+			var myChart = new Chart(ctx, {
+				type: 'bar',        // Define chart type
+				data: myData,    	// Chart data
+				options: myoption 	// Chart Options [This is optional paramenter use to add some extra things in the chart].
+			});
+	}
+	});
+
+}
+function hs_quartal(m,y)
+{
+	$.ajax({
+		data :{tahun:y,divisi:'2'},
+		url : base_url+"bisnis/divisi_quartal",
+		type : "GET",
+		success : function(data)
+		{
+		
+			data = JSON.parse(data);  
+            const labeldt = [];
+            const val_dt= [];
+			
+            for (var dt of data) {
+                var cb = dt.name;
+                labeldt.push(cb)
+
+                var get_val1= parseInt(dt.jumlah) || 0;
+                val_dt.push(get_val1)
+
+            }
+			
+			var myData = {
+				labels:labeldt,
+				datasets: [{
+					label: "HerStory",
+					fill: false,
+					backgroundColor:'#b3507d',
+					data: val_dt,
+				}]
+			};
+
+			var myoption = {
+				tooltips: {
+					enabled: true
+				},
+				legend: {
+					position: 'bottom'
+				},
+				scales: {
+					yAxes: [{
+						ticks: {
+						
+						beginAtZero: true
+						},
+					}],
+					xAxes: [{
+						barThickness :20
+					}]
+					}
+					,
+				animation: {
+							duration: 1,
+							onComplete: function () {
+								var chartInstance = this.chart,
+									ctx = chartInstance.ctx;
+									ctx.textAlign = 'center';
+									ctx.fillStyle = "rgba(0, 0, 0, 1)";
+									ctx.textBaseline = 'bottom';
+									// Loop through each data in the datasets
+									this.data.datasets.forEach(function (dataset, i) {
+										var meta = chartInstance.controller.getDatasetMeta(i);
+										meta.data.forEach(function (bar, index) {
+											var data = dataset.data[index];
+											ctx.fillText(data, bar._model.x, bar._model.y - 5);
+										});
+									});
+								}
+							}
+			};
+			// Code to draw Chart
+			var ctx = document.getElementById('ChartHSQuartal').getContext('2d');
+			
+			var myChart = new Chart(ctx, {
+				type: 'bar',        // Define chart type
+				data: myData,    	// Chart data
+				options: myoption 	// Chart Options [This is optional paramenter use to add some extra things in the chart].
+			});
+	}
+	});
+
+}
+function q1_quartal(m,y)
+{
+	$.ajax({
+		data :{tahun:y,divisi:'4'},
+		url : base_url+"bisnis/divisi_quartal",
+		type : "GET",
+		success : function(data)
+		{
+		
+			data = JSON.parse(data);  
+            const labeldt = [];
+            const val_dt= [];
+			
+            for (var dt of data) {
+                var cb = dt.name;
+                labeldt.push(cb)
+
+                var get_val1= parseInt(dt.jumlah) || 0;
+                val_dt.push(get_val1)
+
+            }
+			
+			var myData = {
+				labels:labeldt,
+				datasets: [{
+					label: "Quadrant",
+					fill: false,
+					backgroundColor:'#DC7633',
+					data: val_dt,
+				}]
+			};
+
+			var myoption = {
+				tooltips: {
+					enabled: true
+				},
+				legend: {
+					position: 'bottom'
+				},
+				scales: {
+					yAxes: [{
+						ticks: {
+						
+						beginAtZero: true
+						},
+					}],
+					xAxes: [{
+						barThickness :20
+					}]
+					}
+					,
+				animation: {
+							duration: 1,
+							onComplete: function () {
+								var chartInstance = this.chart,
+									ctx = chartInstance.ctx;
+									ctx.textAlign = 'center';
+									ctx.fillStyle = "rgba(0, 0, 0, 1)";
+									ctx.textBaseline = 'bottom';
+									// Loop through each data in the datasets
+									this.data.datasets.forEach(function (dataset, i) {
+										var meta = chartInstance.controller.getDatasetMeta(i);
+										meta.data.forEach(function (bar, index) {
+											var data = dataset.data[index];
+											ctx.fillText(data, bar._model.x, bar._model.y - 5);
+										});
+									});
+								}
+							}
+			};
+			// Code to draw Chart
+			var ctx = document.getElementById('ChartQ1Quartal').getContext('2d');
+			
+			var myChart = new Chart(ctx, {
+				type: 'bar',        // Define chart type
+				data: myData,    	// Chart data
+				options: myoption 	// Chart Options [This is optional paramenter use to add some extra things in the chart].
+			});
+	}
+	});
 
 }

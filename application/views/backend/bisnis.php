@@ -267,6 +267,6 @@
             </div>
         </div>
        
-<script src="<?php echo base_url(); ?>assets/js/bisnis_1.js"></script>              
+<script src="<?php echo base_url(); ?>assets/js/bisnis.js"></script>              
                                               
 <?php $this->load->view('backend/footer'); ?>
