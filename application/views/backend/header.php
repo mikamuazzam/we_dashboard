@@ -2,7 +2,22 @@
 <html lang="en">
 <?php
 date_default_timezone_set('Asia/Jakarta');
-?>
+
+$id = $this->session->userdata('user_login_id');
+$dep_id = $this->session->userdata('dept');
+$basicinfo = $this->employee_model->GetBasic($id); 
+
+if ($dep_id==7)#jprof
+{
+    $icon='jprof.png';
+    $favicon='jprof.png';
+}
+else
+{
+    $icon='logo-icon.png';
+    $favicon='favicon.PNG';
+}
+?>    
 <head>
     <meta http-equiv="refresh" content="3600">
     <meta charset="utf-8">
@@ -13,7 +28,7 @@ date_default_timezone_set('Asia/Jakarta');
     <meta name="author" content="GenIT Bangladesh">
     <!-- Favicon icon -->
     <?php $settingsvalue = $this->settings_model->GetSettingsValue(); ?>
-    <link rel="icon" type="image/ico" sizes="16x16" href="<?php echo base_url(); ?>assets/images/favicon.PNG">
+    <link rel="icon" type="image/ico" sizes="16x16" href="<?php echo base_url(); ?>assets/images/<?php echo $favicon;?>">
     <title><?php echo $settingsvalue->sitetitle; ?></title>
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo base_url(); ?>assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -58,9 +73,9 @@ date_default_timezone_set('Asia/Jakarta');
     <div id="main-wrapper">
         <header class="topbar">
             <nav class="navbar top-navbar navbar-expand-md navbar-light">
-                <div class="navbar-header">
+                <div class="navbar-header"><br>
                     <a class="navbar-brand" href="<?php echo base_url(); ?>"><b>
-                        <img src="<?php echo base_url();?>assets/images/logo-icon.png" alt="DRI" class="DRI-logo" style="width:50px;"/>
+                        <img src="<?php echo base_url();?>assets/images/<?php echo $icon;?>" alt="DRI" class="DRI-logo" style="width:100px;"/>
                         </b>
                         <!-- Logo text --><span>                  
                         <!-- Light Logo text -->    
@@ -78,7 +93,7 @@ date_default_timezone_set('Asia/Jakarta');
                     </ul>
                     <ul class="navbar-nav my-lg-0">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="<?php echo base_url(); ?>assets/images/users/<?php echo $basicinfo->em_image; ?>" alt="Genit" class="profile-pic" style="height:40px;width:40px;border-radius:50px" /></a>
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="<?php echo base_url(); ?>assets/images/users/<?php echo $basicinfo->em_image; ?>"  class="profile-pic" style="height:40px;width:40px;border-radius:50px" /></a>
                             <div class="dropdown-menu dropdown-menu-right scale-up">
                                 <ul class="dropdown-user">
                                     <li>
