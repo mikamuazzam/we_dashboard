@@ -31,6 +31,8 @@ class Login extends CI_Controller {
 		#Redirect to Admin dashboard after authentication
         if ($this->session->userdata('user_login_access') == 1 and $this->session->userdata('dept')==3) 
             redirect(base_url() . 'bisnis');
+		else  if ($this->session->userdata('user_login_access') == 1 and $this->session->userdata('dept')==7) 
+			redirect(base_url() . 'jprof');
 		else
 			redirect(base_url() . 'dashboard');
             $data=array();
