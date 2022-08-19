@@ -289,7 +289,7 @@
                         <div class="card">
                             <div class="card-body">
                             <h6 class="card-title"> Warta Ekonomi </h6>
-                            <canvas id="ChartWEMonthly" height="120px;"></canvas>  
+                            <canvas id="ChartWEMonthly" height="z;"></canvas>  
                             </div>
                             <br>
                         </div>
@@ -298,7 +298,7 @@
                         <div class="card">
                             <div class="card-body">
                             <h6 class="card-title"> Herstory</h6>
-                            <canvas id="ChartHSMonthly" height="120px;"></canvas>  
+                            <canvas id="ChartHSMonthly" height="200px;"></canvas>  
                             </div>
                             <br>
                         </div>
@@ -312,7 +312,7 @@
                         <div class="card">
                             <div class="card-body">
                             <h6 class="card-title"> Populis </h6>
-                            <canvas id="ChartPOPMonthly" height="120px;"></canvas>  
+                            <canvas id="ChartPOPMonthly" height="200px;"></canvas>  
                             </div>
                             <br>
                         </div>
@@ -321,7 +321,7 @@
                         <div class="card">
                             <div class="card-body">
                             <h6 class="card-title"> Quadrant 1</h6>
-                            <canvas id="ChartQ1Monthly" height="120px;"></canvas>  
+                            <canvas id="ChartQ1Monthly" height="200px;"></canvas>  
                             </div>
                             <br>
                         </div>
