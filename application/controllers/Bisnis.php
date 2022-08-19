@@ -41,10 +41,7 @@ class Bisnis extends CI_Controller {
         
         if($this->session->userdata('user_login_access') != False) {
            
-            $data['venue_list'] = $this->bisnis_model->list_acara();
-            $data['sum_pencapaian'] = $this->bisnis_model->sum_pencapaian();
-
-        $this->load->view('backend/bisnis',$data);
+        $this->load->view('backend/bisnis');
         }
         else{
             redirect(base_url() , 'refresh');

@@ -27,7 +27,7 @@
 		$search = '%'.$this->input->post('search[value]').'%';
         if(!empty($search)) $filter=" and name like '%$search%'"; else $filter='';
 
-        $sql = "SELECT  name ,FORMAT(sum(size),0) jumlah FROM deals where name not like '%Rina%'
+        $sql = "SELECT  case when name like '%BPDPKS%' then 'BPDPKS' else name end as name ,FORMAT(sum(size),0) jumlah FROM deals where name not like '%Rina%'
                 and stage not in('CANCEL','NEW PROGRESS') $filter  group by name order by sum(size) desc 
                 LIMIT $limit OFFSET $offset ";
         $query=$this->db->query($sql);
@@ -46,14 +46,7 @@
     
    
     
-    public function sum_pencapaian(){
-        
-        $sql = "SELECT sum(pencapaian)/1000000 as jum FROM `performance`  where id_divisi != 5 ";
-        $query=$this->db->query($sql);
-        $result = $query->row();
-
-        return $result;
-    }
+    
     public function list_acara($bulan='',$tahun=''){
         
         if(empty($bulan)) $bulan=date('m');

@@ -4,12 +4,12 @@
             <div class="message"></div>
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-themecolor"><i class="fa fa-braille" style="color:#1976d2"></i>&nbsp Dashboard Bisnis</h3>
+                    <h3 class="text-themecolor"><i class="fa fa-braille" style="color:#1976d2"></i>&nbsp Dashboard Business</h3>
                 </div>
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                        <li class="breadcrumb-item active">Dashboard Bisnis</li>
+                        <li class="breadcrumb-item active">Dashboard Business</li>
                     </ol>
                 </div>
             </div>
@@ -54,21 +54,21 @@
                     </div>
                 </div>
             </div>
-
             <div class="container-fluid">
-                <div class="row">    
-                    
+                <div class="row">
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
-                                    <table id="weblist" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" >
+                            <table id="listacara" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" >
                                        
-                                    </table>
+                                       </table>
                             </div>
+                            <br>
                         </div>
-                    </div> 
-                </div>    
+                    </div>   
+                </div>
             </div>
+
             <div class="container-fluid">
                 <div class="row page-titles">
                     <div class="col-md-12 align-self-center">
@@ -115,7 +115,7 @@
                         <div class="card">
                             <div class="card-body">
                             <h6 class="card-title">New AE Performance per Quartal </h6>
-                            <canvas id="ChartAEQuartal" style="position: relative; height:300px; width:100%"></canvas>  
+                            <canvas id="ChartAEQuartal" style="position: relative; height:350px; width:100%"></canvas>  
                             </div>
                             <br>
                         </div>
@@ -170,7 +170,7 @@
                         <div class="card">
                             <div class="card-body">
                             <h6 class="card-title">  WE </h6>
-                            <canvas id="ChartWEValue"  height="400px;"></canvas>  
+                            <canvas id="ChartWEValue"  height="200px;"></canvas>  
                             </div>
                             <br>
                         </div>
@@ -179,7 +179,7 @@
                         <div class="card">
                             <div class="card-body">
                             <h6 class="card-title"> HS </h6>
-                            <canvas id="ChartHSValue" height="400px;"></canvas> 
+                            <canvas id="ChartHSValue" height="200px;"></canvas> 
                             </div>
                             <br>
                         </div>
@@ -189,7 +189,7 @@
                         <div class="card">
                                 <div class="card-body">
                                 <h6 class="card-title">Quadrant 1 </h6>
-                                <canvas id="ChartQ1Value" height="400px;"></canvas>   
+                                <canvas id="ChartQ1Value" height="200px;"></canvas>   
                                 </div>
                                 <br>
                         </div>
@@ -211,7 +211,7 @@
                         <div class="card">
                             <div class="card-body">
                             <h6 class="card-title">  WE </h6>
-                            <canvas id="ChartWEQuartal"  height="400px;"></canvas>  
+                            <canvas id="ChartWEQuartal"  height="250px;"></canvas>  
                             </div>
                             <br>
                         </div>
@@ -220,7 +220,7 @@
                         <div class="card">
                             <div class="card-body">
                             <h6 class="card-title"> HS </h6>
-                            <canvas id="ChartHSQuartal" height="400px;"></canvas> 
+                            <canvas id="ChartHSQuartal" height="250px;"></canvas> 
                             </div>
                             <br>
                         </div>
@@ -230,7 +230,7 @@
                         <div class="card">
                                 <div class="card-body">
                                 <h6 class="card-title">Quadrant 1 </h6>
-                                <canvas id="ChartQ1Quartal" height="400px;"></canvas>   
+                                <canvas id="ChartQ1Quartal" height="250px;"></canvas>   
                                 </div>
                                 <br>
                         </div>
