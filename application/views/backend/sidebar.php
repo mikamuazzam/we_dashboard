@@ -35,7 +35,7 @@
                     <?php if ($dep_id==3) { ?> 
                     <ul id="sidebarnav">
                         <li class="nav-devider"></li>
-                        <li> <a href="<?php echo base_url(); ?>bisnis" ><i class="mdi mdi-gauge"></i><span class="hide-menu">Performance </span></a></li>
+                        <li> <a href="<?php echo base_url(); ?>bisnis" ><i class="mdi mdi-gauge"></i><span class="hide-menu">CRM </span></a></li>
                     </ul> 
                     <?php }?>
                     
