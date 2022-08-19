@@ -75,7 +75,7 @@ else
             <nav class="navbar top-navbar navbar-expand-md navbar-light">
                 <div class="navbar-header"><br>
                     <a class="navbar-brand" href="<?php echo base_url(); ?>"><b>
-                        <img src="<?php echo base_url();?>assets/images/<?php echo $icon;?>" alt="DRI" class="DRI-logo" style="width:100px;"/>
+                        <img src="<?php echo base_url();?>assets/images/<?php echo $icon;?>" alt="DRI" class="DRI-logo" style="width:50px;"/>
                         </b>
                         <!-- Logo text --><span>                  
                         <!-- Light Logo text -->    
