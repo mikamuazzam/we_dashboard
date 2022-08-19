@@ -289,7 +289,7 @@
                         <div class="card">
                             <div class="card-body">
                             <h6 class="card-title"> Warta Ekonomi </h6>
-                            <canvas id="ChartWEMonthly" height="z;"></canvas>  
+                            <canvas id="ChartWEMonthly" height="200px"></canvas>  
                             </div>
                             <br>
                         </div>
