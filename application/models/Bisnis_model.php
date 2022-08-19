@@ -11,7 +11,7 @@
    
     public function comp_list(){
         
-        $sql = "SELECT  name ,sum(size)/1000000 jumlah FROM deals where name not like '%Rina%'
+        $sql = "SELECT  SELECT case when name like '%BPDPKS%' then 'BPDPKS' else name ,sum(size)/1000000 jumlah FROM deals where name not like '%Rina%'
                 and stage not in('CANCEL','NEW PROGRESS') group by name order by sum(size) desc 
                 LIMIT 0,10";
         $query=$this->db->query($sql);
