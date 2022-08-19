@@ -44,7 +44,7 @@ function get_list_acara(m,y)
 		paging: false,
 		info: false,
 		searching: false,
-		
+		responsive: true,
 		pageLength: 10,
 		lengthMenu: [10, 25, 50, 75],
 		// scrollX: true,
