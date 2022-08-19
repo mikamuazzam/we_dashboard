@@ -19,44 +19,6 @@
             <div class="container-fluid">
                 <div class="row page-titles">
                     <div class="col-md-4 align-self-right">
-                   
-                    </div>
-                    <div class="col-md-8 align-self-left">
-                        <select id="bulan">
-                            <?php 
-                                $current_month =date('m');
-                                $i=1;
-                                while ($i<=12)
-                                {
-                                    if($i==$current_month)$selected='selected';
-                                    else $selected='';
-                                    echo "<option value=$i $selected>$i</option>";
-                                    $i++;
-                                }
-                            ?>
-                        </select>
-                        <select id="tahun">
-                        <?php 
-                                $current_year =date('Y');
-                                $i=0;
-                                while ($i<=2)
-                                {
-                                    $j=2022+$i;
-                                    if($i==$current_year)$selected='selected';
-                                    else $selected='';
-                                    echo "<option value=$j $selected>$j</option>";
-                                    $i++;
-                                }
-                            ?>
-                        </select>
-                        <button type="button" class="btn btn-primary" id="cari">Filter</button>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="container-fluid">
-                <div class="row page-titles">
-                    <div class="col-md-4 align-self-right">
                     <h6 class="text-themecolor"><i class="fa fa-braille" style="color:#1976d2"></i>
                         Calendar Event <label id="calenderbulan"></label> </h6>
                     </div>
