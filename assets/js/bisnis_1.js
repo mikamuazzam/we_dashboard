@@ -40,7 +40,7 @@ function load_chart()
 }
 function get_list_acara(m,y)
 {
-	$("#weblist").DataTable({
+	$("#listacara").DataTable({
 		destroy: true,
 		paging: false,
 		info: false,
@@ -60,7 +60,6 @@ function get_list_acara(m,y)
 			{ data: "start_time", title: "Start" },
 			{ data: "finish_time", title: "Finish" },
 			{ data: "acara", title: "Title" },
-			{ data: "status", title: "Status" },
 			{ data: "cost", title: "Target" },
             { data: "revenue", title: "Revenue" },
             { data: "value", title: "value (%)" }
@@ -70,7 +69,7 @@ function get_list_acara(m,y)
 		serverSide: true,
 		ajax: {
 			data :{bulan:m,tahun:y},
-			url: base_url+"bisnis/list_acara",
+			url: base_url+"/bisnis/list_acara",
 			type: 'post',
 			dataType: 'json',
 			dataSrc:""
