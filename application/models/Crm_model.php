@@ -53,6 +53,10 @@
                              when bulan=6 then 'Jun'
                              when bulan=7 then 'Jul'
                              when bulan=8 then 'Aug'
+                             when bulan=9 then 'Sep'
+                             when bulan=10 then 'Oct'
+                             when bulan=11 then 'Nov'
+                             when bulan=12 then 'Dec'
                              end as  bulan ,tahun FROM `performance` a
                         inner join divisi b on a.id_divisi = b.id
                     where id_divisi  in ($core) group by bulan,tahun; ";
@@ -114,6 +118,10 @@
                              when bulan=6 then 'Jun'
                              when bulan=7 then 'Jul'
                              when bulan =8 then 'Aug'
+                             when bulan=9 then 'Sep'
+                             when bulan=10 then 'Oct'
+                             when bulan=11 then 'Nov'
+                             when bulan=12 then 'Dec'
                              end as  bulan ,tahun FROM `performance` 
                              group by bulan,tahun";
         $query=$this->db->query($sql);
