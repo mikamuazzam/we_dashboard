@@ -188,9 +188,9 @@ $.ajax({
 			scales: {
 				yAxes: [{
 					ticks: {
-					stepSize: 50,
-					beginAtZero: true,
-					max:600
+					
+					beginAtZero: true
+					
 					},
 				}],
 				xAxes: [{
@@ -377,7 +377,7 @@ $.ajax({
 			scales: {
 				yAxes: [{
 					ticks: {
-						max:3000,
+					
 					beginAtZero: true
 					},
 				}],

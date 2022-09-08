@@ -37,8 +37,9 @@
     }
    
     public function companies(){
-        $sql = "SELECT count(DISTINCT(`name`)) jum from deals";
-        $query=$this->db->query($sql);
+        $sql = "SELECT count(DISTINCT(`id_company`)) jum from deals";
+        $db2 = $this->load->database('db2', TRUE);
+        $query=$db2->query($sql);
         $result = $query->row();
 
         return $result;

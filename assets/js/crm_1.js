@@ -956,7 +956,7 @@ $.ajax({
 			scales: {
 				yAxes: [{
 					ticks: {
-						max:3000,
+					
 					beginAtZero: true
 					},
 				}],
@@ -1336,8 +1336,8 @@ function q1_month_val()
 					yAxes: [{
 						ticks: {
 						
-						beginAtZero: true,
-						max:3000
+						beginAtZero: true
+						
 						},
 					}],
 					
@@ -1433,7 +1433,7 @@ var myoption = {
 		}],
 		
 			xAxes: [{
-				barThickness :40
+				barThickness :20
 			}]
 		},
 	animation: {

@@ -11,10 +11,14 @@
    
     public function comp_list(){
         
-        $sql = "SELECT case when name like '%BPDPKS%' then 'BPDPKS' else name end as name ,sum(size)/1000000 jumlah FROM deals where name not like '%Rina%'
-                and stage not in('CANCEL','NEW PROGRESS') group by name order by sum(size) desc 
+        $sql = "SELECT case when company_name like '%BPDPKS%' then 'BPDPKS' else company_name end as name ,
+                sum(size)/1000000 jumlah FROM deals a 
+                inner join companies b on a.id_company =b.id 
+                where company_name not like '%Rina%'
+                and id_stage not in(1,4) group by company_name order by sum(size) desc 
                 LIMIT 0,10";
-        $query=$this->db->query($sql);
+         $db2 = $this->load->database('db2', TRUE);
+         $query=$db2->query($sql);
         
         return $query->result_array();
 
@@ -25,20 +29,25 @@
 		$limit = (int) $this->input->post('length');
 		$offset = (int) $this->input->post('start');
 		$search = '%'.$this->input->post('search[value]').'%';
-        if(!empty($search)) $filter=" and name like '%$search%'"; else $filter='';
+        if(!empty($search)) $filter=" and company_name like '%$search%'"; else $filter='';
 
-        $sql = "SELECT  case when name like '%BPDPKS%' then 'BPDPKS' else name end as name ,FORMAT(sum(size),0) jumlah FROM deals where name not like '%Rina%'
-                and stage not in('CANCEL','NEW PROGRESS') $filter  group by name order by sum(size) desc 
+        $sql = "SELECT  case when company_name like '%BPDPKS%' then 'BPDPKS' else company_name end as name ,
+                FORMAT(sum(size),0) jumlah
+                FROM deals a
+                inner join companies b on a.id_company =b.id where company_name not like '%Rina%'
+                and id_stage not in(1,4) $filter  group by company_name order by sum(size) desc 
                 LIMIT $limit OFFSET $offset ";
-        $query=$this->db->query($sql);
-        
+         $db2 = $this->load->database('db2', TRUE);
+         $query=$db2->query($sql);
         return $query->result_array();
 
     }
    
     public function companies(){
-        $sql = "SELECT count(DISTINCT(`name`)) jum from deals";
-        $query=$this->db->query($sql);
+        $sql = "SELECT count(DISTINCT(`id_company`)) jum from deals";
+        $db2 = $this->load->database('db2', TRUE);
+        $query=$db2->query($sql);
+
         $result = $query->row();
 
         return $result;

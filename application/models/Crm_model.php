@@ -66,43 +66,48 @@
 
     }
     public function comp_list(){
-        $sql = "SELECT case when name like '%BPDPKS%' then 'BPDPKS' else name end as name  ,sum(size)/1000000 jumlah FROM deals where name not like '%Rina%'
-                and stage not in('CANCEL','NEW PROGRESS') group by name order by sum(size) desc LIMIT 0,10";
-        $query=$this->db->query($sql);
+        $sql = "SELECT case when company_name like '%BPDPKS%' then 'BPDPKS' else company_name end as name,
+                sum(size)/1000000 jumlah FROM deals a
+                inner join companies b on a.id_company =b.id where company_name not like '%Rina%'
+                and id_stage not in(1,4) group by company_name order by sum(size) desc LIMIT 0,10";
+        $db2 = $this->load->database('db2', TRUE);
+        $query=$db2->query($sql);
         
         return $query->result_array();
 
     }
     public function deal_list(){
-        $sql = "SELECT `owner_fullname` salesname,sum(Size)/1000000 jumlah FROM `deals`
-        where  stage not in('CANCEL','NEW PROGRESS') group by `Owner_Fullname` order by sum(size)desc";
-        $query=$this->db->query($sql);
+        $sql = "SELECT `author` salesname,sum(Size)/1000000 jumlah FROM `deals`
+        where  id_stage not in(1,4) group by `author` order by sum(size)desc";
+        $db2 = $this->load->database('db2', TRUE);
+        $query=$db2->query($sql);
         
         return $query->result_array();
 
     }
     public function companies(){
-        $sql = "SELECT count(DISTINCT(`name`)) jum from deals";
-        $query=$this->db->query($sql);
+        $sql = "SELECT count(DISTINCT(`id_company`)) jum from deals";
+        $db2 = $this->load->database('db2', TRUE);
+        $query=$db2->query($sql);
         $result = $query->row();
 
         return $result;
     }
     public function deals($stage){
-        if($stage=='won') 
+        if($stage=='10') 
         {
-            $sql = "SELECT count(*)jum,stage from deals where stage in ('INVOICE SENT','AGING','PAYMENT (CASH IN)','WON (PO)')";
+            $sql = "SELECT count(*)jum,id_stage from deals where id_stage !=4 ";
         }
-        else if($stage=='New Progress') 
+        else if($stage=='1') 
         {
-            $sql = "SELECT count(*)jum,stage from deals where stage in ('New Progress','MEETING HELD')";
+            $sql = "SELECT count(*)jum,id_stage from deals where id_stage in (1,2)";
         }
         else
         {
-            $sql = "SELECT count(*)jum,stage from deals where stage = '$stage' ";
+            $sql = "SELECT count(*)jum,id_stage from deals where id_stage = '$stage' ";
         }
-       
-        $query=$this->db->query($sql);
+        $db2 = $this->load->database('db2', TRUE);
+        $query=$db2->query($sql);
         $result = $query->row();
 
         return $result;

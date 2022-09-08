@@ -3,10 +3,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Crm extends CI_Controller {
 
-            function __construct() {
+    function __construct() {
         parent::__construct();
         date_default_timezone_set('Asia/Bangkok');
         $this->load->database();
+        
         $this->load->model('login_model');
         $this->load->model('crm_model');
         $this->load->model('employee_model');
@@ -29,11 +30,11 @@ class Crm extends CI_Controller {
         
         if($this->session->userdata('user_login_access') != False) {
             $data['comp'] = $this->crm_model->companies();
-            $data['deals_all'] = $this->crm_model->deals(1);
-            $data['deals_new'] = $this->crm_model->deals('New Progress');
-            $data['deals_won'] = $this->crm_model->deals('won');
-            $data['deals_lost'] = $this->crm_model->deals('Cancel');
-            $data['deals_inv'] = $this->crm_model->deals('INVOICE SENT');
+            $data['deals_all'] = $this->crm_model->deals(10);
+            $data['deals_new'] = $this->crm_model->deals(1);
+            $data['deals_won'] = $this->crm_model->deals(3);
+            $data['deals_lost'] = $this->crm_model->deals(4);
+            $data['deals_inv'] = $this->crm_model->deals(5);
             $data['venue_list'] = $this->crm_model->list_acara();
             $data['sum_pencapaian'] = $this->crm_model->sum_pencapaian();
 
