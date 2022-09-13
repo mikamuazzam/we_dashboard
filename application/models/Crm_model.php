@@ -77,8 +77,9 @@
 
     }
     public function deal_list(){
-        $sql = "SELECT `author` salesname,sum(Size)/1000000 jumlah FROM `deals`
-        where  id_stage not in(1,4) group by `author` order by sum(size)desc";
+        $sql = "SELECT b.name salesname,sum(Size)/1000000 jumlah FROM `deals` a
+                inner join users b on a.id_author=b.id
+        where  id_stage not in(1,4) group by 1 order by sum(size)desc";
         $db2 = $this->load->database('db2', TRUE);
         $query=$db2->query($sql);
         
