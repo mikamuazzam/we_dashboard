@@ -18,10 +18,9 @@
             <!-- ============================================================== -->
             <div class="container-fluid">
                 <!-- ============================================================== -->
-
                 <div class="row ">
                     <!-- Column -->
-                    <div class="col-md-6 col-lg-3 col-xlg-3">
+                    <div class="col-md-6 col-lg-2 col-xlg-2">
                         <div class="card card-inverse">
                             <div class="box text-center">
                                 <?php 
@@ -30,20 +29,20 @@
                                     $nilai_we =$nilai_we_now -  $nilai_we_last ;
                                     $nilai_we1 =$nilai_we_last -  $nilai_we_now ;
                                 ?>
-                                <h1 class="font-light ">
+                                <h4 class="font-light ">
                                     <?php echo $rank->we; ?>
                                     <?php 
                                         if($nilai_we_now == $nilai_we_last) echo "(=)"; 
                                         else  if($nilai_we_now > $nilai_we_last) echo "<font color='red'>&darr; (".$nilai_we.") </font>";
                                         else echo "<font color='blue'> &uarr;(".$nilai_we1.") </font>";
                                     ?>
-                                </h1>
-                                <img src="<?php echo base_url();?>assets/images/we_logo.jpeg" />
+                                </h4>
+                                <img src="<?php echo base_url();?>assets/images/we_logo.jpeg" style="width:100px ;height:22px;">
                             </div>
                         </div>
                     </div>
                     <!-- Column -->
-                    <div class="col-md-6 col-lg-3 col-xlg-3">
+                    <div class="col-md-6 col-lg-2 col-xlg-2">
                         <div class="card  card-inverse">
                             <div class="box text-center">
                                 <?php 
@@ -52,31 +51,30 @@
                                     $nilai_populis =$nilai_populis_now -  $nilai_populis_last ;
                                     $nilai_populis1 =$nilai_populis_last -  $nilai_populis_now ;
                                 ?>
-                                <h1 class="font-light">
+                                <h4 class="font-light">
                                     <?php echo $rank->populis; ?>
                                     <?php 
                                         if($nilai_populis_now == $nilai_populis_last) echo "(=)"; 
                                         else  if( $nilai_populis_now > $nilai_populis_last) echo "<font color='red'>&darr; (".$nilai_populis.") </font>";
                                         else echo "<font color='blue'> &uarr;(".$nilai_populis1.") </font>";
                                     ?>
-                                </h1>
-                                <img src="<?php echo base_url();?>assets/images/populis.jpeg" />
+                                </h4>
+                                <img src="<?php echo base_url();?>assets/images/populis.jpeg" style="width:100px ;height:22px;">
                             </div>
                           
                         </div>
                     </div>
                     <!-- Column -->
-                    <div class="col-md-6 col-lg-3 col-xlg-3">
+                    <div class="col-md-6 col-lg-2 col-xlg-2">
                         <div class="card card-inverse">
                             <div class="box text-center">
-                                
                                 <?php 
                                     $nilai_hs_now=$rank->hs;
                                     $nilai_hs_last= $rank_last->hs;
                                     $nilai_hs =$nilai_hs_now -  $nilai_hs_last ;
                                     $nilai_hs1 =$nilai_hs_last -  $nilai_hs_now ;
                                 ?>
-                                <h1 class="font-light ">
+                                <h4 class="font-light ">
                                     <?php echo $rank->hs; ?>
                                     <?php 
                                         if($nilai_hs_now == $nilai_hs_last) echo "(=)"; 
@@ -84,78 +82,85 @@
                                         else echo "<font color='blue'> &uarr;(".$nilai_hs1.") </font>";
                                     ?>
                                 
-                                </h1>
-                                <img src="<?php echo base_url();?>assets/images/hs.jpeg" style="width:150px;height:25px;"/>
+                                </h4>
+                                <img src="<?php echo base_url();?>assets/images/hs.jpeg" style="width:100px ;height:25px;">
                             </div>
-                        </div>
-                    </div>
-                    <!-- Column -->
-                    <div class="col-md-6 col-lg-3 col-xlg-3">
-                        <div class="card card-inverse">
-                            <div class="box text-center">
-                            <?php 
-                                    $nilai_tc_now=$rank->konten_jatim;
-                                    $nilai_tc_last= $rank_last->konten_jatim;
-                                    $nilai_tc =$nilai_tc_now -  $nilai_tc_last ;
-                                    $nilai_tc1 =$nilai_tc_last -  $nilai_tc_now ;
-                                ?>
-                                <h1 class="font-light">
-                                    <?php echo $rank->konten_jatim; ?>
-                                    <?php 
-                                       if($nilai_tc_now == $nilai_tc_last) echo "(=)"; 
-                                        else  if($nilai_tc_now > $nilai_tc_last) echo "<font color='red'>&darr; (".$nilai_tc.") </font>";
-                                        else echo "<font color='blue'> &uarr;(".$nilai_tc1.") </font>";
-                                    ?> </h1>
-                                 <img src="<?php echo base_url();?>assets/images/kj.jpg" style="width:150px;height:25px;"/>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Column -->
-                </div>
-                <!-- ============================================================== -->
-            </div> 
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-3"  >
-                        <div class="card">
-                            <div class="card-body" style="height:300px;">
-                            <h4 class="card-title"> WE Rank </h4>
-                            <canvas id="myChartWE" ></canvas>  
-                            </div>
-                            <br>
-                        </div>
-                    </div>
-                    <!-- Column -->
-                    <div class="col-lg-3"  >
-                        <div class="card">
-                            <div class="card-body" style="height:300px;">
-                            <h4 class="card-title"> Populis Rank </h4>
-                            <canvas id="myChartPop" ></canvas>  
-                            </div>
-                            <br>
-                        </div>
-                    </div>
-                    <div class="col-lg-3"  >
-                        <div class="card">
-                            <div class="card-body" style="height:300px;">
-                            <h4 class="card-title"> HS Rank </h4>
-                            <canvas id="myChartHS" ></canvas>  
-                            </div>
-                            <br>
                         </div>
                     </div>
                     
-                    <div class="col-lg-3"  >
-                        <div class="card">
-                            <div class="card-body" style="height:300px;">
-                            <h4 class="card-title"> Konten Jatim Rank </h4>
-                            <canvas id="myChartKJ" ></canvas>  
+                    <div class="col-md-6 col-lg-2 col-xlg-2">
+                        <div class="card card-inverse">
+                            <div class="box text-center">
+                                <?php 
+                                    $nilai_kj_now=$rank->konten_jatim;
+                                    $nilai_kj_last= $rank_last->konten_jatim;
+                                    $nilai_kj =$nilai_kj_now -  $nilai_kj_last ;
+                                    $nilai_kj1 =$nilai_kj_last -  $nilai_kj_now ;
+                                ?>
+                                <h4 class="font-light ">
+                                    <?php echo $rank->konten_jatim; ?>
+                                    <?php 
+                                        if($nilai_kj_now == $nilai_kj_last) echo "(=)"; 
+                                        else  if($nilai_kj_now > $nilai_kj_last) echo "<font color='red'>&darr; (".$nilai_kj.") </font>";
+                                        else echo "<font color='blue'> &uarr;(".$nilai_kj1.") </font>";
+                                    ?>
+                                </h4>
+                                <img src="<?php echo base_url();?>assets/images/kj.jpg" style="width:100px ;height:25px;">
                             </div>
-                            <br>
                         </div>
                     </div>
-            </div>  
+                    <!-- Column -->
+                    <div class="col-md-6 col-lg-2 col-xlg-2">
+                        <div class="card  card-inverse">
+                            <div class="box text-center">
+                                <?php 
+                                    $nilai_wf_now=$rank->we_finance;
+                                    $nilai_wf_last= $rank_last->we_finance;
+                                    $nilai_wf =$nilai_wf_now -  $nilai_wf_last ;
+                                    $nilai_wf1 =$nilai_wf_last -  $nilai_wf_now ;
+                                ?>
+                                <h4 class="font-light">
+                                    <?php echo $rank->we_finance; ?>
+                                    <?php 
+                                        if($nilai_wf_now == $nilai_wf_last) echo "(=)"; 
+                                        else  if( $nilai_wf_now > $nilai_wf_last) echo "<font color='red'>&darr; (".$nilai_wf.") </font>";
+                                        else echo "<font color='blue'> &uarr;(".$nilai_wf1.") </font>";
+                                    ?>
+                                </h4>
+                                <img src="<?php echo base_url();?>assets/images/we_finance.jpeg" style="width:100px ;height:25px;">
+                            </div>
+                          
+                        </div>
+                    </div>
+                    <!-- Column -->
+                    <div class="col-md-6 col-lg-2 col-xlg-2">
+                        <div class="card card-inverse">
+                            <div class="box text-center">
+                                <?php 
+                                    $nilai_nw_now=$rank->news_worthy;
+                                    $nilai_nw_last= $rank_last->news_worthy;
+                                    $nilai_nw =$nilai_nw_now -  $nilai_nw_last ;
+                                    $nilai_nw1 =$nilai_nw_last -  $nilai_nw_now ;
+                                ?>
+                                <h4 class="font-light ">
+                                    <?php echo $rank->news_worthy; ?>
+                                    <?php 
+                                        if($nilai_nw_now == $nilai_nw_last) echo "(=)"; 
+                                        else  if($nilai_nw_now > $nilai_nw_last) echo "<font color='red'>&darr; (".$nilai_nw.") </font>";
+                                        else echo "<font color='blue'> &uarr;(".$nilai_nw1.") </font>";
+                                    ?>
+                                
+                                </h4>
+                                <img src="<?php echo base_url();?>assets/images/nw.jpeg" style="width:100px ;height:25px;">
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <!-- ============================================================== -->
+            </div> 
             
+           
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12"  >
@@ -170,8 +175,9 @@
                                                 <th>WE</th>
                                                 <th>HS </th>
                                                 <th>Populis </th>
-                                               
-                                                <th>Konten Jatim</th>
+                                                <th>Konten Jatim </th>
+                                                <th>WE Finance</th>
+                                                <th>News Worthy</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -181,8 +187,9 @@
                                                 <td><?php echo $value->we; ?></td>
                                                 <td><?php echo $value->hs; ?></td>
                                                 <td><?php echo $value->populis; ?></td>
-                                               
-                                                <td><?php echo '0'; ?></td>
+                                                <td><?php echo $value->konten_jatim; ?></td>
+                                                <td><?php echo $value->we_finance; ?></td>
+                                                <td><?php echo $value->news_worthy; ?></td>
                                                
                                             </tr>
                                             <?php endforeach; ?>

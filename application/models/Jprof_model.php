@@ -8,7 +8,6 @@
 	
 	}
    
-   
     public function comp_list(){
         
         $sql = "SELECT instansi name,sum(pencapaian)/1000000 jumlah FROM `performance_jprof` 

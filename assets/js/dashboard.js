@@ -4,7 +4,7 @@ $(function() {
 	
 	 //chart WE
 	 $.ajax({
-		data :{website:'we_nilai'},
+		data :{website:'we'},
 		url : base_url+"dashboard/chart_web_we",
 		type : "GET",
 		success : function(data){

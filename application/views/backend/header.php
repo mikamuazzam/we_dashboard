@@ -5,7 +5,7 @@ date_default_timezone_set('Asia/Jakarta');
 
 $id = $this->session->userdata('user_login_id');
 $dep_id = $this->session->userdata('dept');
-$basicinfo = $this->employee_model->GetBasic($id); 
+//$basicinfo = $this->employee_model->GetBasic($id); 
 
 if ($dep_id==7)#jprof
 {

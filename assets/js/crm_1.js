@@ -1028,7 +1028,7 @@ function we_month_val()
 			var myData = {
 				labels:labeldt,
 				datasets: [{
-					label: "Val Rp. (Juta)",
+					label: "Pencapaian Rp. (Juta)",
 					fill: false,
 					backgroundColor: '#bd3758',
 					data: val_dt_jum,
@@ -1057,7 +1057,7 @@ function we_month_val()
 						},
 					}],
 					xAxes: [{
-						barThickness :20
+						barThickness :10
 					}]
 					},
 					animation: {
@@ -1123,7 +1123,7 @@ function hs_month_val()
 			var myData = {
 				labels:labeldt,
 				datasets: [{
-					label: "Val Rp. (Juta)",
+					label: "Pencapaian Rp. (Juta)",
 					fill: false,
 					backgroundColor: '#dea4be',
 					data: val_dt_jum,
@@ -1152,7 +1152,7 @@ function hs_month_val()
 						},
 					}],
 					xAxes: [{
-						barThickness :20
+						barThickness :10
 					}]
 					},
 					animation: {
@@ -1217,7 +1217,7 @@ function populis_month_val()
 			var myData = {
 				labels:labeldt,
 				datasets: [{
-					label: "Val Rp. (Juta)",
+					label: "Pencapaian Rp. (Juta)",
 					fill: false,
 					backgroundColor: '#59c984',
 					data: val_dt_jum,
@@ -1247,7 +1247,7 @@ function populis_month_val()
 					}],
 					
 						xAxes: [{
-							barThickness :20
+							barThickness :10
 						}]
 					},
 					animation: {
@@ -1311,7 +1311,7 @@ function q1_month_val()
 			var myData = {
 				labels:labeldt,
 				datasets: [{
-					label: "Val Rp. (Juta)",
+					label: "Pencapaian Rp. (Juta)",
 					fill: false,
 					backgroundColor: '#F5B041',
 					data: val_dt_jum,
@@ -1342,7 +1342,7 @@ function q1_month_val()
 					}],
 					
 						xAxes: [{
-							barThickness :20
+							barThickness :10
 						}]
 					},
 					animation: {
