@@ -131,13 +131,12 @@ function kgi_sales()
 				yAxes: [{
 					ticks: {
 					
-					beginAtZero: true,
-					max:5000
+					beginAtZero: true
 					},
 				}],
 				
 					xAxes: [{
-						barThickness :40
+						barThickness :20
 					}]
 				},
 			animation: {
@@ -1517,8 +1516,7 @@ function progdiv()
 				yAxes: [{
 					ticks: {
 					
-					beginAtZero: true,
-					max:15000
+					beginAtZero: true
 					},
 				}],
 				
