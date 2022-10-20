@@ -44,7 +44,7 @@ function get_list_acara(m,y)
 		paging: false,
 		info: false,
 		searching: false,
-		
+		responsive: true,
 		pageLength: 10,
 		lengthMenu: [10, 25, 50, 75],
 		// scrollX: true,
@@ -131,13 +131,12 @@ function kgi_sales()
 				yAxes: [{
 					ticks: {
 					
-					beginAtZero: true,
-					max:5000
+					beginAtZero: true
 					},
 				}],
 				
 					xAxes: [{
-						barThickness :40
+						barThickness :20
 					}]
 				},
 			animation: {
@@ -956,7 +955,7 @@ $.ajax({
 			scales: {
 				yAxes: [{
 					ticks: {
-						max:3000,
+					
 					beginAtZero: true
 					},
 				}],
@@ -1028,7 +1027,7 @@ function we_month_val()
 			var myData = {
 				labels:labeldt,
 				datasets: [{
-					label: "Val Rp. (Juta)",
+					label: "Pencapaian Rp. (Juta)",
 					fill: false,
 					backgroundColor: '#bd3758',
 					data: val_dt_jum,
@@ -1057,7 +1056,7 @@ function we_month_val()
 						},
 					}],
 					xAxes: [{
-						barThickness :20
+						barThickness :10
 					}]
 					},
 					animation: {
@@ -1123,7 +1122,7 @@ function hs_month_val()
 			var myData = {
 				labels:labeldt,
 				datasets: [{
-					label: "Val Rp. (Juta)",
+					label: "Pencapaian Rp. (Juta)",
 					fill: false,
 					backgroundColor: '#dea4be',
 					data: val_dt_jum,
@@ -1152,7 +1151,7 @@ function hs_month_val()
 						},
 					}],
 					xAxes: [{
-						barThickness :20
+						barThickness :10
 					}]
 					},
 					animation: {
@@ -1217,7 +1216,7 @@ function populis_month_val()
 			var myData = {
 				labels:labeldt,
 				datasets: [{
-					label: "Val Rp. (Juta)",
+					label: "Pencapaian Rp. (Juta)",
 					fill: false,
 					backgroundColor: '#59c984',
 					data: val_dt_jum,
@@ -1247,7 +1246,7 @@ function populis_month_val()
 					}],
 					
 						xAxes: [{
-							barThickness :20
+							barThickness :10
 						}]
 					},
 					animation: {
@@ -1311,7 +1310,7 @@ function q1_month_val()
 			var myData = {
 				labels:labeldt,
 				datasets: [{
-					label: "Val Rp. (Juta)",
+					label: "Pencapaian Rp. (Juta)",
 					fill: false,
 					backgroundColor: '#F5B041',
 					data: val_dt_jum,
@@ -1336,13 +1335,13 @@ function q1_month_val()
 					yAxes: [{
 						ticks: {
 						
-						beginAtZero: true,
-						max:3000
+						beginAtZero: true
+						
 						},
 					}],
 					
 						xAxes: [{
-							barThickness :20
+							barThickness :10
 						}]
 					},
 					animation: {
@@ -1433,7 +1432,7 @@ var myoption = {
 		}],
 		
 			xAxes: [{
-				barThickness :40
+				barThickness :20
 			}]
 		},
 	animation: {
@@ -1517,8 +1516,7 @@ function progdiv()
 				yAxes: [{
 					ticks: {
 					
-					beginAtZero: true,
-					max:15000
+					beginAtZero: true
 					},
 				}],
 				
