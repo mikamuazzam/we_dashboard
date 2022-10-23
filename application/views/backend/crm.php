@@ -143,7 +143,7 @@
                                 }
                             ?>
                         </select>
-                        <button class="btn btn-primary" id="cari">Filter</button>
+                        <button class="btn-sm btn-primary" id="cari">Filter</button>
                     </div>
                 </div>
             </div>

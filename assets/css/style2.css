@@ -2569,9 +2569,7 @@ ul#themecolors li a.working:before {
 .card-inverse .card-text {
     color: rgba(255, 255, 255, 0.65)
 }
-.card-inverse .card-warn {
-    color:red
-}
+
 .card-success {
     background: #26dad2;
     border-color: #26dad2
