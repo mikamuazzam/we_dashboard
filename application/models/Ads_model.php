@@ -23,15 +23,17 @@
         $result = $query->row();
         return $result;
     }
-    public function get_sisa($website,$date){
-        $sql = "SELECT sum(laba) revenue FROM programmatics where  website=$website and dataadd >='$date'";
+    public function get_sisa($website){
+        $sql = "SELECT sum(laba) revenue FROM programmatics where  website=$website 
+        and dataadd >= (select tanggal_deposit from ads_deposit where website=$website and status=0)";
         $query=$this->db->query($sql);
         $result = $query->row();
         return $result;
     }
     public function get_balance(){
-        $sql = "SELECT tanggal_deposit,c.website_name,sum(laba) revenue,deposit,deposit-sum(laba)sisa,sisa_slot FROM programmatics a inner join ads_deposit b on a.website=b.website 
-            inner join master_website c on a.website=c.id where status=0 group by 2;";
+        $sql = "SELECT tanggal_deposit,c.website_name,c.id,sum(laba) revenue,deposit,deposit-sum(laba)sisa,
+                    sisa_slot FROM programmatics a inner join ads_deposit b on a.website=b.website 
+            inner join master_website c on a.website=c.id where status=0 group by 2,3 order by c.id";
          $query=$this->db->query($sql);
         
          return $query->result();

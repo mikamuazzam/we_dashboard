@@ -30,7 +30,12 @@ class Ads extends CI_Controller {
         $this->load->model('ads_model');
 		
         $data['balance_list'] = $this->ads_model->get_balance();
-        
+        $data['laba_we']=$this->ads_model->get_sisa(1);
+        $data['laba_hs']=$this->ads_model->get_sisa(2);
+        $data['laba_pp']=$this->ads_model->get_sisa(3);
+        $data['laba_kj']=$this->ads_model->get_sisa(4);
+        $data['laba_nw']=$this->ads_model->get_sisa(6);
+        $data['laba_wf']=$this->ads_model->get_sisa(5);
 
         $this->load->view('backend/ads',$data);
         }

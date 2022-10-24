@@ -12,16 +12,8 @@
                     
                 </div>
                 <div class="row">
-                <div class="col-lg-6">
-                        <div class="card">
-                            <div class="card-body">
-                            <h6 class="card-title"></h6>
-                            <canvas id="ChartBalance" height="150px" ></canvas> 
-                            </div>
-                            <br>
-                        </div>
-                    </div> 
-                    <div class="col-lg-6">
+                
+                    <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
                              <h4 class="card-title">Total Balance List </h4>
@@ -38,13 +30,30 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                           <?php foreach($balance_list as $value): ?>
+                                           <?php foreach($balance_list as $value):
+                                                if($value->id == 1)
+                                                    $laba=$laba_we->revenue;
+                                                else if ($value->id == 2)
+                                                    $laba= $laba_hs->revenue;
+                                                else if ($value->id == 3)
+                                                    $laba= $laba_pp->revenue;
+                                                else if ($value->id == 4)
+                                                    $laba=$laba_kj->revenue;
+                                                else if ($value->id == 5)
+                                                    $laba=$laba_wf->revenue;
+                                                else if ($value->id == 6)
+                                                    $laba=$laba_nw->revenue;  
+                                                else $laba=0;
+
+                                                $sisa=$value->deposit -$laba;
+                                                ?>
                                             <tr >
+
                                                 <td><?php echo $value->website_name; ?></td>
                                                 <td><?php echo $value->tanggal_deposit; ?></td>
-                                                <td align="right">$<?php echo number_format($value->deposit,2); ?></td>
-                                                <td align="right">$<?php echo number_format($value->revenue,2); ?></td>
-                                                <td align="right" bgcolor="pink">$<?php echo number_format( $value->sisa,2); ?></td>
+                                                <td align="right">$<?php echo $value->deposit; ?></td>
+                                                <td align="right">$<?php echo number_format($laba,2); ?></td>
+                                                <td align="right" bgcolor="pink">$<?php echo number_format( $sisa,2); ?></td>
                                                 <td align="right" ><?php echo $value->sisa_slot; ?></td>
                                                
                                             </tr>
