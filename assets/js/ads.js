@@ -104,7 +104,7 @@ function ads_view(bulan,tahun)
                 const val_dt_view_wf= [];
             
                 for (var dt of data) {
-                    var cb = dt.bulan;
+                    var cb = dt.dataadd;
                     labeldt.push(cb)
 
                     var get_view_we= parseInt(dt.we) || 0;
