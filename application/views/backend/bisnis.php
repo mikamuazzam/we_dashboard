@@ -114,7 +114,7 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
-                            <h6 class="card-title">New AE Performance per Quartal </h6>
+                            <h6 class="card-title">New AE Performance per Tri wulan </h6>
                             <canvas id="ChartAEQuartal" style="position: relative; height:350px; width:100%"></canvas>  
                             </div>
                             <br>

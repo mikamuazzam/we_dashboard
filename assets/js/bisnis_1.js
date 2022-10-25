@@ -622,7 +622,7 @@ function ae1_value(m,y)
 function ae1_value_quartal(m,y)
 {
     nm_bulan= nama_bulan(m);
-    $("#LabelAEQuartal").html("New AE Performance Per Quartal");
+    $("#LabelAEQuartal").html("New AE Performance Per Tri Wulan");
 	$.ajax({
 		
 		url : base_url+"bisnis/ae_new_quartal",
@@ -722,8 +722,27 @@ function ae1_value_quartal(m,y)
 										});
 									});
 								}
+							},lineAt : 35
+						};
+						// Code to draw Chart
+						var ctx = document.getElementById('ChartAE1Persen').getContext('2d');
+						
+						Chart.pluginService.register({
+							afterDraw: function(chart) {
+								if (typeof chart.config.options.lineAt != 'undefined') {
+									var lineAt = chart.config.options.lineAt;
+									var ctxPlugin = chart.chart.ctx;
+									var xAxe = chart.scales[chart.config.options.scales.xAxes[0].id];
+									var yAxe = chart.scales[chart.config.options.scales.yAxes[0].id];
+									ctxPlugin.strokeStyle = "Purple";
+									ctxPlugin.beginPath();
+									lineAt = yAxe.getPixelForValue(lineAt);
+									ctxPlugin.moveTo(xAxe.left, lineAt);
+									ctxPlugin.lineTo(xAxe.right, lineAt);
+									ctxPlugin.stroke();
+								}
 							}
-			};
+						});
 			// Code to draw Chart
 			var ctx = document.getElementById('ChartAEQuartal').getContext('2d');
 			
