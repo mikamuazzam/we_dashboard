@@ -33,6 +33,8 @@ class Login extends CI_Controller {
             redirect(base_url() . 'bisnis');
 		else  if ($this->session->userdata('user_login_access') == 1 and $this->session->userdata('dept')==7) 
 			redirect(base_url() . 'jprof');
+		else  if ($this->session->userdata('user_login_access') == 1 and $this->session->userdata('dept')==8) 
+			redirect(base_url() . 'ads');
 		else
 			redirect(base_url() . 'dashboard');
             $data=array();
