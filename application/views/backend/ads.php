@@ -2,21 +2,218 @@
 <?php $this->load->view('backend/sidebar'); ?>
       <div class="page-wrapper">
             <br>
-            
+            <!-- ============================================================== -->
             <div class="container-fluid">
-            <div class="row page-titles">
+                <!-- ============================================================== -->
+                <div class="row page-titles">
                     <div class="col-md-12 align-self-right">
                     <h5 class="text-themecolor"><i class="fa fa-braille" style="color:#1976d2"></i>
-                        Programmatic Ads <label id="calenderbulan"></label> </h5>
+                        Programmatic Ads This Month Revenue </h5>
                     </div>
                     
                 </div>
-                <div class="row">
-                
+                <div class="card">
+                <div class="card-body">
+                <div class="row ">
+                    <!-- Column -->
+                    <?php foreach($laba_all as $value):?>
+                    <div class="col-md-5 col-lg-6 col-xlg-6">
+                        <div class="card card-info card-info">
+                            <div class="box bg-info text-center">    
+                                <h5 class="font-light text-white">
+                                <?php echo $value->kurs.' '.number_format($value->laba,2);?>
+                                </h5>    
+                            </div>
+                        </div>
+                    </div>
+                    <?php endforeach;?>  
+                </div>
+                    
+                <div class="row ">
+                    <!-- Column -->
+                    <div class="col-md-5 col-lg-2 col-xlg-2">
+                        <div class="card card-info card-info">
+                            <div class="box bg-info text-center">    
+                            <?php foreach($slaba_we as $value):?>
+                                <h6 class="font-light text-white">
+                                <?php
+                                    if ($value->kurs =='IDR') 
+                                        echo $value->kurs.' '.number_format($value->laba,0,",",".");
+                                    else 
+                                        echo $value->kurs.' '.number_format($value->laba,2);?>
+                                </h6>    
+                            <?php endforeach;?>  
+                            </div>
+                            <img src="<?php echo base_url();?>assets/images/we.jpeg" style="width:100% ;height:22px;">    
+                        </div>   
+                    </div>
+                    <div class="col-md-5 col-lg-2 col-xlg-2">
+                        <div class="card card-info card-info">
+                            <div class="box bg-info text-center">
+                            <?php foreach($slaba_pp as $value):?>
+                                <h6 class="font-light text-white">
+                                <?php
+                                    if ($value->kurs =='IDR') 
+                                        echo $value->kurs.' '.number_format($value->laba,0,",",".");
+                                    else 
+                                        echo $value->kurs.' '.number_format($value->laba,2);?>
+                                </h6>    
+                                </h6>    
+                            <?php endforeach;?>  
+                                
+                            </div>
+                            <img src="<?php echo base_url();?>assets/images/pop.jpeg" style="width:100% ;height:22px;">
+                        </div>
+                    </div>
+                    <!-- Column -->
+                    <div class="col-md-5 col-lg-2 col-xlg-2">
+                        <div class="card card-info card-info">
+                        <div class="box bg-info text-center">
+                        <?php foreach($slaba_hs as $value):?>
+                                <h6 class="font-light text-white">
+                                <?php
+                                    if ($value->kurs =='IDR') 
+                                        echo $value->kurs.' '.number_format($value->laba,0,",",".");
+                                    else 
+                                        echo $value->kurs.' '.number_format($value->laba,2);?>
+                                </h6>    
+                                </h6>    
+                            <?php endforeach;?>  
+                               
+                            </div>
+                            <img src="<?php echo base_url();?>assets/images/hs.jpeg" style="width:100% ;height:22px;">
+                        </div>
+                    </div>
+                    <div class="col-md-5 col-lg-2 col-xlg-2">
+                        <div class="card card-info card-info">
+                        <div class="box bg-info text-center">
+                        <?php foreach($slaba_kj as $value):?>
+                                <h6 class="font-light text-white">
+                                <?php
+                                    if ($value->kurs =='IDR') 
+                                        echo $value->kurs.' '.number_format($value->laba,0,",",".");
+                                    else 
+                                        echo $value->kurs.' '.number_format($value->laba,2);?>
+                                </h6>    
+                                </h6>    
+                            <?php endforeach;?>  
+                            </div>
+                            <img src="<?php echo base_url();?>assets/images/kj.jpg" style="width:100% ;height:22px;">
+                        </div>
+                    </div>
+                    <!-- Column -->
+                    <div class="col-md-5 col-lg-2 col-xlg-2">
+                        <div class="card card-info card-info">
+                        <div class="box bg-info text-center">
+                        <?php foreach($slaba_wf as $value):?>
+                                <h6 class="font-light text-white">
+                                <?php
+                                    if ($value->kurs =='IDR') 
+                                        echo $value->kurs.' '.number_format($value->laba,0,",",".");
+                                    else 
+                                        echo $value->kurs.' '.number_format($value->laba,2);?>
+                                </h6>    
+                                </h6>    
+                            <?php endforeach;?>  
+                               
+                        </div>
+                        <img src="<?php echo base_url();?>assets/images/wf.jpeg" style="width:100% ;height:22px;">
+                        </div>
+                    </div>
+                    <!-- Column -->
+                    <div class="col-md-5 col-lg-2 col-xlg-2">
+                        <div class="card card-info card-info">
+                        <div class="box bg-info text-center">
+                        <?php foreach($slaba_nw as $value):?>
+                                <h6 class="font-light text-white">
+                                <?php
+                                    if ($value->kurs =='IDR') 
+                                        echo $value->kurs.' '.number_format($value->laba,0,",",".");
+                                    else 
+                                        echo $value->kurs.' '.number_format($value->laba,2);?>
+                                </h6>    
+                                </h6>    
+                            <?php endforeach;?>  
+                                
+                            </div>
+                            <img src="<?php echo base_url();?>assets/images/nw.jpeg" style="width:100% ;height:22px;">
+                        </div>
+                    </div>
+                    <!-- Column -->
+                </div>
+                </div></div>
+                <!-- ============================================================== -->
+            </div> 
+            <div class="container-fluid">
+            <div class="row">
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
-                             <h4 class="card-title">Total Balance List </h4>
+                            <h6 class="card-title">Available Slot </h6>
+                            <table  id="weblist" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+                                        <thead>
+                                            <tr >
+                                                <th rowspan=2 style="border: 1px solid;border-color:#CCCCCC;  vertical-align: middle;">Website</th>
+                                                <th colspan=6 style="border: 1px solid;border-color:#CCCCCC; text-align: center;" >Display Banner</th>
+                                                <th rowspan=2 style="border: 1px solid; border-color:#CCCCCC;vertical-align: middle;">Advernative</th>
+                                                <th rowspan=2 style="border: 1px solid;border-color:#CCCCCC;  vertical-align: middle;">Mobile Video</th>
+                                               
+                                            </tr>
+                                            <tr>
+                                                <th style="border: 1px solid;border-color:#CCCCCC;text-align: center;">Mob - Top</th>
+                                                <th style="border: 1px solid;border-color:#CCCCCC;text-align: center;">Mob - In Article 1</th>
+                                                <th style="border: 1px solid;border-color:#CCCCCC;text-align: center;">Mob - In Article 2</th>
+                                                <th style="border: 1px solid;border-color:#CCCCCC;text-align: center;">Mob - In Article 3</th>
+                                                <th style="border: 1px solid;border-color:#CCCCCC;text-align: center;">Mob - Sticky Bottom</th>
+                                                <th style="border: 1px solid;border-color:#CCCCCC;text-align: center;">Mob - inImage Banner</th>
+                                               
+                                               
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        <?php foreach($slot_partner_list as $value):
+                                                $bgcolor1='';
+                                                $bgcolor2='';
+                                                $bgcolor3='';
+                                                $bgcolor4='';
+                                                $bgcolor5='';
+                                                $bgcolor6='';
+                                                $bgcolor7='';
+                                                $bgcolor8='';
+                                                if ($value->mob_top=='available') $bgcolor1="bgcolor='pink'";
+                                                if ($value->mob_in_article1== 'available') $bgcolor2="bgcolor='pink'";
+                                                if ($value->mob_in_article2== 'available') $bgcolor3="bgcolor='pink'";
+                                                if ($value->mob_in_article3== 'available') $bgcolor4="bgcolor='pink'";
+                                                if ($value->mob_sticky_bottom== 'available') $bgcolor5="bgcolor='pink'";
+                                                if ($value->mob_in_imagebanner== 'available') $bgcolor6="bgcolor='pink'";
+                                                if ($value->mob_nativead== 'available') $bgcolor7="bgcolor='pink'";
+                                                if ($value->mob_video== 'available') $bgcolor8="bgcolor='pink'";
+                                                
+                                        ?>
+                                            <tr>
+                                            <td style="text-align: center;" ><?php echo $value->website_name; ?></td>
+                                            <td style="text-align: center;" <?php echo $bgcolor1;?>><?php echo $value->mob_top; ?></td>
+                                            <td style="text-align: center;" <?php echo $bgcolor2;?>><?php echo $value->mob_in_article1; ?></td>
+                                            <td style="text-align: center;" <?php echo $bgcolor3;?>><?php echo $value->mob_in_article2; ?></td>
+                                            <td style="text-align: center;" <?php echo $bgcolor4;?>><?php echo $value->mob_in_article3; ?></td>
+                                            <td style="text-align: center;" <?php echo $bgcolor5;?>><?php echo $value->mob_sticky_bottom; ?></td>
+                                            <td style="text-align: center;" <?php echo $bgcolor6;?>><?php echo $value->mob_in_imagebanner; ?></td>
+                                            <td style="text-align: center;" <?php echo $bgcolor7?>><?php echo $value->mob_nativead; ?></td>
+                                            <td style="text-align: center;" <?php echo $bgcolor8;?>><?php echo $value->mob_video; ?></td>
+                                            </tr>
+                                        <?php endforeach;?>
+                                        </tbody>
+                                </table>
+                            </div>
+                            <br>
+                        </div>
+                    </div> 
+                </div>      
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                             <h6 class="card-title">Total Balance Advernative Ads </h6>
                                 <div class="" >
                                     <table id="weblist" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                                         <thead>
@@ -26,7 +223,7 @@
                                                 <th>Deposit</th>
                                                 <th>Revenue</th>
                                                 <th>Balance</th>
-                                                <th>Available Slot</th>
+                                               
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -54,21 +251,44 @@
                                                 <td align="right">$<?php echo $value->deposit; ?></td>
                                                 <td align="right">$<?php echo number_format($laba,2); ?></td>
                                                 <td align="right" bgcolor="pink">$<?php echo number_format( $sisa,2); ?></td>
-                                                <td align="right" ><?php echo $value->sisa_slot; ?></td>
-                                               
-                                            </tr>
+                                                                                            </tr>
                                             <?php endforeach; ?>
                                         </tbody>
                                     </table>
                                 </div>
-                           
+                            </div>
+                            <br>
+                        </div>
+                    </div>  
+                    
+                </div>      
+                
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                            <h6 class="card-title"></h6>
+                            <canvas id="ChartRevenueUSD" height="100px" ></canvas>  
                             </div>
                             <br>
                         </div>
                     </div> 
-                    
-                </div>      
-                <div class="row page-titles">
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                            <h6 class="card-title"></h6>
+                            <canvas id="ChartRevenueIDR" height="100px" ></canvas>  
+                            </div>
+                            <br>
+                        </div>
+                    </div> 
+                   
+                </div>          
+                <div class="row">
+                    <div class="col-lg-12">
+                    <div class="row page-titles">
                     <div class="col-md-4 align-self-right">
                     <h5 class="text-themecolor"><i class="fa fa-braille" style="color:#1976d2"></i>
                         Programmatic Ads <label id="calenderbulan"></label> </h5>
@@ -101,51 +321,60 @@
                                 }
                             ?>
                         </select>
+                        <select id="partner">
+                        <?php foreach($partner_list as $value):
+                                 echo "<option value=$value->id>$value->name</option>";
+                               endforeach;?>
+                        </select>
                         <button class="btn-sm btn-primary" id="cari">Filter</button>
                     </div>
-                </div>
+              
+                
+                       
+                    
+                </div>  
                 <div class="row">
-                    <div class="col-lg-8">
+                    <div class="col-md-8">
                         <div class="card">
-                            <div class="card-body">
+                            <div class="card-body" >
                             <h6 class="card-title"></h6>
-                            <canvas id="ChartRevenue" height="100px" ></canvas>  
+                            <div id="ChartAdsMonthContent">
+                            <canvas id="ChartAdsMonth" height="100px" ></canvas>  
                             </div>
-                            <br>
+                            </div>
                         </div>
-                    </div> 
-                    <div class="col-lg-4">
+                    </div>  
+                    <div class="col-md-4">
                         <div class="card">
-                            <div class="card-body">
-                            <h4 class="card-title">Monthly Revenue List </h4>
-                             <div class="" >
-                                    <table id="ads-monthly-list" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+                            <div class="card-body" >
+                                <div class="" >
+                                <h6 class="card-title">Monthly Revenue </h6>
+                                    <table id="partner-monthly-list" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%" height="170px">
                                      
                                     </table>
                                 </div>
                             </div>
-                            <br>
                         </div>
-                    </div> 
+                    </div>            
                 </div>     
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-md-12">
                         <div class="card">
-                            <div class="card-body">
+                            <div class="card-body" >
                             <h6 class="card-title"></h6>
-                            <canvas id="ChartAds" height="100px" ></canvas>  
+                            <div id="ChartAdsContent">
+                            <canvas id="ChartAds" height="150px" ></canvas>
+                            </div>  
                             </div>
-                            <br>
                         </div>
-                    </div> 
-                    
-                </div>  
-                             
+                    </div>      
+                </div>               
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-body" >
                                 <div class="" >
+                                <h6 class="card-title">Daily </h6>
                                     <table id="ads-we-list" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                                      
                                     </table>

@@ -37,6 +37,18 @@ class Ads extends CI_Controller {
         $data['laba_nw']=$this->ads_model->get_sisa(6);
         $data['laba_wf']=$this->ads_model->get_sisa(5);
 
+        $data['slaba_we']=$this->ads_model->sum_laba(1);
+        $data['slaba_hs']=$this->ads_model->sum_laba(2);
+        $data['slaba_pp']=$this->ads_model->sum_laba(3);
+        $data['slaba_kj']=$this->ads_model->sum_laba(4);
+        $data['slaba_nw']=$this->ads_model->sum_laba(6);
+        $data['slaba_wf']=$this->ads_model->sum_laba(5);
+        $data['laba_all']=$this->ads_model->sum_laba_all();
+        $data['avail_slot']=$this->ads_model->avail_slot();
+        $data['partner_list']=$this->ads_model->partner_list();
+        $data['slot_partner_list']=$this->ads_model->slot_partner_list();
+        
+
         $this->load->view('backend/ads',$data);
         }
         else{
@@ -50,10 +62,10 @@ class Ads extends CI_Controller {
     {
         $bulan=$_REQUEST['bulan'];
         $tahun=$_REQUEST['tahun'];
-        $website=$_REQUEST['website'];
+        $partner=$_REQUEST['partner'];
 
         $this->load->model('ads_model');
-        $data= $this->ads_model->ads_list($bulan,$tahun,$website);
+        $data= $this->ads_model->ads_list($bulan,$tahun,$partner);
         echo json_encode($data);
     }
 
@@ -69,18 +81,36 @@ class Ads extends CI_Controller {
     {
         $bulan=$_REQUEST['bulan'];
         $tahun=$_REQUEST['tahun'];
-        $website=$_REQUEST['website'];
+        $partner=$_REQUEST['partner'];
         $this->load->model('ads_model');
-        $data= $this->ads_model->ads_view($bulan,$tahun,$website);
+        $data= $this->ads_model->ads_view($bulan,$tahun,$partner);
         echo json_encode($data);
     }  
     function ads_revenue()
     {
-        $bulan=$_REQUEST['bulan'];
+        $kurs=$_REQUEST['kurs'];
         $tahun=$_REQUEST['tahun'];
         
         $this->load->model('ads_model');
-        $data= $this->ads_model->ads_revenue($bulan,$tahun);
+        $data= $this->ads_model->ads_revenue($kurs,$tahun);
+        echo json_encode($data);
+    }  
+    function partner_revenue()
+    {
+        $partner=$_REQUEST['partner'];
+        $tahun=$_REQUEST['tahun'];
+        $bulan=$_REQUEST['bulan'];
+        $this->load->model('ads_model');
+        $data= $this->ads_model->partner_revenue($bulan,$tahun,$partner);
+        echo json_encode($data);
+    }  
+    function partner_monthly()
+    {
+        
+        $tahun=$_REQUEST['tahun'];
+        $bulan=$_REQUEST['bulan'];
+        $this->load->model('ads_model');
+        $data= $this->ads_model->partner_monthly($bulan,$tahun);
         echo json_encode($data);
     }  
     function monthly_revenue()

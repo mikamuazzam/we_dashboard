@@ -186,7 +186,9 @@
                         <div class="card">
                             <div class="card-body">
                             <h6 class="card-title"> <label id="LabelWE"></label></h6>
+                            <div id="ChartWEPersenContent">
                             <canvas id="ChartWEPersen" height="400px" ></canvas>  
+                            </div>
                             </div>
                             <br>
                         </div>
@@ -195,7 +197,9 @@
                         <div class="card">
                             <div class="card-body">
                             <h6 class="card-title">  <label id="LabelHS"></label></h6>
-                            <canvas id="ChartHSPersen" height="400px" ></canvas>  
+                            <div id="ChartHSPersenContent">
+                            <canvas id="ChartHSPersen" height="400px" ></canvas> 
+                            </div> 
                             </div>
                             <br>
                         </div>
@@ -207,7 +211,9 @@
                     <div class="card">
                             <div class="card-body">
                             <h6 class="card-title">  <label id="LabelPOP"></label></h6>
-                            <canvas id="ChartPOPPersen" height="400px" ></canvas>  
+                            <div id="ChartPOPPersenContent">
+                            <canvas id="ChartPOPPersen" height="400px" ></canvas> 
+                            </div> 
                             </div>
                             <br>
                         </div>
@@ -217,7 +223,9 @@
                     <div class="card">
                             <div class="card-body">
                             <h6 class="card-title"> <label id="LabelQ1"></label></h6>
-                            <canvas id="ChartQ1Persen" height="400px" ></canvas>  
+                            <div id="ChartQ1PersenContent">
+                            <canvas id="ChartQ1Persen" height="400px" ></canvas>
+                            </div> 
                             </div>
                             <br>
                         </div>
@@ -239,7 +247,9 @@
                         <div class="card">
                             <div class="card-body">
                             <h6 class="card-title">  WE </h6>
-                            <canvas id="ChartWEValue"  height="400px;"></canvas>  
+                            <div id="ChartWEValueContent">
+                            <canvas id="ChartWEValue"  height="400px;"></canvas> 
+                            </div> 
                             </div>
                             <br>
                         </div>
@@ -248,7 +258,9 @@
                         <div class="card">
                             <div class="card-body">
                             <h6 class="card-title"> HS </h6>
+                            <div id="ChartHSValueContent">
                             <canvas id="ChartHSValue" height="400px;"></canvas> 
+                            </div>
                             </div>
                             <br>
                         </div>
@@ -259,7 +271,9 @@
                     <div class="card">
                             <div class="card-body">
                             <h6 class="card-title">Populis</h6>
-                            <canvas id="ChartPOPValue" height="400px;"></canvas>   
+                            <div id="ChartPOPValueContent">
+                            <canvas id="ChartPOPValue" height="400px;"></canvas>
+                            </div>
                             </div>
                             <br>
                         </div>
@@ -269,7 +283,9 @@
                         <div class="card">
                                 <div class="card-body">
                                 <h6 class="card-title">Quadrant 1 </h6>
-                                <canvas id="ChartQ1Value" height="400px;"></canvas>   
+                                <div id="ChartQ1ValueContent">
+                                <canvas id="ChartQ1Value" height="400px;"></canvas>
+                                </div>
                                 </div>
                                 <br>
                         </div>

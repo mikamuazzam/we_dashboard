@@ -262,6 +262,9 @@ function populis_persentage(m,y)
 							},lineAt : 100
 			};
 			// Code to draw Chart
+			document.getElementById("ChartPOPPersenContent").innerHTML = '&nbsp;';
+			document.getElementById("ChartPOPPersenContent").innerHTML = '<canvas id="ChartPOPPersen" height="400px" ></canvas>';
+			
 			var ctx = document.getElementById('ChartPOPPersen').getContext('2d');
 			Chart.pluginService.register({
 				afterDraw: function(chart) {
@@ -383,6 +386,9 @@ function q1_persentage(m,y)
 							},lineAt : 100
 			};
 			// Code to draw Chart
+			document.getElementById("ChartQ1PersenContent").innerHTML = '&nbsp;';
+			document.getElementById("ChartQ1PersenContent").innerHTML = '<canvas id="ChartQ1Persen" height="400px" ></canvas>';
+			
 			var ctx = document.getElementById('ChartQ1Persen').getContext('2d');
 			Chart.pluginService.register({
 				afterDraw: function(chart) {
@@ -499,6 +505,9 @@ function hs_persentage(m,y)
 							},lineAt : 100
 			};
 			// Code to draw Chart
+			document.getElementById("ChartHSPersenContent").innerHTML = '&nbsp;';
+			document.getElementById("ChartHSPersenContent").innerHTML = '<canvas id="ChartHSPersen" height="400px" ></canvas>';
+			
 			var ctx = document.getElementById('ChartHSPersen').getContext('2d');
 			Chart.pluginService.register({
 				afterDraw: function(chart) {
@@ -632,6 +641,9 @@ function we_persentage(m,y)
 							},lineAt : 100
 			};
 			// Code to draw Chart
+			document.getElementById("ChartWEPersenContent").innerHTML = '&nbsp;';
+			document.getElementById("ChartWEPersenContent").innerHTML = '<canvas id="ChartWEPersen" height="400px" ></canvas>';
+			
 			var ctx = document.getElementById('ChartWEPersen').getContext('2d');
 			
 			Chart.pluginService.register({
@@ -731,6 +743,9 @@ function we_value(m,y)
 							}
 			};
 			// Code to draw Chart
+			document.getElementById("ChartWEValueContent").innerHTML = '&nbsp;';
+			document.getElementById("ChartWEValueContent").innerHTML = '<canvas id="ChartWEValue" height="400px" ></canvas>';
+			
 			var ctx = document.getElementById('ChartWEValue').getContext('2d');
 			
 			var myChart = new Chart(ctx, {
@@ -817,6 +832,9 @@ $.ajax({
 						}
 		};
 		// Code to draw Chart
+		document.getElementById("ChartHSValueContent").innerHTML = '&nbsp;';
+		document.getElementById("ChartHSValueContent").innerHTML = '<canvas id="ChartHSValue" height="400px" ></canvas>';
+			
 		var ctx = document.getElementById('ChartHSValue').getContext('2d');
 		
 		var myChart = new Chart(ctx, {
@@ -901,6 +919,9 @@ function populis_value(m,y)
 							}
 			};
 			// Code to draw Chart
+			document.getElementById("ChartPOPValueContent").innerHTML = '&nbsp;';
+			document.getElementById("ChartPOPValueContent").innerHTML = '<canvas id="ChartPOPValue" height="400px" ></canvas>';
+
 			var ctx = document.getElementById('ChartPOPValue').getContext('2d');
 			
 			var myChart = new Chart(ctx, {
@@ -984,6 +1005,9 @@ $.ajax({
 						}
 		};
 		// Code to draw Chart
+		document.getElementById("ChartQ1ValueContent").innerHTML = '&nbsp;';
+		document.getElementById("ChartQ1ValueContent").innerHTML = '<canvas id="ChartQ1Value" height="400px" ></canvas>';
+
 		var ctx = document.getElementById('ChartQ1Value').getContext('2d');
 		
 		var myChart = new Chart(ctx, {
