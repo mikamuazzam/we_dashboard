@@ -152,7 +152,8 @@
                 inner join master_partner g on a.mob_sticky_bottom=g.id 
                 inner join master_partner h on a.mob_in_imagebanner=h.id 
                 inner join master_partner i on a.mob_nativead=i.id 
-                inner join master_partner j on a.mob_video=j.id;";
+                inner join master_partner j on a.mob_video=j.id
+                order by a.id";
 
         $query=$this->db->query($sql);
         return $query->result();
