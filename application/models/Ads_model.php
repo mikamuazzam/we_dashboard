@@ -81,7 +81,7 @@
                 SUM(case when website=5 then laba else 0 end) as 'wf'  
                from programmatics a
                inner join master_partner b on a.partner_id=b.id
-               where  year(dataadd)=$tahun and kurs  ='$kurs'
+               where  year(dataadd)=$tahun and kurs  ='$kurs' and month(dataadd) >7
                group by 1 order by month(dataadd) ";
         $query=$this->db->query($sql);
         
