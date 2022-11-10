@@ -47,7 +47,7 @@ class Ads extends CI_Controller {
         $data['avail_slot']=$this->ads_model->avail_slot();
         $data['partner_list']=$this->ads_model->partner_list();
         $data['slot_partner_list']=$this->ads_model->slot_partner_list();
-        
+        $data['nilai_kurs']=$this->ads_model->get_kurs();
 
         $this->load->view('backend/ads',$data);
         }
@@ -122,6 +122,21 @@ class Ads extends CI_Controller {
         $data= $this->ads_model->monthly_revenue($bulan,$tahun);
         echo json_encode($data);
     }  
+    function get_kurs()
+    {
+       
+        $this->load->model('ads_model');
+        $data= $this->ads_model->get_kurs();
+        echo json_encode($data);
+    }  
+    function total_rupiah($month,$year)
+    {
+        $bulan=$_REQUEST['bulan'];
+        $tahun=$_REQUEST['tahun'];
+        $this->load->model('ads_model');
+        $data= $this->ads_model->total_rupiah($bulan,$tahun);
+        echo json_encode($data);
+    }
     
     
 }

@@ -111,6 +111,7 @@ function partner_monthly(bulan,tahun)
 			{ data: "laba", title: "Revenue",className: "text-right"},
             { data: "kurs", title: "Kurs" }
 		],
+        
 		ajax: {
 			data :{bulan:bulan,tahun:tahun},
 			url: base_url+"ads/partner_monthly",

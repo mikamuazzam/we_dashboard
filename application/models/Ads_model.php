@@ -179,5 +179,24 @@
         $query=$this->db->query($sql);
         return $query->result();
     }
+    public function get_kurs(){
+        $sql = "SELECT kurs FROM kurs where status=1 ";
+        $query=$this->db->query($sql);
+        $result = $query->row();
+        return $result;
+    }
+    public function total_rupiah($month,$year){
+        $sql = "SELECT sum(rupiah) total
+                from (SELECT sum(laba)laba,b.name,b.kurs,case when b.kurs='USD' then sum(laba)*c.kurs else sum(laba) end as rupiah
+                from programmatics a 
+                inner join master_partner b on a.partner_id=b.id
+                left join kurs c on b.kurs=c.curr
+                where year(dataadd)=$year and month(dataadd)=$month  group by 2)a;";
+        $query=$this->db->query($sql);
+        $result = $query->row();
+        return $result;
+    }
+   
+
 }
 ?>
