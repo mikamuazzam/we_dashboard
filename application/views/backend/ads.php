@@ -402,6 +402,7 @@
                                      
                                     </table>
                                 </div>
+                                <h6 class="card-title"><p id="total1"></p></h6>
                             </div>
                         </div>
                     </div>            

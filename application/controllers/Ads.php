@@ -129,7 +129,7 @@ class Ads extends CI_Controller {
         $data= $this->ads_model->get_kurs();
         echo json_encode($data);
     }  
-    function total_rupiah($month,$year)
+    function total_rupiah()
     {
         $bulan=$_REQUEST['bulan'];
         $tahun=$_REQUEST['tahun'];

@@ -22,6 +22,7 @@ function load_chart()
     partner_monthly(bulan,tahun);
     ads_monthly(bulan,tahun);
     ads_view_partner(bulan,tahun,partner);
+    monthly_rupiah(bulan,tahun);
 }
 function get_ads_list(bulan,tahun,partner)
 {
@@ -118,11 +119,20 @@ function partner_monthly(bulan,tahun)
 			type: 'post',
 			dataType: 'json',
 			dataSrc:""
-		},
+		}
 	});
 }
-
-
+function monthly_rupiah(bulan,tahun)
+{
+    $.ajax({
+        type: "POST",
+        url: base_url+"ads/total_rupiah",
+        data :{bulan:bulan,tahun:tahun},
+        success: function(data) {
+           $('#total1').html('Total : '+data +" Rupiah");
+        }
+    });
+}
 function ads_view(bulan,tahun,partner)
 {
         // chart monthly
