@@ -18,7 +18,7 @@
 
             $sql="SELECT count(*)as jum,sum(a.amount_po) as amount
                     from invoices a where status_data=1 
-                    and inv_status_id=$status and a.inv_date >='2022-10-31' group by inv_status_id";
+                    and inv_status_id=$status $filter group by inv_status_id";
         
         $db2 = $this->load->database('db2', TRUE);
         $query=$db2->query($sql);
@@ -39,7 +39,7 @@
                     inner join inv_status c on c.id=a.inv_status_id 
                     inner join products d on d.id= a.product_id
                     inner join companies e on b.id_company = e. id
-                    where status_data=1  $filter and a.inv_date >='2022-10-31'
+                    where status_data=1  $filter and  (inv_status_id = 1 and  a.created_at >='2022-10-31' ) or (inv_status_id > 1 and a.inv_date >='2022-10-31') 
                 LIMIT $limit OFFSET $offset ";
         $db2 = $this->load->database('db2', TRUE);
         $query=$db2->query($sql);
