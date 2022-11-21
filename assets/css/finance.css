@@ -1,0 +1,76 @@
+.card-stats {
+	display: flex;
+	justify-content: space-between;
+}
+.card-stats .icon {
+	border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+	background: rgba(255,255,255, 0.28);
+}
+
+.description .growth {
+	display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.crm .card { 
+	/* box-shadow: 0 .5rem 1rem rgba(0,0,0,.15); */
+	box-shadow: 0 .125rem .25rem rgb(231, 228, 228);
+	border: 0;
+}
+
+.crm table img { 
+	max-width: 42px;
+}
+
+.crm table.item img { 
+	max-width: 36px;
+}
+
+.crm .card-header {
+	display: flex;
+    justify-content: space-between;
+	align-items: center;
+    background: #FFF;
+    border: 1;
+	padding: 15px 20px 5px;
+	font-weight: normal;
+}
+
+.crm .card-header .card-title {
+	font-weight: normal;
+    
+	font-size: 100%;
+}
+
+.crm .card-body { 
+	padding: 10px;
+}
+
+.crm .card-footer { 
+	padding: 5px 10px;
+	border-top: none;
+	display: flex;
+	justify-content: space-between;
+}
+.crm .card-footer-left {
+	display: flex;
+}
+
+.crm table td {
+	vertical-align: middle;
+    font-size: 10px;
+    
+}
+.card-footer .growth {
+	display: flex;
+}
+table th {
+	white-space: nowrap;
+	font-size: 12px;
+}
