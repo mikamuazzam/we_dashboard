@@ -67,7 +67,7 @@ function get_inv_list()
       { data: "status_inv", title: "Status "},
 			{ data: "company_name", title: "Name" },
 			{ data: "productname", title: "Event" },
-      { data: "amount_po", title: "Amount PO" },
+      { data: "amount_po",  render: $.fn.dataTable.render.number( '.', ',', 0 ),title: "Amount PO",className: "text-right"},
      
     
       { data: "inv_date", title: "Inv Date" },
@@ -83,7 +83,7 @@ function get_inv_list()
 			dataSrc:""
 		},
 	});
-
+  
 
 }
 
