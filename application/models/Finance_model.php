@@ -66,7 +66,7 @@
     {
         
         $sql="SELECT FORMAT(sum(nominal), 0) jumlah from cash_outs where month(tanggal_transaksi)=$month 
-                and year(tanggal_transaksi)=$year";
+                and year(tanggal_transaksi)=$year and status_data=1";
         
         $db2 = $this->load->database('db2', TRUE);
         $query=$db2->query($sql);
