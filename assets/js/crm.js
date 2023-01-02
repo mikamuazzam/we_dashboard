@@ -4,13 +4,9 @@ $(function() {
 	});
 
     load_chart();
-	we_month_val();
-	hs_month_val();
-	populis_month_val();
-	q1_month_val();
+	
 
-	progmonth();
-	progdiv();
+	
 	comp_list();
 	get_comp_list();
 	kgi_sales();
@@ -36,6 +32,13 @@ function load_chart()
 	q1_value(bulan,tahun);
 	get_list_acara(bulan,tahun);
 
+	we_month_val(tahun);
+	hs_month_val(tahun);
+	populis_month_val(tahun);
+	q1_month_val(tahun);
+
+	progmonth(tahun);
+	progdiv(tahun);
 }
 function get_list_acara(m,y)
 {
@@ -1020,10 +1023,11 @@ $.ajax({
 
 }
 
-function we_month_val()
+function we_month_val(y)
 {
 	// chart monthly
 	$.ajax({
+		data :{tahun:y},
 		url : base_url+"/crm/chart_month_we_val",
 		type : "GET",
 		success : function(data)
@@ -1097,6 +1101,8 @@ function we_month_val()
 											meta.data.forEach(function (bar, index) {
 												var data = dataset.data[index];
 												ctx.fillText(data, bar._model.x, bar._model.y - 5);
+												
+
 											});
 										});
 									}
@@ -1117,10 +1123,11 @@ function we_month_val()
 
 }
 
-function hs_month_val()
+function hs_month_val(y)
 {
 	// chart monthly
 	$.ajax({
+		data :{tahun:y},
 		url : base_url+"/crm/chart_month_hs_val",
 		type : "GET",
 		success : function(data)
@@ -1211,10 +1218,11 @@ function hs_month_val()
 	
 }
 
-function populis_month_val()
+function populis_month_val(y)
 {
 	// chart monthly
 	$.ajax({
+		data :{tahun:y},
 		url : base_url+"/crm/chart_month_pop_val",
 		type : "GET",
 		success : function(data)
@@ -1304,11 +1312,12 @@ function populis_month_val()
 	});
 }
 
-function q1_month_val()
+function q1_month_val(y)
 {
 
 	// chart monthly
 	$.ajax({
+		data :{tahun:y},
 		url : base_url+"/crm/chart_month_q1_val",
 		type : "GET",
 		success : function(data)
@@ -1398,10 +1407,11 @@ function q1_month_val()
 	}
 	});
 }
-function progmonth()
+function progmonth(y)
 {
 //chart 2
 $.ajax({
+	data :{tahun:y},
 	url : base_url+"/crm/get_div_month",
 	type : "GET",
 	success : function(data){
@@ -1490,10 +1500,11 @@ var myChart = new Chart(ctx, {
 				
 }
 
-function progdiv()
+function progdiv(y)
 {
 	//chart 2
 		$.ajax({
+			data :{tahun:y},
 			url : base_url+"/crm/get_div",
 			type : "GET",
 			success : function(data){

@@ -58,13 +58,15 @@ class Crm extends CI_Controller {
     function chart_month_q1_val()
     {
         $this->load->model('crm_model');
-        $data= $this->crm_model->chart_month_val('Q1');
+        $tahun=$_REQUEST['tahun'];
+        $data= $this->crm_model->chart_month_val('Q1',$tahun);
         echo json_encode($data);
     } 
     function chart_month_pop_val()
     {
         $this->load->model('crm_model');
-        $data= $this->crm_model->chart_month_val('3');
+        $tahun=$_REQUEST['tahun'];
+        $data= $this->crm_model->chart_month_val('3',$tahun);
         echo json_encode($data);
     } 
     
@@ -72,7 +74,8 @@ class Crm extends CI_Controller {
     function chart_month_hs_val()
     {
         $this->load->model('crm_model');
-        $data= $this->crm_model->chart_month_val('2');
+        $tahun=$_REQUEST['tahun'];
+        $data= $this->crm_model->chart_month_val('2',$tahun);
         echo json_encode($data);
     }  
     function chart_web()
@@ -98,7 +101,8 @@ class Crm extends CI_Controller {
     function chart_month_we_val()
     {
         $this->load->model('crm_model');
-        $data= $this->crm_model->chart_month_val('1');
+        $tahun=$_REQUEST['tahun'];
+        $data= $this->crm_model->chart_month_val('1',$tahun);
         echo json_encode($data);
     }  
     function comp_list()
@@ -116,13 +120,15 @@ class Crm extends CI_Controller {
     function get_div()
     {
         $this->load->model('crm_model');
-        $data= $this->crm_model->divisi();
+        $tahun=$_REQUEST['tahun'];
+        $data= $this->crm_model->divisi($tahun);
         echo json_encode($data);
     }
     function get_div_month()
     {
         $this->load->model('crm_model');
-        $data= $this->crm_model->divisi_perbulan();
+        $tahun=$_REQUEST['tahun'];
+        $data= $this->crm_model->divisi_perbulan($tahun);
         echo json_encode($data);
     }
 

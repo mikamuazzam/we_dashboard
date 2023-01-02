@@ -40,7 +40,7 @@
         return $query->result_array();
 
     }
-    public function chart_month_val($core)
+    public function chart_month_val($core,$tahun='')
     {
         if($core=='Q1') $core= "4,5";
       
@@ -59,7 +59,7 @@
                              when bulan=12 then 'Dec'
                              end as  bulan ,tahun FROM `performance` a
                         inner join divisi b on a.id_divisi = b.id
-                    where id_divisi  in ($core) group by bulan,tahun; ";
+                    where id_divisi  in ($core) and tahun='$tahun' group by bulan,tahun; ";
         $query=$this->db->query($sql);
         
         return $query->result_array();
@@ -114,7 +114,7 @@
         return $result;
 
     }
-    public function divisi_perbulan(){
+    public function divisi_perbulan($tahun){
         $sql = " SELECT sum(pencapaian)/1000000 as jum,
                             case when bulan=1 then 'Jan' 
                              when bulan =2 then 'Feb'
@@ -129,16 +129,17 @@
                              when bulan=11 then 'Nov'
                              when bulan=12 then 'Dec'
                              end as  bulan ,tahun FROM `performance` 
+                             where tahun='$tahun'
                              group by bulan,tahun";
         $query=$this->db->query($sql);
         
         return $query->result_array();
     }
-    public function divisi(){
+    public function divisi($tahun){
         $sql = "SELECT sum(pencapaian)/1000000 as jum,nama_divisi divisi 
             FROM `performance` a
             inner join divisi b on a.id_divisi =b.id
-        
+            where tahun=$tahun
             group by nama_divisi";
         $query=$this->db->query($sql);
         
