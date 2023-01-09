@@ -16,8 +16,8 @@ function load_chart()
     var partner=$('#partner').find('option:selected').val();
     get_ads_list(bulan,tahun,partner);
     ads_view(bulan,tahun,partner);
-    ads_revenue_idr(bulan,tahun);
-    ads_revenue_usd(bulan,tahun);
+    ads_revenue_idr(tahun);
+    ads_revenue_usd(tahun);
     ads_balance();
     partner_monthly(bulan,tahun);
     ads_monthly(bulan,tahun);
@@ -352,7 +352,7 @@ function ads_view_partner(bulan,tahun,partner)
         });
 }   
 
-function ads_revenue_usd(bulan,tahun)
+function ads_revenue_usd(tahun)
 {
         // chart monthly
         $.ajax({
@@ -496,7 +496,7 @@ function ads_revenue_usd(bulan,tahun)
         }
         });
 }
-function ads_revenue_idr(bulan,tahun)
+function ads_revenue_idr(tahun)
 {
         // chart monthly
         $.ajax({

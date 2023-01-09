@@ -41,9 +41,16 @@ class Dashboard extends CI_Controller {
    
     function chart_web_we()
     {
-        $website = $_REQUEST['website'];
+       
         $this->load->model('dashboard_model');
-        $data= $this->dashboard_model->chart_list_we($website);
+        $data= $this->dashboard_model->chart_list_we();
+        echo json_encode($data);
+    }
+    function chart_list_medsos()
+    {
+        $website=$_REQUEST['website'];
+        $this->load->model('dashboard_model');
+        $data= $this->dashboard_model->chart_list_medsos($website);
         echo json_encode($data);
     }
    

@@ -363,7 +363,7 @@
                                 while ($i<=2)
                                 {
                                     $j=2022+$i;
-                                    if($i==$current_year)$selected='selected';
+                                    if($j==$current_year)$selected='selected';
                                     else $selected='';
                                     echo "<option value=$j $selected>$j</option>";
                                     $i++;

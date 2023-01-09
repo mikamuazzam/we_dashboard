@@ -16,16 +16,24 @@
         return $result;
     }
 
-    public function chart_list_we($website){
-        $sql = "SELECT DATE_FORMAT(tanggal, '%M') tgl ,we nilai FROM web_rank  
-        where tanggal >'2022-05-01'  order by tanggal    LIMIT 12";
+    public function chart_list_we(){
+        $sql = "SELECT DATE_FORMAT(tanggal, '%M') tgl ,we,hs,populis,konten_jatim FROM web_rank  
+        where tanggal >'2022-08-01'  order by tanggal    LIMIT 12";
         $query=$this->db->query($sql);
         
         return $query->result_array();
 
     }
-   
-  
+    public function chart_list_medsos($website){
+        $sql = " SELECT dataadd tgl, rank
+                    FROM `ranks_ig` where website_id=$website and DATE_SUB(DATE(NOW()), INTERVAL 7 DAY);
+        ";
+        $query=$this->db->query($sql);
+        
+        return $query->result_array();
+
+    }
+     
     public function chart_web(){
         $sql = "SELECT DATE_FORMAT(tanggal, '%M') tgl,we,hs,populis,konten_jatim,we_finance,news_worthy 
                 FROM web_rank   where tanggal >'2022-05-01' ORDER BY `tanggal`   LIMIT 12";

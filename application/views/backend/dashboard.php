@@ -4,12 +4,12 @@
             <div class="message"></div>
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-themecolor"><i class="fa fa-braille" style="color:#1976d2"></i>&nbsp Dashboard Website Rank</h3>
+                    <h3 class="text-themecolor"><i class="fa fa-braille" style="color:#1976d2"></i>&nbsp Dashboard Media Rank</h3>
                 </div>
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                        <li class="breadcrumb-item active">Website Rank</li>
+                        <li class="breadcrumb-item active">Media Rank</li>
                     </ol>
                 </div>
             </div>
@@ -160,8 +160,93 @@
                 <!-- ============================================================== -->
             </div> 
             
-           
+            
             <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                            <h6 class="card-title"> News Media Website Rank List </h6>
+                                <div id="MediaRank">
+                                <canvas id="myChartWE" style="height:250px;"></canvas>  
+                                </div>
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                   
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <div class="card-body">
+                            <h6 class="card-title"> Follower IG WE </h6>
+                                <div id="MediaRank">
+                                <canvas id="ig_we" style="height:250px;"></canvas>  
+                                </div>
+                            </div>
+                          
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <div class="card-body">
+                            <h6 class="card-title"> Follower IG HS </h6>
+                                <div id="MediaRank2">
+                                <canvas id="ig_hs" style="height:250px;"></canvas>  
+                                </div>
+                            </div>
+                           
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <div class="card-body">
+                            <h6 class="card-title"> Follower IG Populis </h6>
+                                <div id="MediaRank3">
+                                <canvas id="ig_pp" style="height:250px;"></canvas>  
+                                </div>
+                            </div>
+                          
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <div class="card-body">
+                            <h6 class="card-title"> Follower IG KontenJatim </h6>
+                                <div id="MediaRank4">
+                                <canvas id="ig_kj" style="height:250px;"></canvas>  
+                                </div>
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <div class="card-body">
+                            <h6 class="card-title"> Follower IG Generasi Sawit </h6>
+                                <div id="MediaRank5">
+                                <canvas id="ig_gs" style="height:250px;"></canvas>  
+                                </div>
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <div class="card-body">
+                            <h6 class="card-title"> Follower IG WE Academy </h6>
+                                <div id="MediaRank6">
+                                <canvas id="ig_wea" style="height:250px;"></canvas>  
+                                </div>
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                   
+                </div>
                 <div class="row">
                     <div class="col-lg-12"  >
                         <div class="card">
