@@ -166,87 +166,197 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
-                            <h6 class="card-title"> News Media Website Rank List </h6>
+                            <h6 class="card-title"><b> News Media Website Rank List </b></h6>
                                 <div id="MediaRank">
                                 <canvas id="myChartWE" style="height:250px;"></canvas>  
                                 </div>
                             </div>
-                            <br>
                         </div>
-                    </div>
-                   
+                    </div> 
                 </div>
+
+                <div class="card">
+                    <br>
+                      <h6 class="card-title"><b>&nbsp;&nbsp;&nbsp; Social Media Wartaekonomi </b></h6>
+                
                 <div class="row">
                     <div class="col-lg-4">
-                        <div class="card">
                             <div class="card-body">
-                            <h6 class="card-title"> Follower IG WE </h6>
                                 <div id="MediaRank">
-                                <canvas id="ig_we" style="height:250px;"></canvas>  
+                                <canvas id="ig_we" style="height:200px;"></canvas>  
                                 </div>
-                            </div>
-                          
-                        </div>
+                            </div>   
                     </div>
                     <div class="col-lg-4">
-                        <div class="card">
                             <div class="card-body">
-                            <h6 class="card-title"> Follower IG HS </h6>
                                 <div id="MediaRank2">
-                                <canvas id="ig_hs" style="height:250px;"></canvas>  
+                                <canvas id="tiktok_we" style="height:200px;"></canvas>  
                                 </div>
-                            </div>
-                           
-                        </div>
+                            </div>   
                     </div>
                     <div class="col-lg-4">
-                        <div class="card">
                             <div class="card-body">
-                            <h6 class="card-title"> Follower IG Populis </h6>
+                           
                                 <div id="MediaRank3">
-                                <canvas id="ig_pp" style="height:250px;"></canvas>  
+                                <canvas id="yt_we" style="height:200px;"></canvas>  
                                 </div>
                             </div>
-                          
-                        </div>
                     </div>
                 </div>
+    
+                </div>
+           
+                <div class="card">
+                    <br>
+                      <h6 class="card-title"><b>&nbsp;&nbsp;&nbsp; Social Media Herstory </b></h6>
+                
                 <div class="row">
                     <div class="col-lg-4">
-                        <div class="card">
                             <div class="card-body">
-                            <h6 class="card-title"> Follower IG KontenJatim </h6>
-                                <div id="MediaRank4">
-                                <canvas id="ig_kj" style="height:250px;"></canvas>  
+                                <div id="MediaRank">
+                                <canvas id="ig_hs" style="height:200px;"></canvas>  
                                 </div>
-                            </div>
-                            <br>
-                        </div>
+                            </div>   
                     </div>
                     <div class="col-lg-4">
-                        <div class="card">
                             <div class="card-body">
-                            <h6 class="card-title"> Follower IG Generasi Sawit </h6>
-                                <div id="MediaRank5">
-                                <canvas id="ig_gs" style="height:250px;"></canvas>  
+                                <div id="MediaRank2">
+                                <canvas id="tiktok_hs" style="height:200px;"></canvas>  
                                 </div>
-                            </div>
-                            <br>
-                        </div>
+                            </div>   
                     </div>
                     <div class="col-lg-4">
-                        <div class="card">
                             <div class="card-body">
-                            <h6 class="card-title"> Follower IG WE Academy </h6>
-                                <div id="MediaRank6">
-                                <canvas id="ig_wea" style="height:250px;"></canvas>  
+                           
+                                <div id="MediaRank3">
+                                <canvas id="yt_hs" style="height:200px;"></canvas>  
                                 </div>
                             </div>
-                            <br>
-                        </div>
                     </div>
-                   
                 </div>
+                </div>
+
+                <div class="card">
+                    <br>
+                      <h6 class="card-title"><b>&nbsp;&nbsp;&nbsp; Social Media Populis </b></h6>
+                
+                <div class="row">
+                    <div class="col-lg-4">
+                            <div class="card-body">
+                                <div id="MediaRank">
+                                <canvas id="ig_pp" style="height:200px;"></canvas>  
+                                </div>
+                            </div>   
+                    </div>
+                    <div class="col-lg-4">
+                            <div class="card-body">
+                                <div id="MediaRank2">
+                                <canvas id="tiktok_pp" style="height:200px;"></canvas>  
+                                </div>
+                            </div>   
+                    </div>
+                    <div class="col-lg-4">
+                            <div class="card-body">
+                           
+                                <div id="MediaRank3">
+                                <canvas id="yt_pp" style="height:200px;"></canvas>  
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                </div>
+
+
+                <div class="card">
+                    <br>
+                      <h6 class="card-title"><b>&nbsp;&nbsp;&nbsp; Social Media Konten Jatim </b></h6>
+                
+                <div class="row">
+                    <div class="col-lg-4">
+                            <div class="card-body">
+                                <div id="MediaRank">
+                                <canvas id="ig_kj" style="height:200px;"></canvas>  
+                                </div>
+                            </div>   
+                    </div>
+                    <div class="col-lg-4">
+                            <div class="card-body">
+                                <div id="MediaRank2">
+                                <canvas id="tiktok_kj" style="height:200px;"></canvas>  
+                                </div>
+                            </div>   
+                    </div>
+                    <div class="col-lg-4">
+                            <div class="card-body">
+                           
+                                <div id="MediaRank3">
+                                <canvas id="yt_kj" style="height:200px;"></canvas>  
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                </div>
+
+                <div class="card">
+                    <br>
+                      <h6 class="card-title"><b>&nbsp;&nbsp;&nbsp; Social Media Generasi Sawit </b></h6>
+                
+                <div class="row">
+                    <div class="col-lg-4">
+                            <div class="card-body">
+                                <div id="MediaRank">
+                                <canvas id="ig_gs" style="height:200px;"></canvas>  
+                                </div>
+                            </div>   
+                    </div>
+                    <div class="col-lg-4">
+                            <div class="card-body">
+                                <div id="MediaRank2">
+                                <canvas id="tiktok_gs" style="height:200px;"></canvas>  
+                                </div>
+                            </div>   
+                    </div>
+                    <div class="col-lg-4">
+                            <div class="card-body">
+                           
+                                <div id="MediaRank3">
+                                <canvas id="yt_gs" style="height:200px;"></canvas>  
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                </div>
+
+                <div class="card">
+                    <br>
+                      <h6 class="card-title"><b>&nbsp;&nbsp;&nbsp; Social Media WE Academy </b></h6>
+                
+                <div class="row">
+                    <div class="col-lg-4">
+                            <div class="card-body">
+                                <div id="MediaRank">
+                                <canvas id="ig_wea" style="height:200px;"></canvas>  
+                                </div>
+                            </div>   
+                    </div>
+                    <div class="col-lg-4">
+                            <div class="card-body">
+                                <div id="MediaRank2">
+                                <canvas id="tiktok_wea" style="height:200px;"></canvas>  
+                                </div>
+                            </div>   
+                    </div>
+                    <div class="col-lg-4">
+                            <div class="card-body">
+                           
+                                <div id="MediaRank3">
+                                <canvas id="yt_wea" style="height:200px;"></canvas>  
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                </div>
+                <!--
                 <div class="row">
                     <div class="col-lg-12"  >
                         <div class="card">
@@ -284,11 +394,12 @@
                             </div>
                         </div>
                     </div>
-            </div>  
+            </div> 
+                                           --> 
             
         </div>
        
-<script src="<?php echo base_url(); ?>assets/js/dashboard1.js"></script>              
+<script src="<?php echo base_url(); ?>assets/js/dashboard.js"></script>              
 <script>
 </script>                                               
 <?php $this->load->view('backend/footer'); ?>

@@ -94,27 +94,39 @@ $(function() {
 
 function chart_we()
 {
-	chart_medsos_ig(1,'ig_we','WartaEkonomi','rgba(148, 1, 25, 0.88)');
+	chart_medsos_ig(1,'ig_we','Follower Instagram','rgba(148, 1, 25, 0.88)');
+	chart_medsos_tiktok(1,'tiktok_we','Follower Tiktok','rgba(148, 1, 25, 0.88)');
+	chart_medsos_youtube(1,'yt_we','Subscriber Youtube','rgba(148, 1, 25, 0.88)');
 }
 function chart_hs()
 {
-	chart_medsos_ig(2,'ig_hs','Herstory','rgb(255, 128, 128)');
+	chart_medsos_ig(2,'ig_hs','Follower Instagram','rgb(255, 128, 128)');
+	chart_medsos_youtube(2,'yt_hs','Subscriber Youtube','rgb(255, 128, 128)');
+	chart_medsos_tiktok(2,'tiktok_hs','Follower Tiktok','rgb(255, 128, 128)');
 }
 function chart_pp()
 {
-	chart_medsos_ig(3,'ig_pp','Populis','rgba(36, 135, 58, 0.71)');
+	chart_medsos_ig(3,'ig_pp','Follower Instagram','rgba(36, 135, 58, 0.71)');
+	chart_medsos_youtube(3,'yt_pp','Subscriber Youtube','rgba(36, 135, 58, 0.71)');
+	chart_medsos_tiktok(3,'tiktok_pp','Follower Tiktok','rgba(36, 135, 58, 0.71)');
 }
 function chart_kj()
 {
-	chart_medsos_ig(4,'ig_kj','Konten Jatim','rgb(25, 77, 51)');
+	chart_medsos_ig(4,'ig_kj','Follower Instagram','rgb(25, 77, 51)');
+	chart_medsos_youtube(4,'yt_kj','Subscriber Youtube','rgb(25, 77, 51)');
+	chart_medsos_tiktok(4,'tiktok_kj','Follower Tiktok','rgb(25, 77, 51)');
 }
 function chart_gs()
 {
-	chart_medsos_ig(9,'ig_gs','Generasi Sawit','rgb(0, 51, 0)');
+	chart_medsos_ig(9,'ig_gs','Follower Instagram','rgb(0, 51, 0)');
+	chart_medsos_youtube(9,'yt_gs','Subscriber Youtube','rgb(0, 51, 0)');
+	chart_medsos_tiktok(9,'tiktok_gs','Follower Tiktok','rgb(0, 51, 0)');
 }
 function chart_wea()
 {
-	chart_medsos_ig(10,'ig_wea','WE Academy','rgb(255, 51, 0)');
+	chart_medsos_ig(10,'ig_wea','Follower Instagram','rgb(255, 51, 0)');
+	chart_medsos_youtube(10,'yt_wea','Subscriber Youtube','rgb(255, 51, 0)');
+	chart_medsos_tiktok(10,'tiktok_wea','Follower Tiktok','rgb(255, 51, 0)');
 }
 function chart_medsos_ig(web_id,idchart,judul,warna)
 {
@@ -154,7 +166,144 @@ function chart_medsos_ig(web_id,idchart,judul,warna)
 		  var LineGraph = new Chart(ctx, {
 			type: 'line',
 			data: chartdata,
+			
 			options: {
+				legend: {
+					display: false,
+				},
+				title: {
+					display: true,
+					text: judul
+				  },
+				scales: {
+					yAxes: [{
+						ticks: {
+						  beginAtZero: true
+						},
+					  }],
+				  },
+				  responsive: true,
+				  maintainAspectRatio: false
+			}
+		  });
+		},
+		error : function(data) {
+	
+		}
+	  }); 
+
+}
+function chart_medsos_tiktok(web_id,idchart,judul,warna)
+{
+
+	$.ajax({
+		data :{website:web_id},
+		url : base_url+"dashboard/chart_list_tiktok",
+		type : "GET",
+		success : function(data){
+			data = JSON.parse(data);
+            const labeldt = [];
+            const rankdt= [];
+	
+            for (var dt of data) {
+                var tanggal_rank = dt.tgl;
+                labeldt.push(tanggal_rank)
+
+                var get_we= parseInt(dt.rank) || 0;
+                rankdt.push(get_we)
+
+            }
+		  	var chartdata = {
+			labels: labeldt,
+			datasets: [
+							{
+								label: judul,
+								fill: false,
+								borderColor: warna,
+								borderWidth: 1,
+								data: rankdt
+							}
+			  
+			]
+		  };
+	
+		  var ctx = document.getElementById(idchart).getContext("2d");
+		  var LineGraph = new Chart(ctx, {
+			type: 'line',
+			data: chartdata,
+			options: {
+				legend: {
+					display: false,
+				},
+				title: {
+					display: true,
+					text: judul
+				  },
+				scales: {
+					yAxes: [{
+						ticks: {
+						 
+						  beginAtZero: true
+						},
+					  }],
+				  },
+				  responsive: true,
+				  maintainAspectRatio: false
+			}
+		  });
+		},
+		error : function(data) {
+	
+		}
+	  }); 
+
+}
+function chart_medsos_youtube(web_id,idchart,judul,warna)
+{
+
+	$.ajax({
+		data :{website:web_id},
+		url : base_url+"dashboard/chart_list_youtube",
+		type : "GET",
+		success : function(data){
+			data = JSON.parse(data);
+            const labeldt = [];
+            const rankdt= [];
+	
+            for (var dt of data) {
+                var tanggal_rank = dt.tgl;
+                labeldt.push(tanggal_rank)
+
+                var get_we= parseInt(dt.rank) || 0;
+                rankdt.push(get_we)
+
+            }
+		  	var chartdata = {
+			labels: labeldt,
+			datasets: [
+							{
+								label: judul,
+								fill: false,
+								borderColor: warna,
+								borderWidth: 1,
+								data: rankdt
+							}
+			  
+			]
+		  };
+	
+		  var ctx = document.getElementById(idchart).getContext("2d");
+		  var LineGraph = new Chart(ctx, {
+			type: 'line',
+			data: chartdata,
+			options: {
+				legend: {
+					display: false,
+				},
+				title: {
+					display: true,
+					text: judul
+				  },
 				scales: {
 					yAxes: [{
 						ticks: {

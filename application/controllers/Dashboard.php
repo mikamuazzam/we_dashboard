@@ -50,7 +50,21 @@ class Dashboard extends CI_Controller {
     {
         $website=$_REQUEST['website'];
         $this->load->model('dashboard_model');
-        $data= $this->dashboard_model->chart_list_medsos($website);
+        $data= $this->dashboard_model->chart_list_medsos($website,'ranks_ig');
+        echo json_encode($data);
+    }
+    function chart_list_tiktok()
+    {
+        $website=$_REQUEST['website'];
+        $this->load->model('dashboard_model');
+        $data= $this->dashboard_model->chart_list_medsos($website,'ranks_tiktok');
+        echo json_encode($data);
+    }
+    function chart_list_youtube()
+    {
+        $website=$_REQUEST['website'];
+        $this->load->model('dashboard_model');
+        $data= $this->dashboard_model->chart_list_medsos($website,'ranks_yt');
         echo json_encode($data);
     }
    

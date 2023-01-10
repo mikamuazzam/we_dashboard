@@ -24,15 +24,16 @@
         return $query->result_array();
 
     }
-    public function chart_list_medsos($website){
+    public function chart_list_medsos($website,$medsos_tabel){
         $sql = " SELECT dataadd tgl, rank
-                    FROM `ranks_ig` where website_id=$website and DATE_SUB(DATE(NOW()), INTERVAL 7 DAY);
+                    FROM $medsos_tabel where website_id=$website and DATE_SUB(DATE(NOW()), INTERVAL 7 DAY);
         ";
         $query=$this->db->query($sql);
         
         return $query->result_array();
 
     }
+    
      
     public function chart_web(){
         $sql = "SELECT DATE_FORMAT(tanggal, '%M') tgl,we,hs,populis,konten_jatim,we_finance,news_worthy 
