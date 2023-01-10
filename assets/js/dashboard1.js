@@ -161,7 +161,8 @@ function chart_medsos_ig(web_id,idchart,judul,warna)
 			  
 			]
 		  };
-	
+		  var miny=Math.min.apply(this, rankdt) -100;
+		  var maxy=Math.max.apply(this, rankdt) +100;
 		  var ctx = document.getElementById(idchart).getContext("2d");
 		  var LineGraph = new Chart(ctx, {
 			type: 'line',
@@ -178,6 +179,8 @@ function chart_medsos_ig(web_id,idchart,judul,warna)
 				scales: {
 					yAxes: [{
 						ticks: {
+						  min:miny,
+						  max:maxy,
 						  beginAtZero: true
 						},
 					  }],
@@ -226,7 +229,8 @@ function chart_medsos_tiktok(web_id,idchart,judul,warna)
 			  
 			]
 		  };
-	
+	      var miny=Math.min.apply(this, rankdt) -100;
+		  var maxy=Math.max.apply(this, rankdt) +100;
 		  var ctx = document.getElementById(idchart).getContext("2d");
 		  var LineGraph = new Chart(ctx, {
 			type: 'line',
@@ -242,7 +246,8 @@ function chart_medsos_tiktok(web_id,idchart,judul,warna)
 				scales: {
 					yAxes: [{
 						ticks: {
-						 
+						  min:miny,
+						  max:maxy,
 						  beginAtZero: true
 						},
 					  }],
@@ -291,7 +296,8 @@ function chart_medsos_youtube(web_id,idchart,judul,warna)
 			  
 			]
 		  };
-	
+		  var miny=Math.min.apply(this, rankdt) -100;
+		  var maxy=Math.max.apply(this, rankdt) +100;
 		  var ctx = document.getElementById(idchart).getContext("2d");
 		  var LineGraph = new Chart(ctx, {
 			type: 'line',
@@ -307,7 +313,8 @@ function chart_medsos_youtube(web_id,idchart,judul,warna)
 				scales: {
 					yAxes: [{
 						ticks: {
-						 
+							min:miny,
+							max:maxy,
 						  beginAtZero: true
 						},
 					  }],
