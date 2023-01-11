@@ -161,8 +161,14 @@ function chart_medsos_ig(web_id,idchart,judul,warna)
 			  
 			]
 		  };
-		  var miny=Math.min.apply(this, rankdt) -100;
-		  var maxy=Math.max.apply(this, rankdt) +100;
+		  var minData=Math.min.apply(this, rankdt);
+		  var maxData=Math.max.apply(this, rankdt);
+		 
+		  if (minData < 100) miny=minData - 10; else miny=minData -100 ;
+		  if (maxData < 100) maxy=maxData + 100; else  maxy=maxData + 1000;
+
+		  if(maxy < 200) step=50; else step=500;
+		
 		  var ctx = document.getElementById(idchart).getContext("2d");
 		  var LineGraph = new Chart(ctx, {
 			type: 'line',
@@ -181,6 +187,7 @@ function chart_medsos_ig(web_id,idchart,judul,warna)
 						ticks: {
 						  min:miny,
 						  max:maxy,
+						  stepSize:step,
 						  beginAtZero: true
 						},
 					  }],
@@ -229,8 +236,14 @@ function chart_medsos_tiktok(web_id,idchart,judul,warna)
 			  
 			]
 		  };
-	      var miny=Math.min.apply(this, rankdt) -100;
-		  var maxy=Math.max.apply(this, rankdt) +100;
+		  var minData=Math.min.apply(this, rankdt);
+		  var maxData=Math.max.apply(this, rankdt);
+		 
+		  if (minData < 100) miny=minData - 10; else miny=minData -100 ;
+		  if (maxData < 100) maxy=maxData + 100; else  maxy=maxData + 1000;
+
+		  if(maxy < 200) step=50; else step=500;
+
 		  var ctx = document.getElementById(idchart).getContext("2d");
 		  var LineGraph = new Chart(ctx, {
 			type: 'line',
@@ -248,6 +261,7 @@ function chart_medsos_tiktok(web_id,idchart,judul,warna)
 						ticks: {
 						  min:miny,
 						  max:maxy,
+						  stepSize:step,
 						  beginAtZero: true
 						},
 					  }],
@@ -296,8 +310,14 @@ function chart_medsos_youtube(web_id,idchart,judul,warna)
 			  
 			]
 		  };
-		  var miny=Math.min.apply(this, rankdt) -100;
-		  var maxy=Math.max.apply(this, rankdt) +100;
+		  var minData=Math.min.apply(this, rankdt);
+		  var maxData=Math.max.apply(this, rankdt);
+		 
+		  if (minData < 100) miny=minData - 10; else miny=minData -100 ;
+		  if (maxData < 100) maxy=maxData + 100; else  maxy=maxData + 1000;
+
+		  if(maxy < 200) step=50; else step=500;
+
 		  var ctx = document.getElementById(idchart).getContext("2d");
 		  var LineGraph = new Chart(ctx, {
 			type: 'line',
@@ -315,6 +335,7 @@ function chart_medsos_youtube(web_id,idchart,judul,warna)
 						ticks: {
 							min:miny,
 							max:maxy,
+							stepSize:step,
 						  beginAtZero: true
 						},
 					  }],
