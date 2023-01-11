@@ -37,6 +37,7 @@ $(function() {
 								label: "WE",
 								fill: false,
 								borderColor: 'rgba(148, 1, 25, 0.88)',
+								backgroundColor: 'rgba(148, 1, 25, 0.88)',
 								borderWidth: 1,
 								data: we_dt
 							},
@@ -44,6 +45,7 @@ $(function() {
 								label: "HS",
 								fill: false,
 								borderColor :'rgb(255, 128, 128)',
+								backgroundColor: 'rgb(255, 128, 128)',
 								borderWidth: 1,
 								data: hs_dt
 								},
@@ -51,6 +53,7 @@ $(function() {
 								label: "POPULIS",
 								fill: false,
 								borderColor:'rgba(36, 135, 58, 0.71)',
+								backgroundColor: 'rgba(36, 135, 58, 0.71)',
 								borderWidth: 1,
 								data:populis_dt
 							}
