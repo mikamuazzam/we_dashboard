@@ -351,7 +351,7 @@
                      <div class="col-lg-6">
                         <div class="card">
                             <div class="card-body">
-                            <h6 class="card-title">Total  Pencapaian per divisi Tahun <?php echo date('Y');?>  = <b><?php echo number_format($sum_pencapaian->jum,0,",",".");?>&nbsp; Juta</b></h6>
+                            <h6 class="card-title">Total  Pencapaian per divisi Tahun <?php echo date('Y');?>  = <label class="sum_pencapaian" style="font-weight:bold;">&nbsp; Juta</b></label></h6>
                             <canvas id="progChart" height="200px;"></canvas> 
                             </div>
                         </div>
@@ -359,7 +359,7 @@
                     <div class="col-lg-6">
                         <div class="card">
                             <div class="card-body">
-                            <h6 class="card-title">Total Pencapaian Perusahaan  Tahun <?php echo date('Y');?> = <b><?php echo number_format($sum_pencapaian->jum,0,",",".");?>&nbsp; Juta</b></h6>
+                            <h6 class="card-title">Total Pencapaian Perusahaan  Tahun <?php echo date('Y');?> <label class="sum_pencapaian" style="font-weight:bold;"></h6>
                             <canvas id="ProgChartMont" height="200px;"></canvas>  
                             </div>
                             <br>
@@ -410,6 +410,6 @@
             </div>
         </div>
        
-<script src="<?php echo base_url(); ?>assets/js/crm.js"></script>              
+<script src="<?php echo base_url(); ?>assets/js/crm1.js"></script>              
                                               
 <?php $this->load->view('backend/footer'); ?>

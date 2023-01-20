@@ -13,6 +13,8 @@ $(function() {
 // chart value	
 });
 
+
+
 function load_chart()
 {
 	var bulan=$('#bulan').find('option:selected').val();
@@ -31,6 +33,7 @@ function load_chart()
 	populis_value(bulan,tahun);
 	q1_value(bulan,tahun);
 	get_list_acara(bulan,tahun);
+	get_sum_pencapaian(tahun);
 
 	we_month_val(tahun);
 	hs_month_val(tahun);
@@ -39,6 +42,21 @@ function load_chart()
 
 	progmonth(tahun);
 	progdiv(tahun);
+}
+
+function get_sum_pencapaian(tahun)
+{
+    $.ajax({
+        type: "POST",
+        url: base_url+"/crm/sum_pencapaian",
+        data :{tahun:tahun},
+        success: function(data) {
+		   data = JSON.parse(data);
+		   var cb = data.jum;
+
+           $('.sum_pencapaian').html('Total : '+cb +" Juta Rupiah");
+        }
+    });
 }
 function get_list_acara(m,y)
 {
@@ -894,7 +912,8 @@ function populis_value(m,y)
 					yAxes: [{
 						ticks: {
 						
-						beginAtZero: true
+						beginAtZero: true,
+						max:100,
 						},
 					}],
 					xAxes: [{
@@ -1149,7 +1168,7 @@ function hs_month_val(y)
                 val_dt_target.push(get_val_target)
 
             }
-			
+			var maxy=Math.max.apply(this, val_dt_target) +1000; 
 			var myData = {
 				labels:labeldt,
 				datasets: [{
@@ -1165,7 +1184,7 @@ function hs_month_val(y)
 					data: val_dt_target,
 				}]
 			};
-	
+			
 			var myoption = {
 				tooltips: {
 					enabled: true
@@ -1178,7 +1197,8 @@ function hs_month_val(y)
 					yAxes: [{
 						ticks: {
 						
-						beginAtZero: true
+						beginAtZero: true,
+						max:5000
 						},
 					}],
 					xAxes: [{
@@ -1449,6 +1469,7 @@ var myoption = {
 	tooltips: {
 		enabled: true
 	},
+	
 	hover: {
 		animationDuration: 1
 	},

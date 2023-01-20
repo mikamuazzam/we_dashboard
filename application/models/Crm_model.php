@@ -17,11 +17,11 @@
                     when jumlah between 61 and 80 then '#6b4c1e' 
                     when jumlah between 81 and 100 then '#1e6b24' 
                     when jumlah > 100 then '#3cb5de' else 'grey' end warna from 
-                    ( SELECT nama_core_bisnis corebisnis,cast(pencapaian/target*100 as integer) as jumlah
+                    ( SELECT nama_core_bisnis corebisnis,cast(sum(pencapaian)/target*100 as integer) as jumlah
                      from performance a
                      inner join divisi b on a.id_divisi = b.id
                      inner join core_bisnis c on a.id_core_bisnis = c.id
-                     where id_divisi in ($core) and bulan='$bulan' and tahun='$tahun')a";
+                     where id_divisi in ($core) and bulan='$bulan' and tahun='$tahun' group by nama_core_bisnis,bulan,tahun)a";
                 $query=$this->db->query($sql); 
         
         return $query->result_array();
@@ -31,10 +31,11 @@
     {
         if($core=='4') $core= "4,5";
         
-        $sql = "SELECT  nama_core_bisnis  corebisnis,pencapaian/1000000 jum from performance a
+        $sql = "SELECT  nama_core_bisnis  corebisnis,sum(pencapaian)/1000000 jum from performance a
                 inner join divisi b on a.id_divisi = b.id
                 inner join core_bisnis c on a.id_core_bisnis = c.id
-                where id_divisi in ($core)  and bulan='$bulan' and tahun='$tahun'";
+                where id_divisi in ($core)  and bulan='$bulan' and tahun='$tahun' 
+                group by bulan,tahun,nama_core_bisnis ";
                 $query=$this->db->query($sql);
         
         return $query->result_array();
@@ -45,21 +46,16 @@
         if($core=='Q1') $core= "4,5";
       
         $sql = "SELECT sum(pencapaian)/1000000 jum,sum(target)/1000000 jum_target ,
-                        case when bulan=1 then 'Jan' 
-                             when bulan =2 then 'Feb'
-                             when bulan=3 then 'Mar'
-                             when bulan=4 then 'Apr'
-                             when bulan=5 then 'Mei'
-                             when bulan=6 then 'Jun'
-                             when bulan=7 then 'Jul'
-                             when bulan=8 then 'Aug'
-                             when bulan=9 then 'Sep'
-                             when bulan=10 then 'Oct'
-                             when bulan=11 then 'Nov'
-                             when bulan=12 then 'Dec'
-                             end as  bulan ,tahun FROM `performance` a
-                        inner join divisi b on a.id_divisi = b.id
-                    where id_divisi  in ($core) and tahun='$tahun' group by bulan,tahun; ";
+                         case when bulan=1 then 'Jan' when bulan =2 then 'Feb' 
+                              when bulan=3 then 'Mar' when bulan=4 then 'Apr' 
+                              when bulan=5 then 'Mei' when bulan=6 then 'Jun' 
+                              when bulan=7 then 'Jul' when bulan=8 then 'Aug' 
+                              when bulan=9 then 'Sep' when bulan=10 then 'Oct' 
+                              when bulan=11 then 'Nov' when bulan=12 then 'Dec' end as bulan ,
+                              tahun 
+                FROM (SELECT sum(pencapaian)pencapaian, target,bulan,tahun FROM `performance` 
+                        where id_divisi in ($core) and tahun=$tahun 
+                        group by id_divisi,id_core_bisnis,bulan,tahun) a group by bulan,tahun; ";
         $query=$this->db->query($sql);
         
         return $query->result_array();
@@ -145,9 +141,9 @@
         
         return $query->result_array();
     }
-    public function sum_pencapaian(){
-        
-        $sql = "SELECT sum(pencapaian)/1000000 as jum FROM `performance` ";
+    public function sum_pencapaian($tahun=''){
+        if(empty($tahun)) $tahun=date('Y');
+        $sql = "SELECT FORMAT(sum(pencapaian)/1000000,2) as jum FROM `performance` where tahun=$tahun ";
         $query=$this->db->query($sql);
         $result = $query->row();
 

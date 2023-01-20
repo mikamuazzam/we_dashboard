@@ -36,7 +36,7 @@ class Crm extends CI_Controller {
             $data['deals_lost'] = $this->crm_model->deals(4);
             $data['deals_inv'] = $this->crm_model->deals(5);
             $data['venue_list'] = $this->crm_model->list_acara();
-            $data['sum_pencapaian'] = $this->crm_model->sum_pencapaian();
+          
 
         $this->load->view('backend/crm',$data);
         }
@@ -45,6 +45,16 @@ class Crm extends CI_Controller {
         }
     }
     
+    function sum_pencapaian()
+    {
+        
+        $tahun=$_REQUEST['tahun'];
+        
+
+        $this->load->model('crm_model');
+        $data= $this->crm_model->sum_pencapaian($tahun);
+        echo json_encode($data);
+    } 
     function list_acara()
     {
         $bulan=$_REQUEST['bulan'];

@@ -4,18 +4,16 @@ $(function() {
 	});
 
     load_chart();
-	we_month_val();
-	hs_month_val();
-	populis_month_val();
-	q1_month_val();
+	
 
-	progmonth();
-	progdiv();
+	
 	comp_list();
 	get_comp_list();
 	kgi_sales();
 // chart value	
 });
+
+
 
 function load_chart()
 {
@@ -35,7 +33,30 @@ function load_chart()
 	populis_value(bulan,tahun);
 	q1_value(bulan,tahun);
 	get_list_acara(bulan,tahun);
+	get_sum_pencapaian(tahun);
 
+	we_month_val(tahun);
+	hs_month_val(tahun);
+	populis_month_val(tahun);
+	q1_month_val(tahun);
+
+	progmonth(tahun);
+	progdiv(tahun);
+}
+
+function get_sum_pencapaian(tahun)
+{
+    $.ajax({
+        type: "POST",
+        url: base_url+"/crm/sum_pencapaian",
+        data :{tahun:tahun},
+        success: function(data) {
+		   data = JSON.parse(data);
+		   var cb = data.jum;
+
+           $('.sum_pencapaian').html('Total : '+cb +" Juta Rupiah");
+        }
+    });
 }
 function get_list_acara(m,y)
 {
@@ -262,6 +283,9 @@ function populis_persentage(m,y)
 							},lineAt : 100
 			};
 			// Code to draw Chart
+			document.getElementById("ChartPOPPersenContent").innerHTML = '&nbsp;';
+			document.getElementById("ChartPOPPersenContent").innerHTML = '<canvas id="ChartPOPPersen" height="400px" ></canvas>';
+			
 			var ctx = document.getElementById('ChartPOPPersen').getContext('2d');
 			Chart.pluginService.register({
 				afterDraw: function(chart) {
@@ -383,6 +407,9 @@ function q1_persentage(m,y)
 							},lineAt : 100
 			};
 			// Code to draw Chart
+			document.getElementById("ChartQ1PersenContent").innerHTML = '&nbsp;';
+			document.getElementById("ChartQ1PersenContent").innerHTML = '<canvas id="ChartQ1Persen" height="400px" ></canvas>';
+			
 			var ctx = document.getElementById('ChartQ1Persen').getContext('2d');
 			Chart.pluginService.register({
 				afterDraw: function(chart) {
@@ -499,6 +526,9 @@ function hs_persentage(m,y)
 							},lineAt : 100
 			};
 			// Code to draw Chart
+			document.getElementById("ChartHSPersenContent").innerHTML = '&nbsp;';
+			document.getElementById("ChartHSPersenContent").innerHTML = '<canvas id="ChartHSPersen" height="400px" ></canvas>';
+			
 			var ctx = document.getElementById('ChartHSPersen').getContext('2d');
 			Chart.pluginService.register({
 				afterDraw: function(chart) {
@@ -632,6 +662,9 @@ function we_persentage(m,y)
 							},lineAt : 100
 			};
 			// Code to draw Chart
+			document.getElementById("ChartWEPersenContent").innerHTML = '&nbsp;';
+			document.getElementById("ChartWEPersenContent").innerHTML = '<canvas id="ChartWEPersen" height="400px" ></canvas>';
+			
 			var ctx = document.getElementById('ChartWEPersen').getContext('2d');
 			
 			Chart.pluginService.register({
@@ -731,6 +764,9 @@ function we_value(m,y)
 							}
 			};
 			// Code to draw Chart
+			document.getElementById("ChartWEValueContent").innerHTML = '&nbsp;';
+			document.getElementById("ChartWEValueContent").innerHTML = '<canvas id="ChartWEValue" height="400px" ></canvas>';
+			
 			var ctx = document.getElementById('ChartWEValue').getContext('2d');
 			
 			var myChart = new Chart(ctx, {
@@ -817,6 +853,9 @@ $.ajax({
 						}
 		};
 		// Code to draw Chart
+		document.getElementById("ChartHSValueContent").innerHTML = '&nbsp;';
+		document.getElementById("ChartHSValueContent").innerHTML = '<canvas id="ChartHSValue" height="400px" ></canvas>';
+			
 		var ctx = document.getElementById('ChartHSValue').getContext('2d');
 		
 		var myChart = new Chart(ctx, {
@@ -873,7 +912,8 @@ function populis_value(m,y)
 					yAxes: [{
 						ticks: {
 						
-						beginAtZero: true
+						beginAtZero: true,
+						max:100,
 						},
 					}],
 					xAxes: [{
@@ -901,6 +941,9 @@ function populis_value(m,y)
 							}
 			};
 			// Code to draw Chart
+			document.getElementById("ChartPOPValueContent").innerHTML = '&nbsp;';
+			document.getElementById("ChartPOPValueContent").innerHTML = '<canvas id="ChartPOPValue" height="400px" ></canvas>';
+
 			var ctx = document.getElementById('ChartPOPValue').getContext('2d');
 			
 			var myChart = new Chart(ctx, {
@@ -984,6 +1027,9 @@ $.ajax({
 						}
 		};
 		// Code to draw Chart
+		document.getElementById("ChartQ1ValueContent").innerHTML = '&nbsp;';
+		document.getElementById("ChartQ1ValueContent").innerHTML = '<canvas id="ChartQ1Value" height="400px" ></canvas>';
+
 		var ctx = document.getElementById('ChartQ1Value').getContext('2d');
 		
 		var myChart = new Chart(ctx, {
@@ -996,10 +1042,11 @@ $.ajax({
 
 }
 
-function we_month_val()
+function we_month_val(y)
 {
 	// chart monthly
 	$.ajax({
+		data :{tahun:y},
 		url : base_url+"/crm/chart_month_we_val",
 		type : "GET",
 		success : function(data)
@@ -1073,6 +1120,8 @@ function we_month_val()
 											meta.data.forEach(function (bar, index) {
 												var data = dataset.data[index];
 												ctx.fillText(data, bar._model.x, bar._model.y - 5);
+												
+
 											});
 										});
 									}
@@ -1093,10 +1142,11 @@ function we_month_val()
 
 }
 
-function hs_month_val()
+function hs_month_val(y)
 {
 	// chart monthly
 	$.ajax({
+		data :{tahun:y},
 		url : base_url+"/crm/chart_month_hs_val",
 		type : "GET",
 		success : function(data)
@@ -1118,7 +1168,7 @@ function hs_month_val()
                 val_dt_target.push(get_val_target)
 
             }
-			
+			var maxy=Math.max.apply(this, val_dt_target) +1000; 
 			var myData = {
 				labels:labeldt,
 				datasets: [{
@@ -1134,7 +1184,7 @@ function hs_month_val()
 					data: val_dt_target,
 				}]
 			};
-	
+			
 			var myoption = {
 				tooltips: {
 					enabled: true
@@ -1147,7 +1197,8 @@ function hs_month_val()
 					yAxes: [{
 						ticks: {
 						
-						beginAtZero: true
+						beginAtZero: true,
+						max:5000
 						},
 					}],
 					xAxes: [{
@@ -1187,10 +1238,11 @@ function hs_month_val()
 	
 }
 
-function populis_month_val()
+function populis_month_val(y)
 {
 	// chart monthly
 	$.ajax({
+		data :{tahun:y},
 		url : base_url+"/crm/chart_month_pop_val",
 		type : "GET",
 		success : function(data)
@@ -1280,11 +1332,12 @@ function populis_month_val()
 	});
 }
 
-function q1_month_val()
+function q1_month_val(y)
 {
 
 	// chart monthly
 	$.ajax({
+		data :{tahun:y},
 		url : base_url+"/crm/chart_month_q1_val",
 		type : "GET",
 		success : function(data)
@@ -1374,10 +1427,11 @@ function q1_month_val()
 	}
 	});
 }
-function progmonth()
+function progmonth(y)
 {
 //chart 2
 $.ajax({
+	data :{tahun:y},
 	url : base_url+"/crm/get_div_month",
 	type : "GET",
 	success : function(data){
@@ -1415,6 +1469,7 @@ var myoption = {
 	tooltips: {
 		enabled: true
 	},
+	
 	hover: {
 		animationDuration: 1
 	},
@@ -1466,10 +1521,11 @@ var myChart = new Chart(ctx, {
 				
 }
 
-function progdiv()
+function progdiv(y)
 {
 	//chart 2
 		$.ajax({
+			data :{tahun:y},
 			url : base_url+"/crm/get_div",
 			type : "GET",
 			success : function(data){
