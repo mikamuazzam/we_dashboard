@@ -142,6 +142,12 @@ class Crm extends CI_Controller {
         echo json_encode($data);
     }
 
-
+    function chart_we_ytd()
+    {
+        $this->load->model('crm_model');
+        $divisi=$_REQUEST['divid'];
+        $data= $this->crm_model->chart_we_ytd($divisi);
+        echo json_encode($data);
+    }
 
 }

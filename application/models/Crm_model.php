@@ -132,7 +132,10 @@
         return $query->result_array();
     }
     public function divisi($tahun){
-        $sql = "SELECT sum(pencapaian)/1000000 as jum,nama_divisi divisi 
+        $sql = "SELECT sum(pencapaian)/1000000 as jum,
+                case when nama_divisi like 'WEA%' then 'WEA' 
+                    when nama_divisi like 'WE%' then 'WE'
+                    else nama_divisi end divisi 
             FROM `performance` a
             inner join divisi b on a.id_divisi =b.id
             where tahun=$tahun
@@ -159,6 +162,28 @@
         $query=$this->db->query($sql); 
         return $query->result_array();
 
+    }
+
+    public function chart_we_ytd($divisi){
+        $date=date('Y-m-d');
+        $ldate=date('Y-m-d', strtotime('-1 year'));
+        $sql = "select tahun,nama_core_bisnis nm,
+                    SUM(if(tahun =2022 ,jum,0)) as `ly`, 
+                    SUM(if(tahun =2023 ,jum,0)) as `now` 
+                    from (
+                         SELECT sum(pencapaian)/1000000 jum,tahun,id_core_bisnis cb 
+                         FROM performance where id_divisi=$divisi
+                         and STR_TO_DATE(CONCAT(tahun,'-',bulan,'-',tanggal), '%Y-%m-%d') < '$ldate' 
+                         and tahun=2022 group by tahun,id_core_bisnis
+                         union all 
+                         SELECT sum(pencapaian)/1000000,tahun,id_core_bisnis FROM performance
+                          where id_divisi=$divisi and STR_TO_DATE(CONCAT(tahun,'-',bulan,'-',tanggal), '%Y-%m-%d') < '$date' and tahun=2023
+                           group by tahun,id_core_bisnis)a 
+                 inner join core_bisnis on cb =id 
+                 group by 2;";
+        $query=$this->db->query($sql);
+        
+        return $query->result_array();
     }
     
     }

@@ -4,7 +4,7 @@
             <div class="message"></div>
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h4 class="text-themecolor"><i class="fa fa-braille" style="color:#1976d2"></i>&nbsp Dashboard CRM</h4>
+                    <h6 class="text-themecolor"><i class="fa fa-braille" style="color:#1976d2"></i>&nbsp Dashboard CRM</h6>
                 </div>
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
@@ -30,7 +30,7 @@
                                 </h1>
                                 <h5 class="font-light text-white">
                                 Companies
-                                </h4>
+                                </h6>
                             </div>
                         </div>
                     </div>
@@ -45,7 +45,7 @@
                                 </h1>
                                 <h5 class="font-light text-white">
                                 Deals
-                                </h4>
+                                </h6>
                             </div>
                         </div>
                     </div>
@@ -60,7 +60,7 @@
                                 </h1>
                                 <h5 class="font-light text-white">
                                 Progress
-                                </h4>
+                                </h6>
                             </div>
                           
                         </div>
@@ -75,7 +75,7 @@
                                 </h1>
                                 <h5 class="font-light text-white">
                                 Deals Won
-                                </h4>
+                                </h6>
                             </div>
                           
                         </div>
@@ -88,7 +88,7 @@
                                         echo $deals_lost->jum; 
                                     ?>
                                 </h1>
-                                <h5 class="font-light text-white">  Cancel Deals  </h4>
+                                <h5 class="font-light text-white">  Cancel Deals  </h6>
                             </div>
                         </div>
                     </div>
@@ -101,18 +101,17 @@
                                         echo $deals_inv->jum; 
                                     ?>  
                                 </h1>
-                                <h5 class="font-light text-white"> Outs Inv </h4>
+                                <h5 class="font-light text-white"> Outs Inv </h6>
                             </div>
                         </div>
                     </div>
                     <!-- Column -->
                 </div>
                 <!-- ============================================================== -->
-            </div> 
-            <div class="container-fluid">
+            
                 <div class="row page-titles">
                     <div class="col-md-4 align-self-right">
-                    <h4 class="text-themecolor"><i class="fa fa-braille" style="color:#1976d2"></i>
+                    <h6 class="text-themecolor"><i class="fa fa-braille" style="color:#1976d2"></i>
                         Calendar Event <label id="calenderbulan"></label> </h/4>
                     </div>
                     <div class="col-md-8 align-self-left">
@@ -146,28 +145,61 @@
                         <button class="btn-sm btn-primary" id="cari">Filter</button>
                     </div>
                 </div>
-            </div>
-                        
-            <div class="container-fluid">
+                <!-- --------------------------Core bisnsi YTD ------->
                 <div class="row">    
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
-                           
-                            
-                            <div class="" >
+                                <div class="" >
                                     <table id="weblist" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                                        
                                     </table>
                                 </div>
                             </div>
                         </div>
-                    </div>    
-            </div>
-            <div class="container-fluid">
+                    </div> 
+                </div>   
+            
                 <div class="row page-titles">
                     <div class="col-md-12 align-self-center">
-                        <h4 class="text-themecolor"><i class="fa fa-braille" style="color:#1976d2"></i>
+                    <h6 class="text-themecolor"><i class="fa fa-braille" style="color:#1976d2"></i>
+                            &nbsp Core Bisnis Revenue Last Year Vs Year To Day  
+                    </h6>    
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                              <h6 class="card-title"><b>Warta Ekonomi (Juta)</b></h6>
+                              
+                              <canvas id="ChartWEYTD" height="170px" ></canvas>  
+                             
+                            </div>
+                           
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card">
+                        <div class="card-body">
+                              <h6 class="card-title"><b>Herstory (Juta)</b></h6>
+                              
+                              <canvas id="ChartHSYTD" height="170px" ></canvas>  
+                             
+                            </div>
+                            
+                        </div>
+                    </div>
+
+
+                </div>   
+             
+            
+                <!-- core bisnis by persentage -->
+                <div class="row page-titles">
+                    <div class="col-md-12 align-self-center">
+                        <h6 class="text-themecolor"><i class="fa fa-braille" style="color:#1976d2"></i>
                         &nbsp Core Bisnis by Persentage
                         (
                             <font color="#3cb5de">>100 %</font>,
@@ -177,7 +209,7 @@
                             <font color="red"> <= 40 %</font>
                         )
             
-                    </h4>     
+                    </h6>     
                     </div>
                 </div>
                 
@@ -231,15 +263,13 @@
                         </div>
                     </div>
                 </div>   
-            </div>  
-
-            <div class="container-fluid">
+        
                 <div class="row page-titles">
                         <div class="col-md-12 align-self-center">
-                            <h4 class="text-themecolor"><i class="fa fa-braille" style="color:#1976d2"></i>
+                            <h6 class="text-themecolor"><i class="fa fa-braille" style="color:#1976d2"></i>
                             &nbsp Core Bisnis by Value Rp. (Juta) <label id="LabelAll"></label>
                            
-                        </h4>   
+                        </h6>   
                         </div>
                 </div>
                 <div class="row">
@@ -291,13 +321,12 @@
                         </div>
                     </div>
                 </div>   
-            </div>  
-            <div class="container-fluid">
+            
                 <div class="row page-titles">
                     <div class="col-md-12 align-self-center">
-                        <h4 class="text-themecolor"><i class="fa fa-braille" style="color:#1976d2"></i>
+                        <h6 class="text-themecolor"><i class="fa fa-braille" style="color:#1976d2"></i>
                         &nbsp Total Target VS Total Pencapaian (Juta Rp)  - <?php echo date('Y');?> 
-                        </h4>
+                        </h6>
                     </div>
                 </div>
                 <div class="row">
@@ -320,9 +349,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="container-fluid">
+            
             <div class="row">
                     <div class="col-lg-6">
                         <div class="card">
@@ -343,9 +370,7 @@
                         </div>
                     </div>   
                 </div>  
-            </div>
-
-            <div class="container-fluid">
+           
                 <div class="row">
                      <!-- Column -->
                      <div class="col-lg-6">
@@ -359,42 +384,39 @@
                     <div class="col-lg-6">
                         <div class="card">
                             <div class="card-body">
-                            <h6 class="card-title">Total Pencapaian Perusahaan  Tahun <?php echo date('Y');?> <label class="sum_pencapaian" style="font-weight:bold;"></h6>
+                            <h6 class="card-title">Total Pencapaian  Tahun  <?php echo date('Y');?> = <label class="sum_pencapaian" style="font-weight:bold;"></h6>
                             <canvas id="ProgChartMont" height="200px;"></canvas>  
                             </div>
                             <br>
                         </div>
                     </div>
                                   
-            </div>  
-            <div class="container-fluid">
+                </div>  
+           
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
-                            <h4 class="card-title">KGI Sales </h4>
+                            <h6 class="card-title">KGI Sales </h6>
                             <canvas id="kgiChart" style="position: relative; height:350px; width:100%"></canvas>  
                             </div>
                             <br>
                         </div>
                     </div>   
                 </div>
-            </div>
-             
-            <div class="container-fluid">
+          
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
-                            <h4 class="card-title">Top Companies </h4>
+                            <h6 class="card-title">Top Companies </h6>
                             <canvas id="topComp" style="position: relative; height:350px; width:100%"></canvas>  
                             </div>
                             <br>
                         </div>
                     </div>   
                 </div>
-            </div>
-            <div class="container-fluid">
+           
                 <div class="row">    
                     <div class="col-lg-12">
                         <div class="card">
@@ -406,10 +428,10 @@
                                 </div>
                             </div>
                         </div>
-                    </div>    
+                </div>    
             </div>
         </div>
        
-<script src="<?php echo base_url(); ?>assets/js/crm_1.js"></script>              
+<script src="<?php echo base_url(); ?>assets/js/crm.js"></script>              
                                               
 <?php $this->load->view('backend/footer'); ?>
