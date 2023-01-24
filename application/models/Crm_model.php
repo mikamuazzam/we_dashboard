@@ -175,11 +175,11 @@
                     from (
                          SELECT sum(pencapaian)/1000000 jum,tahun,id_core_bisnis cb 
                          FROM performance where id_divisi=$divisi $where
-                         and STR_TO_DATE(CONCAT(tahun,'-',bulan,'-',tanggal), '%Y-%m-%d') < '$ldate' 
+                         and STR_TO_DATE(CONCAT(tahun,'-',bulan,'-',tanggal), '%Y-%m-%d') <= '$ldate' 
                          and tahun=2022 group by tahun,id_core_bisnis
                          union all 
                          SELECT sum(pencapaian)/1000000,tahun,id_core_bisnis FROM performance
-                          where id_divisi=$divisi $where  and STR_TO_DATE(CONCAT(tahun,'-',bulan,'-',tanggal), '%Y-%m-%d') < '$date' and tahun=2023
+                          where id_divisi=$divisi $where  and STR_TO_DATE(CONCAT(tahun,'-',bulan,'-',tanggal), '%Y-%m-%d') <= '$date' and tahun=2023
                            group by tahun,id_core_bisnis)a 
                  inner join core_bisnis on cb =id 
                  group by 2;";
