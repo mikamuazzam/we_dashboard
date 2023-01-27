@@ -134,7 +134,7 @@
         $sql = "SELECT name,sum(pencapaian)/1000000 as jumlah,target/1000000 as target
                 FROM `performance_ae` a inner join employee_ae b on employee_id=b.id
                 where TIMESTAMPDIFF(MONTH, hiredate,CURRENT_DATE()) <=12 and bulan=$bulan 
-                and tahun=$tahun ";
+                and tahun=$tahun group by name ";
          $query=$this->db->query($sql); 
          return $query->result_array();
 

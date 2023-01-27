@@ -45,5 +45,43 @@ class Bispro extends CI_Controller {
         $data= $this->bispro_model->chart_rechart_re($cbid,$bulan,$tahun);
         echo json_encode($data);
     }
+    function chart_we_ytd()
+    {
+        $this->load->model('bispro_model');
+        $divisi=$_REQUEST['divid'];
+        $bulan=$_REQUEST['bulan'];
+        $tahun=$_REQUEST['tahun'];
+        $data= $this->bispro_model->chart_we_ytd($divisi,$bulan,$tahun);
+        echo json_encode($data);
+    }
+
+    function chart_we_mtd()
+    {
+        $this->load->model('bispro_model');
+        $divisi=$_REQUEST['divid'];
+        $bulan=$_REQUEST['bulan'];
+        $tahun=$_REQUEST['tahun'];
+        $data= $this->bispro_model->chart_we_mtd($divisi,$bulan,$tahun);
+        echo json_encode($data);
+    }
    
+    function chart_ae_ytd()
+    {
+        $this->load->model('bispro_model');
+       
+        $bulan=$_REQUEST['bulan'];
+        $tahun=$_REQUEST['tahun'];
+        $data= $this->bispro_model->chart_ae_ytd($bulan,$tahun);
+        echo json_encode($data);
+    }
+
+    function chart_ae_mtd()
+    {
+        $this->load->model('bispro_model');
+       
+        $bulan=$_REQUEST['bulan'];
+        $tahun=$_REQUEST['tahun'];
+        $data= $this->bispro_model->chart_ae_mtd($bulan,$tahun);
+        echo json_encode($data);
+    }
 }
