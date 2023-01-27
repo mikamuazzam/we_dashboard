@@ -1131,6 +1131,11 @@ function we_month_val(y)
 								}
 			};
 			// Code to draw Chart
+
+		  document.getElementById("ChartWEMonthlyContent").innerHTML = '&nbsp;';
+		  document.getElementById("ChartWEMonthlyContent").innerHTML = '<canvas id="ChartWEMonthly" height="200px" ></canvas>';
+
+		  
 			var ctx = document.getElementById('ChartWEMonthly').getContext('2d');
 			
 			var myChart = new Chart(ctx, {
@@ -1228,6 +1233,9 @@ function hs_month_val(y)
 								}
 			};
 			// Code to draw Chart
+			document.getElementById("ChartHSMonthlyContent").innerHTML = '&nbsp;';
+			document.getElementById("ChartHSMonthlyContent").innerHTML = '<canvas id="ChartHSMonthly" height="200px" ></canvas>';
+
 			var ctx = document.getElementById('ChartHSMonthly').getContext('2d');
 			
 			var myChart = new Chart(ctx, {
@@ -1324,6 +1332,9 @@ function populis_month_val(y)
 								}
 			};
 			// Code to draw Chart
+			document.getElementById("ChartPOPMonthlyContent").innerHTML = '&nbsp;';
+			document.getElementById("ChartPOPMonthlyContent").innerHTML = '<canvas id="ChartPOPMonthly" height="200px" ></canvas>';
+
 			var ctx = document.getElementById('ChartPOPMonthly').getContext('2d');
 			
 			var myChart = new Chart(ctx, {
@@ -1420,6 +1431,9 @@ function q1_month_val(y)
 								}
 			};
 			// Code to draw Chart
+			document.getElementById("ChartQ1MonthlyContent").innerHTML = '&nbsp;';
+			document.getElementById("ChartQ1MonthlyContent").innerHTML = '<canvas id="ChartQ1Monthly" height="200px" ></canvas>';
+
 			var ctx = document.getElementById('ChartQ1Monthly').getContext('2d');
 			
 			var myChart = new Chart(ctx, {

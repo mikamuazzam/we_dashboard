@@ -79,9 +79,10 @@
                 when jumlah between 61 and 80 then '#6b4c1e' 
                 when jumlah between 81 and 100 then '#1e6b24' 
                 when jumlah > 100 then '#3cb5de' else 'grey' end warna from 
-                ( SELECT name,cast(pencapaian/target *100 as integer)as jumlah
+                ( SELECT name,cast(sum(pencapaian)/target *100 as integer)as jumlah
                 FROM `performance_ae` a inner join employee_ae b on employee_id=b.id
-                where TIMESTAMPDIFF(MONTH, hiredate,CURRENT_DATE()) <=12 and bulan=$bulan and tahun=$tahun )a";
+                where TIMESTAMPDIFF(MONTH, hiredate,CURRENT_DATE()) <=12
+                 and bulan=$bulan and tahun=$tahun group by 1 )a";
          $query=$this->db->query($sql); 
          return $query->result_array();
 
@@ -95,11 +96,11 @@
         sum(case when bulanke in(7,8,9) then jumlah/3 else 0 end) as q3,
         sum(case when bulanke in(10,11,12) then jumlah/3 else 0 end) as q4
         from (
-       SELECT name,case when target=0 then cast(pencapaian/pencapaian *100 as integer) else 
-                   cast(pencapaian/target *100 as integer)end  as jumlah,bulan,
+       SELECT name,case when target=0 then cast(sum(pencapaian)/pencapaian *100 as integer) else 
+                   cast(sum(pencapaian)/target *100 as integer)end  as jumlah,bulan,
                    TIMESTAMPDIFF(MONTH, hiredate,CURRENT_DATE()) masa_kerja,TIMESTAMPDIFF(MONTH, hiredate,DATE(CONCAT_WS('-', 2022, bulan, 1)))+1 as bulanke
                        FROM `performance_ae` a inner join employee_ae b on employee_id=b.id
-                       where TIMESTAMPDIFF(MONTH, hiredate,CURRENT_DATE()) <=12 order by name,bulan
+                       where TIMESTAMPDIFF(MONTH, hiredate,CURRENT_DATE()) <=12 group by 1 order by name,bulan
          )a group by name;";
          $query=$this->db->query($sql); 
          return $query->result_array();
@@ -130,7 +131,7 @@
         if(empty($bulan)) $bulan=date('m');
         if(empty($tahun)) $tahun=date('Y');
        
-        $sql = "SELECT name,pencapaian/1000000 as jumlah,target/1000000 as target
+        $sql = "SELECT name,sum(pencapaian)/1000000 as jumlah,target/1000000 as target
                 FROM `performance_ae` a inner join employee_ae b on employee_id=b.id
                 where TIMESTAMPDIFF(MONTH, hiredate,CURRENT_DATE()) <=12 and bulan=$bulan 
                 and tahun=$tahun ";
@@ -150,9 +151,10 @@
                 when jumlah between 61 and 80 then '#6b4c1e' 
                 when jumlah between 81 and 100 then '#1e6b24' 
                 when jumlah > 100 then '#3cb5de' else 'grey' end warna from 
-                ( SELECT name,cast(pencapaian/target *100 as integer)as jumlah
+                ( SELECT name,cast(sum(pencapaian)/target *100 as integer)as jumlah
                 FROM `performance_ae` a inner join employee_ae b on employee_id=b.id
-                where TIMESTAMPDIFF(MONTH, hiredate,CURRENT_DATE()) > 12 and bulan=$bulan and tahun=$tahun )a";
+                where TIMESTAMPDIFF(MONTH, hiredate,CURRENT_DATE()) > 12 and bulan=$bulan and tahun=$tahun 
+                group by 1)a";
          $query=$this->db->query($sql); 
          return $query->result_array();
 
@@ -163,10 +165,10 @@
         if(empty($bulan)) $bulan=date('m');
         if(empty($tahun)) $tahun=date('Y');
        
-        $sql = "SELECT name,pencapaian/1000000 as jumlah,target/1000000 as target
+        $sql = "SELECT name,sum(pencapaian)/1000000 as jumlah,target/1000000 as target
                 FROM `performance_ae` a inner join employee_ae b on employee_id=b.id
                 where TIMESTAMPDIFF(MONTH, hiredate,CURRENT_DATE()) > 12 and bulan=$bulan 
-                and tahun=$tahun ";
+                and tahun=$tahun group by 1";
          $query=$this->db->query($sql); 
          return $query->result_array();
 
@@ -178,10 +180,11 @@
     {
        
         
-        $sql = "SELECT  nama_core_bisnis  corebisnis,pencapaian/1000000 jum,target/1000000 as target from performance a
+        $sql = "SELECT  nama_core_bisnis  corebisnis,sum(pencapaian)/1000000 jum,target/1000000 as target from performance a
                 inner join divisi b on a.id_divisi = b.id
                 inner join core_bisnis c on a.id_core_bisnis = c.id
-                where id_core_bisnis not in (4,10) and id_divisi =$core  and bulan='$bulan' and tahun='$tahun'";
+                where id_core_bisnis not in (4,10) and id_divisi =$core  and bulan='$bulan' 
+                and tahun='$tahun' group by 1";
                 $query=$this->db->query($sql);
         
         return $query->result_array();
