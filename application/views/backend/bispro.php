@@ -102,7 +102,9 @@
                         <div class="card">
                             <div class="card-body">
                             <h6 class="card-title"><b>Core Bisnis Last Year Vs Year to Date</b></h6> 
+                             <div id="ChartWEYTDContent">
                               <canvas id="ChartWEYTD" height="170px" ></canvas>  
+                            </div>
                             </div>
                            
                         </div>
@@ -111,7 +113,9 @@
                         <div class="card">
                         <div class="card-body">
                               <h6 class="card-title"><b>Core Bisnis Last Month Vs Month to Date</b></h6>
+                              <div id="ChartWEMTDContent">
                               <canvas id="ChartWEMTD" height="170px" ></canvas>  
+                             </div>
                             </div>
                             
                         </div>
@@ -130,9 +134,9 @@
                         <div class="card">
                             <div class="card-body">
                               <h6 class="card-title"><b>Core Bisnis Last Year Vs Year to Date</b></h6>
-                              
+                              <div id="ChartHSYTDContent">
                               <canvas id="ChartHSYTD" height="170px" ></canvas>  
-                             
+                                </div>
                             </div>
                            
                         </div>
@@ -141,9 +145,9 @@
                         <div class="card">
                         <div class="card-body">
                               <h6 class="card-title"><b>Core Bisnis Last Month Vs Month to Date</b></h6>
-                              
+                              <div id="ChartHSMTDContent">
                               <canvas id="ChartHSMTD" height="170px" ></canvas>  
-                             
+                             </div>
                             </div>
                             
                         </div>
@@ -163,9 +167,9 @@
                         <div class="card">
                             <div class="card-body">
                               <h6 class="card-title"><b>AE PErformance Last Year Vs Year to Date</b></h6>
-                              
+                              <div id="ChartAEYTDContent">
                               <canvas id="ChartAEYTD" height="100px" ></canvas>  
-                             
+                              </div>
                             </div>
                            
                         </div>
@@ -178,9 +182,9 @@
                         <div class="card">
                             <div class="card-body">
                               <h6 class="card-title"><b>AE PErformance Last Month Vs Month to Date</b></h6>
-                              
+                              <div id="ChartAEMTDContent">
                               <canvas id="ChartAEMTD" height="100px" ></canvas>  
-                             
+                              </div>
                             </div>
                            
                         </div>
@@ -191,6 +195,6 @@
 
         </div>
        
-<script src="<?php echo base_url(); ?>assets/js/bispro.js"></script>              
+<script src="<?php echo base_url(); ?>assets/js/bispro1.js"></script>              
                                               
 <?php $this->load->view('backend/footer'); ?>

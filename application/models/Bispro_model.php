@@ -25,17 +25,28 @@
         $lyear=$tahun-1;
         if($divisi==1) { $where=" and id_core_bisnis in(1,2,3)"; }
         if($divisi==2) { $where=" and id_core_bisnis in(7,8,9)"; }
-        $sql = "select tahun,nama_core_bisnis nm,
+        $mname= date('M', mktime(0, 0, 0, $bulan, 10)); 
+        if($bulan != date('m')) 
+        {
+            $where2 =" ";
+            $judul= $mname.' '.$lyear.' VS '.$mname.' '.$tahun;
+        }
+        else
+        {
+             $where2=" and tanggal <= '$d' ";
+             $judul= $d.' '.$mname.' '.$lyear.' VS '.$d.' '.$mname.' '.$tahun;
+        }
+        $sql = "select tahun,nama_core_bisnis nm, '$judul' title,
                     SUM(if(tahun =$lyear ,jum,0)) as `ly`, 
                     SUM(if(tahun =$tahun ,jum,0)) as `now` 
                     from (
                          SELECT sum(pencapaian)/1000000 jum,tahun,id_core_bisnis cb 
                          FROM performance where id_divisi=$divisi $where
-                         and tanggal <= '$d' 
+                         $where2
                          and tahun=$lyear  and bulan=$bulan group by tahun,id_core_bisnis
                          union all 
                          SELECT sum(pencapaian)/1000000,tahun,id_core_bisnis FROM performance
-                          where id_divisi=$divisi $where  and tanggal <= '$d' 
+                          where id_divisi=$divisi $where  $where2
                           and tahun=$tahun and bulan=$bulan
                            group by tahun,id_core_bisnis)a 
                  inner join core_bisnis on cb =id 
@@ -46,22 +57,39 @@
     }
     public function chart_we_mtd($divisi,$bulan,$tahun){
         $day=date('d');
-        $lmonth = date('m', strtotime('-1 month'));
+        $lmonth = $bulan-1;
+        if($bulan==1)$lmonth=12;
         
         if($bulan==1) $lyear=$tahun-1; else $lyear=$tahun;
         if($divisi==1) { $where=" and id_core_bisnis in(1,2,3)"; }
         if($divisi==2) { $where=" and id_core_bisnis in(7,8,9)"; }
-        $sql = "select bulan,nama_core_bisnis nm,
+
+      
+        $mname= date('M', mktime(0, 0, 0, $bulan, 10)); 
+        $lmname= date('M', mktime(0, 0, 0, $lmonth, 10)); 
+        if($bulan != date('m')) 
+        {
+            $where2 =" ";
+            $judul= $lmname.' '.$lyear.' VS '.$mname.' '.$tahun;
+        }
+        else
+        {
+             $where2=" and tanggal <= '$day' ";
+             $judul= $day.' '.$lmname.' '.$lyear.' VS '.$day.' '.$mname.' '.$tahun;
+        }
+       
+
+        $sql = "select bulan,nama_core_bisnis nm, '$judul' title,
                     SUM(if(bulan =$lmonth ,jum,0)) as `lm`, 
                     SUM(if(bulan =$bulan ,jum,0)) as `now` 
                     from (
                          SELECT sum(pencapaian)/1000000 jum,bulan,id_core_bisnis cb 
                          FROM performance where id_divisi=$divisi $where
-                         and tanggal <= '$day' 
+                         $where2  
                          and tahun=$lyear  and bulan=$lmonth group by bulan,tahun,id_core_bisnis
                          union all 
                          SELECT sum(pencapaian)/1000000,bulan,id_core_bisnis FROM performance
-                          where id_divisi=$divisi $where  and tanggal <= '$day' 
+                          where id_divisi=$divisi $where  $where2 
                           and tahun=$tahun and bulan=$bulan
                            group by bulan,tahun,id_core_bisnis)a 
                  inner join core_bisnis on cb =id 
@@ -76,22 +104,33 @@
         $d=date('d');
         
         $lyear=$tahun-1;
-      
-        $sql = "select tahun,name nm,
+       
+        $mname= date('M', mktime(0, 0, 0, $bulan, 10)); 
+        if($bulan != date('m')) 
+        {
+            $where =" ";
+            $judul= $mname.' '.$lyear.' VS '.$mname.' '.$tahun;
+        }
+        else
+        {
+             $where=" and tanggal <= '$d' ";
+             $judul= $d.' '.$mname.' '.$lyear.' VS '.$d.' '.$mname.' '.$tahun;
+        }
+
+        $sql = "select tahun,name nm, '$judul' title,
                     SUM(if(tahun =$lyear ,jum,0)) as `ly`, 
                     SUM(if(tahun =$tahun ,jum,0)) as `now` 
                     from (
                          SELECT sum(pencapaian)/1000000 jum,tahun,name 
                          FROM performance_ae a
                          inner join employee_ae b on a.employee_id =b.id 
-                         where  tanggal <= '$d' and tahun=$lyear  and bulan=$bulan
+                         where  tahun=$lyear  and bulan=$bulan $where
                          group by tahun,employee_id
                          union all 
                          SELECT sum(pencapaian)/1000000,tahun,name 
                          FROM performance_ae c
                          inner join employee_ae d  on c.employee_id =d.id 
-
-                         where tanggal <= '$d'   and tahun=$tahun and bulan=$bulan
+                         where tahun=$tahun and bulan=$bulan $where
                            group by tahun,employee_id)a 
                  group by 2;";
         $query=$this->db->query($sql);
@@ -101,25 +140,40 @@
 
     public function chart_ae_mtd($bulan,$tahun){
         $day=date('d');
-        $lmonth = date('m', strtotime('-1 month'));
+        $lmonth = $bulan-1;
+        if($bulan==1)$lmonth=12;
         
         if($bulan==1) $lyear=$tahun-1; else $lyear=$tahun;
+              
+        $mname= date('M', mktime(0, 0, 0, $bulan, 10)); 
+        $lmname= date('M', mktime(0, 0, 0, $lmonth, 10)); 
+        if($bulan != date('m')) 
+        {
+            $where2 =" ";
+            $judul= $lmname.' '.$lyear.' VS '.$mname.' '.$tahun;
+        }
+        else
+        {
+             $where2=" and tanggal <= '$day' ";
+             $judul= $day.' '.$lmname.' '.$lyear.' VS '.$day.' '.$mname.' '.$tahun;
+        }
+       
       
-        $sql = "select bulan,name nm,
-                    SUM(if(bulan =$lyear ,jum,0)) as `ly`, 
-                    SUM(if(bulan =$tahun ,jum,0)) as `now` 
+        $sql = "select bulan,name nm,'$judul' title,
+                    SUM(if(bulan =$lmonth ,jum,0)) as `ly`, 
+                    SUM(if(bulan =$bulan ,jum,0)) as `now` 
                     from (
                          SELECT sum(pencapaian)/1000000 jum,bulan,name 
                          FROM performance_ae a
                          inner join employee_ae b on a.employee_id =b.id 
-                         where  tanggal <= '$d' and tahun=$lyear  and bulan=$lmonth
+                         where   tahun=$lyear  and bulan=$lmonth $where2
                          group by tahun,employee_id
                          union all 
                          SELECT sum(pencapaian)/1000000,bulan,name 
                          FROM performance_ae c
                          inner join employee_ae d  on c.employee_id =d.id 
 
-                         where tanggal <= '$d'   and tahun=$tahun and bulan=$bulan
+                         where    tahun=$tahun and bulan=$bulan $where2
                            group by bulan,tahun,employee_id)a 
                  group by 2;";
         $query=$this->db->query($sql);

@@ -159,7 +159,7 @@
                         </div>
                     </div> 
                 </div>   
-            
+               <!--
                 <div class="row page-titles">
                     <div class="col-md-12 align-self-center">
                     <h6 class="text-themecolor"><i class="fa fa-braille" style="color:#1976d2"></i>
@@ -194,7 +194,7 @@
 
 
                 </div>   
-             
+                            -->
             
                 <!-- core bisnis by persentage -->
                 <div class="row page-titles">

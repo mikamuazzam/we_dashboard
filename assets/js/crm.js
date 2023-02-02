@@ -43,8 +43,8 @@ function load_chart()
 	progmonth(tahun);
 	progdiv(tahun);
 
-	ChartWEYTD('ChartWEYTD',1,'#bd3758','#7d142e');
-	ChartWEYTD('ChartHSYTD',2,'#dea4be','#b3507d');
+	//ChartWEYTD('ChartWEYTD',1,'#bd3758','#7d142e');
+	//ChartWEYTD('ChartHSYTD',2,'#dea4be','#b3507d');
 }
 
 function get_sum_pencapaian(tahun)

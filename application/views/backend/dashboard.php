@@ -272,6 +272,7 @@
                       <h6 class="card-title"><b>&nbsp;&nbsp;&nbsp; Social Media Konten Jatim </b></h6>
                 
                 <div class="row">
+                    
                     <div class="col-lg-4">
                             <div class="card-body">
                                 <div id="MediaRank">
