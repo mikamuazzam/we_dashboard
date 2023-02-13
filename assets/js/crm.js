@@ -914,9 +914,8 @@ function populis_value(m,y)
 				scales: {
 					yAxes: [{
 						ticks: {
-						
-						beginAtZero: true,
-						max:100,
+						stepSize :5,
+						beginAtZero: true
 						},
 					}],
 					xAxes: [{

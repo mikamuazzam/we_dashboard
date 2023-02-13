@@ -450,7 +450,7 @@ function ChartAEMTD(bulan,tahun)
 			var myData = {
 				labels:labeldt,
 				datasets: [{
-					label: "last Year",
+					label: "last Month",
 					fill: false,
 					backgroundColor: '#ccd9ff',
 					data: val_dt_ly,
