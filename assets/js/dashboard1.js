@@ -245,8 +245,14 @@ function chart_medsos_tiktok(web_id,idchart,judul,warna)
 		  if (minData < 100) miny=minData - 10; else miny=minData -100 ;
 		  if (maxData < 100) maxy=maxData + 100; else  maxy=maxData + 1000;
 
-		  if(maxy < 200) step=50; else step=500;
-
+		  if(maxy < 200 ) 
+		  {
+			 step=50; 
+		  }
+		  else 
+		  {
+			if(web_id == 2) step=5000; else step =500;
+		  }
 		  var ctx = document.getElementById(idchart).getContext("2d");
 		  var LineGraph = new Chart(ctx, {
 			type: 'line',
