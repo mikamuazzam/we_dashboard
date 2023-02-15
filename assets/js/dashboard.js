@@ -37,6 +37,7 @@ $(function() {
 								label: "WE",
 								fill: false,
 								borderColor: 'rgba(148, 1, 25, 0.88)',
+								backgroundColor: 'rgba(148, 1, 25, 0.88)',
 								borderWidth: 1,
 								data: we_dt
 							},
@@ -44,6 +45,7 @@ $(function() {
 								label: "HS",
 								fill: false,
 								borderColor :'rgb(255, 128, 128)',
+								backgroundColor: 'rgb(255, 128, 128)',
 								borderWidth: 1,
 								data: hs_dt
 								},
@@ -51,6 +53,7 @@ $(function() {
 								label: "POPULIS",
 								fill: false,
 								borderColor:'rgba(36, 135, 58, 0.71)',
+								backgroundColor: 'rgba(36, 135, 58, 0.71)',
 								borderWidth: 1,
 								data:populis_dt
 							}
@@ -161,8 +164,14 @@ function chart_medsos_ig(web_id,idchart,judul,warna)
 			  
 			]
 		  };
-		  var miny=Math.min.apply(this, rankdt) -100;
-		  var maxy=Math.max.apply(this, rankdt) +100;
+		  var minData=Math.min.apply(this, rankdt);
+		  var maxData=Math.max.apply(this, rankdt);
+		 
+		  if (minData < 100) miny=minData - 10; else miny=minData -100 ;
+		  if (maxData < 100) maxy=maxData + 100; else  maxy=maxData + 1000;
+
+		  if(maxy < 200) step=50; else step=500;
+		
 		  var ctx = document.getElementById(idchart).getContext("2d");
 		  var LineGraph = new Chart(ctx, {
 			type: 'line',
@@ -181,6 +190,7 @@ function chart_medsos_ig(web_id,idchart,judul,warna)
 						ticks: {
 						  min:miny,
 						  max:maxy,
+						  stepSize:step,
 						  beginAtZero: true
 						},
 					  }],
@@ -229,8 +239,20 @@ function chart_medsos_tiktok(web_id,idchart,judul,warna)
 			  
 			]
 		  };
-	      var miny=Math.min.apply(this, rankdt) -100;
-		  var maxy=Math.max.apply(this, rankdt) +100;
+		  var minData=Math.min.apply(this, rankdt);
+		  var maxData=Math.max.apply(this, rankdt);
+		 
+		  if (minData < 100) miny=minData - 10; else miny=minData -100 ;
+		  if (maxData < 100) maxy=maxData + 100; else  maxy=maxData + 1000;
+
+		  if(maxy < 200 ) 
+		  {
+			 step=50; 
+		  }
+		  else 
+		  {
+			if(web_id == 2) step=5000; else step =500;
+		  }
 		  var ctx = document.getElementById(idchart).getContext("2d");
 		  var LineGraph = new Chart(ctx, {
 			type: 'line',
@@ -248,6 +270,7 @@ function chart_medsos_tiktok(web_id,idchart,judul,warna)
 						ticks: {
 						  min:miny,
 						  max:maxy,
+						  stepSize:step,
 						  beginAtZero: true
 						},
 					  }],
@@ -296,8 +319,14 @@ function chart_medsos_youtube(web_id,idchart,judul,warna)
 			  
 			]
 		  };
-		  var miny=Math.min.apply(this, rankdt) -100;
-		  var maxy=Math.max.apply(this, rankdt) +100;
+		  var minData=Math.min.apply(this, rankdt);
+		  var maxData=Math.max.apply(this, rankdt);
+		 
+		  if (minData < 100) miny=minData - 10; else miny=minData -100 ;
+		  if (maxData < 100) maxy=maxData + 100; else  maxy=maxData + 1000;
+
+		  if(maxy < 200) step=50; else step=500;
+
 		  var ctx = document.getElementById(idchart).getContext("2d");
 		  var LineGraph = new Chart(ctx, {
 			type: 'line',
@@ -315,6 +344,7 @@ function chart_medsos_youtube(web_id,idchart,judul,warna)
 						ticks: {
 							min:miny,
 							max:maxy,
+							stepSize:step,
 						  beginAtZero: true
 						},
 					  }],

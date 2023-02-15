@@ -400,7 +400,7 @@
             
         </div>
        
-<script src="<?php echo base_url(); ?>assets/js/dashboard1.js"></script>              
+<script src="<?php echo base_url(); ?>assets/js/dashboard.js"></script>              
 <script>
 </script>                                               
 <?php $this->load->view('backend/footer'); ?>
