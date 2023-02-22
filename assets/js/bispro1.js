@@ -87,7 +87,7 @@ function chart_re(cb_id,idchart,judul,bulan,tahun,warna1,warna2)
 			if (persenlaba <= 30)warnalaba='red';
 			else if (persenlaba >=30 && persenlaba <=80) warnalaba='green';
 			else warnalaba='blue';
-			labeldt.push('profit');
+			labeldt.push('margin');
 			rankdt.push(rankdt[0]-rankdt[1]);
 			listwarna.push(warna2,warna1,warnalaba);
 
