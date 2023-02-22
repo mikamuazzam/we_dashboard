@@ -93,7 +93,7 @@ function chart_re(cb_id,idchart,judul,bulan,tahun,warna1,warna2)
 
 			
 
-			judullaba='Profit  ' + number_format(persenlaba,2) + '%';
+			judullaba='Margin  ' + number_format(persenlaba,2) + '%';
 			
 		  	var chartdata = {
 			labels: labeldt,
