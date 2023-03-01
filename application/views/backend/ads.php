@@ -310,31 +310,8 @@
                         </div>
                     </div>  
                     
-                </div>      
-                
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="card">
-                            <div class="card-body">
-                            <h6 class="card-title"></h6>
-                            <canvas id="ChartRevenueUSD" height="100px" ></canvas>  
-                            </div>
-                            <br>
-                        </div>
-                    </div> 
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="card">
-                            <div class="card-body">
-                            <h6 class="card-title"></h6>
-                            <canvas id="ChartRevenueIDR" height="100px" ></canvas>  
-                            </div>
-                            <br>
-                        </div>
-                    </div> 
-                   
-                </div>          
+                </div> 
+                     
                 <div class="row">
                     <div class="col-lg-12">
                     <div class="row page-titles">
@@ -376,11 +353,7 @@
                                endforeach;?>
                         </select>
                         <button class="btn-sm btn-primary" id="cari">Filter</button>
-                    </div>
-              
-                
-                       
-                    
+                    </div>  
                 </div>  
                 <div class="row">
                     <div class="col-md-8">
@@ -393,20 +366,48 @@
                             </div>
                         </div>
                     </div>  
+               
+                    
                     <div class="col-md-4">
                         <div class="card">
                             <div class="card-body" >
                                 <div class="" >
-                                <h6 class="card-title">Monthly Revenue </h6>
-                                    <table id="partner-monthly-list" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%" height="170px">
-                                     
+                                <h6 class="card-title">Monthly Revenue By Partner IDR</h6>
+                                    <table id="partner-monthly-list" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%" height="100px">
                                     </table>
                                 </div>
-                                <h6 class="card-title"><p id="total1"></p></h6>
+                               
                             </div>
                         </div>
                     </div>            
                 </div>     
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="card">
+                            <div class="card-body">
+                            <h6 class="card-title"></h6>
+                            <div id="ChartRevenueIDRContent">
+                            <canvas id="ChartRevenueIDR" height="100px" ></canvas>  
+                            </div>
+                            </div>
+                            <br>
+                        </div>
+                    </div> 
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body" >
+                                <div class="" >
+                                <h6 class="card-title"> <div id="total1"></div></h6>
+                                    <table id="ads-monthly-list" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%" height="100px">
+                                    </table>
+                                </div>
+                               
+                            </div>
+                        </div>
+                    </div>    
+                </div>          
+                
+                
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
@@ -437,7 +438,7 @@
             </div>
        
        
-<script src="<?php echo base_url(); ?>assets/js/ads.js"></script>              
+<script src="<?php echo base_url(); ?>assets/js/ads_1.js"></script>              
 <script>
 </script>                                               
 <?php $this->load->view('backend/footer'); ?>

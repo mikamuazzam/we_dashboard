@@ -73,15 +73,15 @@
     {
     
         $sql="SELECT DATE_FORMAT(dataadd, '%b') bulan, 
-                SUM(case when website=1 then laba else 0 end) as 'we', 
-                SUM(case when website=2 then laba else 0 end) as 'hs', 
-                SUM(case when website=3 then laba else 0 end) as 'pp',
-                SUM(case when website=6 then laba else 0 end) as 'nw',
-                SUM(case when website=4 then laba else 0 end) as 'kj' ,
-                SUM(case when website=5 then laba else 0 end) as 'wf'  
+                  SUM(case when website=1 then case when kurs='IDR' then laba else laba *(select kurs from kurs)end  else 0 end) as 'we', 
+                 SUM(case when website=2 then case when kurs='IDR' then laba else laba *(select kurs from kurs)end  else 0 end) as  'hs', 
+                SUM(case when website=3 then case when kurs='IDR' then laba else laba *(select kurs from kurs)end  else 0 end) as  'pp',
+                 SUM(case when website=6 then case when kurs='IDR' then laba else laba *(select kurs from kurs)end  else 0 end) as  'nw',
+                 SUM(case when website=4 then case when kurs='IDR' then laba else laba *(select kurs from kurs)end  else 0 end) as  'kj' ,
+                 SUM(case when website=5 then case when kurs='IDR' then laba else laba *(select kurs from kurs)end  else 0 end) as  'wf'  ,kurs
                from programmatics a
                inner join master_partner b on a.partner_id=b.id
-               where  year(dataadd)=$tahun and kurs  ='$kurs' and (dataadd > '2022-07-01')
+               where  year(dataadd)=$tahun  and (dataadd > '2022-07-01')
                group by 1 order by month(dataadd) ";
         $query=$this->db->query($sql);
         
@@ -90,10 +90,12 @@
     public function monthly_revenue($bulan,$tahun)
     {
     
-        $sql="SELECT DATE_FORMAT(dataadd, '%b') bulan, website_name,laba  
-               from programmatics a
+        $sql="SELECT DATE_FORMAT(dataadd, '%b') bulan, website_name,
+            SUM(case when kurs='IDR' then laba else laba *(select kurs from kurs)end ) laba  
+                from programmatics a
+                inner join master_partner c on a.partner_id=c.id
                inner join master_website b on a.website=b.id
-                where  month(dataadd)=$bulan and   year(dataadd)=$tahun and partner_id != 1
+                where  month(dataadd)=$bulan and   year(dataadd)=$tahun 
                  group by 1,2 order by month(dataadd) ";
         $query=$this->db->query($sql);
         
@@ -160,7 +162,7 @@
     }
     function partner_revenue($month,$year,$partner)
     {
-        $sql="SELECT sum(laba)laba,b.website_name ,kurs
+        $sql="SELECT sum(case when kurs='IDR' then laba else laba *(select kurs from kurs)end)laba,b.website_name ,kurs
         from programmatics a 
         inner join master_website b on a.website=b.id 
         inner join master_partner c on a.partner_id=c.id
