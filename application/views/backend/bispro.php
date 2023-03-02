@@ -63,54 +63,18 @@
                             <div class="card-body">
                             <h6 class="card-title"> <b> Programmatics WE </b></h6>
                             <div id="ChartWEPrContent">
-                            <canvas id="ChartWEPr"  height="300px;"></canvas> 
+                            <canvas id="ChartWEPr"  height="250px;"></canvas> 
                             </div> 
                             </div>
                             <br>
                         </div>
                     </div>
-                    <div class="col-lg-3">
-                        <div class="card">
-                            <div class="card-body">
-                            <h6 class="card-title"> <b>Iklan WE </b></h6>
-                            <div id="ChartWEIklanContent">
-                            <canvas id="ChartWEIklan" height="300px;"></canvas> 
-                            </div>
-                            </div>
-                            <br>
-                        </div>
-                    </div>  
-                    <div class="col-lg-3">
-                        <div class="card">
-                            <div class="card-body">
-                            <h6 class="card-title"><b> Award WE </b></h6>
-                            <div id="ChartWEAwardContent">
-                            <canvas id="ChartWEAward" height="300px;"></canvas> 
-                            </div>
-                            </div>
-                            <br>
-                        </div>
-                    </div>  
-                    <div class="col-lg-3">
-                        <div class="card">
-                            <div class="card-body">
-                            <h6 class="card-title"><b> Seminar Banking WE </b></h6>
-                            <div id="ChartWEBankingContent">
-                            <canvas id="ChartWEBanking" height="300px;"></canvas> 
-                            </div>
-                            </div>
-                            <br>
-                        </div>
-                    </div>   
-            </div>
-
-            <div class="row">
                     <div class="col-lg-3">
                         <div class="card">
                             <div class="card-body">
                             <h6 class="card-title"> <b> Programmatics HS </b></h6>
                             <div id="ChartHSPrContent">
-                            <canvas id="ChartHSPr"  height="300px;"></canvas> 
+                            <canvas id="ChartHSPr"  height="250px;"></canvas> 
                             </div> 
                             </div>
                             <br>
@@ -119,21 +83,9 @@
                     <div class="col-lg-3">
                         <div class="card">
                             <div class="card-body">
-                            <h6 class="card-title"> <b>Iklan HS </b></h6>
-                            <div id="ChartHSIklanContent">
-                            <canvas id="ChartHSIklan" height="300px;"></canvas> 
-                            </div>
-                            </div>
-                            <br>
-                        </div>
-                    </div>  
-
-                    <div class="col-lg-3">
-                        <div class="card">
-                            <div class="card-body">
                             <h6 class="card-title"> <b> Programmatics Populis </b></h6>
                             <div id="ChartPPPrContent">
-                            <canvas id="ChartPPPr"  height="300px;"></canvas> 
+                            <canvas id="ChartPPPr"  height="250px;"></canvas> 
                             </div> 
                             </div>
                             <br>
@@ -144,7 +96,58 @@
                             <div class="card-body">
                             <h6 class="card-title"> <b>Programmatics KJ </b></h6>
                             <div id="ChartKJPrContent">
-                            <canvas id="ChartKJPr" height="300px;"></canvas> 
+                            <canvas id="ChartKJPr" height="250px;"></canvas> 
+                            </div>
+                            </div>
+                            <br>
+                        </div>
+                    </div>  
+                    
+            </div>
+            <div class="row">
+                    <div class="col-lg-3">
+                        <div class="card">
+                            <div class="card-body">
+                            <h6 class="card-title"> <b> Programmatics NW </b></h6>
+                            <div id="ChartNWPrContent">
+                            <canvas id="ChartNWPr"  height="250px;"></canvas> 
+                            </div> 
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="card">
+                            <div class="card-body">
+                            <h6 class="card-title"> <b> Programmatics WE Trivia </b></h6>
+                            <div id="ChartTVPrContent">
+                            <canvas id="ChartTVPr"  height="250px;"></canvas> 
+                            </div> 
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                    
+            </div>
+
+            <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                            <h6 class="card-title"> <b>Iklan WE </b></h6>
+                            <div id="ChartWEIklanContent">
+                            <canvas id="ChartWEIklan" height="250px;"></canvas> 
+                            </div>
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                            <h6 class="card-title"> <b>Iklan HS </b></h6>
+                            <div id="ChartHSIklanContent">
+                            <canvas id="ChartHSIklan" height="250px;"></canvas> 
                             </div>
                             </div>
                             <br>
@@ -152,13 +155,39 @@
                     </div>  
                    
             </div>
+
+
+            <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card">
+                             <div class="card-body">
+                            <h6 class="card-title"><b> Award WE </b></h6>
+                            <div id="ChartWEAwardContent">
+                            <canvas id="ChartWEAward" height="250px;"></canvas> 
+                            </div>
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                            <h6 class="card-title"><b> Seminar Banking WE </b></h6>
+                            <div id="ChartWEBankingContent">
+                            <canvas id="ChartWEBanking" height="250px;"></canvas> 
+                            </div>
+                            </div>
+                            <br>
+                        </div>
+                    </div>   
+            </div>
             <div class="row">
                     <div class="col-lg-6">
                         <div class="card">
                             <div class="card-body">
                             <h6 class="card-title"> <b> Q1 Ide </b></h6>
                             <div id="ChartQ1Content">
-                            <canvas id="ChartQ1"  height="300px;"></canvas> 
+                            <canvas id="ChartQ1"  height="250px;"></canvas> 
                             </div> 
                             </div>
                             <br>
@@ -169,7 +198,7 @@
                             <div class="card-body">
                             <h6 class="card-title"> <b>Q1 Revitalisasi</b></h6>
                             <div id="ChartQ1RevContent">
-                            <canvas id="ChartQ1Rev" height="300px;"></canvas> 
+                            <canvas id="ChartQ1Rev" height="250px;"></canvas> 
                             </div>
                             </div>
                             <br>

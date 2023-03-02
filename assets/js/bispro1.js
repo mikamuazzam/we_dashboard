@@ -46,7 +46,10 @@ function load_chart()
 	chart_re(7,'ChartHSIklan','Iklan HS',bulan,tahun,'#dea4be','#b3507d');	
 
 	chart_re(11,'ChartPPPr','Programmatics HS',bulan,tahun,'#59c984','#1a5e34'); //populis
-	chart_re(16,'ChartKJPr','Iklan HS',bulan,tahun,'#BEF1BF','#38F13B');	//kj
+	chart_re(16,'ChartKJPr','Iklan HS',bulan,tahun,'#BEF1BF','#38F13B');	//
+	
+	chart_re(19,'ChartNWPr','Programmatics News Worthy',bulan,tahun,'#bd3758','#7d142e');
+	chart_re(18,'ChartTVPr','Programmatics WE Trivia',bulan,tahun,'#bd3758','#7d142e');
 
 	//Q
 	chart_re(12,'ChartQ1','Programmatics HS',bulan,tahun,'#DC7633','#F5B041');
@@ -110,7 +113,7 @@ function chart_re(cb_id,idchart,judul,bulan,tahun,warna1,warna2)
 		  };
 		  // Code to draw Chart
 		document.getElementById(idchart+"Content").innerHTML = '&nbsp;';
-		document.getElementById(idchart+"Content").innerHTML = '<canvas id="'+idchart+'" height="300px" ></canvas>';
+		document.getElementById(idchart+"Content").innerHTML = '<canvas id="'+idchart+'" height="250px" ></canvas>';
 		
 		  var ctx = document.getElementById(idchart).getContext("2d");
 		  var LineGraph = new Chart(ctx, {
