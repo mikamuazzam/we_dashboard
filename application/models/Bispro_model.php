@@ -19,6 +19,21 @@
         
         return $query->result_array();
     }
+    public function chart_rechart_programmatics($cbid,$bulan,$tahun,$website){
+      
+        $sql = "select sum(case when kurs='IDR' then laba else laba *(select kurs from kurs)end)/1000000 jum ,'revenue' as nama ,'#BB6A04' as warna
+                from programmatics a
+                inner join master_website b on a.website=b.id 
+                inner join master_partner c on a.partner_id=c.id
+                where month(dataadd)=$bulan and year(dataadd)=$tahun and website=$website
+        union All
+        SELECT sum(nominal)/1000000 jum,'expenses' as nama,'#F3D8B7' as warna FROM `bisnis_expanditure` 
+        WHERE bulan=$bulan and tahun=$tahun and core_bisnis_id=$cbid 
+         ";
+        $query=$this->db->query($sql);
+        
+        return $query->result_array();
+    }
     public function chart_we_ytd($divisi,$bulan,$tahun){
         $d=date('d');
         

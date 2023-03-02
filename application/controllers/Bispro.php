@@ -42,7 +42,30 @@ class Bispro extends CI_Controller {
         $cbid=$_REQUEST['cb_id'];
         $bulan=$_REQUEST['bulan'];
         $tahun=$_REQUEST['tahun'];
-        $data= $this->bispro_model->chart_rechart_re($cbid,$bulan,$tahun);
+        if($cbid == 10 || $cbid==4 || $cbid==11 || $cbid==16 || $cbid==19|| $cbid==18)
+        {
+            if($cbid==4)$website=1;
+            if($cbid==10)$website=2;
+            if($cbid==11)$website=3;
+            if($cbid==16)$website=4;
+            if($cbid==19)$website=6;
+            if($cbid==18)$website=11;
+            $data= $this->bispro_model->chart_rechart_programmatics($cbid,$bulan,$tahun,$website);
+        }
+        else
+        {
+            $data= $this->bispro_model->chart_rechart_re($cbid,$bulan,$tahun);
+        }
+        
+        echo json_encode($data);
+    }
+    function chart_re_programmatics()
+    {
+        $this->load->model('bispro_model');
+        $cbid=$_REQUEST['cb_id'];
+        $bulan=$_REQUEST['bulan'];
+        $tahun=$_REQUEST['tahun'];
+        $data= $this->bispro_model->chart_rechart_programmatics($cbid,$bulan,$tahun);
         echo json_encode($data);
     }
     function chart_we_ytd()
