@@ -43,6 +43,7 @@ class Ads extends CI_Controller {
         $data['slaba_kj']=$this->ads_model->sum_laba(4);
         $data['slaba_nw']=$this->ads_model->sum_laba(6);
         $data['slaba_wf']=$this->ads_model->sum_laba(5);
+        $data['slaba_trivia']=$this->ads_model->sum_laba(11);
         $data['laba_all']=$this->ads_model->sum_laba_all();
         $data['avail_slot']=$this->ads_model->avail_slot();
         $data['partner_list']=$this->ads_model->partner_list();
