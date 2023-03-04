@@ -1,5 +1,10 @@
 <?php $this->load->view('backend/header'); ?>
 <?php $this->load->view('backend/sidebar'); ?>
+<?php 
+        $id = $this->session->userdata('user_login_id');
+        $dep_id = $this->session->userdata('dept');
+        $basicinfo = $this->employee_model->GetBasic($id); 
+?>  
       <div class="page-wrapper">
             <div class="message"></div>
             <div class="row page-titles">
@@ -129,7 +134,7 @@
                     </div>
                     
             </div>
-
+            <?php if($dep_id != 8) { ?>
             <div class="row">
                     <div class="col-lg-6">
                         <div class="card">
@@ -308,7 +313,7 @@
                     </div>
                     
                 </div>   
-             
+                <?php }  ?>
 
         </div>
        
