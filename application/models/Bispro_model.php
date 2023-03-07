@@ -43,14 +43,16 @@
         $mname= date('M', mktime(0, 0, 0, $bulan, 10)); 
         if($bulan != date('m')) 
         {
-            $where2 =" ";
+            #$where2 =" ";
             $judul= $mname.' '.$lyear.' VS '.$mname.' '.$tahun;
         }
         else
         {
-             $where2=" and tanggal <= '$d' ";
+           
              $judul= $d.' '.$mname.' '.$lyear.' VS '.$d.' '.$mname.' '.$tahun;
         }
+
+        $where2=" and tanggal <= '$d' ";
         $sql = "select tahun,nama_core_bisnis nm, '$judul' title,
                     SUM(if(tahun =$lyear ,jum,0)) as `ly`, 
                     SUM(if(tahun =$tahun ,jum,0)) as `now` 
@@ -84,16 +86,16 @@
         $lmname= date('M', mktime(0, 0, 0, $lmonth, 10)); 
         if($bulan != date('m')) 
         {
-            $where2 =" ";
+            #$where2 =" ";
             $judul= $lmname.' '.$lyear.' VS '.$mname.' '.$tahun;
         }
         else
         {
-             $where2=" and tanggal <= '$day' ";
+             #$where2=" and tanggal <= '$day' ";
              $judul= $day.' '.$lmname.' '.$lyear.' VS '.$day.' '.$mname.' '.$tahun;
         }
        
-
+        $where2=" and tanggal <= '$d' ";
         $sql = "select bulan,nama_core_bisnis nm, '$judul' title,
                     SUM(if(bulan =$lmonth ,jum,0)) as `lm`, 
                     SUM(if(bulan =$bulan ,jum,0)) as `now` 
@@ -123,15 +125,15 @@
         $mname= date('M', mktime(0, 0, 0, $bulan, 10)); 
         if($bulan != date('m')) 
         {
-            $where =" ";
+           # $where =" ";
             $judul= $mname.' '.$lyear.' VS '.$mname.' '.$tahun;
         }
         else
         {
-             $where=" and tanggal <= '$d' ";
+             #$where=" and tanggal <= '$d' ";
              $judul= $d.' '.$mname.' '.$lyear.' VS '.$d.' '.$mname.' '.$tahun;
         }
-
+        $where=" and tanggal <= '$d' ";
         $sql = "select tahun,name nm, '$judul' title,
                     SUM(if(tahun =$lyear ,jum,0)) as `ly`, 
                     SUM(if(tahun =$tahun ,jum,0)) as `now` 
@@ -164,15 +166,15 @@
         $lmname= date('M', mktime(0, 0, 0, $lmonth, 10)); 
         if($bulan != date('m')) 
         {
-            $where2 =" ";
+            #$where2 =" ";
             $judul= $lmname.' '.$lyear.' VS '.$mname.' '.$tahun;
         }
         else
         {
-             $where2=" and tanggal <= '$day' ";
+             #$where2=" and tanggal <= '$day' ";
              $judul= $day.' '.$lmname.' '.$lyear.' VS '.$day.' '.$mname.' '.$tahun;
         }
-       
+        $where2=" and tanggal <= '$d' ";
       
         $sql = "select bulan,name nm,'$judul' title,
                     SUM(if(bulan =$lmonth ,jum,0)) as `ly`, 
@@ -204,14 +206,15 @@
         $mname= date('M', mktime(0, 0, 0, $bulan, 10)); 
         if($bulan != date('m')) 
         {
-            $where2 =" ";
+           
             $judul= $mname.' '.$lyear.' VS '.$mname.' '.$tahun;
         }
         else
         {
-             $where2=" and tanggal <= '$d' ";
+             
              $judul= $d.' '.$mname.' '.$lyear.' VS '.$d.' '.$mname.' '.$tahun;
         }
+        $where2=" and tanggal <= '$d' ";
         $sql = "select tahun,nama_core_bisnis nm, '$judul' title,
                     SUM(if(tahun =$lyear ,jum,0)) as `ly`, 
                     SUM(if(tahun =$tahun ,jum,0)) as `now` 
@@ -244,16 +247,16 @@
         $lmname= date('M', mktime(0, 0, 0, $lmonth, 10)); 
         if($bulan != date('m')) 
         {
-            $where2 =" ";
+           
             $judul= $lmname.' '.$lyear.' VS '.$mname.' '.$tahun;
         }
         else
         {
-             $where2=" and tanggal <= '$day' ";
+            
              $judul= $day.' '.$lmname.' '.$lyear.' VS '.$day.' '.$mname.' '.$tahun;
         }
        
-
+        $where2=" and tanggal <= '$d' ";
         $sql = "select bulan,nama_core_bisnis nm, '$judul' title,
                     SUM(if(bulan =$lmonth ,jum,0)) as `lm`, 
                     SUM(if(bulan =$bulan ,jum,0)) as `now` 
