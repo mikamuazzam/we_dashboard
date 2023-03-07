@@ -210,6 +210,182 @@
                         </div>
                     </div>   
             </div>
+            
+            <!-- Award -->
+            <div class="row page-titles">
+                    <div class="col-md-12 align-self-center">
+                    <h6 class="text-themecolor"><i class="fa fa-braille" style="color:#1976d2"></i>
+                           Award ::: Last Year Vs Year to Date and Las Month Vs Month to Date
+                    </h6>    
+                    </div>
+            </div>
+                
+         <div class="row">
+                    <div class="col-lg-3">
+                        <div class="card">
+                            <div class="card-body">
+                            <h6 class="card-title"><b>WE (LY vs YtD)</b></h6> 
+                             <div id="ChartAwardYTDContent">
+                              <canvas id="ChartAwardYTD" height="300px" ></canvas>  
+                            </div>
+                            </div>
+                           
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="card">
+                        <div class="card-body">
+                              <h6 class="card-title"><b>WE (LM vs MtD) </b></h6>
+                              <div id="ChartAwardMTDContent">
+                              <canvas id="ChartAwardMTD" height="300px" ></canvas>  
+                             </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="card">
+                            <div class="card-body">
+                            <h6 class="card-title"><b>HS (LY vs YtD)</b></h6> 
+                             <div id="ChartAwardHSYTDContent">
+                              <canvas id="ChartAwardHSYTD" height="250px" ></canvas>  
+                            </div>
+                            </div>
+                           
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="card">
+                        <div class="card-body">
+                              <h6 class="card-title"><b>HS (LM vs MtD) </b></h6>
+                              <div id="ChartAwardHSMTDContent">
+                              <canvas id="ChartAwardHSMTD" height="250px" ></canvas>  
+                             </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                </div>   
+
+             <!-- Iklan -->
+             <div class="row page-titles">
+                    <div class="col-md-12 align-self-center">
+                    <h6 class="text-themecolor"><i class="fa fa-braille" style="color:#1976d2"></i>
+                           Iklan ::: Last Year Vs Year to Date and Las Month Vs Month to Date
+                    </h6>    
+                    </div>
+            </div>
+                
+         <div class="row">
+                    <div class="col-lg-3">
+                        <div class="card">
+                            <div class="card-body">
+                            <h6 class="card-title"><b>WE (LY vs YtD)</b></h6> 
+                             <div id="ChartIklanYTDContent">
+                              <canvas id="ChartIklanYTD" height="300px" ></canvas>  
+                            </div>
+                            </div>
+                           
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="card">
+                        <div class="card-body">
+                              <h6 class="card-title"><b>WE (LM vs MtD) </b></h6>
+                              <div id="ChartIklanMTDContent">
+                              <canvas id="ChartIklanMTD" height="300px" ></canvas>  
+                             </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="card">
+                            <div class="card-body">
+                            <h6 class="card-title"><b>HS (LY vs YtD)</b></h6> 
+                             <div id="ChartIklanHSYTDContent">
+                              <canvas id="ChartIklanHSYTD" height="250px" ></canvas>  
+                            </div>
+                            </div>
+                           
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="card">
+                        <div class="card-body">
+                              <h6 class="card-title"><b>HS (LM vs MtD) </b></h6>
+                              <div id="ChartIklanHSMTDContent">
+                              <canvas id="ChartIklanHSMTD" height="250px" ></canvas>  
+                             </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                </div>   
+
+            <!-- Seminar -->
+            <div class="row page-titles">
+                    <div class="col-md-12 align-self-center">
+                    <h6 class="text-themecolor"><i class="fa fa-braille" style="color:#1976d2"></i>
+                           Seminar ::: Last Year Vs Year to Date and Las Month Vs Month to Date
+                    </h6>    
+                    </div>
+            </div>
+                
+         <div class="row">
+                    <div class="col-lg-3">
+                        <div class="card">
+                            <div class="card-body">
+                            <h6 class="card-title"><b>WE (LY vs YtD)</b></h6> 
+                             <div id="ChartSeminarYTDContent">
+                              <canvas id="ChartSeminarYTD" height="300px" ></canvas>  
+                            </div>
+                            </div>
+                           
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="card">
+                        <div class="card-body">
+                              <h6 class="card-title"><b>WE (LM vs MtD) </b></h6>
+                              <div id="ChartSeminarMTDContent">
+                              <canvas id="ChartSeminarMTD" height="300px" ></canvas>  
+                             </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="card">
+                            <div class="card-body">
+                            <h6 class="card-title"><b>HS (LY vs YtD)</b></h6> 
+                             <div id="ChartSeminarHSYTDContent">
+                              <canvas id="ChartSeminarHSYTD" height="250px" ></canvas>  
+                            </div>
+                            </div>
+                           
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="card">
+                        <div class="card-body">
+                              <h6 class="card-title"><b>HS (LM vs MtD) </b></h6>
+                              <div id="ChartSeminarHSMTDContent">
+                              <canvas id="ChartSeminarHSMTD" height="250px" ></canvas>  
+                             </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                </div>   
+
+
 
             <div class="row page-titles">
                     <div class="col-md-12 align-self-center">
@@ -219,7 +395,7 @@
                     </div>
             </div>
                 
-                <div class="row">
+         <div class="row">
                     <div class="col-lg-6">
                         <div class="card">
                             <div class="card-body">
@@ -317,6 +493,6 @@
 
         </div>
        
-<script src="<?php echo base_url(); ?>assets/js/bispro1.js"></script>              
+<script src="<?php echo base_url(); ?>assets/js/bispro.js"></script>              
                                               
 <?php $this->load->view('backend/footer'); ?>

@@ -195,6 +195,84 @@
         
         return $query->result_array();
     }
+
+    public function chart_award_ytd($corebisnis,$bulan,$tahun){
+        $d=date('d');
+        
+        $lyear=$tahun-1;
+        
+        $mname= date('M', mktime(0, 0, 0, $bulan, 10)); 
+        if($bulan != date('m')) 
+        {
+            $where2 =" ";
+            $judul= $mname.' '.$lyear.' VS '.$mname.' '.$tahun;
+        }
+        else
+        {
+             $where2=" and tanggal <= '$d' ";
+             $judul= $d.' '.$mname.' '.$lyear.' VS '.$d.' '.$mname.' '.$tahun;
+        }
+        $sql = "select tahun,nama_core_bisnis nm, '$judul' title,
+                    SUM(if(tahun =$lyear ,jum,0)) as `ly`, 
+                    SUM(if(tahun =$tahun ,jum,0)) as `now` 
+                    from (
+                         SELECT sum(pencapaian)/1000000 jum,tahun,id_core_bisnis cb 
+                         FROM performance where  id_core_bisnis =$corebisnis
+                         $where2
+                         and tahun=$lyear  and bulan=$bulan group by tahun,id_core_bisnis
+                         union all 
+                         SELECT sum(pencapaian)/1000000,tahun,id_core_bisnis FROM performance
+                          where id_core_bisnis =$corebisnis  $where2
+                          and tahun=$tahun and bulan=$bulan
+                           group by tahun,id_core_bisnis)a 
+                 inner join core_bisnis on cb =id 
+                 group by 2;";
+        $query=$this->db->query($sql);
+        
+        return $query->result_array();
+    }
+
+    public function chart_award_mtd($corebisnis,$bulan,$tahun){
+        $day=date('d');
+        $lmonth = $bulan-1;
+        if($bulan==1)$lmonth=12;
+        
+        if($bulan==1) $lyear=$tahun-1; else $lyear=$tahun;
+       
+      
+        $mname= date('M', mktime(0, 0, 0, $bulan, 10)); 
+        $lmname= date('M', mktime(0, 0, 0, $lmonth, 10)); 
+        if($bulan != date('m')) 
+        {
+            $where2 =" ";
+            $judul= $lmname.' '.$lyear.' VS '.$mname.' '.$tahun;
+        }
+        else
+        {
+             $where2=" and tanggal <= '$day' ";
+             $judul= $day.' '.$lmname.' '.$lyear.' VS '.$day.' '.$mname.' '.$tahun;
+        }
+       
+
+        $sql = "select bulan,nama_core_bisnis nm, '$judul' title,
+                    SUM(if(bulan =$lmonth ,jum,0)) as `lm`, 
+                    SUM(if(bulan =$bulan ,jum,0)) as `now` 
+                    from (
+                         SELECT sum(pencapaian)/1000000 jum,bulan,id_core_bisnis cb 
+                         FROM performance where id_core_bisnis = $corebisnis
+                         $where2  
+                         and tahun=$lyear  and bulan=$lmonth group by bulan,tahun,id_core_bisnis
+                         union all 
+                         SELECT sum(pencapaian)/1000000,bulan,id_core_bisnis FROM performance
+                          where id_core_bisnis=$corebisnis  $where2 
+                          and tahun=$tahun and bulan=$bulan
+                           group by bulan,tahun,id_core_bisnis)a 
+                 inner join core_bisnis on cb =id 
+                 group by 2;";
+        $query=$this->db->query($sql);
+        
+        return $query->result_array();
+    }
     
 }
 

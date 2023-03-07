@@ -107,4 +107,24 @@ class Bispro extends CI_Controller {
         $data= $this->bispro_model->chart_ae_mtd($bulan,$tahun);
         echo json_encode($data);
     }
+
+    function chart_award_ytd()
+    {
+        $this->load->model('bispro_model');
+        $corebisnis=$_REQUEST['corebisnis'];
+        $bulan=$_REQUEST['bulan'];
+        $tahun=$_REQUEST['tahun'];
+        $data= $this->bispro_model->chart_award_ytd($corebisnis,$bulan,$tahun);
+        echo json_encode($data);
+    }
+    function chart_award_mtd()
+    {
+        $this->load->model('bispro_model');
+        $corebisnis=$_REQUEST['corebisnis'];
+        $bulan=$_REQUEST['bulan'];
+        $tahun=$_REQUEST['tahun'];
+        $data= $this->bispro_model->chart_award_mtd($corebisnis,$bulan,$tahun);
+        echo json_encode($data);
+    }
+
 }

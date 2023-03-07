@@ -59,9 +59,242 @@ function load_chart()
     ChartWEYTD('ChartHSYTD',2,'#dea4be','#b3507d',bulan,tahun);
     ChartWEMTD('ChartWEMTD',1,'#bd3758','#7d142e',bulan,tahun);
     ChartWEMTD('ChartHSMTD',2,'#dea4be','#b3507d',bulan,tahun);
+
+	ChartAWARDYTD('ChartAwardYTD',2,'#bd3758','#7d142e',bulan,tahun);
+	ChartAWARDMTD('ChartAwardMTD',2,'#bd3758','#7d142e',bulan,tahun);
+
+	ChartAWARDYTD('ChartAwardHSYTD',8,'#dea4be','#b3507d',bulan,tahun);
+	ChartAWARDMTD('ChartAwardHSMTD',8,'#dea4be','#b3507d',bulan,tahun);
+
+
+	ChartAWARDYTD('ChartIklanYTD',1,'#bd3758','#7d142e',bulan,tahun);
+	ChartAWARDMTD('ChartIklanMTD',1,'#bd3758','#7d142e',bulan,tahun);
+
+	ChartAWARDYTD('ChartIklanHSYTD',7,'#dea4be','#b3507d',bulan,tahun);
+	ChartAWARDMTD('ChartIklanHSMTD',7,'#dea4be','#b3507d',bulan,tahun);
+
+	ChartAWARDYTD('ChartSeminarYTD',3,'#bd3758','#7d142e',bulan,tahun);
+	ChartAWARDMTD('ChartSeminarMTD',3,'#bd3758','#7d142e',bulan,tahun);
+
+	ChartAWARDYTD('ChartSeminarHSYTD',9,'#dea4be','#b3507d',bulan,tahun);
+	ChartAWARDMTD('ChartSeminarHSMTD',9,'#dea4be','#b3507d',bulan,tahun);
+
     ChartAEYTD(bulan,tahun);
     ChartAEMTD(bulan,tahun);
 }
+
+function ChartAWARDMTD(canvasid,corebisnis,bg1,bg2,bulan,tahun)
+{
+	$.ajax({
+		data :{corebisnis:corebisnis,bulan:bulan,tahun:tahun},
+		url : base_url+"/bispro/chart_award_mtd",
+		type : "GET",
+		success : function(data)
+		{
+		
+			data = JSON.parse(data);  
+            const labeldt = [];
+            const val_dt_ytd= [];
+			const val_dt_ly= [];
+		
+            for (var dt of data) {
+                var cb = dt.nm;
+                labeldt.push(cb)
+
+                var get_val= parseInt(dt.now) || 0;
+                val_dt_ytd.push(get_val)
+
+				var get_val_target= parseInt(dt.lm) || 0;
+                val_dt_ly.push(get_val_target)
+				var judul = dt.title;
+            }
+			
+			var myData = {
+				labels:labeldt,
+				datasets: [{
+					label: "LM",
+					fill: false,
+					backgroundColor: bg1,
+					data: val_dt_ly,
+				},
+				{
+					label: "Today",
+					fill: false,
+					backgroundColor: bg2,
+					data: val_dt_ytd,
+				}
+				]
+			};
+	
+			var myoption = {
+				tooltips: {
+					enabled: true
+				},
+				legend: {
+					position: 'bottom'
+				},
+				
+				title: {
+					display: true,
+					padding: 20,
+					text: judul
+				},
+				scales: {
+					yAxes: [{
+						ticks: {
+							
+						beginAtZero: true
+						
+						},
+					}],
+					
+						xAxes: [{
+							barThickness :20
+						}]
+					},
+					animation: {
+								duration: 1,
+								onComplete: function () {
+									var chartInstance = this.chart,
+										ctx = chartInstance.ctx;
+										ctx.textAlign = 'center';
+										ctx.fillStyle = "rgba(0, 0, 0, 1)";
+										ctx.textBaseline = 'bottom';
+										// Loop through each data in the datasets
+										this.data.datasets.forEach(function (dataset, i) {
+											var meta = chartInstance.controller.getDatasetMeta(i);
+											meta.data.forEach(function (bar, index) {
+												var data = dataset.data[index];
+												ctx.fillText(data, bar._model.x, bar._model.y - 5);
+											});
+										});
+									}
+								}
+			};
+			// Code to draw Chart
+			document.getElementById(canvasid+"Content").innerHTML = '&nbsp;';
+			document.getElementById(canvasid+"Content").innerHTML = '<canvas id="'+canvasid+'" height="300px" ></canvas>';
+			
+			var ctx = document.getElementById(canvasid).getContext('2d');
+			
+			var myChart = new Chart(ctx, {
+				type: 'bar',        // Define chart type
+				data: myData,    	// Chart data
+				options: myoption 	// Chart Options [This is optional paramenter use to add some extra things in the chart].
+			});
+	}
+	});
+}
+
+
+
+function ChartAWARDYTD(canvasid,corebisnis,bg1,bg2,bulan,tahun)
+{
+	$.ajax({
+		data :{corebisnis:corebisnis,bulan:bulan,tahun:tahun},
+		url : base_url+"/bispro/chart_award_ytd",
+		type : "GET",
+		success : function(data)
+		{
+		
+			data = JSON.parse(data);  
+            const labeldt = [];
+            const val_dt_ytd= [];
+			const val_dt_ly= [];
+			
+		
+            for (var dt of data) {
+                var cb = dt.nm;
+                labeldt.push(cb)
+
+				var judul = dt.title;
+               
+
+                var get_val= parseInt(dt.now) || 0;
+                val_dt_ytd.push(get_val)
+
+				var get_val_target= parseInt(dt.ly) || 0;
+                val_dt_ly.push(get_val_target)
+
+            }
+			
+			var myData = {
+				labels:labeldt,
+				datasets: [{
+					label: "LY",
+					fill: false,
+					backgroundColor: bg1,
+					data: val_dt_ly,
+				},
+				{
+					label: "Today",
+					fill: false,
+					backgroundColor: bg2,
+					data: val_dt_ytd,
+				}
+				]
+			};
+	
+			var myoption = {
+				tooltips: {
+					enabled: true
+				},
+				legend: {
+					position: 'bottom'
+				},
+				title: {
+					display: true,
+					padding: 20,
+					text: judul
+				},
+				scales: {
+					yAxes: [{
+						ticks: {
+						
+						beginAtZero: true
+						
+						},
+					}],
+					
+						xAxes: [{
+							barThickness :20
+						}]
+					},
+					animation: {
+								duration: 1,
+								onComplete: function () {
+									var chartInstance = this.chart,
+										ctx = chartInstance.ctx;
+										ctx.textAlign = 'center';
+										ctx.fillStyle = "rgba(0, 0, 0, 1)";
+										ctx.textBaseline = 'bottom';
+										// Loop through each data in the datasets
+										this.data.datasets.forEach(function (dataset, i) {
+											var meta = chartInstance.controller.getDatasetMeta(i);
+											meta.data.forEach(function (bar, index) {
+												var data = dataset.data[index];
+												ctx.fillText(data, bar._model.x, bar._model.y - 5);
+											});
+										});
+									}
+								}
+			};
+			// Code to draw Chart
+			document.getElementById(canvasid+"Content").innerHTML = '&nbsp;';
+			document.getElementById(canvasid+"Content").innerHTML = '<canvas id="'+canvasid+'" height="300px" ></canvas>';
+			
+			var ctx = document.getElementById(canvasid).getContext('2d');
+			
+			var myChart = new Chart(ctx, {
+				type: 'bar',        // Define chart type
+				data: myData,    	// Chart data
+				options: myoption 	// Chart Options [This is optional paramenter use to add some extra things in the chart].
+			});
+	}
+	});
+}
+
+
 
 function chart_re(cb_id,idchart,judul,bulan,tahun,warna1,warna2)
 {
