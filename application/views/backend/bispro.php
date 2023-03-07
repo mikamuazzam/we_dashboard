@@ -211,6 +211,113 @@
                     </div>   
             </div>
             
+
+            <!-- Programmatics -->
+            <div class="row page-titles">
+                    <div class="col-md-12 align-self-center">
+                    <h6 class="text-themecolor"><i class="fa fa-braille" style="color:#1976d2"></i>
+                           Programmatics ::: Last Year Vs Year to Date and Las Month Vs Month to Date
+                    </h6>  <font color="red">Last year programmatics belum ada dikarenakan data harian baru ada bulan 7 2022</font> 
+                    </div>
+            </div>
+                
+         <div class="row">
+                    <div class="col-lg-3">
+                        <div class="card">
+                            <div class="card-body">
+                            <h6 class="card-title"><b>WE (LY vs YtD)</b></h6> 
+                             <div id="ChartProgYTDContent">
+                              <canvas id="ChartProgYTD" height="300px" ></canvas>  
+                            </div>
+                            </div>
+                           
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="card">
+                        <div class="card-body">
+                              <h6 class="card-title"><b>WE (LM vs MtD) </b></h6>
+                              <div id="ChartProgMTDContent">
+                              <canvas id="ChartProgMTD" height="300px" ></canvas>  
+                             </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="card">
+                            <div class="card-body">
+                            <h6 class="card-title"><b>HS (LY vs YtD)</b></h6> 
+                             <div id="ChartProgHSYTDContent">
+                              <canvas id="ChartProgHSYTD" height="250px" ></canvas>  
+                            </div>
+                            </div>
+                           
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="card">
+                        <div class="card-body">
+                              <h6 class="card-title"><b>HS (LM vs MtD) </b></h6>
+                              <div id="ChartProgHSMTDContent">
+                              <canvas id="ChartProgHSMTD" height="250px" ></canvas>  
+                             </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                </div>   
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="card">
+                            <div class="card-body">
+                            <h6 class="card-title"><b>PP (LY vs YtD)</b></h6> 
+                             <div id="ChartProgPPYTDContent">
+                              <canvas id="ChartProgPPYTD" height="300px" ></canvas>  
+                            </div>
+                            </div>
+                           
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="card">
+                        <div class="card-body">
+                              <h6 class="card-title"><b>PP (LM vs MtD) </b></h6>
+                              <div id="ChartProgPPMTDContent">
+                              <canvas id="ChartProgPPMTD" height="300px" ></canvas>  
+                             </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="card">
+                            <div class="card-body">
+                            <h6 class="card-title"><b>NW (LY vs YtD)</b></h6> 
+                             <div id="ChartProgNWYTDContent">
+                              <canvas id="ChartProgNWYTD" height="250px" ></canvas>  
+                            </div>
+                            </div>
+                           
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="card">
+                        <div class="card-body">
+                              <h6 class="card-title"><b>NW (LM vs MtD) </b></h6>
+                              <div id="ChartProgNWMTDContent">
+                              <canvas id="ChartProgNWMTD" height="250px" ></canvas>  
+                             </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                </div> 
+
             <!-- Award -->
             <div class="row page-titles">
                     <div class="col-md-12 align-self-center">

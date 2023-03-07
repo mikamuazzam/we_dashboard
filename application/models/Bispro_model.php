@@ -276,6 +276,96 @@
         
         return $query->result_array();
     }
+
+    public function chart_progr_ytd($website,$bulan,$tahun){
+        $day=date('d');
+        
+        $lyear=$tahun-1;
+        
+        $mname= date('M', mktime(0, 0, 0, $bulan, 10)); 
+        if($bulan != date('m')) 
+        {
+           
+            $judul= $mname.' '.$lyear.' VS '.$mname.' '.$tahun;
+        }
+        else
+        {
+             
+             $judul= $day.' '.$mname.' '.$lyear.' VS '.$day.' '.$mname.' '.$tahun;
+        }
+       
+        $sql = "select tahun,cb nm, '$judul' title,
+                    SUM(if(tahun =$lyear ,jum,0)) as `ly`, 
+                    SUM(if(tahun =$tahun ,jum,0)) as `now` 
+                    from (
+                            SELECT sum(case when kurs='IDR' then laba else laba *(select kurs from kurs)end)/1000000 jum,
+                            year(dataadd)tahun,'programmatics' cb 
+                            FROM programmatics a 
+                                inner join master_website b on a.website=b.id 
+                                inner join master_partner c on a.partner_id=c.id 
+                                where website =$website and year(dataadd)=$lyear and month(dataadd)=$bulan and day(dataadd) <=$day
+                                         group by year(dataadd) 
+                            union ALL 
+                            SELECT sum(case when kurs='IDR' then laba else laba *(select kurs from kurs)end)/1000000 jum,
+                            year(dataadd)tahun,'programmatics' cb 
+                            FROM programmatics a 
+                                inner join master_website b on a.website=b.id 
+                                inner join master_partner c on a.partner_id=c.id 
+                                where website =$website and year(dataadd)=$tahun and month(dataadd)=$bulan and day(dataadd) <=$day
+                                 group by year(dataadd))a 
+                 
+                 group by 2;";
+        $query=$this->db->query($sql);
+        
+        return $query->result_array();
+    }
+    public function chart_prog_mtd($website,$bulan,$tahun){
+        $day=date('d');
+        $lmonth = $bulan-1;
+        if($bulan==1)$lmonth=12;
+        
+        if($bulan==1) $lyear=$tahun-1; else $lyear=$tahun;
+       
+      
+        $mname= date('M', mktime(0, 0, 0, $bulan, 10)); 
+        $lmname= date('M', mktime(0, 0, 0, $lmonth, 10)); 
+        if($bulan != date('m')) 
+        {
+           
+            $judul= $lmname.' '.$lyear.' VS '.$mname.' '.$tahun;
+        }
+        else
+        {
+            
+             $judul= $day.' '.$lmname.' '.$lyear.' VS '.$day.' '.$mname.' '.$tahun;
+        }
+       
+       
+        $sql = "select bulan,cb nm, '$judul' title,
+                    SUM(if(bulan =$lmonth ,jum,0)) as `lm`, 
+                    SUM(if(bulan =$bulan ,jum,0)) as `now` 
+                    from (
+                        SELECT sum(case when kurs='IDR' then laba else laba *(select kurs from kurs)end)/1000000 jum,
+                            month(dataadd)bulan,'programmatics' cb 
+                            FROM programmatics a 
+                                inner join master_website b on a.website=b.id 
+                                inner join master_partner c on a.partner_id=c.id 
+                                where website =$website and year(dataadd)=$lyear and month(dataadd)=$lmonth and day(dataadd) <=$day
+                                         group by year(dataadd) 
+                            union ALL 
+                            SELECT sum(case when kurs='IDR' then laba else laba *(select kurs from kurs)end)/1000000 jum,
+                            month(dataadd)bulan,'programmatics' cb 
+                            FROM programmatics a 
+                                inner join master_website b on a.website=b.id 
+                                inner join master_partner c on a.partner_id=c.id 
+                                where website =$website and year(dataadd)=$tahun and month(dataadd)=$bulan and day(dataadd) <=$day
+                                 group by year(dataadd) )a 
+                
+                 group by 2;";
+        $query=$this->db->query($sql);
+        
+        return $query->result_array();
+    }
     
 }
 

@@ -79,9 +79,230 @@ function load_chart()
 	ChartAWARDYTD('ChartSeminarHSYTD',9,'#dea4be','#b3507d',bulan,tahun);
 	ChartAWARDMTD('ChartSeminarHSMTD',9,'#dea4be','#b3507d',bulan,tahun);
 
+	ChartProgYTD('ChartProgYTD',1,'#bd3758','#7d142e',bulan,tahun);
+	ChartProgMTD('ChartProgMTD',1,'#bd3758','#7d142e',bulan,tahun);
+
+	ChartProgYTD('ChartProgHSYTD',2,'#dea4be','#b3507d',bulan,tahun);
+	ChartProgMTD('ChartProgHSMTD',2,'#dea4be','#b3507d',bulan,tahun);
+
+	ChartProgYTD('ChartProgPPYTD',3,'#59c984','#1a5e34',bulan,tahun);
+	ChartProgMTD('ChartProgPPMTD',3,'#59c984','#1a5e34',bulan,tahun);
+
+	ChartProgYTD('ChartProgNWYTD',6,'#bd3758','#7d142e',bulan,tahun);
+	ChartProgMTD('ChartProgNWMTD',6,'#bd3758','#7d142e',bulan,tahun);
+
     ChartAEYTD(bulan,tahun);
     ChartAEMTD(bulan,tahun);
 }
+
+function ChartProgYTD(canvasid,website,bg1,bg2,bulan,tahun)
+{
+	$.ajax({
+		data :{website:website,bulan:bulan,tahun:tahun},
+		url : base_url+"/bispro/chart_prog_ytd",
+		type : "GET",
+		success : function(data)
+		{
+		
+			data = JSON.parse(data);  
+            const labeldt = [];
+            const val_dt_ytd= [];
+			const val_dt_ly= [];
+			
+		
+            for (var dt of data) {
+                var cb = dt.nm;
+                labeldt.push(cb)
+
+				var judul = dt.title;
+               
+
+                var get_val= parseInt(dt.now) || 0;
+                val_dt_ytd.push(get_val)
+
+				var get_val_target= parseInt(dt.ly) || 0;
+                val_dt_ly.push(get_val_target)
+
+            }
+			
+			var myData = {
+				labels:labeldt,
+				datasets: [{
+					label: "LY",
+					fill: false,
+					backgroundColor: bg1,
+					data: val_dt_ly,
+				},
+				{
+					label: "Today",
+					fill: false,
+					backgroundColor: bg2,
+					data: val_dt_ytd,
+				}
+				]
+			};
+	
+			var myoption = {
+				tooltips: {
+					enabled: true
+				},
+				legend: {
+					position: 'bottom'
+				},
+				title: {
+					display: true,
+					padding: 20,
+					text: judul
+				},
+				scales: {
+					yAxes: [{
+						ticks: {
+						
+						beginAtZero: true
+						
+						},
+					}],
+					
+						xAxes: [{
+							barThickness :20
+						}]
+					},
+					animation: {
+								duration: 1,
+								onComplete: function () {
+									var chartInstance = this.chart,
+										ctx = chartInstance.ctx;
+										ctx.textAlign = 'center';
+										ctx.fillStyle = "rgba(0, 0, 0, 1)";
+										ctx.textBaseline = 'bottom';
+										// Loop through each data in the datasets
+										this.data.datasets.forEach(function (dataset, i) {
+											var meta = chartInstance.controller.getDatasetMeta(i);
+											meta.data.forEach(function (bar, index) {
+												var data = dataset.data[index];
+												ctx.fillText(data, bar._model.x, bar._model.y - 5);
+											});
+										});
+									}
+								}
+			};
+			// Code to draw Chart
+			document.getElementById(canvasid+"Content").innerHTML = '&nbsp;';
+			document.getElementById(canvasid+"Content").innerHTML = '<canvas id="'+canvasid+'" height="300px" ></canvas>';
+			
+			var ctx = document.getElementById(canvasid).getContext('2d');
+			
+			var myChart = new Chart(ctx, {
+				type: 'bar',        // Define chart type
+				data: myData,    	// Chart data
+				options: myoption 	// Chart Options [This is optional paramenter use to add some extra things in the chart].
+			});
+	}
+	});
+}
+function ChartProgMTD(canvasid,website,bg1,bg2,bulan,tahun)
+{
+	$.ajax({
+		data :{website:website,bulan:bulan,tahun:tahun},
+		url : base_url+"/bispro/chart_prog_mtd",
+		type : "GET",
+		success : function(data)
+		{
+		
+			data = JSON.parse(data);  
+            const labeldt = [];
+            const val_dt_ytd= [];
+			const val_dt_ly= [];
+		
+            for (var dt of data) {
+                var cb = dt.nm;
+                labeldt.push(cb)
+
+                var get_val= parseInt(dt.now) || 0;
+                val_dt_ytd.push(get_val)
+
+				var get_val_target= parseInt(dt.lm) || 0;
+                val_dt_ly.push(get_val_target)
+				var judul = dt.title;
+            }
+			
+			var myData = {
+				labels:labeldt,
+				datasets: [{
+					label: "LM",
+					fill: false,
+					backgroundColor: bg1,
+					data: val_dt_ly,
+				},
+				{
+					label: "Today",
+					fill: false,
+					backgroundColor: bg2,
+					data: val_dt_ytd,
+				}
+				]
+			};
+	
+			var myoption = {
+				tooltips: {
+					enabled: true
+				},
+				legend: {
+					position: 'bottom'
+				},
+				
+				title: {
+					display: true,
+					padding: 20,
+					text: judul
+				},
+				scales: {
+					yAxes: [{
+						ticks: {
+							
+						beginAtZero: true
+						
+						},
+					}],
+					
+						xAxes: [{
+							barThickness :20
+						}]
+					},
+					animation: {
+								duration: 1,
+								onComplete: function () {
+									var chartInstance = this.chart,
+										ctx = chartInstance.ctx;
+										ctx.textAlign = 'center';
+										ctx.fillStyle = "rgba(0, 0, 0, 1)";
+										ctx.textBaseline = 'bottom';
+										// Loop through each data in the datasets
+										this.data.datasets.forEach(function (dataset, i) {
+											var meta = chartInstance.controller.getDatasetMeta(i);
+											meta.data.forEach(function (bar, index) {
+												var data = dataset.data[index];
+												ctx.fillText(data, bar._model.x, bar._model.y - 5);
+											});
+										});
+									}
+								}
+			};
+			// Code to draw Chart
+			document.getElementById(canvasid+"Content").innerHTML = '&nbsp;';
+			document.getElementById(canvasid+"Content").innerHTML = '<canvas id="'+canvasid+'" height="300px" ></canvas>';
+			
+			var ctx = document.getElementById(canvasid).getContext('2d');
+			
+			var myChart = new Chart(ctx, {
+				type: 'bar',        // Define chart type
+				data: myData,    	// Chart data
+				options: myoption 	// Chart Options [This is optional paramenter use to add some extra things in the chart].
+			});
+	}
+	});
+}
+
 
 function ChartAWARDMTD(canvasid,corebisnis,bg1,bg2,bulan,tahun)
 {
