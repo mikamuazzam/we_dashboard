@@ -95,7 +95,7 @@
              $judul= $day.' '.$lmname.' '.$lyear.' VS '.$day.' '.$mname.' '.$tahun;
         }
        
-        $where2=" and tanggal <= '$d' ";
+        $where2=" and tanggal <= '$day' ";
         $sql = "select bulan,nama_core_bisnis nm, '$judul' title,
                     SUM(if(bulan =$lmonth ,jum,0)) as `lm`, 
                     SUM(if(bulan =$bulan ,jum,0)) as `now` 
@@ -174,7 +174,7 @@
              #$where2=" and tanggal <= '$day' ";
              $judul= $day.' '.$lmname.' '.$lyear.' VS '.$day.' '.$mname.' '.$tahun;
         }
-        $where2=" and tanggal <= '$d' ";
+        $where2=" and tanggal <= '$day' ";
       
         $sql = "select bulan,name nm,'$judul' title,
                     SUM(if(bulan =$lmonth ,jum,0)) as `ly`, 
@@ -256,7 +256,7 @@
              $judul= $day.' '.$lmname.' '.$lyear.' VS '.$day.' '.$mname.' '.$tahun;
         }
        
-        $where2=" and tanggal <= '$d' ";
+        $where2=" and tanggal <= '$day' ";
         $sql = "select bulan,nama_core_bisnis nm, '$judul' title,
                     SUM(if(bulan =$lmonth ,jum,0)) as `lm`, 
                     SUM(if(bulan =$bulan ,jum,0)) as `now` 
