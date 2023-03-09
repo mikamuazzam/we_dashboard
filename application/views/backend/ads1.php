@@ -52,8 +52,22 @@
                     <div class="col-md-5 col-lg-2 col-xlg-2">
                         <div class="card card-info card-info">
                             <div class="box bg-info text-center">    
-                            <h6 class="font-light text-white">
-                                <?php echo 'Rp. '.number_format($slaba_we,0);?>
+                            <?php  $total =0;  foreach($slaba_we as $value):?>
+                                <h6 class="font-light text-white">
+                                <?php
+                                    if($value->kurs == 'USD') $rupiah= $nilai_kurs->kurs * $value->laba;
+                                    else $rupiah= $value->laba;
+                                    
+                                    $total=$total+$rupiah;
+
+                                    if ($value->kurs =='IDR') 
+                                        echo $value->kurs.' '.number_format($value->laba,0,",",".");
+                                    else 
+                                        echo $value->kurs.' '.number_format($value->laba,2);?>
+                                   
+                            <?php endforeach;?>  
+                            <hr style="border: 1px solid white;">
+                            <?php echo 'Rp. '.number_format($total,0);?>
                             </h6> 
                             </div>
                             <img src="<?php echo base_url();?>assets/images/we.jpeg" style="width:100% ;height:22px;">    
@@ -62,8 +76,20 @@
                     <div class="col-md-5 col-lg-2 col-xlg-2">
                         <div class="card card-info card-info">
                             <div class="box bg-info text-center">
-                            <h6 class="font-light text-white">
-                                <?php echo 'Rp. '.number_format($slaba_pp,0);?>
+                            <?php  $total =0;  foreach($slaba_pp as $value):?>
+                                <h6 class="font-light text-white">
+                                <?php
+                                    if($value->kurs == 'USD') $rupiah= $nilai_kurs->kurs * $value->laba;
+                                    else $rupiah= $value->laba;
+                                    $total=$total+$rupiah;
+                                    if ($value->kurs =='IDR') 
+                                        echo $value->kurs.' '.number_format($value->laba,0,",",".");
+                                    else 
+                                        echo $value->kurs.' '.number_format($value->laba,2);?>
+                                    
+                            <?php endforeach;?>  
+                            <hr style="border: 1px solid white;">
+                            <?php echo 'Rp. '.number_format($total,0);?>
                             </h6> 
                             </div>
                             <img src="<?php echo base_url();?>assets/images/pop.jpeg" style="width:100% ;height:22px;">
@@ -73,8 +99,20 @@
                     <div class="col-md-5 col-lg-2 col-xlg-2">
                         <div class="card card-info card-info">
                         <div class="box bg-info text-center">
-                            <h6 class="font-light text-white">
-                                <?php echo 'Rp. '.number_format($slaba_hs,0);?>
+                        <?php  $total =0;  foreach($slaba_hs as $value):?>
+                                <h6 class="font-light text-white">
+                                <?php
+                                     if($value->kurs == 'USD') $rupiah= $nilai_kurs->kurs * $value->laba;
+                                     else $rupiah= $value->laba;
+                                     $total=$total+$rupiah;
+                                    if ($value->kurs =='IDR') 
+                                        echo $value->kurs.' '.number_format($value->laba,0,",",".");
+                                    else 
+                                        echo $value->kurs.' '.number_format($value->laba,2);?>
+                                 
+                            <?php endforeach;?>  
+                            <hr style="border: 1px solid white;">
+                            <?php echo 'Rp. '.number_format($total,0);?>
                             </h6> 
                             </div>
                             
@@ -84,8 +122,20 @@
                     <div class="col-md-5 col-lg-2 col-xlg-2">
                         <div class="card card-info card-info">
                         <div class="box bg-info text-center">
-                            <h6 class="font-light text-white">
-                                <?php echo 'Rp. '.number_format($slaba_kj,0);?>
+                        <?php  $total =0;  foreach($slaba_kj as $value):?>
+                                <h6 class="font-light text-white">
+                                <?php
+                                     if($value->kurs == 'USD') $rupiah= $nilai_kurs->kurs * $value->laba;
+                                     else $rupiah= $value->laba;
+                                     $total=$total+$rupiah;
+                                    if ($value->kurs =='IDR') 
+                                        echo $value->kurs.' '.number_format($value->laba,0,",",".");
+                                    else 
+                                        echo $value->kurs.' '.number_format($value->laba,2);?>
+                              
+                            <?php endforeach;?>
+                            <hr style="border: 1px solid white;">
+                            <?php echo 'Rp. '.number_format($total,0);?>
                             </h6> 
                             </div>
                             <img src="<?php echo base_url();?>assets/images/kj.jpg" style="width:100% ;height:22px;">
@@ -95,8 +145,20 @@
                     <div class="col-md-5 col-lg-2 col-xlg-2">
                         <div class="card card-info card-info">
                         <div class="box bg-info text-center">
-                            <h6 class="font-light text-white">
-                                <?php echo 'Rp. '.number_format($slaba_wf,0);?>
+                        <?php  $total =0;  foreach($slaba_wf as $value):?>
+                                <h6 class="font-light text-white">
+                                <?php
+                                     if($value->kurs == 'USD') $rupiah= $nilai_kurs->kurs * $value->laba;
+                                     else $rupiah= $value->laba;
+                                     $total=$total+$rupiah;
+                                    if ($value->kurs =='IDR') 
+                                        echo $value->kurs.' '.number_format($value->laba,0,",",".");
+                                    else 
+                                        echo $value->kurs.' '.number_format($value->laba,2);?>
+                                
+                            <?php endforeach;?>  
+                            <hr style="border: 1px solid white;">
+                            <?php echo 'Rp. '.number_format($total,0);?>
                             </h6> 
                             </div>
                         <img src="<?php echo base_url();?>assets/images/wf.jpeg" style="width:100% ;height:22px;">
@@ -106,8 +168,21 @@
                     <div class="col-md-5 col-lg-2 col-xlg-2">
                         <div class="card card-info card-info">
                         <div class="box bg-info text-center">
-                            <h6 class="font-light text-white">
-                                <?php echo 'Rp. '.number_format($slaba_nw,0);?>
+                        <?php  $total =0;  foreach($slaba_nw as $value):?>
+                                <h6 class="font-light text-white">
+                                <?php
+                                      if($value->kurs == 'USD') $rupiah= $nilai_kurs->kurs * $value->laba;
+                                      else $rupiah= $value->laba;
+                                      $total=$total+$rupiah;
+                                    if ($value->kurs =='IDR') 
+                                        echo $value->kurs.' '.number_format($value->laba,0,",",".");
+                                    else 
+                                        echo $value->kurs.' '.number_format($value->laba,2);?>
+                                
+                            
+                            <?php endforeach;?>  
+                            <hr style="border: 1px solid white;">
+                            <?php echo 'Rp. '.number_format($total,0);?>
                             </h6> 
                             </div>
                             <img src="<?php echo base_url();?>assets/images/nw.jpeg" style="width:100% ;height:22px;">
@@ -119,9 +194,22 @@
                     <div class="col-md-5 col-lg-2 col-xlg-2">
                         <div class="card card-info card-info">
                         <div class="box bg-info text-center">
-                            <h6 class="font-light text-white">
-                                <?php echo 'Rp. '.number_format($slaba_trivia,0);?>
-                            </h6>  
+                        <?php  $total =0;  foreach($slaba_trivia as $value):?>
+                                <h6 class="font-light text-white">
+                                <?php
+                                      if($value->kurs == 'USD') $rupiah= $nilai_kurs->kurs * $value->laba;
+                                      else $rupiah= $value->laba;
+                                      $total=$total+$rupiah;
+                                    if ($value->kurs =='IDR') 
+                                        echo $value->kurs.' '.number_format($value->laba,0,",",".");
+                                    else 
+                                        echo $value->kurs.' '.number_format($value->laba,2);?>
+                                
+                            
+                            <?php endforeach;?>  
+                            <hr style="border: 1px solid white;">
+                            <?php echo 'Rp. '.number_format($total,0);?>
+                            </h6> 
                             </div>
                             <img src="<?php echo base_url();?>assets/images/trivia.jpeg" style="width:100% ;height:22px;">
                         </div>
@@ -134,41 +222,18 @@
 
         
             <div class="container-fluid">
-            <div class="row">
-                    <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-12">
                         <div class="card">
                             <div class="card-body" >
-                            
-                            <div id="ChartAdsTigaContent">
-                            <canvas id="ChartAdsTiga" height="100px" ></canvas>  
-                            </div>
+                            <h6 class="card-title"></h6>
+                            <div id="ChartAdsContent1">
+                            <canvas id="ChartAds1" height="150px" ></canvas>
+                            </div>  
                             </div>
                         </div>
-                    </div>  
-                    <div class="col-md-4" >
-                        <div class="card">
-                            <div class="card-body" >
-                            <h6 class="card-title">Average Revenue (last 3 month) </h6>
-                                <div class="card card-info card-info">
-                                    <div class="box bg-info text-center">
-                                        <h6 class="font-light text-white">
-                                        <?php $total =0; 
-                                            foreach($avg_rev as $value):
-                                                $avg=$value->laba;
-                                            
-                                            $total=$total+$avg;
-                                            endforeach;
-                                        ?>
-                                            <?php echo 'Rp. '.number_format(($total/3)*1000000,0);?>
-                                        </h6>  
-                                    
-                                    </div>
-                                </div>
-                            </div>
-                           
-                        </div>  
-                    </div>
-            </div>
+                    </div> 
+                </div>  
             <div class="row">
                     <div class="col-lg-12">
                         <div class="card">
@@ -413,7 +478,7 @@
             </div>
        
        
-<script src="<?php echo base_url(); ?>assets/js/ads.js"></script>              
+<script src="<?php echo base_url(); ?>assets/js/ads_1.js"></script>              
 <script>
 </script>                                               
 <?php $this->load->view('backend/footer'); ?>

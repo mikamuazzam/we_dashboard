@@ -113,6 +113,20 @@
         $query=$this->db->query($sql);
         return $query->result();
     }
+    function sum_laba_rupiah($website)
+    {
+        $sql="SELECT sum(case when kurs='IDR' then laba else laba *(select kurs from kurs)end) as laba 
+                FROM programmatics a
+                inner join master_website b on a.website= b.id
+                inner join master_partner c on a.partner_id=c.id
+                where month(dataadd)=month(CURRENT_DATE) and year(dataadd)= year(CURRENT_DATE)
+                and website=$website 
+               ";
+       $query=$this->db->query($sql);
+       $result = $query->row();
+       $laba= $result->laba;
+       return $laba;
+    }
     function sum_laba_all()
     {
         $sql="SELECT sum(laba) as laba,kurs FROM programmatics a
@@ -201,6 +215,20 @@
         $result= $result->total;
         return $result;
     }
+
+    public function total_perbulan(){
+        $sql="SELECT sum(case when kurs='IDR' then laba else laba *(select kurs from kurs)end)/1000000 as laba,
+                MONTHNAME(dataadd)bulan,year(dataadd)tahun FROM programmatics a 
+                inner join master_website b on a.website= b.id 
+                inner join master_partner c on a.partner_id=c.id 
+                where dataadd >= (LAST_DAY(NOW() - INTERVAL 1 MONTH) + INTERVAL 1 DAY ) - INTERVAL 3 MONTH 
+                group by MONTHNAME(dataadd),year(dataadd) order by year(dataadd),month(dataadd) LIMIT 0,3;
+               ";
+       $query=$this->db->query($sql);
+       return $query->result();
+    }
+
+    
    
 
 }

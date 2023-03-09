@@ -37,18 +37,19 @@ class Ads extends CI_Controller {
         $data['laba_nw']=$this->ads_model->get_sisa(6);
         $data['laba_wf']=$this->ads_model->get_sisa(5);
 
-        $data['slaba_we']=$this->ads_model->sum_laba(1);
-        $data['slaba_hs']=$this->ads_model->sum_laba(2);
-        $data['slaba_pp']=$this->ads_model->sum_laba(3);
-        $data['slaba_kj']=$this->ads_model->sum_laba(4);
-        $data['slaba_nw']=$this->ads_model->sum_laba(6);
-        $data['slaba_wf']=$this->ads_model->sum_laba(5);
-        $data['slaba_trivia']=$this->ads_model->sum_laba(11);
+        $data['slaba_we']=$this->ads_model->sum_laba_rupiah(1);
+        $data['slaba_hs']=$this->ads_model->sum_laba_rupiah(2);
+        $data['slaba_pp']=$this->ads_model->sum_laba_rupiah(3);
+        $data['slaba_kj']=$this->ads_model->sum_laba_rupiah(4);
+        $data['slaba_nw']=$this->ads_model->sum_laba_rupiah(6);
+        $data['slaba_wf']=$this->ads_model->sum_laba_rupiah(5);
+        $data['slaba_trivia']=$this->ads_model->sum_laba_rupiah(11);
         $data['laba_all']=$this->ads_model->sum_laba_all();
         $data['avail_slot']=$this->ads_model->avail_slot();
         $data['partner_list']=$this->ads_model->partner_list();
         $data['slot_partner_list']=$this->ads_model->slot_partner_list();
         $data['nilai_kurs']=$this->ads_model->get_kurs();
+        $data['avg_rev']=$this->ads_model->total_perbulan();
 
         $this->load->view('backend/ads',$data);
         }
@@ -136,6 +137,14 @@ class Ads extends CI_Controller {
         $tahun=$_REQUEST['tahun'];
         $this->load->model('ads_model');
         $data= $this->ads_model->total_rupiah($bulan,$tahun);
+        echo json_encode($data);
+    }
+
+    function total_perbulan()
+    {
+        
+        $this->load->model('ads_model');
+        $data= $this->ads_model->total_perbulan();
         echo json_encode($data);
     }
     
