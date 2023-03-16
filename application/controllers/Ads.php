@@ -50,6 +50,7 @@ class Ads extends CI_Controller {
         $data['slot_partner_list']=$this->ads_model->slot_partner_list();
         $data['nilai_kurs']=$this->ads_model->get_kurs();
         $data['avg_rev']=$this->ads_model->total_perbulan();
+        $data['forecast']=$this->ads_model->total_forecast();
 
         $this->load->view('backend/ads',$data);
         }

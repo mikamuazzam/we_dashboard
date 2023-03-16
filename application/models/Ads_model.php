@@ -47,6 +47,7 @@
                 inner join master_website b on a.website =b.id 
                 inner join master_partner c on a.partner_id=c.id
                 where  month(dataadd)=$bulan and year(dataadd)=$tahun and partner_id=$partner $filter
+                and partner_id not in(11,12)
                 order by dataadd desc
                 LIMIT $limit OFFSET $offset ";
         
@@ -65,7 +66,7 @@
                 SUM(case when website=4 then laba else 0 end) as 'kj' ,
                 SUM(case when website=5 then laba else 0 end) as 'wf' 
                from programmatics where month(dataadd)=$bulan and year(dataadd)=$tahun 
-               and partner_id=$partner group by 1";
+               and partner_id=$partner and partner_id not in(11,12) group by 1";
         $query=$this->db->query($sql);
         
         return $query->result_array();
@@ -82,7 +83,7 @@
                  SUM(case when website=5 then case when kurs='IDR' then laba else laba *(select kurs from kurs)end  else 0 end) as  'wf'  ,kurs
                from programmatics a
                inner join master_partner b on a.partner_id=b.id
-               where  year(dataadd)=$tahun  and (dataadd > '2022-07-01')
+               where  year(dataadd)=$tahun  and (dataadd > '2022-07-01') and partner_id not in(11,12)
                group by 1 order by month(dataadd) ";
         $query=$this->db->query($sql);
         
@@ -96,7 +97,7 @@
                 from programmatics a
                 inner join master_partner c on a.partner_id=c.id
                inner join master_website b on a.website=b.id
-                where  month(dataadd)=$bulan and   year(dataadd)=$tahun 
+                where  month(dataadd)=$bulan and   year(dataadd)=$tahun and partner_id not in(11,12)
                  group by 1,2 order by month(dataadd) ";
         $query=$this->db->query($sql);
         
@@ -108,7 +109,7 @@
                 inner join master_website b on a.website= b.id
                 inner join master_partner c on a.partner_id=c.id
                 where month(dataadd)=month(CURRENT_DATE) and year(dataadd)= year(CURRENT_DATE)
-                and website=$website 
+                and website=$website and partner_id not in(11,12)
                 group by website,kurs";
         $query=$this->db->query($sql);
         return $query->result();
@@ -120,7 +121,7 @@
                 inner join master_website b on a.website= b.id
                 inner join master_partner c on a.partner_id=c.id
                 where month(dataadd)=month(CURRENT_DATE) and year(dataadd)= year(CURRENT_DATE)
-                and website=$website 
+                and website=$website and partner_id not in(11,12)
                ";
        $query=$this->db->query($sql);
        $result = $query->row();
@@ -133,7 +134,7 @@
                 inner join master_website b on a.website= b.id
                 inner join master_partner c on a.partner_id=c.id
                 where month(dataadd)=month(CURRENT_DATE) and year(dataadd)= year(CURRENT_DATE)
-                
+                and partner_id not in(11,12)
                 group by kurs";
         $query=$this->db->query($sql);
         return $query->result();
@@ -149,7 +150,7 @@
     }
     function partner_list()
     {
-        $sql="SELECT id,name from master_partner";
+        $sql="SELECT id,name from master_partner where id not in(11,12)";
 
         $query=$this->db->query($sql);
         return $query->result();
@@ -181,7 +182,7 @@
         from programmatics a 
         inner join master_website b on a.website=b.id 
         inner join master_partner c on a.partner_id=c.id
-        where year(dataadd)=$year and month(dataadd)=$month and partner_id=$partner group by 2,3;";
+        where year(dataadd)=$year and month(dataadd)=$month and partner_id=$partner  group by 2,3;";
 
         $query=$this->db->query($sql);
         return $query->result();
@@ -192,7 +193,7 @@
         from programmatics a 
         inner join master_partner b on a.partner_id=b.id
         left join kurs c on b.kurs=c.curr
-        where year(dataadd)=$year and month(dataadd)=$month  group by 2;";
+        where year(dataadd)=$year and month(dataadd)=$month  and partner_id not in(11,12)  group by 2;";
 
         $query=$this->db->query($sql);
         return $query->result();
@@ -209,7 +210,7 @@
                 from programmatics a 
                 inner join master_partner b on a.partner_id=b.id
                 left join kurs c on b.kurs=c.curr
-                where year(dataadd)=$year and month(dataadd)=$month  group by 2)a;";
+                where year(dataadd)=$year and month(dataadd)=$month  and partner_id not in(11,12)  group by 2)a;";
         $query=$this->db->query($sql);
         $result = $query->row();
         $result= $result->total;
@@ -222,12 +223,23 @@
                 inner join master_website b on a.website= b.id 
                 inner join master_partner c on a.partner_id=c.id 
                 where dataadd >= (LAST_DAY(NOW() - INTERVAL 1 MONTH) + INTERVAL 1 DAY ) - INTERVAL 3 MONTH 
+                and partner_id not in (11,12)
                 group by MONTHNAME(dataadd),year(dataadd) order by year(dataadd),month(dataadd) LIMIT 0,3;
                ";
        $query=$this->db->query($sql);
        return $query->result();
     }
-
+    public function total_forecast(){
+        $sql = "SELECT (sum(case when kurs='IDR' then laba else laba *(select kurs from kurs)end)/day(CURRENT_DATE))*DAY(LAST_DAY(CURRENT_DATE)) as forecast 
+            FROM programmatics a inner join master_website b on a.website= b.id 
+                inner join master_partner c on a.partner_id=c.id 
+                where month(dataadd)=month(CURRENT_DATE) 
+            and year(dataadd)= year(CURRENT_DATE) and partner_id not in(11,12);";
+        $query=$this->db->query($sql);
+        $result = $query->row();
+        $result= $result->forecast;
+        return $result;
+    }
     
    
 

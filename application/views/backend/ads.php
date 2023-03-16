@@ -161,7 +161,15 @@
                                         ?>
                                             <?php echo 'Rp. '.number_format(($total/3)*1000000,0);?>
                                         </h6>  
-                                    
+                                    </div>
+                                </div>
+
+                                <h6 class="card-title"> This Month's Revenue Forecast </h6>
+                                <div class="card card-info card-info">
+                                    <div class="box bg-info text-center">
+                                        <h6 class="font-light text-white">
+                                            <?php echo 'Rp. '.number_format($forecast,0);?>
+                                        </h6>  
                                     </div>
                                 </div>
                             </div>
