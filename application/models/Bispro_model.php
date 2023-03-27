@@ -7,13 +7,13 @@
 	parent::__construct();
 	
 	}
-    public function chart_rechart_re($cbid,$bulan,$tahun){
-      
+    public function chart_rechart_re($cbid,$bulan,$tahun,$menu){
+        if($menu=='analisis')$sdmbod=' and kategori_id !=13'; else $sdmbod='';
         $sql = "select sum(pendapatan)/1000000 jum ,'revenue' as nama ,'#BB6A04' as warna
         from bisnis_income where bulan=$bulan and tahun=$tahun and core_bisnis_id=$cbid
         union All
         SELECT sum(nominal)/1000000 jum,'expenses' as nama,'#F3D8B7' as warna FROM `bisnis_expanditure` 
-        WHERE bulan=$bulan and tahun=$tahun and core_bisnis_id=$cbid 
+        WHERE bulan=$bulan and tahun=$tahun and core_bisnis_id=$cbid  $sdmbod
          ";
         $query=$this->db->query($sql);
         
@@ -30,7 +30,7 @@
         union All
         SELECT sum(nominal)/1000000 jum,'expenses' as nama,'#F3D8B7' as warna FROM `bisnis_expanditure` 
         WHERE bulan=$bulan and tahun=$tahun and core_bisnis_id=$cbid $sdmbod
-         ";
+         "; 
         $query=$this->db->query($sql);
         
         return $query->result_array();

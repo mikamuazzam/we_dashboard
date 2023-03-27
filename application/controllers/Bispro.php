@@ -55,7 +55,7 @@ class Bispro extends CI_Controller {
         }
         else
         {
-            $data= $this->bispro_model->chart_rechart_re($cbid,$bulan,$tahun);
+            $data= $this->bispro_model->chart_rechart_re($cbid,$bulan,$tahun,$menu);
         }
         
         echo json_encode($data);
