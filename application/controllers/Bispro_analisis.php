@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Bispro extends CI_Controller {
+class Bispro_analisis extends CI_Controller {
 
     function __construct() {
         parent::__construct();
@@ -21,16 +21,19 @@ class Bispro extends CI_Controller {
     {
             #Redirect to Admin dashboard after authentication
         if ($this->session->userdata('user_login_access') == 1)
-        redirect('bispro/Bispro');
+        redirect('bispro_analisis/Bispro_analisis');
+
+        
+
         $data=array();
         #$data['settingsvalue'] = $this->dashboard_model->GetSettingsValue();
                     $this->load->view('login');
     }
-    function bispro(){
+    function bispro_analisis(){
         
         if($this->session->userdata('user_login_access') != False) {
            
-            $this->load->view('backend/bispro');
+            $this->load->view('backend/bispro_analisis');
             }
             else{
                 redirect(base_url() , 'refresh');
@@ -38,7 +41,7 @@ class Bispro extends CI_Controller {
     }
     function chart_re()
     {
-        $menu='control';
+        $menu='analisis';
         $this->load->model('bispro_model');
         $cbid=$_REQUEST['cb_id'];
         $bulan=$_REQUEST['bulan'];
@@ -62,6 +65,7 @@ class Bispro extends CI_Controller {
     }
     function chart_re_programmatics()
     {
+        
         $this->load->model('bispro_model');
         $cbid=$_REQUEST['cb_id'];
         $bulan=$_REQUEST['bulan'];
