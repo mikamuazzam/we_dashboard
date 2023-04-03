@@ -38,7 +38,7 @@ class Bispro extends CI_Controller {
     }
     function chart_re()
     {
-        $menu='control';
+      
         $this->load->model('bispro_model');
         $cbid=$_REQUEST['cb_id'];
         $bulan=$_REQUEST['bulan'];
@@ -51,11 +51,11 @@ class Bispro extends CI_Controller {
             if($cbid==16)$website=4;
             if($cbid==19)$website=6;
             if($cbid==18)$website=11;
-            $data= $this->bispro_model->chart_rechart_programmatics($cbid,$bulan,$tahun,$website,$menu);
+            $data= $this->bispro_model->chart_rechart_programmatics($cbid,$bulan,$tahun,$website);
         }
         else
         {
-            $data= $this->bispro_model->chart_rechart_re($cbid,$bulan,$tahun,$menu);
+            $data= $this->bispro_model->chart_rechart_re($cbid,$bulan,$tahun);
         }
         
         echo json_encode($data);

@@ -7,21 +7,21 @@
 	parent::__construct();
 	
 	}
-    public function chart_rechart_re($cbid,$bulan,$tahun,$menu){
-        if($menu=='analisis')$sdmbod=' and kategori_id !=13'; else $sdmbod='';
+    public function chart_rechart_re($cbid,$bulan,$tahun){
+        
         $sql = "select sum(pendapatan)/1000000 jum ,'revenue' as nama ,'#BB6A04' as warna
         from bisnis_income where bulan=$bulan and tahun=$tahun and core_bisnis_id=$cbid
         union All
         SELECT sum(nominal)/1000000 jum,'expenses' as nama,'#F3D8B7' as warna FROM `bisnis_expanditure` 
-        WHERE bulan=$bulan and tahun=$tahun and core_bisnis_id=$cbid  $sdmbod
+        WHERE bulan=$bulan and tahun=$tahun and core_bisnis_id=$cbid 
          ";
         $query=$this->db->query($sql);
         
         return $query->result_array();
     }
-    public function chart_rechart_programmatics($cbid,$bulan,$tahun,$website,$menu){
+    public function chart_rechart_programmatics($cbid,$bulan,$tahun,$website){
       
-        if($menu=='analisis')$sdmbod=' and kategori_id !=13'; else $sdmbod='';
+      
         $sql = "select sum(case when kurs='IDR' then laba else laba *(select kurs from kurs)end)/1000000 jum ,'revenue' as nama ,'#BB6A04' as warna
                 from programmatics a
                 inner join master_website b on a.website=b.id 
@@ -29,7 +29,7 @@
                 where month(dataadd)=$bulan and year(dataadd)=$tahun and website=$website
         union All
         SELECT sum(nominal)/1000000 jum,'expenses' as nama,'#F3D8B7' as warna FROM `bisnis_expanditure` 
-        WHERE bulan=$bulan and tahun=$tahun and core_bisnis_id=$cbid $sdmbod
+        WHERE bulan=$bulan and tahun=$tahun and core_bisnis_id=$cbid 
          "; 
         $query=$this->db->query($sql);
         

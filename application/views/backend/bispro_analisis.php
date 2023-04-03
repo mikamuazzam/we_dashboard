@@ -60,43 +60,131 @@
                         <button class="btn-sm btn-primary" id="cari">Filter</button>
                     </div>
                 </div>
-                
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card "  style="height:180px">
+                            <div class="card-body">
+                                <h6 class="card-title" > Website</h6>
+                                <div class="form-check">
+                                <?php foreach($web_name as $value): ?>
+                                    <input class="form-check-input" name="web_name[]" type="checkbox" value="<?php echo $value->id; ?>" id="<?php echo 'web'.$value->id; ?>" checked />
+                                    <label class="form-check-label" for="<?php echo 'web'.$value->id; ?>"><?php echo $value->website_name; ?></label>
+                                    <?php endforeach; ?><br>
+                                   
+                                </div>
+                            </div>
+                           
+                        </div>
+                    </div>
+                    <div class="col-lg-6" >
+                        <div class="card" style="height:180px">
+                            <div class="card-body">
+                                <h6 class="card-title"> Expenss Parameter </h6>
+                                <div class="form-check">
+                                    <?php foreach($expenses as $value): ?>
+                                    <input class="form-check-input" name="exp_name[]" type="checkbox" value="<?php echo $value->kategori_id; ?>" id="<?php echo 'exp'.$value->kategori_id; ?>" checked />
+                                    <label class="form-check-label" for="<?php echo 'exp'.$value->kategori_id; ?>"><?php echo $value->name; ?></label>
+                                    <?php endforeach; ?>
+                                </div>
+                            </div>
+                         
+                        </div>
+                    </div>   
+                </div>
             
-            <div class="row">
-                    <div class="col-lg-3">
+                
+                <div class="row">
+                    <div class="col-lg-6">
                         <div class="card">
                             <div class="card-body">
                             <h6 class="card-title"> <b> Programmatics WE </b></h6>
                             <div id="ChartWEPrContent">
                             <canvas id="ChartWEPr"  height="250px;"></canvas> 
                             </div> 
+                            
                             </div>
                             <br>
                         </div>
                     </div>
-                    <div class="col-lg-3">
+                    <div class="col-lg-6">
                         <div class="card">
                             <div class="card-body">
-                            <h6 class="card-title"> <b> Programmatics HS </b></h6>
-                            <div id="ChartHSPrContent1">
-                            <canvas id="ChartHSPr1"  height="250px;"></canvas> 
+                            <h6 class="card-title"> <b> Programmatics WE v2</b></h6>
+                            <div id="ChartWEPr2Content">
+                            <canvas id="ChartWEPr2"  height="200px;"></canvas> 
                             </div> 
                             </div>
                             <br>
                         </div>
                     </div>
-                    <div class="col-lg-3">
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                            <h6 class="card-title"> <b> Programmatics HS </b></h6>
+                            <div id="ChartHSPrContent">
+                            <canvas id="ChartHSPr"  height="250px;"></canvas> 
+                            </div> 
+                            
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                            <h6 class="card-title"> <b> Programmatics HS v2</b></h6>
+                            <div id="ChartHSPr2Content">
+                            <canvas id="ChartHSPr2"  height="200px;"></canvas> 
+                            </div> 
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                            <h6 class="card-title"> <b> Programmatics Populis </b></h6>
+                            <div id="ChartPPPrContent">
+                            <canvas id="ChartPPPr"  height="250px;"></canvas> 
+                            </div> 
+                            
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                            <h6 class="card-title"> <b> Programmatics Populis v2</b></h6>
+                            <div id="ChartPPPr2Content">
+                            <canvas id="ChartPPPr2"  height="200px;"></canvas> 
+                            </div> 
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-lg-6">
                         <div class="card">
                             <div class="card-body">
                             <h6 class="card-title"> <b> Programmatics Populis </b></h6>
                             <div id="ChartPPPrContent1">
-                            <canvas id="ChartPPPr1"  height="250px;"></canvas> 
+                            <canvas id="ChartPPPr1"  height="200px;"></canvas> 
                             </div> 
                             </div>
                             <br>
                         </div>
                     </div>
-                    <div class="col-lg-3">
+                    <div class="col-lg-6">
                         <div class="card">
                             <div class="card-body">
                             <h6 class="card-title"> <b>Programmatics KJ </b></h6>

@@ -230,11 +230,10 @@
        return $query->result();
     }
     public function total_forecast(){
-        $sql = "SELECT (sum(case when kurs='IDR' then laba else laba *(select kurs from kurs)end)/day(CURRENT_DATE))*DAY(LAST_DAY(CURRENT_DATE)) as forecast 
+        $sql = "SELECT (sum(case when kurs='IDR' then laba else laba *(select kurs from kurs)end)/30)*DAY(LAST_DAY(CURRENT_DATE)) as forecast 
             FROM programmatics a inner join master_website b on a.website= b.id 
                 inner join master_partner c on a.partner_id=c.id 
-                where month(dataadd)=month(CURRENT_DATE) 
-            and year(dataadd)= year(CURRENT_DATE) and partner_id not in(11,12);";
+                where  dataadd > CURRENT_DATE - INTERVAL 30 DAY and partner_id not in(11,12);";
         $query=$this->db->query($sql);
         $result = $query->row();
         $result= $result->forecast;
