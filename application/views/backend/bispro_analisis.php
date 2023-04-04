@@ -64,7 +64,7 @@
                     <div class="col-lg-6">
                         <div class="card "  style="height:180px">
                             <div class="card-body">
-                                <h6 class="card-title" > Website</h6>
+                                <h6 class="card-title" > Website &nbsp; &nbsp; <a href="#" id="clear_web"> [uncheck all] </a></h6>
                                 <div class="form-check">
                                
                                     <input class="form-check-input" name="web_name[]" type="checkbox" value="4" id="web4" checked />
@@ -104,7 +104,7 @@
                     <div class="col-lg-6" >
                         <div class="card" style="height:180px">
                             <div class="card-body">
-                                <h6 class="card-title"> Expenss Parameter </h6>
+                                <h6 class="card-title"> Expenss Parameter &nbsp;&nbsp; <a href="#" id="clear_param"> [uncheck all] </a></h6>
                                 <div class="form-check">
                                     <?php foreach($expenses as $value): ?>
                                     <input class="form-check-input" name="exp_name[]" type="checkbox" value="<?php echo $value->kategori_id; ?>" id="<?php echo 'exp'.$value->kategori_id; ?>" checked />

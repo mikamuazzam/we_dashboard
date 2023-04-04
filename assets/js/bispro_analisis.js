@@ -2,6 +2,20 @@ $(function() {
 	$( "#cari" ).click(function() {
 		load_chart();
 	});
+	$('#clear_web').click(function()
+	{ 
+		
+		$("input[name='web_name[]']:checked").prop('checked', false);
+		return false; 
+	
+	});
+	$('#clear_param').click(function()
+	{ 
+		
+		$("input[name='exp_name[]']:checked").prop('checked', false);
+		return false; 
+	
+	});
 	
 
     load_chart();
@@ -90,7 +104,7 @@ function load_chart()
 		if  ($(this).val() == 18) konten='ChartTVPr2';
 		
 		
-		chart_re_v2($(this).val(),konten,'Programmatics WE Trivia',bulan,tahun,'#DBA523','#FF5733');
+		chart_re_v2($(this).val(),konten,'Programmatics WE Trivia',bulan,tahun,'#0990ad','#9ee7f7');
 	});
 	
 	
@@ -136,7 +150,7 @@ function chart_re_v2(cb_id,idchart,judul,bulan,tahun,warna1,warna2)
 
 			if (persenlaba <= 30)warnalaba='red';
 			else if (persenlaba >=30 && persenlaba <=80) warnalaba='green';
-			else warnalaba='#6FDAF0';
+			else warnalaba='#5490de';
 			labeldt.push('margin');
 			rankdt.push(rankdt[0]-rankdt[1]);
 			listwarna.push(warna2,warna1,warnalaba);
@@ -255,7 +269,7 @@ function chart_re(cb_id,idchart,judul,bulan,tahun,warna1,warna2)
 
 			if (persenlaba <= 30)warnalaba='red';
 			else if (persenlaba >=30 && persenlaba <=80) warnalaba='green';
-			else warnalaba='#6FDAF0';
+			else warnalaba='#5490de';
 			labeldt.push('margin');
 			rankdt.push(rankdt[0]-rankdt[1]);
 			listwarna.push(warna2,warna1,warnalaba);
