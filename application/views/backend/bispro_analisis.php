@@ -66,11 +66,36 @@
                             <div class="card-body">
                                 <h6 class="card-title" > Website</h6>
                                 <div class="form-check">
-                                <?php foreach($web_name as $value): ?>
-                                    <input class="form-check-input" name="web_name[]" type="checkbox" value="<?php echo $value->id; ?>" id="<?php echo 'web'.$value->id; ?>" checked />
-                                    <label class="form-check-label" for="<?php echo 'web'.$value->id; ?>"><?php echo $value->website_name; ?></label>
-                                    <?php endforeach; ?><br>
+                               
+                                    <input class="form-check-input" name="web_name[]" type="checkbox" value="4" id="web4" checked />
+                                    <label class="form-check-label" for="web4">Programmatics WE</label>
+                                  
+                                    <input class="form-check-input" name="web_name[]" type="checkbox" value="10" id="web10" checked />
+                                    <label class="form-check-label" for="web10">Programmatics HS</label>
+
+                                    <input class="form-check-input" name="web_name[]" type="checkbox" value="11" id="web11" checked />
+                                    <label class="form-check-label" for="web11">Programmatics Populis</label>
+
+                                    <input class="form-check-input" name="web_name[]" type="checkbox" value="16" id="web16" checked />
+                                    <label class="form-check-label" for="web16">Programmatics KJ</label>
+
+                                    <input class="form-check-input" name="web_name[]" type="checkbox" value="19" id="web19" checked />
+                                    <label class="form-check-label" for="web19">Programmatics NW</label>
+
+                                    <input class="form-check-input" name="web_name[]" type="checkbox" value="18" id="web18" checked />
+                                    <label class="form-check-label" for="web18">Programmatics Trivia</label>
+
+                                    <input class="form-check-input" name="web_name[]" type="checkbox" value="1" id="web1" checked />
+                                    <label class="form-check-label" for="web1">Iklan WE</label>
+
+                                    <input class="form-check-input" name="web_name[]" type="checkbox" value="7" id="web7" checked />
+                                    <label class="form-check-label" for="web7">Iklan HS</label>
+
+                                    <input class="form-check-input" name="web_name[]" type="checkbox" value="3" id="web3" checked />
+                                    <label class="form-check-label" for="web3">Seminar Banking WE</label>
                                    
+                                    <input class="form-check-input" name="web_name[]" type="checkbox" value="2" id="web2" checked />
+                                    <label class="form-check-label" for="web2">Award WE</label>
                                 </div>
                             </div>
                            
@@ -170,15 +195,40 @@
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                            <h6 class="card-title"> <b> Programmatics KJ </b></h6>
+                            <div id="ChartKJPrContent">
+                            <canvas id="ChartKJPr"  height="250px;"></canvas> 
+                            </div> 
+                            
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                            <h6 class="card-title"> <b> Programmatics KJ v2</b></h6>
+                            <div id="ChartKJPr2Content">
+                            <canvas id="ChartKJPr2"  height="200px;"></canvas> 
+                            </div> 
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                </div>
 
 
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="card">
                             <div class="card-body">
-                            <h6 class="card-title"> <b> Programmatics Populis </b></h6>
-                            <div id="ChartPPPrContent1">
-                            <canvas id="ChartPPPr1"  height="200px;"></canvas> 
+                            <h6 class="card-title"> <b> Programmatics NW </b></h6>
+                            <div id="ChartNWPrContent">
+                            <canvas id="ChartNWPr"  height="200px;"></canvas> 
                             </div> 
                             </div>
                             <br>
@@ -187,9 +237,9 @@
                     <div class="col-lg-6">
                         <div class="card">
                             <div class="card-body">
-                            <h6 class="card-title"> <b>Programmatics KJ </b></h6>
-                            <div id="ChartKJPrContent1">
-                            <canvas id="ChartKJPr1" height="250px;"></canvas> 
+                            <h6 class="card-title"> <b>Programmatics NW v2 </b></h6>
+                            <div id="ChartNWPr2Content">
+                            <canvas id="ChartNWPr2" height="250px;"></canvas> 
                             </div>
                             </div>
                             <br>
@@ -198,23 +248,23 @@
                     
             </div>
             <div class="row">
-                    <div class="col-lg-3">
+                    <div class="col-lg-6">
                         <div class="card">
                             <div class="card-body">
-                            <h6 class="card-title"> <b> Programmatics NW </b></h6>
-                            <div id="ChartNWPrContent1">
-                            <canvas id="ChartNWPr1"  height="250px;"></canvas> 
+                            <h6 class="card-title"> <b> Programmatics Trivia </b></h6>
+                            <div id="ChartTVPrContent">
+                            <canvas id="ChartTVPr"  height="250px;"></canvas> 
                             </div> 
                             </div>
                             <br>
                         </div>
                     </div>
-                    <div class="col-lg-3">
+                    <div class="col-lg-6">
                         <div class="card">
                             <div class="card-body">
-                            <h6 class="card-title"> <b> Programmatics WE Trivia </b></h6>
-                            <div id="ChartTVPrContent1">
-                            <canvas id="ChartTVPr1"  height="250px;"></canvas> 
+                            <h6 class="card-title"> <b> Programmatics WE Trivia v2 </b></h6>
+                            <div id="ChartTVPr2Content">
+                            <canvas id="ChartTVPr2"  height="250px;"></canvas> 
                             </div> 
                             </div>
                             <br>
@@ -238,9 +288,9 @@
                     <div class="col-lg-6">
                         <div class="card">
                             <div class="card-body">
-                            <h6 class="card-title"> <b>Iklan HS </b></h6>
-                            <div id="ChartHSIklanContent1">
-                            <canvas id="ChartHSIklan1" height="250px;"></canvas> 
+                            <h6 class="card-title"> <b>Iklan WE v2 </b></h6>
+                            <div id="ChartWEIklan2Content">
+                            <canvas id="ChartWEIklan2" height="250px;"></canvas> 
                             </div>
                             </div>
                             <br>
@@ -248,7 +298,32 @@
                     </div>  
                    
             </div>
-
+            <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                            <h6 class="card-title"> <b>Iklan HS </b></h6>
+                            <div id="ChartHSIklanContent">
+                            <canvas id="ChartHSIklan" height="250px;"></canvas> 
+                            </div>
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                            <h6 class="card-title"> <b>Iklan HS v2</b></h6>
+                            <div id="ChartHSIklan2Content">
+                            <canvas id="ChartHSIklan2" height="250px;"></canvas> 
+                            </div>
+                            </div>
+                            <br>
+                        </div>
+                    </div>  
+                   
+            </div>
+   
 
             <div class="row">
                     <div class="col-lg-6">
@@ -265,22 +340,48 @@
                     <div class="col-lg-6">
                         <div class="card">
                             <div class="card-body">
-                            <h6 class="card-title"><b> Seminar Banking WE </b></h6>
-                            <div id="ChartWEBankingContent">
-                            <canvas id="ChartWEBanking" height="250px;"></canvas> 
+                            <h6 class="card-title"><b> Award WE v2 </b></h6>
+                            <div id="ChartWEAward2Content">
+                            <canvas id="ChartWEAward2" height="250px;"></canvas> 
                             </div>
                             </div>
                             <br>
                         </div>
                     </div>   
             </div>
+
+            <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card">
+                             <div class="card-body">
+                            <h6 class="card-title"><b> Seminar Banking WE  </b></h6>
+                            <div id="ChartWEBankingContent">
+                            <canvas id="ChartWEBanking" height="250px;"></canvas> 
+                            </div>
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                            <h6 class="card-title"><b> Seminar Banking WE v2 </b></h6>
+                            <div id="ChartWEBanking2Content">
+                            <canvas id="ChartWEBanking2" height="250px;"></canvas> 
+                            </div>
+                            </div>
+                            <br>
+                        </div>
+                    </div>   
+            </div>
+
             <div class="row">
                     <div class="col-lg-6">
                         <div class="card">
                             <div class="card-body">
                             <h6 class="card-title"> <b> Q1 Ide </b></h6>
-                            <div id="ChartQ1Content1">
-                            <canvas id="ChartQ11"  height="250px;"></canvas> 
+                            <div id="ChartQ1Content">
+                            <canvas id="ChartQ1"  height="250px;"></canvas> 
                             </div> 
                             </div>
                             <br>
@@ -290,8 +391,8 @@
                         <div class="card">
                             <div class="card-body">
                             <h6 class="card-title"> <b>Q1 Revitalisasi</b></h6>
-                            <div id="ChartQ1RevContent1">
-                            <canvas id="ChartQ1Rev1" height="250px;"></canvas> 
+                            <div id="ChartQ1RevContent">
+                            <canvas id="ChartQ1Rev" height="250px;"></canvas> 
                             </div>
                             </div>
                             <br>

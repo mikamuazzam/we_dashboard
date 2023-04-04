@@ -28,7 +28,7 @@
                             <li> <a href="<?php echo base_url(); ?>ads" ><i class="ti-wordpress"></i><span class="hide-menu">Media Ads </span></a></li>
                             <li> <a href="<?php echo base_url(); ?>sosmed" ><i class="ti-youtube"></i><span class="hide-menu">Sosmed Ads </span></a></li>
                             <li> <a href="<?php echo base_url(); ?>bispro" ><i class="ti-wallet"></i><span class="hide-menu">Business Controll </span></a></li> 
-                            <!--<li> <a href="<?php echo base_url(); ?>bispro_analisis" ><i class="ti-pulse"></i><span class="hide-menu">Business Analisis </span></a></li>!-->
+                            <li> <a href="<?php echo base_url(); ?>bispro_analisis" ><i class="ti-pulse"></i><span class="hide-menu">Business Analisis </span></a></li> 
                             <li> <a href="<?php echo base_url(); ?>finance" ><i class="ti-money"></i><span class="hide-menu">finance </span></a></li>   
                         <?php }?>
                         <?php if ($dep_id==7) { ?>  

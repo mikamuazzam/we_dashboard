@@ -16,7 +16,7 @@
         SELECT sum(nominal)/1000000 jum,'expenses' as nama,'#F3D8B7' as warna FROM `bisnis_expanditure` 
         WHERE bulan=$bulan and tahun=$tahun and core_bisnis_id=$cbid  
          ";
-         print_r($lexp); 
+      
         $query=$this->db->query($sql);
         
         return $query->result_array();
@@ -62,9 +62,9 @@
         from bisnis_income where bulan=$bulan and tahun=$tahun and core_bisnis_id=$cbid
         union All
         SELECT sum(nominal)/1000000 jum,'expenses' as nama,'#F3D8B7' as warna FROM `bisnis_expanditure` 
-        WHERE bulan=$bulan and tahun=$tahun and core_bisnis_id=$cbid  
+        WHERE bulan=$bulan and tahun=$tahun and core_bisnis_id=$cbid  and kategori_id  in($lexp)
          ";
-         print_r($lexp); 
+        
         $query=$this->db->query($sql);
         
         return $query->result_array();

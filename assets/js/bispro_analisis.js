@@ -41,30 +41,61 @@ function load_chart()
 
 	
     chart_re(4,'ChartWEPr','Programmatics WE',bulan,tahun,'#bd3758','#7d142e');
-	chart_re_v2(4,'ChartWEPr2','Programmatics WE',bulan,tahun,'#bd3758','#7d142e');
+	//chart_re_v2(4,'ChartWEPr2','Programmatics WE',bulan,tahun,'#bd3758','#7d142e');
+	
 	chart_re(1,'ChartWEIklan','Iklan WE',bulan,tahun,'#bd3758','#7d142e');
+	//chart_re_v2(1,'ChartWEIklan2','Iklan WE',bulan,tahun,'#bd3758','#7d142e');
+	
 	chart_re(2,'ChartWEAward','Award WE',bulan,tahun,'#bd3758','#7d142e');	
+	//chart_re_v2(2,'ChartWEAward2','Award WE',bulan,tahun,'#bd3758','#7d142e');	
+	
 	chart_re(3,'ChartWEBanking','Seminar Banking WE',bulan,tahun,'#bd3758','#7d142e');	
+	//chart_re_v2(3,'ChartWEBanking2','Seminar Banking WE',bulan,tahun,'#bd3758','#7d142e');	
 	//HS
 	chart_re(10,'ChartHSPr','Programmatics HS',bulan,tahun,'#dea4be','#b3507d');
-	chart_re_v2(10,'ChartHSPr2','Programmatics HS',bulan,tahun,'#dea4be','#b3507d');
+	//chart_re_v2(10,'ChartHSPr2','Programmatics HS',bulan,tahun,'#dea4be','#b3507d');
 	chart_re(7,'ChartHSIklan','Iklan HS',bulan,tahun,'#dea4be','#b3507d');	
+	//chart_re_v2(7,'ChartHSIklan2','Iklan HS',bulan,tahun,'#dea4be','#b3507d');	
 
-	chart_re(11,'ChartPPPr','Programmatics HS',bulan,tahun,'#59c984','#1a5e34'); //populis
-	chart_re_v2(11,'ChartPPPr2','Programmatics HS',bulan,tahun,'#59c984','#1a5e34'); //populis
-	chart_re(16,'ChartKJPr','Iklan HS',bulan,tahun,'#BEF1BF','#38F13B');	//
-	chart_re_v2(16,'ChartKJPr2','Iklan HS',bulan,tahun,'#BEF1BF','#38F13B');	//
+	chart_re(11,'ChartPPPr','Programmatics PP',bulan,tahun,'#59c984','#1a5e34'); //populis
+	//chart_re_v2(11,'ChartPPPr2','Programmatics PP',bulan,tahun,'#59c984','#1a5e34'); //populis
+	chart_re(16,'ChartKJPr','KJ Prog',bulan,tahun,'#BEF1BF','#38F13B');	//
+
+	//chart_re_v2(16,'ChartKJPr2','KJ Progs',bulan,tahun,'#BEF1BF','#38F13B');	//
 	
 	chart_re(19,'ChartNWPr','Programmatics News Worthy',bulan,tahun,'#bd3758','#7d142e');
-	chart_re_v2(19,'ChartNWPr2','Programmatics News Worthy',bulan,tahun,'#bd3758','#7d142e');
+	//chart_re_v2(19,'ChartNWPr2','Programmatics News Worthy',bulan,tahun,'#bd3758','#7d142e');
 	chart_re(18,'ChartTVPr','Programmatics WE Trivia',bulan,tahun,'#bd3758','#7d142e');
-	chart_re_v2(18,'ChartTVPr2','Programmatics WE Trivia',bulan,tahun,'#bd3758','#7d142e');
+	//chart_re_v2(18,'ChartTVPr2','Programmatics WE Trivia',bulan,tahun,'#bd3758','#7d142e');
 
 	//Q
 	chart_re(12,'ChartQ1','Programmatics HS',bulan,tahun,'#DC7633','#F5B041');
 	chart_re(13,'ChartQ1Rev','Iklan HS',bulan,tahun,'#DC7633','#F5B041');	
 
     
+	
+	var konten;
+	
+	$.each($("input[name='web_name[]']:checked"), function(){    
+		if  ($(this).val() == 1) konten='ChartWEIklan2';
+		if  ($(this).val() == 2) konten='ChartWEAward2';
+		if  ($(this).val() == 3) konten='ChartWEBanking2';
+		if  ($(this).val() == 7) konten='ChartHSIklan2';
+
+		if  ($(this).val() == 4) konten='ChartWEPr2';
+		if  ($(this).val() == 10) konten='ChartHSPr2';
+		if  ($(this).val() == 11) konten='ChartPPPr2';
+		if  ($(this).val() == 16) konten='ChartKJPr2';
+		if  ($(this).val() == 19) konten='ChartNWPr2';
+		if  ($(this).val() == 18) konten='ChartTVPr2';
+		
+		
+		chart_re_v2($(this).val(),konten,'Programmatics WE Trivia',bulan,tahun,'#DBA523','#FF5733');
+	});
+	
+	
+	
+
 }
 
 function chart_re_v2(cb_id,idchart,judul,bulan,tahun,warna1,warna2)
