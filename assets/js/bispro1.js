@@ -41,6 +41,11 @@ function load_chart()
 	chart_re(1,'ChartWEIklan','Iklan WE',bulan,tahun,'#bd3758','#7d142e');
 	chart_re(2,'ChartWEAward','Award WE',bulan,tahun,'#bd3758','#7d142e');	
 	chart_re(3,'ChartWEBanking','Seminar Banking WE',bulan,tahun,'#bd3758','#7d142e');	
+
+
+	chart_re(8,'ChartHSAward','Award HS',bulan,tahun,'#dea4be','#b3507d');
+	chart_re(9,'ChartHSBanking','Seminar HS',bulan,tahun,'#dea4be','#b3507d');
+
 	//HS
 	chart_re(10,'ChartHSPr','Programmatics HS',bulan,tahun,'#dea4be','#b3507d');
 	chart_re(7,'ChartHSIklan','Iklan HS',bulan,tahun,'#dea4be','#b3507d');	

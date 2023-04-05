@@ -96,6 +96,12 @@
                                    
                                     <input class="form-check-input" name="web_name[]" type="checkbox" value="2" id="web2" checked />
                                     <label class="form-check-label" for="web2">Award WE</label>
+
+                                    <input class="form-check-input" name="web_name[]" type="checkbox" value="9" id="web3" checked />
+                                    <label class="form-check-label" for="web3">Seminar HS</label>
+                                   
+                                    <input class="form-check-input" name="web_name[]" type="checkbox" value="8" id="web2" checked />
+                                    <label class="form-check-label" for="web2">Award HS</label>
                                 </div>
                             </div>
                            
@@ -368,6 +374,56 @@
                             <h6 class="card-title"><b> Seminar Banking WE v2 </b></h6>
                             <div id="ChartWEBanking2Content">
                             <canvas id="ChartWEBanking2" height="250px;"></canvas> 
+                            </div>
+                            </div>
+                            <br>
+                        </div>
+                    </div>   
+            </div>
+
+            <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card">
+                             <div class="card-body">
+                            <h6 class="card-title"><b> Award HS </b></h6>
+                            <div id="ChartHSAwardContent">
+                            <canvas id="ChartHSAward" height="250px;"></canvas> 
+                            </div>
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                            <h6 class="card-title"><b> Award HS v2 </b></h6>
+                            <div id="ChartHSAward2Content">
+                            <canvas id="ChartHSAward2" height="250px;"></canvas> 
+                            </div>
+                            </div>
+                            <br>
+                        </div>
+                    </div>   
+            </div>
+
+            <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card">
+                             <div class="card-body">
+                            <h6 class="card-title"><b> Seminar  HS  </b></h6>
+                            <div id="ChartHSBankingContent">
+                            <canvas id="ChartHSBanking" height="250px;"></canvas> 
+                            </div>
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                            <h6 class="card-title"><b> Seminar HS v2 </b></h6>
+                            <div id="ChartHSBanking2Content">
+                            <canvas id="ChartHSBanking2" height="250px;"></canvas> 
                             </div>
                             </div>
                             <br>

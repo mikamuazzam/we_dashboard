@@ -186,6 +186,32 @@
                         </div>
                     </div>   
             </div>
+
+            <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card">
+                             <div class="card-body">
+                            <h6 class="card-title"><b> Award HS </b></h6>
+                            <div id="ChartHSAwardContent">
+                            <canvas id="ChartHSAward" height="250px;"></canvas> 
+                            </div>
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                            <h6 class="card-title"><b> Seminar HS </b></h6>
+                            <div id="ChartHSBankingContent">
+                            <canvas id="ChartHSBanking" height="250px;"></canvas> 
+                            </div>
+                            </div>
+                            <br>
+                        </div>
+                    </div>   
+            </div>
+
             <div class="row">
                     <div class="col-lg-6">
                         <div class="card">

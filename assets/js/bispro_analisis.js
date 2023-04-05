@@ -62,7 +62,9 @@ function load_chart()
 	
 	chart_re(2,'ChartWEAward','Award WE',bulan,tahun,'#bd3758','#7d142e');	
 	//chart_re_v2(2,'ChartWEAward2','Award WE',bulan,tahun,'#bd3758','#7d142e');	
-	
+	chart_re(8,'ChartHSAward','Award WE',bulan,tahun,'#dea4be','#b3507d');
+	chart_re(9,'ChartHSBanking','Seminar Banking WE',bulan,tahun,'#dea4be','#b3507d');
+
 	chart_re(3,'ChartWEBanking','Seminar Banking WE',bulan,tahun,'#bd3758','#7d142e');	
 	//chart_re_v2(3,'ChartWEBanking2','Seminar Banking WE',bulan,tahun,'#bd3758','#7d142e');	
 	//HS
@@ -102,6 +104,8 @@ function load_chart()
 		if  ($(this).val() == 16) konten='ChartKJPr2';
 		if  ($(this).val() == 19) konten='ChartNWPr2';
 		if  ($(this).val() == 18) konten='ChartTVPr2';
+		if  ($(this).val() == 8) konten='ChartHSAward2';
+		if  ($(this).val() == 9) konten='ChartHSBanking2';
 		
 		
 		chart_re_v2($(this).val(),konten,'Programmatics WE Trivia',bulan,tahun,'#0990ad','#9ee7f7');
