@@ -106,6 +106,9 @@ function load_chart()
 		if  ($(this).val() == 18) konten='ChartTVPr2';
 		if  ($(this).val() == 8) konten='ChartHSAward2';
 		if  ($(this).val() == 9) konten='ChartHSBanking2';
+
+		if  ($(this).val() == 12) konten='ChartQ12';
+		if  ($(this).val() == 13) konten='ChartQ1Rev2';
 		
 		
 		chart_re_v2($(this).val(),konten,'Programmatics WE Trivia',bulan,tahun,'#0990ad','#9ee7f7');

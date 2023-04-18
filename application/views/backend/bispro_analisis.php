@@ -97,11 +97,17 @@
                                     <input class="form-check-input" name="web_name[]" type="checkbox" value="2" id="web2" checked />
                                     <label class="form-check-label" for="web2">Award WE</label>
 
-                                    <input class="form-check-input" name="web_name[]" type="checkbox" value="9" id="web3" checked />
-                                    <label class="form-check-label" for="web3">Seminar HS</label>
+                                    <input class="form-check-input" name="web_name[]" type="checkbox" value="9" id="web9" checked />
+                                    <label class="form-check-label" for="web9">Seminar HS</label>
                                    
-                                    <input class="form-check-input" name="web_name[]" type="checkbox" value="8" id="web2" checked />
-                                    <label class="form-check-label" for="web2">Award HS</label>
+                                    <input class="form-check-input" name="web_name[]" type="checkbox" value="8" id="web8" checked />
+                                    <label class="form-check-label" for="web8">Award HS</label>
+
+                                    <input class="form-check-input" name="web_name[]" type="checkbox" value="12" id="web12" checked />
+                                    <label class="form-check-label" for="web12">Q1</label>
+                                   
+                                    <input class="form-check-input" name="web_name[]" type="checkbox" value="13" id="web13" checked />
+                                    <label class="form-check-label" for="web13">Q1 Revitalisasi</label>
                                 </div>
                             </div>
                            
@@ -446,9 +452,34 @@
                     <div class="col-lg-6">
                         <div class="card">
                             <div class="card-body">
-                            <h6 class="card-title"> <b>Q1 Revitalisasi</b></h6>
+                            <h6 class="card-title"> <b>Q1 Ide V2</b></h6>
+                            <div id="ChartQ12Content">
+                            <canvas id="ChartQ12" height="250px;"></canvas> 
+                            </div>
+                            </div>
+                            <br>
+                        </div>
+                    </div>   
+            </div>
+
+            <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                            <h6 class="card-title"> <b> Q1 Revitalisasi </b></h6>
                             <div id="ChartQ1RevContent">
-                            <canvas id="ChartQ1Rev" height="250px;"></canvas> 
+                            <canvas id="ChartQ1Rev"  height="250px;"></canvas> 
+                            </div> 
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                            <h6 class="card-title"> <b>Q1 Revitalisasi V2</b></h6>
+                            <div id="ChartQ1Rev2Content">
+                            <canvas id="ChartQ1Rev2" height="250px;"></canvas> 
                             </div>
                             </div>
                             <br>
