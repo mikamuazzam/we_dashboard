@@ -93,9 +93,9 @@
                                            <?php foreach($list_event as $value): 
                                             if($value->warna=='pink') $stt='Warning';
                                             else $stt='OK';
-                                            $mg = $value->sales -$value->budget;
-                                            if($mg > 0)  $margin = (($value->sales -$value->budget)/$value->budget)*100;
-                                            else $margin=0;
+                                           
+                                             $margin = (($value->sales -$value->budget)/$value->budget)*100;
+                                           
                                             ?>
                                             <tr bgcolor="<?php echo $value->warna; ?>">
 
