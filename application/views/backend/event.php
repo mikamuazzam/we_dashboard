@@ -83,7 +83,7 @@
                                                 <th>Schedule</th>
                                                 <th>Budget</th>
                                                 <th>Sales</th>
-                                                <th>Margin</th>
+                                               
                                                 <th>Progress</th>
                                                 <th>Status</th>
                                                
@@ -104,7 +104,7 @@
                                                 <td><?php echo $value->schedule; ?></td>
                                                 <td align="right"><?php echo  number_format($value->budget); ?></td>
                                                 <td align="right"><?php echo  number_format($value->sales); ?></td>
-                                                <td align="right"><?php echo  number_format($margin).'%'; ?></td>
+                                               
                                                 <td> <span class="p-1"><?php echo  $value->persen.' %'; ?></span> <progress value="<?php echo  $value->persen; ?>" max="100"></progress></td>
                                                 <td>
                                                     <?php if ($stt=='Warning') { ?>
