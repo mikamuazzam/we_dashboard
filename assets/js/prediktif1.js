@@ -82,13 +82,13 @@ function prediktif_now()
 				datasets: [{
 					label: "Prediction (Juta)",
 					fill: false,
-					backgroundColor: '#31A6ED',
+					backgroundColor: '#98D1F3',
 					data: val_dt_jum,
 				},
 				{
 					label: "Actual (Juta)",
 					fill: false,
-					backgroundColor: '#98D1F3',
+					backgroundColor: '#31A6ED',
 					data: val_dt_pred,
 				}]
 			};
@@ -187,13 +187,13 @@ function prediktif_cb(corebisnis,idchart,cbname)
 				datasets: [{
 					label: "Prediction (Juta)",
 					fill: false,
-					backgroundColor: '#31A6ED',
+					backgroundColor: '#98D1F3',
 					data: val_dt_jum,
 				},
 				{
 					label: "Actual (Juta)",
 					fill: false,
-					backgroundColor: '#98D1F3',
+					backgroundColor: '#31A6ED',
 					data: val_dt_pred,
 				}]
 			};
