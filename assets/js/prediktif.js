@@ -168,7 +168,7 @@ function prediktif_cb(corebisnis,idchart,cbname)
 			const val_dt_pred= [];
 		
             for (var dt of data) {
-                var cb = dt.bulan;
+                var cb = dt.namabulan;
                 labeldt.push(cb)
 
                 var get_val= parseInt(dt.prediktif) || 0;
