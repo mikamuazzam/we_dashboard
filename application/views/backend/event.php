@@ -91,11 +91,10 @@
                                         </thead>
                                         <tbody>
                                            <?php foreach($list_event as $value): 
-                                            if($value->warna=='pink') $stt='Warning';
+                                            if($value->warna=='red') $stt='Warning';
                                             else $stt='OK';
                                            
-                                             $margin = (($value->sales -$value->budget)/$value->budget)*100;
-                                           
+                                             
                                             ?>
                                             <tr bgcolor="<?php echo $value->warna; ?>">
 
@@ -107,9 +106,9 @@
                                                
                                                 <td> <span class="p-1"><?php echo  $value->persen.' %'; ?></span> <progress value="<?php echo  $value->persen; ?>" max="100"></progress></td>
                                                 <td>
-                                                    <?php if ($stt=='Warning') { ?>
-                                                        <a href="#" onclick="get_list_acara_det('<?php echo  $value->event_id; ?>','<?php echo  $value->tema; ?>');"><?php echo $stt; ?></a>
-                                                    <?php } ?>
+                                                       <?php if(!empty($value->event_id)) { ?>
+                                                        <a href="#" onclick="get_list_acara_det('<?php echo  $value->event_id; ?>','<?php echo  $value->tema; ?>');"><font color="<?php echo $value->warna;?>"><?php echo $stt; ?></font></a>
+                                                        <?php }?>
                                                 </td>
                                             </tr>
                                             <?php endforeach; ?>

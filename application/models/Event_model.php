@@ -21,7 +21,7 @@
     }
     public function list_event2(){
         $sql = "select b.name tipe_award,tema,schedule, budget,tipe_id,a.id as event_id,ROUND(bobot, 2) as persen ,
-                    case when DATEDIFF(schedule,CURRENT_DATE)  <=7 and bobot <= 80 then 'pink' end as warna , sales,event_id
+                    case when DATEDIFF(schedule,CURRENT_DATE)  <=7 and bobot <= 80 then 'red' end as warna , sales,event_id
                     from events a 
                     left join tipe_events b on b.id=a.tipe_id 
                     left join (SELECT sum(bobot)/6 as bobot,a.event_id 
@@ -37,12 +37,12 @@
     public function list_event(){
         
         $sql = "select b.name tipe_award,tema,schedule, FORMAT(budget,0) as budget,tipe_id,a.id as event_id,ROUND(bobot, 2) as persen ,
-                case when DATEDIFF(schedule,CURRENT_DATE)  <=7 and bobot < 90 then 'pink' end as warna 
+                case when DATEDIFF(schedule,CURRENT_DATE)  <=7 and bobot < 90 then 'red' end as warna 
                 from events a 
                 left join tipe_events b on b.id=a.tipe_id 
                 left join (SELECT sum(bobot)/6 as bobot,a.event_id 
                         from daily_tasks a 
-                        inner join detail_workflows b on a.detail_id=b.id
+                    inner join detail_workflows b on a.detail_id=b.id
                         where status = 'done' and a.workflow_id != 8 and a.status_id=1 group by 2) c on a.id=c.event_id 
                 where a.status_id=1 and schedule >= CURRENT_DATE";  
         $db2 = $this->load->database('db2', TRUE);
