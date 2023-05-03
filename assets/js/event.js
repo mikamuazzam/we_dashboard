@@ -57,6 +57,8 @@ function get_list_acara(m,y)
 		responsive: true,
 		pageLength: 10,
 		lengthMenu: [10, 25, 50, 75],
+		ordering: true, // Set true agar bisa di sorting
+		order: [[ 0, 'asc' ]], 
 		// scrollX: true,
 		// scrollCollapse: true,
 		"createdRow": function( row, data, dataIndex){
@@ -65,6 +67,15 @@ function get_list_acara(m,y)
 			
 		},
 		columns: [
+			{  
+				"data": null,
+				"class": "align-top",
+				"orderable": false,
+				"searchable": false,
+				"render": function (data, type, row, meta) {
+					return meta.row + meta.settings._iDisplayStart + 1;
+				}  
+			},
 			{ data: "tanggal", title: "Date" },
 			{ data: "start_time", title: "Start" },
 			{ data: "finish_time", title: "Finish" },

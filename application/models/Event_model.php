@@ -12,7 +12,7 @@
         
         if(empty($bulan)) $bulan=date('m');
         if(empty($tahun)) $tahun=date('Y');
-        $sql = "SELECT tanggal,start_time,finish_time,deskripsi acara,present,status, 
+        $sql = "SELECT  tanggal,start_time,finish_time,deskripsi acara,present,status, 
         case when tanggal between CURRENT_DATE and CURRENT_DATE+ 3 then 'pink' end as warna 
         from cal_event where month(tanggal)= '$bulan' and year(tanggal)='$tahun' order by tanggal ";  
         $query=$this->db->query($sql); 
