@@ -114,7 +114,7 @@ function get_list_acara_det(event_id,tema)
 		
 		columns: [
 			{ data: "nama_workflow", title: "Workflow" },
-			{ data: "bobot", title: "bobot" }
+			{ data: "bobot", title: "Progress" }
 		],
 		
 		processing: true,
