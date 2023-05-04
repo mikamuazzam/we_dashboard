@@ -55,7 +55,7 @@
         $sql = "SELECT sum(bobot)as bobot,c.name nama_workflow from daily_tasks a 
         inner join detail_workflows b on a.detail_id=b.id
          inner join workflows c on a.workflow_id=c.id
-          where a.event_id=$event_id and a.status='done' group by 2";  
+          where a.event_id=$event_id and a.status='done' and a.status_id=1 group by 2";  
         $db2 = $this->load->database('db2', TRUE);
         $query=$db2->query($sql); 
         return $query->result_array();
