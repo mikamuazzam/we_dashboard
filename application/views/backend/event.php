@@ -96,7 +96,7 @@
                                            
                                              
                                             ?>
-                                            <tr bgcolor="<?php echo $value->warna; ?>">
+                                            <tr >
 
                                                 <td><?php echo $value->tipe_award; ?></td>
                                                 <td><?php echo $value->tema; ?></td>
