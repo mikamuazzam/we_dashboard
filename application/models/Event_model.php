@@ -29,12 +29,12 @@
                             inner join detail_workflows b on a.detail_id=b.id
                             where status = 'done' and a.workflow_id != 8 and a.status_id=1 group by 2) c on a.id=c.event_id 
                     left join (select sum(amount_po) as sales,id_product from deals where  id_stage in (3,5,6,7) group by 2) d on d.id_product=a.product_id
-                    where a.status_id=1 and schedule >= CURRENT_DATE";  
+                    where a.status_id=1 and schedule >= CURRENT_DATE order by schedule";  
         $db2 = $this->load->database('db2', TRUE);
         $query=$db2->query($sql); 
          return $query->result();
     }
-    public function list_event(){
+    /*public function list_event(){
         
         $sql = "select b.name tipe_award,tema,schedule, FORMAT(budget,0) as budget,tipe_id,a.id as event_id,ROUND(bobot, 2) as persen ,
                 case when DATEDIFF(schedule,CURRENT_DATE)  <=7 and bobot < 90 then 'red' end as warna 
@@ -49,7 +49,7 @@
         $query=$db2->query($sql); 
         return $query->result_array();
 
-    }
+    }*/
     public function list_event_det($event_id){
         
         $sql = "SELECT sum(bobot)as bobot,c.name nama_workflow from daily_tasks a 

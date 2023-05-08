@@ -65,7 +65,7 @@
             </div>
                 
        
-<script src="<?php echo base_url(); ?>assets/js/prediktif1.js"></script>              
+<script src="<?php echo base_url(); ?>assets/js/prediktif.js"></script>              
 <script>
 </script>                                               
 <?php $this->load->view('backend/footer'); ?>

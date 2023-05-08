@@ -164,37 +164,42 @@ function prediktif_cb(corebisnis,idchart,cbname)
 		
 			data = JSON.parse(data);  
             const labeldt = [];
-            const val_dt_jum= [];
-			const val_dt_pred= [];
-		
+            const val_dt_pred= [];
+			const val_dt_rev= [];
+		    var avg_pred=0;
+			var avg_rev=0;
             for (var dt of data) {
                 var cb = dt.namabulan;
                 labeldt.push(cb)
 
                 var get_val= parseInt(dt.prediktif) || 0;
 				
-                val_dt_jum.push(get_val)
+                val_dt_pred.push(get_val)
 
-				var get_val_pred= parseInt(dt.revenue) || 0;
+				var get_val_rev= parseInt(dt.revenue) || 0;
 				
-                val_dt_pred.push(get_val_pred)
+                val_dt_rev.push(get_val_rev);
 
+				avg_pred=avg_pred +get_val;
+				avg_rev=avg_rev +get_val_rev;
+				
             }
-			
+			avg_pred= parseInt(avg_pred/3) || 0;
+			avg_rev=parseInt(avg_rev/3) || 0;
 			var myData = {
 				labels:labeldt,
                 lineTension: 0,
 				datasets: [{
-					label: "Prediction (Juta)",
+					label: "Avg Pred ("+avg_pred+")",
 					fill: false,
 					backgroundColor: '#98D1F3',
-					data: val_dt_jum,
+					data: val_dt_pred,
 				},
 				{
-					label: "Actual (Juta)",
+					label: "Avg Act ("+avg_rev+")",
 					fill: false,
 					backgroundColor: '#31A6ED',
-					data: val_dt_pred,
+					data: val_dt_rev,
 				}]
 			};
 	
@@ -204,7 +209,7 @@ function prediktif_cb(corebisnis,idchart,cbname)
 				},
                 title: {
                     display: true,
-                    text: cbname
+                    text: cbname 
                 }
             ,
 				legend: {

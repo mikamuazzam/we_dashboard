@@ -83,7 +83,6 @@
                                                 <th>Schedule</th>
                                                 <th>Budget</th>
                                                 <th>Sales</th>
-                                               
                                                 <th>Progress</th>
                                                 <th>Status</th>
                                                
@@ -121,7 +120,7 @@
                     
                 </div>
 
-                <div class="row">
+                <div class="row" >
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-body" >

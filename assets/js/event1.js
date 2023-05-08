@@ -3,9 +3,7 @@ $(function() {
     $( "#cari" ).click(function() {
 		load_chart();
 	});
-    $( "#cari2" ).click(function() {
-		load_chart();
-	});
+    
     load_chart();
 });
 
@@ -100,6 +98,7 @@ function get_list_acara(m,y)
 
 function get_list_acara_det(event_id,tema)
 {
+	
 	$("#StatusTitle").text(tema);
 	$("#eventlistdet").DataTable({
 		destroy: true,
@@ -132,7 +131,7 @@ function get_list_acara_det(event_id,tema)
 }
 
 
-function get_list_event()
+/*function get_list_event()
 {
 	
 	var table = $("#eventlist").DataTable({
@@ -189,5 +188,5 @@ function get_list_event()
 
 
 }
-
+*/
 

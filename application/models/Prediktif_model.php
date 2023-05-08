@@ -59,8 +59,8 @@
         return $query->result();
     }
     public function prediktif_cb($cb){
-        $m = 5;
-        $y = 2023;
+        $m = date('m');
+        $y = date('Y');
         $sql="SELECT sum(case when nama ='prediktif' then val else 0 end) as 'prediktif',
                 sum(case when nama ='revenue' then val else 0 end) as 'revenue',
                 cb,bulan,tahun ,namabulan
@@ -82,7 +82,7 @@
                             where bulan in(2,3,4) and tahun=$y and core_bisnis_id  =$cb
                         group by core_bisnis_id,bulan,tahun)
                 a group by cb,bulan,tahun order by bulan
-               ";
+               ";//echo $sql;
         $query=$this->db->query($sql);
         
         return $query->result();

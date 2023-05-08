@@ -28,6 +28,7 @@ class Event extends CI_Controller {
     function event(){
         if($this->session->userdata('user_login_access') != False) {
         $this->load->model('event_model');
+        
         $data['list_event'] = $this->event_model->list_event2();
         $this->load->view('backend/event',$data);
         }
@@ -51,7 +52,6 @@ class Event extends CI_Controller {
     function list_event()
     {
       
-
         $this->load->model('event_model');
         $data= $this->event_model->list_event();
         echo json_encode($data);
