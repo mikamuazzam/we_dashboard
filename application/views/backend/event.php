@@ -81,8 +81,11 @@
                                                 <th>Tipe</th>
                                                 <th>Tema</th>
                                                 <th>Schedule</th>
+                                               
                                                 <th>Budget</th>
                                                 <th>Sales</th>
+                                                <th>DayEvent</th>
+                                                <th>BM</th>
                                                 <th>Progress</th>
                                                 <th>Status</th>
                                                
@@ -100,9 +103,11 @@
                                                 <td><?php echo $value->tipe_award; ?></td>
                                                 <td><?php echo $value->tema; ?></td>
                                                 <td><?php echo $value->schedule; ?></td>
+                                                
                                                 <td align="right"><?php echo  number_format($value->budget); ?></td>
                                                 <td align="right"><?php echo  number_format($value->sales); ?></td>
-                                               
+                                                <td align="center"><?php echo 'H-'.$value->day; ?></td>
+                                                <td align="right"><?php echo $value->benchmark; ?></td>
                                                 <td> <span class="p-1"><?php echo  $value->persen.' %'; ?></span> <progress value="<?php echo  $value->persen; ?>" max="100"></progress></td>
                                                 <td>
                                                        <?php if(!empty($value->event_id)) { ?>

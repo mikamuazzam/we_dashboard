@@ -37,6 +37,7 @@ function load_chart()
 	var bulan=$('#bulan').find('option:selected').val();
 	var tahun=$('#tahun').find('option:selected').val();
    
+	
     get_list_acara(bulan,tahun);
     //get_list_event();
     

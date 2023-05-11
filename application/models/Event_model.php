@@ -20,8 +20,16 @@
 
     }
     public function list_event2(){
-        $sql = "select b.name tipe_award,tema,schedule, budget,tipe_id,a.id as event_id,ROUND(bobot, 2) as persen ,
-                    case when DATEDIFF(schedule,CURRENT_DATE)  <=7 and bobot <= 80 then 'red' end as warna , sales,event_id
+        $sql = "select b.name tipe_award,tema,schedule, budget,tipe_id,a.id as event_id,ROUND(bobot, 2) as persen ,DATEDIFF(schedule,CURRENT_DATE) as 'day',
+                        case when DATEDIFF(schedule,CURRENT_DATE)  between 7 and 22 and  bobot <= 21 then 'red'
+                        when DATEDIFF(schedule,CURRENT_DATE)  between 3 and 7  and bobot <= 60 then 'red'
+                        when DATEDIFF(schedule,CURRENT_DATE)  < 3 and bobot <= 90 then 'red'
+                        else '' end as warna , 
+                        case when DATEDIFF(schedule,CURRENT_DATE)  between 7 and 22  then '21%'
+                        when DATEDIFF(schedule,CURRENT_DATE)  between 3 and 7  then '60%'
+                        when DATEDIFF(schedule,CURRENT_DATE)  < 3 then '90%'
+                        else '5%' end as benchmark,
+                        sales,event_id
                     from events a 
                     left join tipe_events b on b.id=a.tipe_id 
                     left join (SELECT sum(bobot)/6 as bobot,a.event_id 
