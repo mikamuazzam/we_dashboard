@@ -18,8 +18,9 @@
 
         if($month > 12) $month= $month-12;
 
-        $sql = "SELECT count(*) as jum,name as nama from events a 
+        $sql = "SELECT count(*) as jum,name as nama,sum(sales)/1000000 as rev from events a 
                 inner join tipe_events b on a.tipe_id=b.id 
+                left join (select sum(amount_po) as sales,id_product from deals where  id_stage in (3,5,6,7) group by 2) d on d.id_product=a.product_id
                 where month(SCHEDULE)=$month and year(schedule)=$tahun and status_id=1 group by tipe_id";  
         $db2 = $this->load->database('db2', TRUE); 
         $query=$db2->query($sql); 

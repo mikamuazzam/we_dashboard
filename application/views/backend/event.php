@@ -91,6 +91,40 @@
                     </div> 
                 </div>
 
+                <div class="row">    
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <div class="card-body">
+                            <h6 class="card-title"> Events Summary Revenue - <?php echo $date = date('M Y');?></h6>
+                                <div class="" >
+                                    <span id="jumlah"></span>
+                                <canvas id="event_rev1" height="250px;"></canvas> 
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <div class="card-body">
+                            <h6 class="card-title"> Events Summary Revenue - <?php echo $date = date('M Y', strtotime('+1 month'));?></h6>
+                                <div class="" >
+                                <canvas id="event_rev2" height="250px;"></canvas> 
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <div class="card-body">
+                            <h6 class="card-title"> Events Summary Revenue - <?php echo $date = date('M Y', strtotime('+2 month'));?> </h6>
+                                <div class="" >
+                                <canvas id="event_rev3" height="250px;"></canvas> 
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+
 
                 <div class="row">
                     <div class="col-md-12">

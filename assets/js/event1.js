@@ -40,6 +40,10 @@ function load_chart()
     sum_event(1);
 	sum_event(2);
 	sum_event(3);
+
+	sum_rev(1);
+	sum_rev(2);
+	sum_rev(3);
 	//test_pie();
     
 }
@@ -323,6 +327,101 @@ function sum_event(bulan)
 
 }
 
+function sum_rev(bulan)
+{
+
+	$.ajax({
+		data :{bulan:bulan},
+		url : base_url+"/event/sum_event",
+		type : "GET",
+		success : function(data)
+		{
+		
+			data = JSON.parse(data);  
+            const labeldt = [];
+            const val_dt= [];
+			var tot=0;
+            for (var dt of data) {
+                var cb = dt.nama;
+                labeldt.push(cb)
+
+                var get_val= parseInt(dt.rev) || 0;
+                val_dt.push(get_val)
+
+				tot=tot+get_val;
+
+            }
+			
+			var myData = {
+				labels:labeldt,
+				datasets: [{
+					fill: true,
+					backgroundColor: ['#FAA491', '#91E8FA', '#AEFA91', '#F291FA'],
+					data: val_dt,
+				}]
+			};
+	
+			var myoption = {
+				tooltips: {
+					enabled: true
+				},
+				title: {
+					display: true,
+					text: 'Total :'+tot+' Juta'
+					
+				},
+				hover: {
+					animationDuration: 1
+				},
+				legend: {
+					display: false
+					
+				},
+				scales: {
+					yAxes: [{
+						ticks: {
+						
+						beginAtZero: true
+						
+						},
+					}],
+					
+						xAxes: [{
+							barThickness :30
+						}]
+					},
+				animation: {
+				duration: 1,
+				onComplete: function () {
+					var chartInstance = this.chart,
+						ctx = chartInstance.ctx;
+						ctx.textAlign = 'center';
+						ctx.fillStyle = "rgba(0, 0, 0, 1)";
+						ctx.textBaseline = 'bottom';
+						// Loop through each data in the datasets
+						this.data.datasets.forEach(function (dataset, i) {
+							var meta = chartInstance.controller.getDatasetMeta(i);
+							meta.data.forEach(function (bar, index) {
+								var data = dataset.data[index];
+								ctx.fillText(data, bar._model.x, bar._model.y -10);
+							});
+						});
+					}
+				}
+			};
+			// Code to draw Chart
+			var ctx = document.getElementById('event_rev'+bulan).getContext('2d');
+			
+			
+			var myChart = new Chart(ctx, {
+				type: 'bar',        // Define chart type
+				data: myData,    	// Chart data
+				options: myoption 	// Chart Options [This is optional paramenter use to add some extra things in the chart].
+			});
+		}
+		});
+		
+}
 
 
 
