@@ -329,6 +329,39 @@
             </div>
         </div>
 
+        <div id="detWorkflow" class="modal fade" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h6 class="modal-title">Detail Workflow </h6>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-6">
+                                <h6 class="modal-title"> <span id="StatusTitle"></span></h6>
+                                    <table id="eventlistdet" class="display  table table-hover table-striped table-bordered" cellspacing="0" width="100%"> 
+                                    </table>
+                                </div>
+                                <div class="col-md-6 ml-auto" id="tabel_det">
+                                <h6 class="modal-title"> <span id="StatusTitleDet"></span></h6>
+                                <table id="task_det" class="display  table table-hover table-striped table-bordered" cellspacing="0" width="100%">             
+                                </table>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
+                            
+                    </div>
+                    <div class="modal-footer">
+                           
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div id="det_kegiatan" class="modal fade" tabindex="-1">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
@@ -348,7 +381,7 @@
             </div>
         </div>
 
-<script src="<?php echo base_url(); ?>assets/js/event.js"></script>              
+<script src="<?php echo base_url(); ?>assets/js/event1.js"></script>              
 <script>
 </script>                                               
 <?php $this->load->view('backend/footer'); ?>

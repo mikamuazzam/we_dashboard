@@ -122,7 +122,7 @@ function get_list_acara_det(event_id,tema,bulanid)
 			{ data: "nama", title: "Name" },
 			{ data: "bm", title: "BM" },
 			{ data: "progress", title: "Progress" },
-			{ data: "null", title: "Detail" ,defaultContent: '<button>Detail</button>'}
+			{ data: "null", title: "" ,defaultContent: '<button>>></button>'}
 		],
 		
 		processing: true,
@@ -226,8 +226,8 @@ function get_task_det(event_id,workflowid)
 		columns: [
 			{ data: "detail", title: "Task" },
 			{ data: "stt", title: "Status" } ,
-			{ data: "bobot", title: "Bobot" },
-			{ data: "null", title: "Detail" ,defaultContent: '<button>Detail</button>'}
+			
+			{ data: "null", title: "" ,defaultContent: '<button>>></button>'}
 		],
 		
 		processing: true,
