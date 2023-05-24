@@ -2,6 +2,7 @@
 $(function() {
    
     load_chart();
+	
 });
 
 function number_format(number, decimals, dec_point, thousands_sep) {
@@ -36,7 +37,14 @@ function load_chart()
 	get_list_acara(2,'weblist2');
 	get_list_acara(3,'weblist3');
     //get_list_event();
-    
+    sum_event(1);
+	sum_event(2);
+	sum_event(3);
+
+	sum_rev(1);
+	sum_rev(2);
+	sum_rev(3);
+	//test_pie();
     
 }
 
@@ -92,7 +100,9 @@ function get_list_acara(bulan,idtable)
 function get_list_acara_det(event_id,tema,bulanid)
 {
 	
+	
 	$("#detWorkflow").modal('show');
+	$('#tabel_det').hide();
 	$("#StatusTitle").text(tema);
 	
 	var table= $("#eventlistdet").DataTable({
@@ -106,8 +116,6 @@ function get_list_acara_det(event_id,tema,bulanid)
 			$(row).css({"background-color":data['warna'] })
 		
 		},
-		// scrollX: true,
-		// scrollCollapse: true,
 		
 		columns: [
 			
@@ -128,16 +136,19 @@ function get_list_acara_det(event_id,tema,bulanid)
 		},
 	});
     $('#eventlistdet').on('click', 'button', function () {
+		$('#tabel_det').show();
         var data = table.row($(this).parents('tr')).data();
 		if(data['progress'] != 0){
 			
 			var wfid=data['workflowid'];
+			$("#StatusTitleDet").text(data['nama']);
 			get_task_det(event_id,wfid);
 		}
 		else
 		{
 			alert('No Progress');
-			get_task_det(0,0);
+			$('#tabel_det').hide();
+			//get_task_det(0,0);
 		}
 		
     });
@@ -195,9 +206,16 @@ function get_list_event()
 	});
 }
 
+function nl2br (str, is_xhtml) {
+    if (typeof str === 'undefined' || str === null) {
+        return '';
+    }
+    var breakTag = (is_xhtml || typeof is_xhtml === 'undefined') ? '<br />' : '<br>';
+    return (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1' + breakTag + '$2');
+}
 function get_task_det(event_id,workflowid)
 {
-	$("#task_det").DataTable({
+	var table=$("#task_det").DataTable({
 		destroy: true,
 		paging: false,
 		info: false,
@@ -222,12 +240,188 @@ function get_task_det(event_id,workflowid)
 			dataSrc:""
 		},
 	});
+	
 	$('#task_det').on('click', 'button', function () {
         var data = table.row($(this).parents('tr')).data();
-		$("#kegiatan").text(data['progress']);
+		$('#kegiatan').html(nl2br(data['kegiatan']));
+		//$("#kegiatan").text(data['kegiatan']);
+		$("#det_kegiatan").modal('show');
 		
+		//alert(data['kegiatan']);
     });
 
+
 }
+
+function sum_event(bulan)
+{
+
+	$.ajax({
+		data :{bulan:bulan},
+		url : base_url+"/event/sum_event",
+		type : "GET",
+		success : function(data)
+		{
+		
+			data = JSON.parse(data);  
+            const labeldt = [];
+            const val_dt= [];
+			
+            for (var dt of data) {
+                var cb = dt.nama;
+                labeldt.push(cb)
+
+                var get_val= parseInt(dt.jum) || 0;
+                val_dt.push(get_val)
+
+            }
+			
+			var myData = {
+				labels:labeldt,
+				datasets: [{
+					fill: true,
+					backgroundColor: ['#FAA491', '#91E8FA', '#AEFA91', '#F291FA'],
+					data: val_dt,
+				}]
+			};
+	
+			var myoption = {
+					responsive: true, 
+					maintainAspectRatio: false,
+					legend: {
+						position : 'bottom',
+						labels : {
+							fontColor: 'rgb(154, 154, 154)',
+							fontSize: 10,
+							usePointStyle : true,
+							padding: 20
+						}
+					},
+					pieceLabel: {
+						render: 'value',
+						fontColor: 'white',
+						fontSize: 10,
+					},
+					tooltips: false,
+					layout: {
+						padding: {
+							left: 20,
+							right: 20,
+							top: 20,
+							bottom: 20
+						}
+					}
+	
+			};
+			// Code to draw Chart
+			var ctx = document.getElementById('event'+bulan).getContext('2d');
+			
+			
+			var myChart = new Chart(ctx, {
+				type: 'pie',        // Define chart type
+				data: myData,    	// Chart data
+				options: myoption 	// Chart Options [This is optional paramenter use to add some extra things in the chart].
+			});
+		}
+		});
+
+}
+
+function sum_rev(bulan)
+{
+
+	$.ajax({
+		data :{bulan:bulan},
+		url : base_url+"/event/sum_event",
+		type : "GET",
+		success : function(data)
+		{
+		
+			data = JSON.parse(data);  
+            const labeldt = [];
+            const val_dt= [];
+			var tot=0;
+            for (var dt of data) {
+                var cb = dt.nama;
+                labeldt.push(cb)
+
+                var get_val= parseInt(dt.rev) || 0;
+                val_dt.push(get_val)
+
+				tot=tot+get_val;
+
+            }
+			
+			var myData = {
+				labels:labeldt,
+				datasets: [{
+					fill: true,
+					backgroundColor: ['#FAA491', '#91E8FA', '#AEFA91', '#F291FA'],
+					data: val_dt,
+				}]
+			};
+	
+			var myoption = {
+				tooltips: {
+					enabled: true
+				},
+				title: {
+					display: true,
+					text: 'Total :'+tot+' Juta'
+					
+				},
+				hover: {
+					animationDuration: 1
+				},
+				legend: {
+					display: false
+					
+				},
+				scales: {
+					yAxes: [{
+						ticks: {
+						
+						beginAtZero: true
+						
+						},
+					}],
+					
+						xAxes: [{
+							barThickness :30
+						}]
+					},
+				animation: {
+				duration: 1,
+				onComplete: function () {
+					var chartInstance = this.chart,
+						ctx = chartInstance.ctx;
+						ctx.textAlign = 'center';
+						ctx.fillStyle = "rgba(0, 0, 0, 1)";
+						ctx.textBaseline = 'bottom';
+						// Loop through each data in the datasets
+						this.data.datasets.forEach(function (dataset, i) {
+							var meta = chartInstance.controller.getDatasetMeta(i);
+							meta.data.forEach(function (bar, index) {
+								var data = dataset.data[index];
+								ctx.fillText(data, bar._model.x, bar._model.y -10);
+							});
+						});
+					}
+				}
+			};
+			// Code to draw Chart
+			var ctx = document.getElementById('event_rev'+bulan).getContext('2d');
+			
+			
+			var myChart = new Chart(ctx, {
+				type: 'bar',        // Define chart type
+				data: myData,    	// Chart data
+				options: myoption 	// Chart Options [This is optional paramenter use to add some extra things in the chart].
+			});
+		}
+		});
+		
+}
+
 
 
