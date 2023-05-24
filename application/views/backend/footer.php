@@ -32,7 +32,13 @@
     <!-- Chart JS -->
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0">  </script>
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chart.piecelabel.js/0.15.0/Chart.PieceLabel.min.js
+
+
+
+"></script>   
+
+    
   
 
 

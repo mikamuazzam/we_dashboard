@@ -62,9 +62,9 @@
                     <div class="col-lg-4">
                         <div class="card">
                             <div class="card-body">
-                            <h6 class="card-title"> Events - <?php echo $date = date('M Y');?></h6>
+                            <h6 class="card-title"> Events Summary - <?php echo $date = date('M Y');?></h6>
                                 <div class="" >
-                                <canvas id="event1" height="200px;"></canvas> 
+                                <canvas id="event1" height="250px;"></canvas> 
                                 </div>
                             </div>
                         </div>
@@ -72,9 +72,9 @@
                     <div class="col-lg-4">
                         <div class="card">
                             <div class="card-body">
-                            <h6 class="card-title"> Events - <?php echo $date = date('M Y', strtotime('+1 month'));?></h6>
+                            <h6 class="card-title"> Events Summary - <?php echo $date = date('M Y', strtotime('+1 month'));?></h6>
                                 <div class="" >
-                                <canvas id="event2" height="200px;"></canvas> 
+                                <canvas id="event2" height="250px;"></canvas> 
                                 </div>
                             </div>
                         </div>
@@ -82,9 +82,9 @@
                     <div class="col-lg-4">
                         <div class="card">
                             <div class="card-body">
-                            <h6 class="card-title"> Events - <?php echo $date = date('M Y', strtotime('+2 month'));?> </h6>
+                            <h6 class="card-title"> Events Summary - <?php echo $date = date('M Y', strtotime('+2 month'));?> </h6>
                                 <div class="" >
-                                <canvas id="event3" height="200px;"></canvas> 
+                                <canvas id="event3" height="250px;"></canvas> 
                                 </div>
                             </div>
                         </div>

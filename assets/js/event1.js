@@ -2,9 +2,7 @@
 $(function() {
    
     load_chart();
-	sum_event(1);
-	sum_event(2);
-	sum_event(3);
+	
 });
 
 function number_format(number, decimals, dec_point, thousands_sep) {
@@ -39,7 +37,10 @@ function load_chart()
 	get_list_acara(2,'weblist2');
 	get_list_acara(3,'weblist3');
     //get_list_event();
-    
+    sum_event(1);
+	sum_event(2);
+	sum_event(3);
+	//test_pie();
     
 }
 
@@ -281,13 +282,32 @@ function sum_event(bulan)
 			};
 	
 			var myoption = {
-				
-				hover: {
-					animationDuration: 1
-				},
-				legend: {
-					position :'bottom'
-				}
+					responsive: true, 
+					maintainAspectRatio: false,
+					legend: {
+						position : 'bottom',
+						labels : {
+							fontColor: 'rgb(154, 154, 154)',
+							fontSize: 10,
+							usePointStyle : true,
+							padding: 20
+						}
+					},
+					pieceLabel: {
+						render: 'value',
+						fontColor: 'white',
+						fontSize: 10,
+					},
+					tooltips: false,
+					layout: {
+						padding: {
+							left: 20,
+							right: 20,
+							top: 20,
+							bottom: 20
+						}
+					}
+	
 			};
 			// Code to draw Chart
 			var ctx = document.getElementById('event'+bulan).getContext('2d');
@@ -302,6 +322,7 @@ function sum_event(bulan)
 		});
 
 }
+
 
 
 
