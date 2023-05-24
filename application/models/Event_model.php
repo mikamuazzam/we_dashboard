@@ -18,7 +18,11 @@
 
         if($month > 12) $month= $month-12;
 
-        $sql = "SELECT count(*) as jum,name as nama,sum(sales)/1000000 as rev from events a 
+        $sql = "SELECT count(*) as jum,name as nama,sum(sales)/1000000 as rev,
+                case when b.id = 3 then '#FAA491' 
+                     when b.id= 4 then  '#91E8FA'
+                     when b.id=5 then  '#AEFA91'
+                     when b.id=6 then  '#F291FA' else 'blue' end as warna from events a 
                 inner join tipe_events b on a.tipe_id=b.id 
                 left join (select sum(amount_po) as sales,id_product from deals where  id_stage in (3,5,6,7) group by 2) d on d.id_product=a.product_id
                 where month(SCHEDULE)=$month and year(schedule)=$tahun and status_id=1 group by tipe_id";  
