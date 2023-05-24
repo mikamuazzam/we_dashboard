@@ -367,7 +367,7 @@ function sum_rev(bulan)
 				},
 				title: {
 					display: true,
-					text: 'Total :'+tot+' Juta'
+					text: 'Total :'+number_format(tot, 0, ',', ' ')+' Juta'
 					
 				},
 				hover: {
