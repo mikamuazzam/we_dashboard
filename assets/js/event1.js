@@ -1,10 +1,10 @@
 
 $(function() {
-    $( "#cari" ).click(function() {
-		load_chart();
-	});
-    
+   
     load_chart();
+	sum_event(1);
+	sum_event(2);
+	sum_event(3);
 });
 
 function number_format(number, decimals, dec_point, thousands_sep) {
@@ -34,11 +34,10 @@ function number_format(number, decimals, dec_point, thousands_sep) {
 
 function load_chart()
 {
-	var bulan=$('#bulan').find('option:selected').val();
-	var tahun=$('#tahun').find('option:selected').val();
-   
 	
-    get_list_acara(bulan,tahun);
+	get_list_acara(1,'weblist1');
+	get_list_acara(2,'weblist2');
+	get_list_acara(3,'weblist3');
     //get_list_event();
     
     
@@ -46,9 +45,9 @@ function load_chart()
 
 
 
-function get_list_acara(m,y)
+function get_list_acara(bulan,idtable)
 {
-	$("#weblist").DataTable({
+	$("#"+idtable).DataTable({
 		destroy: true,
 		paging: false,
 		info: false,
@@ -76,17 +75,13 @@ function get_list_acara(m,y)
 				}  
 			},
 			{ data: "tanggal", title: "Date" },
-			{ data: "start_time", title: "Start" },
-			{ data: "finish_time", title: "Finish" },
-			{ data: "acara", title: "Title" },
-			{ data: "status", title: "Status" },
-			{ data: "present", title: "Desc" }
+			{ data: "acara", title: "Title" } 
 		],
 		
 		processing: true,
 		serverSide: true,
 		ajax: {
-			data :{bulan:m,tahun:y},
+			data :{bulan:bulan},
 			url: base_url+"/event/list_acara",
 			type: 'post',
 			dataType: 'json',
@@ -97,24 +92,32 @@ function get_list_acara(m,y)
 
 }
 
-function get_list_acara_det(event_id,tema)
+function get_list_acara_det(event_id,tema,bulanid)
 {
 	
+	
+	$("#detWorkflow").modal('show');
+	$('#tabel_det').hide();
 	$("#StatusTitle").text(tema);
-	$("#eventlistdet").DataTable({
+	
+	var table= $("#eventlistdet").DataTable({
 		destroy: true,
 		paging: false,
 		info: false,
 		searching: false,
 		responsive: true,
-		pageLength: 10,
-		lengthMenu: [10, 25, 50, 75],
-		// scrollX: true,
-		// scrollCollapse: true,
+		"createdRow": function( row, data, dataIndex){
+		
+			$(row).css({"background-color":data['warna'] })
+		
+		},
 		
 		columns: [
-			{ data: "nama_workflow", title: "Workflow" },
-			{ data: "bobot", title: "Progress (%)" }
+			
+			{ data: "nama", title: "Name" },
+			{ data: "bm", title: "BM" },
+			{ data: "progress", title: "Progress" },
+			{ data: "null", title: "Detail" ,defaultContent: '<button>Detail</button>'}
 		],
 		
 		processing: true,
@@ -127,12 +130,28 @@ function get_list_acara_det(event_id,tema)
 			dataSrc:""
 		},
 	});
-
+    $('#eventlistdet').on('click', 'button', function () {
+		$('#tabel_det').show();
+        var data = table.row($(this).parents('tr')).data();
+		if(data['progress'] != 0){
+			
+			var wfid=data['workflowid'];
+			$("#StatusTitleDet").text(data['nama']);
+			get_task_det(event_id,wfid);
+		}
+		else
+		{
+			alert('No Progress');
+			$('#tabel_det').hide();
+			//get_task_det(0,0);
+		}
+		
+    });
 
 }
 
 
-/*function get_list_event()
+function get_list_event()
 {
 	
 	var table = $("#eventlist").DataTable({
@@ -167,7 +186,6 @@ function get_list_acara_det(event_id,tema)
 		columnDefs: [
             {
                 targets: 5,
-              
                 defaultContent: '<button>click</button>',
             },
         ],
@@ -181,13 +199,109 @@ function get_list_acara_det(event_id,tema)
 			dataSrc:""
 		},
 	});
+}
 
-    $('#eventlist tbody').on('click', 'button', function () {
+function nl2br (str, is_xhtml) {
+    if (typeof str === 'undefined' || str === null) {
+        return '';
+    }
+    var breakTag = (is_xhtml || typeof is_xhtml === 'undefined') ? '<br />' : '<br>';
+    return (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1' + breakTag + '$2');
+}
+function get_task_det(event_id,workflowid)
+{
+	var table=$("#task_det").DataTable({
+		destroy: true,
+		paging: false,
+		info: false,
+		searching: false,
+		responsive: true,
+		ordering: true, // Set true agar bisa di sorting
+		order: [[ 0, 'asc' ]], 
+		columns: [
+			{ data: "detail", title: "Task" },
+			{ data: "stt", title: "Status" } ,
+			{ data: "bobot", title: "Bobot" },
+			{ data: "null", title: "Detail" ,defaultContent: '<button>Detail</button>'}
+		],
+		
+		processing: true,
+		serverSide: true,
+		ajax: {
+			data :{workflowid:workflowid,event_id:event_id},
+			url: base_url+"/event/list_task_det",
+			type: 'post',
+			dataType: 'json',
+			dataSrc:""
+		},
+	});
+	
+	$('#task_det').on('click', 'button', function () {
         var data = table.row($(this).parents('tr')).data();
-        alert('ok');
+		$('#kegiatan').html(nl2br(data['kegiatan']));
+		//$("#kegiatan").text(data['kegiatan']);
+		$("#det_kegiatan").modal('show');
+		
+		//alert(data['kegiatan']);
     });
 
 
 }
-*/
+
+function sum_event(bulan)
+{
+
+	$.ajax({
+		data :{bulan:bulan},
+		url : base_url+"/event/sum_event",
+		type : "GET",
+		success : function(data)
+		{
+		
+			data = JSON.parse(data);  
+            const labeldt = [];
+            const val_dt= [];
+			
+            for (var dt of data) {
+                var cb = dt.nama;
+                labeldt.push(cb)
+
+                var get_val= parseInt(dt.jum) || 0;
+                val_dt.push(get_val)
+
+            }
+			
+			var myData = {
+				labels:labeldt,
+				datasets: [{
+					fill: true,
+					backgroundColor: ['#FAA491', '#91E8FA', '#AEFA91', '#F291FA'],
+					data: val_dt,
+				}]
+			};
+	
+			var myoption = {
+				
+				hover: {
+					animationDuration: 1
+				},
+				legend: {
+					position :'bottom'
+				}
+			};
+			// Code to draw Chart
+			var ctx = document.getElementById('event'+bulan).getContext('2d');
+			
+			
+			var myChart = new Chart(ctx, {
+				type: 'pie',        // Define chart type
+				data: myData,    	// Chart data
+				options: myoption 	// Chart Options [This is optional paramenter use to add some extra things in the chart].
+			});
+		}
+		});
+
+}
+
+
 
