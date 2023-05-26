@@ -146,7 +146,7 @@ function get_list_acara_det(event_id,tema,bulanid)
 		}
 		else
 		{
-			alert('No Progress');
+			//alert('No Progress');
 			$('#tabel_det').hide();
 			//get_task_det(0,0);
 		}

@@ -142,12 +142,13 @@
         {
            $q_add='';
             if ($tipe_id==6 && $workflowid ==5 ) $q_add=" and tipe_event_id =6"; 
-        $sql = "SELECT detail,bobot,case when stt_det is null then 'Not Yet' else stt_det end as stt ,kegiatan
+            else $q_add=" and tipe_event_id is null";
+            $sql = "SELECT detail,bobot,case when stt_det is null then 'Not Yet' else stt_det end as stt ,kegiatan
                 FROM `detail_workflows` a 
                     left join (select detail_id det_id,status stt_det,kegiatan from daily_tasks 
                                 where event_id=$event_id and status_id=1  and status='done')b on a.id = b.det_id 
                 where workflow_id=$workflowid  $q_add;
-                "; 
+                ";// echo $sql;
         }
         else
         {
