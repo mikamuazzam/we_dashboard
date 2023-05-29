@@ -72,7 +72,10 @@
                         sales,event_id
                     from events a 
                     left join tipe_events b on b.id=a.tipe_id 
-                    left join (SELECT case when schedule < CURRENT_DATE then sum(bobot)/7 else sum(bobot)/6 end as bobot,a.event_id 
+                    left join (SELECT case when schedule < CURRENT_DATE and tipe_id !=6 then sum(bobot)/7 
+                                           when schedule < CURRENT_DATE and tipe_id =6 then sum(bobot)/8
+                                           when tipe_id=6 then sum(bobot)/7 
+                                           else sum(bobot)/6 end as bobot,a.event_id 
                             from daily_tasks a 
                             inner join detail_workflows b on a.detail_id=b.id
                             inner join events e on e.id=a.event_id
@@ -140,9 +143,9 @@
         
         if($workflowid == 4 || $workflowid==5 || $workflowid ==6 || $workflowid ==8  ) 
         {
-           $q_add='';
-            if ($tipe_id==6 && $workflowid ==5 ) $q_add=" and tipe_event_id =6"; 
-            else $q_add=" and tipe_event_id is null";
+           $q_add=' and tipe_event_id is null';
+           // if ($tipe_id==6 && $workflowid ==5 ) $q_add=" and tipe_event_id =6"; 
+           // else $q_add=" and tipe_event_id is null";
             $sql = "SELECT detail,bobot,case when stt_det is null then 'Not Yet' else stt_det end as stt ,kegiatan
                 FROM `detail_workflows` a 
                     left join (select detail_id det_id,status stt_det,kegiatan from daily_tasks 
