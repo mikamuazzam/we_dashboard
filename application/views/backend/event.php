@@ -451,7 +451,7 @@
 
         
 
-<script src="<?php echo base_url(); ?>assets/js/event.js"></script>              
+<script src="<?php echo base_url(); ?>assets/js/event3.js"></script>              
 <script>
 </script>                                               
 <?php $this->load->view('backend/footer'); ?>
