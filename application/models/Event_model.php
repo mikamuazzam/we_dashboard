@@ -54,8 +54,11 @@
         if($bulan==1) { $month=$curr_month; $tahun=$curr_year;}
         if($bulan==2) { $month=$curr_month +1; $tahun=$curr_year; if($curr_month==12) $tahun = $curr_year+1;}
         if($bulan==3) { $month=$curr_month +2; $tahun=$curr_year; if($curr_month==11)$tahun = $curr_year+1;}
+        if($bulan==4) { $month=$curr_month -1; $tahun=$curr_year; if($curr_month==1)$tahun = $curr_year-1;}
+
 
         if($month > 12) $month= $month-12;
+        if($month < 1) $month= 12;
 
         $sql = "select b.name tipe_award,tema,schedule, budget,tipe_id,a.id as event_id,ROUND(bobot, 2) as persen ,
                         case when DATEDIFF(schedule,CURRENT_DATE) > 0 then DATEDIFF(schedule,CURRENT_DATE) else 0 end as 'day',
@@ -69,7 +72,7 @@
                         when DATEDIFF(schedule,CURRENT_DATE)  between 1 and 3 then '90%'
                         when schedule < CURRENT_DATE then '100%'
                         else '5%' end as benchmark,
-                        sales,event_id
+                        sales,event_id,id_product
                     from events a 
                     left join tipe_events b on b.id=a.tipe_id 
                     left join (SELECT case when schedule < CURRENT_DATE and tipe_id !=6 then sum(bobot)/7 
@@ -86,7 +89,7 @@
         $query=$db2->query($sql); 
          return $query->result();
     }
-    /*public function list_event(){
+    public function list_event(){
         
         $sql = "select b.name tipe_award,tema,schedule, FORMAT(budget,0) as budget,tipe_id,a.id as event_id,ROUND(bobot, 2) as persen ,
                 case when DATEDIFF(schedule,CURRENT_DATE)  <=7 and bobot < 90 then 'red' end as warna 
@@ -101,7 +104,7 @@
         $query=$db2->query($sql); 
         return $query->result_array();
 
-    }*/
+    }
     public function list_event_det($event_id){
         
         
@@ -168,6 +171,29 @@
 
     }
 
+    public function det_sales($product_id){
+        
+        
+        $sql = "SELECT company_name,FORMAT(sum(amount_po),0) as sales,id_product 
+                from deals a
+                inner join companies b on a.id_company=b.id  where  id_stage in (3,5,6,7)
+                 and  id_product=$product_id group by 1,3
+                        ";  
+        $db2 = $this->load->database('db2', TRUE);
+        $query=$db2->query($sql); 
+        return $query->result_array();
+
+    }
+    public function det_eval($event_id){
+        
+        
+        $sql = "SELECT parameter,keterangan,nilai from evaluations where event_id=$event_id
+                        ";  
+        $db2 = $this->load->database('db2', TRUE);
+        $query=$db2->query($sql); 
+        return $query->result_array();
+
+    }
     
 
 }

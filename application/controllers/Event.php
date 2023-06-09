@@ -32,6 +32,7 @@ class Event extends CI_Controller {
         $data['list_event1'] = $this->event_model->list_event2(1);
         $data['list_event2'] = $this->event_model->list_event2(2);
         $data['list_event3'] = $this->event_model->list_event2(3);
+        $data['list_event4'] = $this->event_model->list_event2(4);
         $this->load->view('backend/event',$data);
         }
         else{
@@ -52,9 +53,9 @@ class Event extends CI_Controller {
    
     function list_event()
     {
-      
+        //$bulan=$_REQUEST['bulan'];
         $this->load->model('event_model');
-        $data= $this->event_model->list_event();
+        $data= $this->event_model->list_event2(1);
         echo json_encode($data);
     } 
 
@@ -85,7 +86,23 @@ class Event extends CI_Controller {
         echo json_encode($data);
     } 
    
-    
+    function det_sales()
+    {
+        $prod_id=$_REQUEST['prod_id'];
+
+        $this->load->model('event_model');
+        $data= $this->event_model->det_sales($prod_id);
+        echo json_encode($data);
+    } 
+    function det_eval()
+    {
+        $event_id=$_REQUEST['event_id'];
+
+        $this->load->model('event_model');
+        $data= $this->event_model->det_eval($event_id);
+        echo json_encode($data);
+    } 
+
     
     
 }

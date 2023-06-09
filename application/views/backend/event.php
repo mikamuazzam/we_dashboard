@@ -125,6 +125,67 @@
                     </div> 
                 </div>
 
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-body" >
+                            <h6 class="card-title">Detail Events Progress  - <?php echo $date = date('M Y', strtotime('-1 month'));?></h6>
+                            <div class="" >
+                                <table id="list_event4" class="display table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+                                        <thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Tema</th>
+                                                <th>Schedule</th>
+                                                <th>Budget</th>
+                                                <th>Sales</th>
+                                                <th>DayEvent</th>
+                                                <th>BM</th>
+                                                <th>Progress</th>
+                                                <th>Status</th> 
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                           <?php $i=1; foreach($list_event4 as $value): 
+                                            if($value->warna=='red') $stt='Warning';
+                                            else if ($value->warna=='green') $stt='Done';
+                                            else $stt='OK';
+                                            ?>
+                                            <tr >
+
+                                                <td><?php echo $i++; ?></td>
+                                                <td><?php echo $value->tema; ?></td>
+                                                <td><?php echo $value->schedule; ?></td>
+                                                <td align="right"><?php echo  number_format($value->budget); ?></td>
+                                                <td align="right"><button  onclick="get_sales(<?php echo $value->id_product; ?>,'<?php echo $value->tema; ?>','<?php echo  number_format($value->sales); ?>');" style="border: none;background-color: Transparent; "><font color="blue"><?php echo  number_format($value->sales); ?></font></button></td>
+                                                <td align="center"><?php echo 'H-'.$value->day; ?></td>
+                                                <td align="right"><?php echo $value->benchmark; ?></td>
+                                                <td> <span class="p-1"><?php echo  $value->persen.' %'; ?></span> <progress value="<?php echo  $value->persen; ?>" max="100" width="80%"></progress></td>
+                                                <td>
+                                                       <?php if(!empty($value->event_id)) 
+                                                       {
+                                                                if($value->warna=='red') $button="red";
+                                                                else if ($value->warna=='green') $button="blue";
+                                                                else $button="green"; 
+                                                        
+                                                                if($this->session->userdata('dept') == 9)
+                                                                {
+                                                        ?>
+                                                                    <button onclick="get_list_acara_partner('<?php echo  $value->event_id; ?>','<?php echo  $value->tema; ?>',1);" ><font color='<?php echo $button;?>'><?php echo $stt; ?></font></button>
+                                                                <?php } else { ?>
+                                                                    <button onclick="get_list_acara_det('<?php echo  $value->event_id; ?>','<?php echo  $value->tema; ?>',1);" ><font color='<?php echo $button;?>'><?php echo $stt; ?></font></button>
+                                                                <?php }?>
+                                                        <?php }?>
+                                                </td>
+                                            </tr>
+                                            <?php endforeach; ?>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            </div>
+                        </div>
+                    </div>  
+                </div>
 
                 <div class="row">
                     <div class="col-md-12">
@@ -158,7 +219,7 @@
                                                 <td><?php echo $value->tema; ?></td>
                                                 <td><?php echo $value->schedule; ?></td>
                                                 <td align="right"><?php echo  number_format($value->budget); ?></td>
-                                                <td align="right"><?php echo  number_format($value->sales); ?></td>
+                                                <td align="right"><button  onclick="get_sales(<?php echo $value->id_product; ?>,'<?php echo $value->tema; ?>','<?php echo  number_format($value->sales); ?>');" style="border: none;background-color: Transparent; "><font color="blue"><?php echo  number_format($value->sales); ?></font></button></td>
                                                 <td align="center"><?php echo 'H-'.$value->day; ?></td>
                                                 <td align="right"><?php echo $value->benchmark; ?></td>
                                                 <td> <span class="p-1"><?php echo  $value->persen.' %'; ?></span> <progress value="<?php echo  $value->persen; ?>" max="100" width="80%"></progress></td>
@@ -166,9 +227,15 @@
                                                        <?php if(!empty($value->event_id)) {
                                                         if($value->warna=='red') $button="red";
                                                         else if ($value->warna=='green') $button="blue";
-                                                        else $button="green"; ?>
-                                                        <button onclick="get_list_acara_det('<?php echo  $value->event_id; ?>','<?php echo  $value->tema; ?>',1);" ><font color='<?php echo $button;?>'><?php echo $stt; ?></font></button>
+                                                        else $button="green"; 
+                                                        if($this->session->userdata('dept') == 9)
+                                                        {
+                                                ?>
+                                                            <button onclick="get_list_acara_partner('<?php echo  $value->event_id; ?>','<?php echo  $value->tema; ?>',1);" ><font color='<?php echo $button;?>'><?php echo $stt; ?></font></button>
+                                                        <?php } else { ?>
+                                                            <button onclick="get_list_acara_det('<?php echo  $value->event_id; ?>','<?php echo  $value->tema; ?>',1);" ><font color='<?php echo $button;?>'><?php echo $stt; ?></font></button>
                                                         <?php }?>
+                                                <?php }?>
                                                 </td>
                                             </tr>
                                             <?php endforeach; ?>
@@ -214,7 +281,7 @@
                                                 <td><?php echo $value->tema; ?></td>
                                                 <td><?php echo $value->schedule; ?></td>
                                                 <td align="right"><?php echo  number_format($value->budget); ?></td>
-                                                <td align="right"><?php echo  number_format($value->sales); ?></td>
+                                                <td align="right"><button  onclick="get_sales(<?php echo $value->id_product; ?>,'<?php echo $value->tema; ?>','<?php echo  number_format($value->sales); ?>');" style="border: none;background-color: Transparent; "><font color="blue"><?php echo  number_format($value->sales); ?></font></button></td>
                                                 <td align="center"><?php echo 'H-'.$value->day; ?></td>
                                                 <td align="right"><?php echo $value->benchmark; ?></td>
                                                 <td> <span class="p-1"><?php echo  $value->persen.' %'; ?></span> <progress value="<?php echo  $value->persen; ?>" max="100" width="80%"></progress></td>
@@ -222,8 +289,14 @@
                                                        <?php if(!empty($value->event_id)) {
                                                         if($value->warna=='red') $button="red";
                                                         else if ($value->warna=='green') $button="blue";
-                                                        else $button="green"; ?>
-                                                        <button onclick="get_list_acara_det('<?php echo  $value->event_id; ?>','<?php echo  $value->tema; ?>',1);" ><font color='<?php echo $button;?>'><?php echo $stt; ?></font></button>
+                                                        else $button="green"; 
+                                                        if($this->session->userdata('dept') == 9)
+                                                                {
+                                                        ?>
+                                                                    <button onclick="get_list_acara_partner('<?php echo  $value->event_id; ?>','<?php echo  $value->tema; ?>',1);" ><font color='<?php echo $button;?>'><?php echo $stt; ?></font></button>
+                                                                <?php } else { ?>
+                                                                    <button onclick="get_list_acara_det('<?php echo  $value->event_id; ?>','<?php echo  $value->tema; ?>',1);" ><font color='<?php echo $button;?>'><?php echo $stt; ?></font></button>
+                                                                <?php }?>
                                                         <?php }?>
                                                 </td>
                                             </tr>
@@ -235,7 +308,6 @@
                         </div>
                     </div>  
                 </div>
-
 
 
                 <div class="row">
@@ -271,7 +343,7 @@
                                                 <td><?php echo $value->tema; ?></td>
                                                 <td><?php echo $value->schedule; ?></td>
                                                 <td align="right"><?php echo  number_format($value->budget); ?></td>
-                                                <td align="right"><?php echo  number_format($value->sales); ?></td>
+                                                <td align="right"><button  onclick="get_sales(<?php echo $value->id_product; ?>,'<?php echo $value->tema; ?>','<?php echo  number_format($value->sales); ?>');" style="border: none;background-color: Transparent; "><font color="blue"><?php echo  number_format($value->sales); ?></font></button></td>
                                                 <td align="center"><?php echo 'H-'.$value->day; ?></td>
                                                 <td align="right"><?php echo $value->benchmark; ?></td>
                                                 <td> <span class="p-1"><?php echo  $value->persen.' %'; ?></span> <progress value="<?php echo  $value->persen; ?>" max="100" width="80%"></progress></td>
@@ -279,9 +351,14 @@
                                                        <?php if(!empty($value->event_id)) {
                                                         if($value->warna=='red') $button="red";
                                                         else if ($value->warna=='green') $button="blue";
-                                                        else $button="green"; ?>
-                                                        <button onclick="get_list_acara_det('<?php echo  $value->event_id; ?>','<?php echo  $value->tema; ?>',1);" ><font color='<?php echo $button;?>'><?php echo $stt; ?></font></button>
+                                                        else $button="green"; if($this->session->userdata('dept') == 9)
+                                                        {
+                                                ?>
+                                                            <button onclick="get_list_acara_partner('<?php echo  $value->event_id; ?>','<?php echo  $value->tema; ?>',1);" ><font color='<?php echo $button;?>'><?php echo $stt; ?></font></button>
+                                                        <?php } else { ?>
+                                                            <button onclick="get_list_acara_det('<?php echo  $value->event_id; ?>','<?php echo  $value->tema; ?>',1);" ><font color='<?php echo $button;?>'><?php echo $stt; ?></font></button>
                                                         <?php }?>
+                                                <?php }?>
                                                 </td>
                                             </tr>
                                             <?php endforeach; ?>
@@ -315,38 +392,8 @@
                                 <h6 class="modal-title"> <span id="StatusTitleDet"></span></h6>
                                 <table id="task_det" class="display  table table-hover table-striped table-bordered" cellspacing="0" width="100%">             
                                 </table>
-                                </div>
-                            </div>
-                            
-                        </div>
-                        
-                            
-                    </div>
-                    <div class="modal-footer">
-                           
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <div id="detWorkflow" class="modal fade" tabindex="-1">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h6 class="modal-title">Detail Workflow </h6>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-md-6">
-                                <h6 class="modal-title"> <span id="StatusTitle"></span></h6>
-                                    <table id="eventlistdet" class="display  table table-hover table-striped table-bordered" cellspacing="0" width="100%"> 
-                                    </table>
-                                </div>
-                                <div class="col-md-6 ml-auto" id="tabel_det">
-                                <h6 class="modal-title"> <span id="StatusTitleDet"></span></h6>
-                                <table id="task_det" class="display  table table-hover table-striped table-bordered" cellspacing="0" width="100%">             
+                                <table id="eval_det" class="display  table table-hover table-striped table-bordered" cellspacing="0" width="100%">             
                                 </table>
                                 </div>
                             </div>
@@ -362,6 +409,8 @@
             </div>
         </div>
 
+        
+
         <div id="det_kegiatan" class="modal fade" tabindex="-1">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
@@ -370,9 +419,7 @@
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
                     <div class="modal-body" style="background: #C2E9EF;"><h6 class="modal-title"> 
-                      
-                                <span id="kegiatan"></span></h6>
-                              
+                                <span id="kegiatan"></span></h6>     
                     </div>
                     <div class="modal-footer">
                            
@@ -380,6 +427,29 @@
                 </div>
             </div>
         </div>
+
+        <div id="det_sales" class="modal fade" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h6 class="modal-title">Sales Revenue </h6>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body" >
+                    <h6 class="modal-title"> 
+                                <span id="tema_event"></span> </h6>     
+                    <table id="sales_det" class="display  table table-hover table-striped table-bordered" cellspacing="0" width="100%">             
+                    </table>
+                                   
+                    </div>
+                    <div class="modal-footer">
+                    <h6 class="modal-title"> Total : <span id="sales_all"></span> </h6> 
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
 
 <script src="<?php echo base_url(); ?>assets/js/event2.js"></script>              
 <script>
