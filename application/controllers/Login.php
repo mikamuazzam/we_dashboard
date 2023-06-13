@@ -37,6 +37,8 @@ class Login extends CI_Controller {
 			redirect(base_url() . 'ads');
 		else  if ($this->session->userdata('user_login_access') == 1 and $this->session->userdata('dept')==9) 
 			redirect(base_url() . 'event');
+		else  if ($this->session->userdata('user_login_access') == 1 and $this->session->userdata('dept')==10) 
+			redirect(base_url() . 'event');
 		else
 			redirect(base_url() . 'dashboard');
             $data=array();
