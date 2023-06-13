@@ -485,6 +485,14 @@ function get_sales(productid,tema,sales)
 	$("#det_sales").modal('show');
 }
 
+function get_deal(productid,tema,sales)
+{
+	get_list_deal(productid);
+	$("#tema_event1").text(tema);
+	$("#deal_all").text(sales);
+	$("#det_deal").modal('show');
+}
+
 function get_list_sales(prodid)
 {
 	$("#sales_det").DataTable({
@@ -525,6 +533,49 @@ function get_list_sales(prodid)
 
 
 }
+
+function get_list_deal(prodid)
+{
+	$("#deal_det").DataTable({
+		destroy: true,
+		paging: false,
+		info: false,
+		searching: false,
+		responsive: true,
+		columns: [
+			{  
+				"data": null,
+				"class": "align-top",
+				"orderable": false,
+				"searchable": false,
+				"render": function (data, type, row, meta) {
+					return meta.row + meta.settings._iDisplayStart + 1;
+				}  
+			},
+			{ data: "company_name", title: "Partner" },
+			{ data: "sales", title: "Nominal" } 
+		],
+		columnDefs: [
+			{
+				"targets": 2, // your case first column
+				"className": "text-right"
+		   },
+		],
+		processing: true,
+		serverSide: true,
+		ajax: {
+			data :{prod_id:prodid},
+			url: base_url+"/event/det_deal",
+			type: 'post',
+			dataType: 'json',
+			dataSrc:""
+		},
+	});
+
+
+}
+
+
 
 function get_list_eval(eventid)
 {

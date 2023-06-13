@@ -94,6 +94,14 @@ class Event extends CI_Controller {
         $data= $this->event_model->det_sales($prod_id);
         echo json_encode($data);
     } 
+    function det_deal()
+    {
+        $prod_id=$_REQUEST['prod_id'];
+
+        $this->load->model('event_model');
+        $data= $this->event_model->det_deal($prod_id);
+        echo json_encode($data);
+    } 
     function det_eval()
     {
         $event_id=$_REQUEST['event_id'];

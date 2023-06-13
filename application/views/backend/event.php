@@ -138,7 +138,8 @@
                                                 <th>Tema</th>
                                                 <th>Schedule</th>
                                                 <th>Budget</th>
-                                                <th>Sales</th>
+                                                <th>Sales PO</th>
+                                                <th>Waiting PO</th>
                                                 <th>DayEvent</th>
                                                 <th>BM</th>
                                                 <th>Progress</th>
@@ -158,6 +159,7 @@
                                                 <td><?php echo $value->schedule; ?></td>
                                                 <td align="right"><?php echo  number_format($value->budget); ?></td>
                                                 <td align="right"><button  onclick="get_sales(<?php echo $value->id_product; ?>,'<?php echo $value->tema; ?>','<?php echo  number_format($value->sales); ?>');" style="border: none;background-color: Transparent; "><font color="blue"><?php echo  number_format($value->sales); ?></font></button></td>
+                                                <td align="right"><button  onclick="get_deal(<?php echo $value->id_product; ?>,'<?php echo $value->tema; ?>','<?php echo  number_format($value->deal); ?>');" style="border: none;background-color: Transparent; "><font color="blue"><?php echo  number_format($value->deal); ?></font></button></td>
                                                 <td align="center"><?php echo 'H-'.$value->day; ?></td>
                                                 <td align="right"><?php echo $value->benchmark; ?></td>
                                                 <td> <span class="p-1"><?php echo  $value->persen.' %'; ?></span> <progress value="<?php echo  $value->persen; ?>" max="100" width="80%"></progress></td>
@@ -201,6 +203,7 @@
                                                 <th>Schedule</th>
                                                 <th>Budget</th>
                                                 <th>Sales</th>
+                                                <th>Waiting PO</th>
                                                 <th>DayEvent</th>
                                                 <th>BM</th>
                                                 <th>Progress</th>
@@ -220,6 +223,7 @@
                                                 <td><?php echo $value->schedule; ?></td>
                                                 <td align="right"><?php echo  number_format($value->budget); ?></td>
                                                 <td align="right"><button  onclick="get_sales(<?php echo $value->id_product; ?>,'<?php echo $value->tema; ?>','<?php echo  number_format($value->sales); ?>');" style="border: none;background-color: Transparent; "><font color="blue"><?php echo  number_format($value->sales); ?></font></button></td>
+                                                <td align="right"><button  onclick="get_deal(<?php echo $value->id_product; ?>,'<?php echo $value->tema; ?>','<?php echo  number_format($value->deal); ?>');" style="border: none;background-color: Transparent; "><font color="blue"><?php echo  number_format($value->deal); ?></font></button></td>
                                                 <td align="center"><?php echo 'H-'.$value->day; ?></td>
                                                 <td align="right"><?php echo $value->benchmark; ?></td>
                                                 <td> <span class="p-1"><?php echo  $value->persen.' %'; ?></span> <progress value="<?php echo  $value->persen; ?>" max="100" width="80%"></progress></td>
@@ -262,6 +266,7 @@
                                                 <th>Schedule</th>
                                                 <th>Budget</th>
                                                 <th>Sales</th>
+                                                <th>Waiting PO</th>
                                                 <th>DayEvent</th>
                                                 <th>BM</th>
                                                 <th>Progress</th>
@@ -282,6 +287,7 @@
                                                 <td><?php echo $value->schedule; ?></td>
                                                 <td align="right"><?php echo  number_format($value->budget); ?></td>
                                                 <td align="right"><button  onclick="get_sales(<?php echo $value->id_product; ?>,'<?php echo $value->tema; ?>','<?php echo  number_format($value->sales); ?>');" style="border: none;background-color: Transparent; "><font color="blue"><?php echo  number_format($value->sales); ?></font></button></td>
+                                                <td align="right"><button  onclick="get_deal(<?php echo $value->id_product; ?>,'<?php echo $value->tema; ?>','<?php echo  number_format($value->deal); ?>');" style="border: none;background-color: Transparent; "><font color="blue"><?php echo  number_format($value->deal); ?></font></button></td>
                                                 <td align="center"><?php echo 'H-'.$value->day; ?></td>
                                                 <td align="right"><?php echo $value->benchmark; ?></td>
                                                 <td> <span class="p-1"><?php echo  $value->persen.' %'; ?></span> <progress value="<?php echo  $value->persen; ?>" max="100" width="80%"></progress></td>
@@ -324,6 +330,7 @@
                                                 <th>Schedule</th>
                                                 <th>Budget</th>
                                                 <th>Sales</th>
+                                                <th>Waiting PO</th>
                                                 <th>DayEvent</th>
                                                 <th>BM</th>
                                                 <th>Progress</th>
@@ -344,6 +351,8 @@
                                                 <td><?php echo $value->schedule; ?></td>
                                                 <td align="right"><?php echo  number_format($value->budget); ?></td>
                                                 <td align="right"><button  onclick="get_sales(<?php echo $value->id_product; ?>,'<?php echo $value->tema; ?>','<?php echo  number_format($value->sales); ?>');" style="border: none;background-color: Transparent; "><font color="blue"><?php echo  number_format($value->sales); ?></font></button></td>
+                                                <td align="right"><button  onclick="get_deal(<?php echo $value->id_product; ?>,'<?php echo $value->tema; ?>','<?php echo  number_format($value->deal); ?>');" style="border: none;background-color: Transparent; "><font color="blue"><?php echo  number_format($value->deal); ?></font></button></td>
+
                                                 <td align="center"><?php echo 'H-'.$value->day; ?></td>
                                                 <td align="right"><?php echo $value->benchmark; ?></td>
                                                 <td> <span class="p-1"><?php echo  $value->persen.' %'; ?></span> <progress value="<?php echo  $value->persen; ?>" max="100" width="80%"></progress></td>
@@ -444,6 +453,27 @@
                     </div>
                     <div class="modal-footer">
                     <h6 class="modal-title"> Total : <span id="sales_all"></span> </h6> 
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="det_deal" class="modal fade" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h6 class="modal-title">Deal (Waiting PO) </h6>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body" >
+                    <h6 class="modal-title"> 
+                                <span id="tema_event1"></span> </h6>     
+                    <table id="deal_det" class="display  table table-hover table-striped table-bordered" cellspacing="0" width="100%">             
+                    </table>
+                                   
+                    </div>
+                    <div class="modal-footer">
+                    <h6 class="modal-title"> Total : <span id="deal_all"></span> </h6> 
                     </div>
                 </div>
             </div>

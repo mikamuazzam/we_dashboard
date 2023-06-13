@@ -72,7 +72,7 @@
                         when DATEDIFF(schedule,CURRENT_DATE)  between 1 and 3 then '90%'
                         when schedule < CURRENT_DATE then '100%'
                         else '5%' end as benchmark,
-                        sales,event_id,id_product
+                        sales,event_id,a.product_id as id_product,deal
                     from events a 
                     left join tipe_events b on b.id=a.tipe_id 
                     left join (SELECT case when schedule < CURRENT_DATE and tipe_id !=6 then sum(bobot)/7 
@@ -84,6 +84,7 @@
                             inner join events e on e.id=a.event_id
                             where a.status = 'done' and a.workflow_id != 8 and a.status_id=1 group by 2) c on a.id=c.event_id 
                     left join (select sum(amount_po) as sales,id_product from deals where  id_stage in (3,5,6,7) group by 2) d on d.id_product=a.product_id
+                    left join (select sum(size) as deal,id_product prodid from deals where  id_stage in (2) group by 2) g on g.prodid=a.product_id
                     where a.status_id=1 and month(schedule)=$month and year(schedule)=$tahun order by schedule";  
         $db2 = $this->load->database('db2', TRUE);
         $query=$db2->query($sql); 
@@ -177,6 +178,19 @@
         $sql = "SELECT company_name,FORMAT(sum(amount_po),0) as sales,id_product 
                 from deals a
                 inner join companies b on a.id_company=b.id  where  id_stage in (3,5,6,7)
+                 and  id_product=$product_id group by 1,3
+                        ";  
+        $db2 = $this->load->database('db2', TRUE);
+        $query=$db2->query($sql); 
+        return $query->result_array();
+
+    }
+    public function det_deal($product_id){
+        
+        
+        $sql = "SELECT company_name,FORMAT(sum(size),0) as sales,id_product 
+                from deals a
+                inner join companies b on a.id_company=b.id  where  id_stage in (2)
                  and  id_product=$product_id group by 1,3
                         ";  
         $db2 = $this->load->database('db2', TRUE);
