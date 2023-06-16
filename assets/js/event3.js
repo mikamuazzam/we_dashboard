@@ -111,11 +111,6 @@ function get_list_acara_det(event_id,tema,bulanid)
 		info: false,
 		searching: false,
 		responsive: true,
-		"createdRow": function( row, data, dataIndex){
-		
-			$(row).css({"background-color":data['warna'] })
-		
-		},
 		
 		columns: [
 			
@@ -175,11 +170,6 @@ function get_list_acara_partner(event_id,tema,bulanid)
 		info: false,
 		searching: false,
 		responsive: true,
-		"createdRow": function( row, data, dataIndex){
-		
-			$(row).css({"background-color":data['warna'] })
-		
-		},
 		
 		columns: [
 			
