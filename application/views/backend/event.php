@@ -132,18 +132,23 @@
                             <h6 class="card-title">Detail Events Progress  - <?php echo $date = date('M Y', strtotime('-1 month'));?></h6>
                             <div class="" >
                                 <table id="list_event4" class="display table table-hover table-striped table-bordered" cellspacing="0" width="100%">
-                                        <thead>
-                                            <tr>
-                                                <th>No</th>
-                                                <th>Tema</th>
-                                                <th>Schedule</th>
-                                                <th>Budget</th>
-                                                <th>Sales PO</th>
-                                                <th>Waiting PO</th>
-                                                <th>DayEvent</th>
-                                                <th>BM</th>
-                                                <th>Progress</th>
-                                                <th>Status</th> 
+                                        <thead >
+                                            <tr bgcolor="#CDEBF4" style="border: 1px solid #CCC;">
+                                                <th style="vertical-align: middle; border: 1px solid #CCC;" rowspan="2">No</th>
+                                                <th style="vertical-align: middle; border: 1px solid #CCC;" rowspan="2" >Tema</th>
+                                                <th style="vertical-align: middle; border: 1px solid #CCC;" rowspan="2">Schedule</th>
+                                                <th style="vertical-align: middle; border: 1px solid #CCC;" rowspan="2">Budget</th>
+                                                <th colspan="3" style="text-align:center;">Revenue</th>
+                                                
+                                                <th  style="vertical-align: middle; border: 1px solid #CCC;" rowspan="2">DayEvent</th>
+                                                <th style="vertical-align: middle; border: 1px solid #CCC;" rowspan="2">BM</th>
+                                                <th style="vertical-align: middle; border: 1px solid #CCC;" rowspan="2">Progress</th>
+                                                <th style="vertical-align: middle; border: 1px solid #CCC;" rowspan="2">Status</th> 
+                                            </tr>
+                                            <tr bgcolor="#CDEBF4" style="border: 1px solid black;">
+                                                <th style="vertical-align: middle; border: 1px solid #CCC;" >Prediction</th>
+                                                <th style="vertical-align: middle; border: 1px solid #CCC;" >PO</th>
+                                                <th style="vertical-align: middle; border: 1px solid #CCC;">Waiting PO</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -158,6 +163,7 @@
                                                 <td><?php echo $value->tema; ?></td>
                                                 <td><?php echo $value->schedule; ?></td>
                                                 <td align="right"><?php echo  number_format($value->budget); ?></td>
+                                                <td align="right"><?php echo  number_format($value->pred); ?></td>
                                                 <td align="right"><button  onclick="get_sales(<?php echo $value->id_product; ?>,'<?php echo $value->tema; ?>','<?php echo  number_format($value->sales); ?>');" style="border: none;background-color: Transparent; "><font color="blue"><?php echo  number_format($value->sales); ?></font></button></td>
                                                 <td align="right"><button  onclick="get_deal(<?php echo $value->id_product; ?>,'<?php echo $value->tema; ?>','<?php echo  number_format($value->deal); ?>');" style="border: none;background-color: Transparent; "><font color="blue"><?php echo  number_format($value->deal); ?></font></button></td>
                                                 <td align="center"><?php echo 'H-'.$value->day; ?></td>
@@ -196,18 +202,23 @@
                             <h6 class="card-title">Detail Events Progress  - <?php echo $date = date('M Y');?></h6>
                             <div class="" >
                                 <table id="list_event" class="display table table-hover table-striped table-bordered" cellspacing="0" width="100%">
-                                        <thead>
-                                            <tr>
-                                                <th>No</th>
-                                                <th>Tema</th>
-                                                <th>Schedule</th>
-                                                <th>Budget</th>
-                                                <th>Sales</th>
-                                                <th>Waiting PO</th>
-                                                <th>DayEvent</th>
-                                                <th>BM</th>
-                                                <th>Progress</th>
-                                                <th>Status</th> 
+                                        <thead >
+                                            <tr bgcolor="#CDEBF4" style="border: 1px solid #CCC;">
+                                                <th style="vertical-align: middle; border: 1px solid #CCC;" rowspan="2">No</th>
+                                                <th style="vertical-align: middle; border: 1px solid #CCC;" rowspan="2" >Tema</th>
+                                                <th style="vertical-align: middle; border: 1px solid #CCC;" rowspan="2">Schedule</th>
+                                                <th style="vertical-align: middle; border: 1px solid #CCC;" rowspan="2">Budget</th>
+                                                <th colspan="3" style="text-align:center;">Revenue</th>
+                                                
+                                                <th  style="vertical-align: middle; border: 1px solid #CCC;" rowspan="2">DayEvent</th>
+                                                <th style="vertical-align: middle; border: 1px solid #CCC;" rowspan="2">BM</th>
+                                                <th style="vertical-align: middle; border: 1px solid #CCC;" rowspan="2">Progress</th>
+                                                <th style="vertical-align: middle; border: 1px solid #CCC;" rowspan="2">Status</th> 
+                                            </tr>
+                                            <tr bgcolor="#CDEBF4" style="border: 1px solid black;">
+                                                <th style="vertical-align: middle; border: 1px solid #CCC;" >Prediction</th>
+                                                <th style="vertical-align: middle; border: 1px solid #CCC;" >PO</th>
+                                                <th style="vertical-align: middle; border: 1px solid #CCC;">Waiting PO</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -222,6 +233,7 @@
                                                 <td><?php echo $value->tema; ?></td>
                                                 <td><?php echo $value->schedule; ?></td>
                                                 <td align="right"><?php echo  number_format($value->budget); ?></td>
+                                                <td align="right"><?php echo  number_format($value->pred); ?></td>
                                                 <td align="right"><button  onclick="get_sales(<?php echo $value->id_product; ?>,'<?php echo $value->tema; ?>','<?php echo  number_format($value->sales); ?>');" style="border: none;background-color: Transparent; "><font color="blue"><?php echo  number_format($value->sales); ?></font></button></td>
                                                 <td align="right"><button  onclick="get_deal(<?php echo $value->id_product; ?>,'<?php echo $value->tema; ?>','<?php echo  number_format($value->deal); ?>');" style="border: none;background-color: Transparent; "><font color="blue"><?php echo  number_format($value->deal); ?></font></button></td>
                                                 <td align="center"><?php echo 'H-'.$value->day; ?></td>
@@ -259,18 +271,23 @@
                             <h6 class="card-title">Detail Events Progress  -  <?php echo $date = date('M Y', strtotime('+1 month'));?></h6>
                             <div class="" >
                                 <table id="list_event" class="display table table-hover table-striped table-bordered" cellspacing="0" width="100%">
-                                        <thead>
-                                            <tr>
-                                                <th>No</th>
-                                                <th>Tema</th>
-                                                <th>Schedule</th>
-                                                <th>Budget</th>
-                                                <th>Sales</th>
-                                                <th>Waiting PO</th>
-                                                <th>DayEvent</th>
-                                                <th>BM</th>
-                                                <th>Progress</th>
-                                                <th>Status</th> 
+                                        <thead >
+                                            <tr bgcolor="#CDEBF4" style="border: 1px solid #CCC;">
+                                                <th style="vertical-align: middle; border: 1px solid #CCC;" rowspan="2">No</th>
+                                                <th style="vertical-align: middle; border: 1px solid #CCC;" rowspan="2" >Tema</th>
+                                                <th style="vertical-align: middle; border: 1px solid #CCC;" rowspan="2">Schedule</th>
+                                                <th style="vertical-align: middle; border: 1px solid #CCC;" rowspan="2">Budget</th>
+                                                <th colspan="3" style="text-align:center;">Revenue</th>
+                                                
+                                                <th  style="vertical-align: middle; border: 1px solid #CCC;" rowspan="2">DayEvent</th>
+                                                <th style="vertical-align: middle; border: 1px solid #CCC;" rowspan="2">BM</th>
+                                                <th style="vertical-align: middle; border: 1px solid #CCC;" rowspan="2">Progress</th>
+                                                <th style="vertical-align: middle; border: 1px solid #CCC;" rowspan="2">Status</th> 
+                                            </tr>
+                                            <tr bgcolor="#CDEBF4" style="border: 1px solid black;">
+                                                <th style="vertical-align: middle; border: 1px solid #CCC;" >Prediction</th>
+                                                <th style="vertical-align: middle; border: 1px solid #CCC;" >PO</th>
+                                                <th style="vertical-align: middle; border: 1px solid #CCC;">Waiting PO</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -286,6 +303,7 @@
                                                 <td><?php echo $value->tema; ?></td>
                                                 <td><?php echo $value->schedule; ?></td>
                                                 <td align="right"><?php echo  number_format($value->budget); ?></td>
+                                                <td align="right"><?php echo  number_format($value->pred); ?></td>
                                                 <td align="right"><button  onclick="get_sales(<?php echo $value->id_product; ?>,'<?php echo $value->tema; ?>','<?php echo  number_format($value->sales); ?>');" style="border: none;background-color: Transparent; "><font color="blue"><?php echo  number_format($value->sales); ?></font></button></td>
                                                 <td align="right"><button  onclick="get_deal(<?php echo $value->id_product; ?>,'<?php echo $value->tema; ?>','<?php echo  number_format($value->deal); ?>');" style="border: none;background-color: Transparent; "><font color="blue"><?php echo  number_format($value->deal); ?></font></button></td>
                                                 <td align="center"><?php echo 'H-'.$value->day; ?></td>
@@ -323,18 +341,23 @@
                             <h6 class="card-title">Detail Events Progress  -  <?php echo $date = date('M Y', strtotime('+2 month'));?></h6>
                             <div class="" >
                                 <table id="list_event" class="display table table-hover table-striped table-bordered" cellspacing="0" width="80%">
-                                        <thead>
-                                            <tr>
-                                                <th>No</th>
-                                                <th>Tema</th>
-                                                <th>Schedule</th>
-                                                <th>Budget</th>
-                                                <th>Sales</th>
-                                                <th>Waiting PO</th>
-                                                <th>DayEvent</th>
-                                                <th>BM</th>
-                                                <th>Progress</th>
-                                                <th>Status</th> 
+                                        <thead >
+                                            <tr bgcolor="#CDEBF4" style="border: 1px solid #CCC;">
+                                                <th style="vertical-align: middle; border: 1px solid #CCC;" rowspan="2">No</th>
+                                                <th style="vertical-align: middle; border: 1px solid #CCC;" rowspan="2" >Tema</th>
+                                                <th style="vertical-align: middle; border: 1px solid #CCC;" rowspan="2">Schedule</th>
+                                                <th style="vertical-align: middle; border: 1px solid #CCC;" rowspan="2">Budget</th>
+                                                <th colspan="3" style="text-align:center;">Revenue</th>
+                                                
+                                                <th  style="vertical-align: middle; border: 1px solid #CCC;" rowspan="2">DayEvent</th>
+                                                <th style="vertical-align: middle; border: 1px solid #CCC;" rowspan="2">BM</th>
+                                                <th style="vertical-align: middle; border: 1px solid #CCC;" rowspan="2">Progress</th>
+                                                <th style="vertical-align: middle; border: 1px solid #CCC;" rowspan="2">Status</th> 
+                                            </tr>
+                                            <tr bgcolor="#CDEBF4" style="border: 1px solid black;">
+                                                <th style="vertical-align: middle; border: 1px solid #CCC;" >Prediction</th>
+                                                <th style="vertical-align: middle; border: 1px solid #CCC;" >PO</th>
+                                                <th style="vertical-align: middle; border: 1px solid #CCC;">Waiting PO</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -350,6 +373,7 @@
                                                 <td><?php echo $value->tema; ?></td>
                                                 <td><?php echo $value->schedule; ?></td>
                                                 <td align="right"><?php echo  number_format($value->budget); ?></td>
+                                                <td align="right"><?php echo  number_format($value->pred); ?></td>
                                                 <td align="right"><button  onclick="get_sales(<?php echo $value->id_product; ?>,'<?php echo $value->tema; ?>','<?php echo  number_format($value->sales); ?>');" style="border: none;background-color: Transparent; "><font color="blue"><?php echo  number_format($value->sales); ?></font></button></td>
                                                 <td align="right"><button  onclick="get_deal(<?php echo $value->id_product; ?>,'<?php echo $value->tema; ?>','<?php echo  number_format($value->deal); ?>');" style="border: none;background-color: Transparent; "><font color="blue"><?php echo  number_format($value->deal); ?></font></button></td>
 
