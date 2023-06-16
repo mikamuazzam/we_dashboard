@@ -72,9 +72,10 @@
                         when DATEDIFF(schedule,CURRENT_DATE)  between 1 and 3 then '90%'
                         when schedule < CURRENT_DATE then '100%'
                         else '5%' end as benchmark,
-                        sales,event_id,a.product_id as id_product,deal,prediksi_revenue as pred
+                        sales,event_id,a.product_id as id_product,deal,prediksi_revenue as pred,nama_partner
                     from events a 
                     left join tipe_events b on b.id=a.tipe_id 
+                    left join partners p on p.id=a.partner_id
                     left join (SELECT case when schedule < CURRENT_DATE and tipe_id !=6 then sum(bobot)/7 
                                            when schedule < CURRENT_DATE and tipe_id =6 then sum(bobot)/8
                                            when tipe_id=6 then sum(bobot)/7 

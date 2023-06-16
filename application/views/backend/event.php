@@ -135,6 +135,7 @@
                                         <thead >
                                             <tr bgcolor="#CDEBF4" style="border: 1px solid #CCC;">
                                                 <th style="vertical-align: middle; border: 1px solid #CCC;" rowspan="2">No</th>
+                                                <th style="vertical-align: middle; border: 1px solid #CCC;" rowspan="2" >Partner</th>
                                                 <th style="vertical-align: middle; border: 1px solid #CCC;" rowspan="2" >Tema</th>
                                                 <th style="vertical-align: middle; border: 1px solid #CCC;" rowspan="2">Schedule</th>
                                                 <th style="vertical-align: middle; border: 1px solid #CCC;" rowspan="2">Budget</th>
@@ -160,10 +161,12 @@
                                             <tr >
 
                                                 <td><?php echo $i++; ?></td>
+                                                <td><?php echo $value->nama_partner; ?></td>
                                                 <td><?php echo $value->tema; ?></td>
+                                               
                                                 <td><?php echo $value->schedule; ?></td>
                                                 <td align="right"><?php echo  number_format($value->budget); ?></td>
-                                                <td align="right"><?php echo  number_format($value->pred); ?></td>
+                                                <td align="right"><b><?php echo  number_format($value->pred); ?></b></td>
                                                 <td align="right"><button  onclick="get_sales(<?php echo $value->id_product; ?>,'<?php echo $value->tema; ?>','<?php echo  number_format($value->sales); ?>');" style="border: none;background-color: Transparent; "><font color="blue"><?php echo  number_format($value->sales); ?></font></button></td>
                                                 <td align="right"><button  onclick="get_deal(<?php echo $value->id_product; ?>,'<?php echo $value->tema; ?>','<?php echo  number_format($value->deal); ?>');" style="border: none;background-color: Transparent; "><font color="blue"><?php echo  number_format($value->deal); ?></font></button></td>
                                                 <td align="center"><?php echo 'H-'.$value->day; ?></td>
@@ -205,6 +208,7 @@
                                         <thead >
                                             <tr bgcolor="#CDEBF4" style="border: 1px solid #CCC;">
                                                 <th style="vertical-align: middle; border: 1px solid #CCC;" rowspan="2">No</th>
+                                                <th style="vertical-align: middle; border: 1px solid #CCC;" rowspan="2" >Partner</th>
                                                 <th style="vertical-align: middle; border: 1px solid #CCC;" rowspan="2" >Tema</th>
                                                 <th style="vertical-align: middle; border: 1px solid #CCC;" rowspan="2">Schedule</th>
                                                 <th style="vertical-align: middle; border: 1px solid #CCC;" rowspan="2">Budget</th>
@@ -230,10 +234,11 @@
                                             <tr >
 
                                                 <td><?php echo $i++; ?></td>
+                                                <td><?php echo $value->nama_partner; ?></td>
                                                 <td><?php echo $value->tema; ?></td>
                                                 <td><?php echo $value->schedule; ?></td>
                                                 <td align="right"><?php echo  number_format($value->budget); ?></td>
-                                                <td align="right"><?php echo  number_format($value->pred); ?></td>
+                                                <td align="right"><b><?php echo  number_format($value->pred); ?></b></td>
                                                 <td align="right"><button  onclick="get_sales(<?php echo $value->id_product; ?>,'<?php echo $value->tema; ?>','<?php echo  number_format($value->sales); ?>');" style="border: none;background-color: Transparent; "><font color="blue"><?php echo  number_format($value->sales); ?></font></button></td>
                                                 <td align="right"><button  onclick="get_deal(<?php echo $value->id_product; ?>,'<?php echo $value->tema; ?>','<?php echo  number_format($value->deal); ?>');" style="border: none;background-color: Transparent; "><font color="blue"><?php echo  number_format($value->deal); ?></font></button></td>
                                                 <td align="center"><?php echo 'H-'.$value->day; ?></td>
@@ -274,6 +279,7 @@
                                         <thead >
                                             <tr bgcolor="#CDEBF4" style="border: 1px solid #CCC;">
                                                 <th style="vertical-align: middle; border: 1px solid #CCC;" rowspan="2">No</th>
+                                                <th style="vertical-align: middle; border: 1px solid #CCC;" rowspan="2" >Partner</th>
                                                 <th style="vertical-align: middle; border: 1px solid #CCC;" rowspan="2" >Tema</th>
                                                 <th style="vertical-align: middle; border: 1px solid #CCC;" rowspan="2">Schedule</th>
                                                 <th style="vertical-align: middle; border: 1px solid #CCC;" rowspan="2">Budget</th>
@@ -300,10 +306,11 @@
                                             <tr >
 
                                                 <td><?php echo $i++; ?></td>
+                                                <td><?php echo $value->nama_partner; ?></td>
                                                 <td><?php echo $value->tema; ?></td>
                                                 <td><?php echo $value->schedule; ?></td>
                                                 <td align="right"><?php echo  number_format($value->budget); ?></td>
-                                                <td align="right"><?php echo  number_format($value->pred); ?></td>
+                                                <td align="right"><b><?php echo  number_format($value->pred); ?></b></td>
                                                 <td align="right"><button  onclick="get_sales(<?php echo $value->id_product; ?>,'<?php echo $value->tema; ?>','<?php echo  number_format($value->sales); ?>');" style="border: none;background-color: Transparent; "><font color="blue"><?php echo  number_format($value->sales); ?></font></button></td>
                                                 <td align="right"><button  onclick="get_deal(<?php echo $value->id_product; ?>,'<?php echo $value->tema; ?>','<?php echo  number_format($value->deal); ?>');" style="border: none;background-color: Transparent; "><font color="blue"><?php echo  number_format($value->deal); ?></font></button></td>
                                                 <td align="center"><?php echo 'H-'.$value->day; ?></td>
@@ -344,6 +351,7 @@
                                         <thead >
                                             <tr bgcolor="#CDEBF4" style="border: 1px solid #CCC;">
                                                 <th style="vertical-align: middle; border: 1px solid #CCC;" rowspan="2">No</th>
+                                                <th style="vertical-align: middle; border: 1px solid #CCC;" rowspan="2" >Partner</th>
                                                 <th style="vertical-align: middle; border: 1px solid #CCC;" rowspan="2" >Tema</th>
                                                 <th style="vertical-align: middle; border: 1px solid #CCC;" rowspan="2">Schedule</th>
                                                 <th style="vertical-align: middle; border: 1px solid #CCC;" rowspan="2">Budget</th>
@@ -370,10 +378,11 @@
                                             <tr >
 
                                                 <td><?php echo $i++; ?></td>
+                                                <td><?php echo $value->nama_partner; ?></td>
                                                 <td><?php echo $value->tema; ?></td>
                                                 <td><?php echo $value->schedule; ?></td>
                                                 <td align="right"><?php echo  number_format($value->budget); ?></td>
-                                                <td align="right"><?php echo  number_format($value->pred); ?></td>
+                                                <td align="right"><b><?php echo  number_format($value->pred); ?></b></td>
                                                 <td align="right"><button  onclick="get_sales(<?php echo $value->id_product; ?>,'<?php echo $value->tema; ?>','<?php echo  number_format($value->sales); ?>');" style="border: none;background-color: Transparent; "><font color="blue"><?php echo  number_format($value->sales); ?></font></button></td>
                                                 <td align="right"><button  onclick="get_deal(<?php echo $value->id_product; ?>,'<?php echo $value->tema; ?>','<?php echo  number_format($value->deal); ?>');" style="border: none;background-color: Transparent; "><font color="blue"><?php echo  number_format($value->deal); ?></font></button></td>
 
