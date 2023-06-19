@@ -153,10 +153,21 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                           <?php $i=1; foreach($list_event4 as $value): 
-                                            if($value->warna=='red') $stt='Warning';
-                                            else if ($value->warna=='green') $stt='Done';
-                                            else $stt='OK';
+                                           <?php $i=1; 
+                                            $tot_pred=0;
+                                            $tot_budget=0;
+                                            $tot_po=0;
+                                            $tot_waiting=0;
+                                            foreach($list_event4 as $value): 
+                                                if($value->warna=='red') $stt='Warning';
+                                                else if ($value->warna=='green') $stt='Done';
+                                                else $stt='OK';
+
+
+                                                $tot_pred=$tot_pred+$value->pred;
+                                                $tot_budget=$tot_budget + $value->budget ;
+                                                $tot_po=$tot_po + $value->sales;
+                                                $tot_waiting=$tot_waiting + $value->deal;
                                             ?>
                                             <tr >
 
@@ -190,7 +201,21 @@
                                                 </td>
                                             </tr>
                                             <?php endforeach; ?>
+                                           
+                                            
                                         </tbody>
+                                        <thead>
+                                        <tr bgcolor="#CDEBF4" style="border: 1px solid #CCC;">
+                                                <th style="text-align:right; border: 1px solid #CCC;" colspan="4" >Total </th>
+                                                <th style="text-align:right;  border: 1px solid #CCC;"><?php echo  number_format($tot_budget); ?></th>
+                                                <th style="text-align:right;   border: 1px solid #CCC;"><?php echo  number_format($tot_pred); ?></th>
+                                               
+                                                <th style="text-align:right;  border: 1px solid #CCC;"><?php echo  number_format($tot_po); ?></th>
+                                                <th style="text-align:right;  border: 1px solid #CCC;"><?php echo  number_format($tot_waiting); ?></th>
+                                                <th style="text-align:right; border: 1px solid #CCC;" colspan="4"></th>
+                                                
+                                            </tr>
+                                        </thead>
                                     </table>
                             </div>
                             </div>
@@ -226,10 +251,21 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                           <?php $i=1; foreach($list_event1 as $value): 
-                                            if($value->warna=='red') $stt='Warning';
-                                            else if ($value->warna=='green') $stt='Done';
-                                            else $stt='OK';
+                                           <?php $i=1; 
+                                             $tot_pred=0;
+                                             $tot_budget=0;
+                                             $tot_po=0;
+                                             $tot_waiting=0;
+                                             foreach($list_event1 as $value): 
+                                                 if($value->warna=='red') $stt='Warning';
+                                                 else if ($value->warna=='green') $stt='Done';
+                                                 else $stt='OK';
+ 
+ 
+                                                 $tot_pred=$tot_pred+$value->pred;
+                                                 $tot_budget=$tot_budget + $value->budget ;
+                                                 $tot_po=$tot_po + $value->sales;
+                                                 $tot_waiting=$tot_waiting + $value->deal;
                                             ?>
                                             <tr >
 
@@ -261,6 +297,18 @@
                                             </tr>
                                             <?php endforeach; ?>
                                         </tbody>
+                                        <thead>
+                                        <tr bgcolor="#CDEBF4" style="border: 1px solid #CCC;">
+                                                <th style="text-align:right; border: 1px solid #CCC;" colspan="4" >Total </th>
+                                                <th style="text-align:right;  border: 1px solid #CCC;"><?php echo  number_format($tot_budget); ?></th>
+                                                <th style="text-align:right;   border: 1px solid #CCC;"><?php echo  number_format($tot_pred); ?></th>
+                                               
+                                                <th style="text-align:right;  border: 1px solid #CCC;"><?php echo  number_format($tot_po); ?></th>
+                                                <th style="text-align:right;  border: 1px solid #CCC;"><?php echo  number_format($tot_waiting); ?></th>
+                                                <th style="text-align:right; border: 1px solid #CCC;" colspan="4"></th>
+                                                
+                                            </tr>
+                                        </thead>
                                     </table>
                             </div>
                             </div>
@@ -297,10 +345,21 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                        <?php $i=1; foreach($list_event2 as $value): 
-                                            if($value->warna=='red') $stt='Warning';
-                                            else if ($value->warna=='green') $stt='Done';
-                                            else $stt='OK';
+                                        <?php $i=1; 
+                                            $tot_pred=0;
+                                            $tot_budget=0;
+                                            $tot_po=0;
+                                            $tot_waiting=0;
+                                            foreach($list_event2 as $value): 
+                                                if($value->warna=='red') $stt='Warning';
+                                                else if ($value->warna=='green') $stt='Done';
+                                                else $stt='OK';
+
+
+                                                $tot_pred=$tot_pred+$value->pred;
+                                                $tot_budget=$tot_budget + $value->budget ;
+                                                $tot_po=$tot_po + $value->sales;
+                                                $tot_waiting=$tot_waiting + $value->deal;
                                             ?>
                                             <tr >
                                             <tr >
@@ -333,6 +392,18 @@
                                             </tr>
                                             <?php endforeach; ?>
                                         </tbody>
+                                        <thead>
+                                        <tr bgcolor="#CDEBF4" style="border: 1px solid #CCC;">
+                                                <th style="text-align:right; border: 1px solid #CCC;" colspan="4" >Total </th>
+                                                <th style="text-align:right;  border: 1px solid #CCC;"><?php echo  number_format($tot_budget); ?></th>
+                                                <th style="text-align:right;   border: 1px solid #CCC;"><?php echo  number_format($tot_pred); ?></th>
+                                               
+                                                <th style="text-align:right;  border: 1px solid #CCC;"><?php echo  number_format($tot_po); ?></th>
+                                                <th style="text-align:right;  border: 1px solid #CCC;"><?php echo  number_format($tot_waiting); ?></th>
+                                                <th style="text-align:right; border: 1px solid #CCC;" colspan="4"></th>
+                                                
+                                            </tr>
+                                        </thead>
                                     </table>
                             </div>
                             </div>
@@ -369,10 +440,21 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                        <?php $i=1; foreach($list_event3 as $value): 
-                                            if($value->warna=='red') $stt='Warning';
-                                            else if ($value->warna=='green') $stt='Done';
-                                            else $stt='OK';
+                                        <?php $i=1; 
+                                             $tot_pred=0;
+                                             $tot_budget=0;
+                                             $tot_po=0;
+                                             $tot_waiting=0;
+                                             foreach($list_event3 as $value): 
+                                                 if($value->warna=='red') $stt='Warning';
+                                                 else if ($value->warna=='green') $stt='Done';
+                                                 else $stt='OK';
+ 
+ 
+                                                 $tot_pred=$tot_pred+$value->pred;
+                                                 $tot_budget=$tot_budget + $value->budget ;
+                                                 $tot_po=$tot_po + $value->sales;
+                                                 $tot_waiting=$tot_waiting + $value->deal;
                                             ?>
                                             <tr >
                                             <tr >
@@ -405,6 +487,18 @@
                                             </tr>
                                             <?php endforeach; ?>
                                         </tbody>
+                                        <thead>
+                                        <tr bgcolor="#CDEBF4" style="border: 1px solid #CCC;">
+                                                <th style="text-align:right; border: 1px solid #CCC;" colspan="4" >Total </th>
+                                                <th style="text-align:right;  border: 1px solid #CCC;"><?php echo  number_format($tot_budget); ?></th>
+                                                <th style="text-align:right;   border: 1px solid #CCC;"><?php echo  number_format($tot_pred); ?></th>
+                                               
+                                                <th style="text-align:right;  border: 1px solid #CCC;"><?php echo  number_format($tot_po); ?></th>
+                                                <th style="text-align:right;  border: 1px solid #CCC;"><?php echo  number_format($tot_waiting); ?></th>
+                                                <th style="text-align:right; border: 1px solid #CCC;" colspan="4"></th>
+                                                
+                                            </tr>
+                                        </thead>
                                     </table>
                             </div>
                             </div>
