@@ -23,7 +23,8 @@
                         <div class="card">
                             <div class="card-body">
                             <h6 class="card-title">List Events - <?php echo $date = date('M Y');?></h6>
-                                <div class="" >
+                            <font color="#EC6C50" size="2px"><b>*Tentatif</b></font>
+                                <div class="">
                                     <table id="weblist1"  class="display table table-hover table-striped table-bordered" width="100%">
                                        
                                     </table>
@@ -35,6 +36,7 @@
                         <div class="card">
                             <div class="card-body">
                             <h6 class="card-title">List Events - <?php echo $date = date('M Y', strtotime('+1 month'));?></h6>
+                                <font color="#EC6C50" size="2px"><b>*Tentatif</b></font>
                                 <div class="" >
                                     <table id="weblist2" class="display  table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                                        
@@ -47,6 +49,7 @@
                         <div class="card">
                             <div class="card-body">
                             <h6 class="card-title">List Events - <?php echo $date = date('M Y', strtotime('+2 month'));?> </h6>
+                            <font color="#EC6C50" size="2px"><b>*Tentatif</b></font>
                                 <div class="" >
                                     <table id="weblist3" class="display  table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                                        

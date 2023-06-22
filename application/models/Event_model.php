@@ -42,7 +42,7 @@
 
         if($month > 12) $month= $month-12;
         $sql = "SELECT  tanggal,start_time,finish_time,deskripsi acara,present,status, 
-        case when tanggal between CURRENT_DATE and CURRENT_DATE+ 3 then '#FDB3D7' end as warna 
+        case when id_status =4  then '#FAAC9B' end as warna 
         from cal_event where month(tanggal)= '$month' and year(tanggal)='$tahun' order by tanggal ";  
         $query=$this->db->query($sql); 
         return $query->result_array();
