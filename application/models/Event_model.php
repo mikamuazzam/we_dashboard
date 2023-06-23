@@ -7,9 +7,15 @@
 	parent::__construct();
 	
 	}
+    public function get_partner() {
+        $partnerid= $this->session->userdata('partner_id');
+        if($partnerid != 0) $where_partner=" and partner_id=$partnerid";
+        else $where_partner='';
+        return $where_partner;
+    }
 
     public function sum_event($bulan){
-
+        $where_partner = $this->get_partner();
         $curr_month=date('m');
         $curr_year=date('Y');
         if($bulan==1) { $month=$curr_month; $tahun=$curr_year;}
@@ -25,7 +31,7 @@
                      when b.id=6 then  '#F291FA' else 'blue' end as warna from events a 
                 inner join tipe_events b on a.tipe_id=b.id 
                 left join (select sum(amount_po) as sales,id_product from deals where  id_stage in (3,5,6,7) group by 2) d on d.id_product=a.product_id
-                where month(SCHEDULE)=$month and year(schedule)=$tahun and status_id=1 group by tipe_id";  
+                where month(SCHEDULE)=$month and year(schedule)=$tahun and status_id=1 $where_partner group by tipe_id";  
         $db2 = $this->load->database('db2', TRUE); 
         $query=$db2->query($sql); 
         return $query->result_array();
@@ -41,13 +47,17 @@
         if($bulan==3) { $month=$curr_month +2; $tahun=$curr_year; if($curr_month==11)$tahun = $curr_year+1;}
 
         if($month > 12) $month= $month-12;
+
+        $where_partner = $this->get_partner();
+
         $sql = "SELECT  tanggal,start_time,finish_time,deskripsi acara,present,status, 
         case when id_status =4  then '#FAAC9B' end as warna 
-        from cal_event where month(tanggal)= '$month' and year(tanggal)='$tahun' order by tanggal ";  
+        from cal_event where month(tanggal)= '$month' and year(tanggal)='$tahun' $where_partner order by tanggal ";  
         $query=$this->db->query($sql); 
         return $query->result_array();
 
     }
+    
     public function list_event2($bulan){
         $curr_month=date('m');
         $curr_year=date('Y');
@@ -59,7 +69,8 @@
 
         if($month > 12) $month= $month-12;
         if($month < 1) $month= 12;
-
+        
+        $where_partner = $this->get_partner();
         $sql = "select b.name tipe_award,tema,schedule, budget,tipe_id,a.id as event_id,ROUND(bobot, 2) as persen ,
                         case when DATEDIFF(schedule,CURRENT_DATE) > 0 then DATEDIFF(schedule,CURRENT_DATE) else 0 end as 'day',
                         case when DATEDIFF(schedule,CURRENT_DATE)  between 7 and 22 and  bobot <= 21 then 'red'
@@ -86,7 +97,7 @@
                             where a.status = 'done' and a.workflow_id != 8 and a.status_id=1 group by 2) c on a.id=c.event_id 
                     left join (select sum(amount_po) as sales,id_product from deals where  id_stage in (3,5,6,7) group by 2) d on d.id_product=a.product_id
                     left join (select sum(size) as deal,id_product prodid from deals where  id_stage in (2) group by 2) g on g.prodid=a.product_id
-                    where a.status_id=1 and month(schedule)=$month and year(schedule)=$tahun order by schedule";  
+                    where a.status_id=1 and month(schedule)=$month and year(schedule)=$tahun $where_partner order by schedule";  
         $db2 = $this->load->database('db2', TRUE);
         $query=$db2->query($sql); 
          return $query->result();

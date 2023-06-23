@@ -105,6 +105,7 @@ class Login extends CI_Controller {
             $this->session->set_userdata('user_image', $row->em_image);
 			$this->session->set_userdata('dept', $row->dep_id);
             $this->session->set_userdata('user_type', $row->em_role);
+			$this->session->set_userdata('partner_id', $row->em_partnerid);
             return 'success';
         }
 	}
