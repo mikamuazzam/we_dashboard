@@ -120,7 +120,7 @@
     }
     public function list_event_det($event_id){
         
-        
+        $partner=$this->session->userdata('partner_id');
         $sql = "SELECT name as nama,case when bobot is null then 0 else bobot end as progress,e.id as workflowid,
                         case when DATEDIFF((SELECT schedule from events where id=$event_id),CURRENT_DATE) > 0 then DATEDIFF((SELECT schedule from events where id=$event_id),CURRENT_DATE) else 0 end as 'day',
                         case when DATEDIFF((SELECT schedule from events where id=$event_id),CURRENT_DATE)  between 7 and 22 then H22
@@ -133,7 +133,7 @@
                             when DATEDIFF((SELECT schedule from events where id=$event_id),CURRENT_DATE)  between 1 and 3  and bobot < H3 then '#FDB3D7'
                         
                             when (SELECT schedule from events where id=$event_id) < CURRENT_DATE and bobot < 100 then '#FDB3D7'
-                        else '' end as warna 
+                        else '' end as warna , '$partner' as partnerid 
                      from workflows e 
                      left join (SELECT sum(bobot)as bobot,c.name nama_workflow,c.id workflowid 
                                 from daily_tasks a 
@@ -178,6 +178,15 @@
             where workflow_id=$workflowid and tipe_event_id= $tipe_id            "; 
    
         } 
+
+        if($this->session->userdata('partner_id') !=0 and $workflowid==2) 
+        {
+            $sql = "SELECT detail,bobot,case when stt_det is null then 'Not Yet' else stt_det end as stt ,kegiatan
+            FROM `detail_workflows` a 
+                left join (select detail_id det_id,status stt_det,kegiatan from daily_tasks 
+                            where event_id=$event_id and status_id=1 and status='done' )b on a.id = b.det_id 
+            where workflow_id=9999           "; 
+        }
         $db2 = $this->load->database('db2', TRUE);
         $query=$db2->query($sql); 
         return $query->result_array();

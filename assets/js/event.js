@@ -111,18 +111,82 @@ function get_list_acara_det(event_id,tema,bulanid)
 		info: false,
 		searching: false,
 		responsive: true,
-		"createdRow": function( row, data, dataIndex){
-		
-			$(row).css({"background-color":data['warna'] })
-		
-		},
 		
 		columns: [
 			
 			{ data: "nama", title: "Name" },
 			{ data: "bm", title: "BM" },
 			{ data: "progress", title: "Progress" },
-			{ data: "null", title: "" ,defaultContent: '<button>>></button>'}
+			{ data: "null", title: "" }
+		],
+		columnDefs: [{
+			// puts a button in the last column
+			targets: [-1], render: function (a, b, data, d) {
+				if (data.workflowid == 2 && data.partnerid == 6) {
+					return "";
+				}
+				else {
+					return "<button type='button'>>></button>";
+				}
+			}
+		}],
+		processing: true,
+		serverSide: true,
+		ajax: {
+			data :{event_id:event_id},
+			url: base_url+"/event/list_eventdet",
+			type: 'post',
+			dataType: 'json',
+			dataSrc:""
+		},
+	});
+
+    $('#eventlistdet').on('click', 'button', function () {
+		$('#tabel_det').show();
+        var data = table.row($(this).parents('tr')).data();
+		if(data['progress'] != 0){
+			
+			var wfid=data['workflowid'];
+			$("#StatusTitleDet").text(data['nama']); 
+			get_task_det(event_id,wfid);
+			if(wfid == 8)
+			{
+				get_list_eval(event_id);
+			} 
+			
+		}
+		else
+		{
+			//alert('No Progress');
+			$('#tabel_det').hide();
+			//get_task_det(0,0);
+		}
+		
+    });
+
+}
+
+function get_list_acara_partner(event_id,tema,bulanid)
+{
+	
+	
+	$("#detWorkflow").modal('show');
+	
+	$("#StatusTitle").text(tema);
+	
+	var table= $("#eventlistdet").DataTable({
+		destroy: true,
+		paging: false,
+		info: false,
+		searching: false,
+		responsive: true,
+		
+		columns: [
+			
+			{ data: "nama", title: "Name" },
+			{ data: "bm", title: "BM" },
+			{ data: "progress", title: "Progress" },
+			
 		],
 		
 		processing: true,
@@ -135,31 +199,15 @@ function get_list_acara_det(event_id,tema,bulanid)
 			dataSrc:""
 		},
 	});
-    $('#eventlistdet').on('click', 'button', function () {
-		$('#tabel_det').show();
-        var data = table.row($(this).parents('tr')).data();
-		if(data['progress'] != 0){
-			
-			var wfid=data['workflowid'];
-			$("#StatusTitleDet").text(data['nama']);
-			get_task_det(event_id,wfid);
-		}
-		else
-		{
-			alert('No Progress');
-			$('#tabel_det').hide();
-			//get_task_det(0,0);
-		}
-		
-    });
-
+	
+  
 }
 
 
 function get_list_event()
 {
 	
-	var table = $("#eventlist").DataTable({
+	var table = $("#list_event4").DataTable({
 		destroy: true,
 		paging: false,
 		info: false,
@@ -167,31 +215,31 @@ function get_list_event()
 		responsive: true,
 		pageLength: 10,
 		lengthMenu: [10, 25, 50, 75],
-		// scrollX: true,
-		// scrollCollapse: true,
-		"createdRow": function( row, data, dataIndex){
 		
-				$(row).css({"background-color":data['warna'] })
-			
-		},
 		columns: [
-			{ data: "tipe_award", title: "Tipe" },
+			{ data: "", title: "No" },
 			{ data: "tema", title: "Tema" },
 			{ data: "schedule", title: "Schedule" },
 			{ data: "budget", title: "Budget" },
 			{ data: "persen", title: "Progress",
             render: function (data, type, row, meta) {
                 return type === 'display'
-                    ? '<progress value="' + data + '" max="100"></progress>'
+                    ? data+'%  <progress value="' + data + '" max="100"></progress>'
                     : data;
             } 
             },
-            { data: "", title: "Persentase" },
+            
 		],
 		columnDefs: [
             {
-                targets: 5,
-                defaultContent: '<button>click</button>',
+                targets: 0,
+                "searchable": false,
+				"orderable": false,
+				"data": null,
+				"title": 'No.',
+				"render": function (data, type, full, meta) {
+					return meta.settings._iDisplayStart + meta.row + 1; 
+				}
             },
         ],
 		processing: true,
@@ -204,6 +252,8 @@ function get_list_event()
 			dataSrc:""
 		},
 	});
+
+	
 }
 
 function nl2br (str, is_xhtml) {
@@ -244,7 +294,7 @@ function get_task_det(event_id,workflowid)
 	$('#task_det').on('click', 'button', function () {
         var data = table.row($(this).parents('tr')).data();
 		$('#kegiatan').html(nl2br(data['kegiatan']));
-		//$("#kegiatan").text(data['kegiatan']);
+		
 		$("#det_kegiatan").modal('show');
 		
 		//alert(data['kegiatan']);
@@ -427,5 +477,139 @@ function sum_rev(bulan)
 		
 }
 
+function get_sales(productid,tema,sales)
+{
+	get_list_sales(productid);
+	$("#tema_event").text(tema);
+	$("#sales_all").text(sales);
+	$("#det_sales").modal('show');
+}
 
+function get_deal(productid,tema,sales)
+{
+	get_list_deal(productid);
+	$("#tema_event1").text(tema);
+	$("#deal_all").text(sales);
+	$("#det_deal").modal('show');
+}
+
+function get_list_sales(prodid)
+{
+	$("#sales_det").DataTable({
+		destroy: true,
+		paging: false,
+		info: false,
+		searching: false,
+		responsive: true,
+		columns: [
+			{  
+				"data": null,
+				"class": "align-top",
+				"orderable": false,
+				"searchable": false,
+				"render": function (data, type, row, meta) {
+					return meta.row + meta.settings._iDisplayStart + 1;
+				}  
+			},
+			{ data: "company_name", title: "Partner" },
+			{ data: "sales", title: "Nominal" } 
+		],
+		columnDefs: [
+			{
+				"targets": 2, // your case first column
+				"className": "text-right"
+		   },
+		],
+		processing: true,
+		serverSide: true,
+		ajax: {
+			data :{prod_id:prodid},
+			url: base_url+"/event/det_sales",
+			type: 'post',
+			dataType: 'json',
+			dataSrc:""
+		},
+	});
+
+
+}
+
+function get_list_deal(prodid)
+{
+	$("#deal_det").DataTable({
+		destroy: true,
+		paging: false,
+		info: false,
+		searching: false,
+		responsive: true,
+		columns: [
+			{  
+				"data": null,
+				"class": "align-top",
+				"orderable": false,
+				"searchable": false,
+				"render": function (data, type, row, meta) {
+					return meta.row + meta.settings._iDisplayStart + 1;
+				}  
+			},
+			{ data: "company_name", title: "Partner" },
+			{ data: "sales", title: "Nominal" } 
+		],
+		columnDefs: [
+			{
+				"targets": 2, // your case first column
+				"className": "text-right"
+		   },
+		],
+		processing: true,
+		serverSide: true,
+		ajax: {
+			data :{prod_id:prodid},
+			url: base_url+"/event/det_deal",
+			type: 'post',
+			dataType: 'json',
+			dataSrc:""
+		},
+	});
+
+
+}
+
+
+
+function get_list_eval(eventid)
+{
+	$("#eval_det").DataTable({
+		destroy: true,
+		paging: false,
+		info: false,
+		searching: false,
+		responsive: true,
+		columns: [
+			{  
+				"data": null,
+				"class": "align-top",
+				"orderable": false,
+				"searchable": false,
+				"render": function (data, type, row, meta) {
+					return meta.row + meta.settings._iDisplayStart + 1;
+				}  
+			},
+			{ data: "parameter", title: "Param" },
+			{ data: "keterangan", title: "Keterangan" } ,
+			{ data: "nilai", title: "Keberhasilan (%)" } 
+		],
+		processing: true,
+		serverSide: true,
+		ajax: {
+			data :{event_id:eventid},
+			url: base_url+"/event/det_eval",
+			type: 'post',
+			dataType: 'json',
+			dataSrc:""
+		},
+	});
+
+
+}
 

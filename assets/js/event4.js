@@ -117,9 +117,19 @@ function get_list_acara_det(event_id,tema,bulanid)
 			{ data: "nama", title: "Name" },
 			{ data: "bm", title: "BM" },
 			{ data: "progress", title: "Progress" },
-			{ data: "null", title: "" ,defaultContent: '<button>>></button>'}
+			{ data: "null", title: "" }
 		],
-		
+		columnDefs: [{
+			// puts a button in the last column
+			targets: [-1], render: function (a, b, data, d) {
+				if (data.workflowid == 2 && data.partnerid == 6) {
+					return "";
+				}
+				else {
+					return "<button type='button'>>></button>";
+				}
+			}
+		}],
 		processing: true,
 		serverSide: true,
 		ajax: {

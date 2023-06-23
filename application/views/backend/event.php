@@ -196,7 +196,7 @@
                                                                 if($this->session->userdata('dept') == 9)
                                                                 {
                                                         ?>
-                                                                    <button onclick="get_list_acara_partner('<?php echo  $value->event_id; ?>','<?php echo  $value->tema; ?>',1);" ><font color='<?php echo $button;?>'><?php echo $stt; ?></font></button>
+                                                                    <button onclick="get_list_acara_det('<?php echo  $value->event_id; ?>','<?php echo  $value->tema; ?>',1);" ><font color='<?php echo $button;?>'><?php echo $stt; ?></font></button>
                                                                 <?php } else { ?>
                                                                     <button onclick="get_list_acara_det('<?php echo  $value->event_id; ?>','<?php echo  $value->tema; ?>',1);" ><font color='<?php echo $button;?>'><?php echo $stt; ?></font></button>
                                                                 <?php }?>
@@ -291,7 +291,7 @@
                                                         if($this->session->userdata('dept') == 9)
                                                         {
                                                 ?>
-                                                            <button onclick="get_list_acara_partner('<?php echo  $value->event_id; ?>','<?php echo  $value->tema; ?>',1);" ><font color='<?php echo $button;?>'><?php echo $stt; ?></font></button>
+                                                            <button onclick="get_list_acara_det('<?php echo  $value->event_id; ?>','<?php echo  $value->tema; ?>',1);" ><font color='<?php echo $button;?>'><?php echo $stt; ?></font></button>
                                                         <?php } else { ?>
                                                             <button onclick="get_list_acara_det('<?php echo  $value->event_id; ?>','<?php echo  $value->tema; ?>',1);" ><font color='<?php echo $button;?>'><?php echo $stt; ?></font></button>
                                                         <?php }?>
@@ -386,7 +386,7 @@
                                                         if($this->session->userdata('dept') == 9)
                                                                 {
                                                         ?>
-                                                                    <button onclick="get_list_acara_partner('<?php echo  $value->event_id; ?>','<?php echo  $value->tema; ?>',1);" ><font color='<?php echo $button;?>'><?php echo $stt; ?></font></button>
+                                                                    <button onclick="get_list_acara_det('<?php echo  $value->event_id; ?>','<?php echo  $value->tema; ?>',1);" ><font color='<?php echo $button;?>'><?php echo $stt; ?></font></button>
                                                                 <?php } else { ?>
                                                                     <button onclick="get_list_acara_det('<?php echo  $value->event_id; ?>','<?php echo  $value->tema; ?>',1);" ><font color='<?php echo $button;?>'><?php echo $stt; ?></font></button>
                                                                 <?php }?>
@@ -611,7 +611,7 @@
 
         
 
-<script src="<?php echo base_url(); ?>assets/js/event4.js"></script>              
+<script src="<?php echo base_url(); ?>assets/js/event.js"></script>              
 <script>
 </script>                                               
 <?php $this->load->view('backend/footer'); ?>
