@@ -38,7 +38,8 @@
                         <?php }?>
                         <?php if ($dep_id==3) { ?> 
                             <li> <a href="<?php echo base_url(); ?>bisnis" ><i class="ti-wallet"></i><span class="hide-menu">CRM </span></a></li>  
-                            <li> <a href="<?php echo base_url(); ?>ads" ><i class="ti-wallet"></i><span class="hide-menu">Media Ads </span></a></li>  
+                            <li> <a href="<?php echo base_url(); ?>ads" ><i class="ti-wallet"></i><span class="hide-menu">Media Ads </span></a></li> 
+                            <li> <a href="<?php echo base_url(); ?>event" ><i class="ti-pencil-alt"></i><span class="hide-menu">Event </span></a></li>    
                         <?php }?>
                         <?php if ($dep_id==8) { ?>  
                             <li> <a href="<?php echo base_url(); ?>ads" ><i class="ti-wallet"></i><span class="hide-menu">Ads </span></a></li>
