@@ -239,6 +239,17 @@
         $result= $result->forecast;
         return $result;
     }
+
+    public function sum_laba_partner($website){
+
+        $sql = "SELECT (sum(pageview)*7)*60 /100 as laba
+            FROM traffic 
+                where  month(tanggal)=7 and year(tanggal)=2023 and website_id=$website";
+        $query=$this->db->query($sql);
+        $result = $query->row();
+        $result= $result->laba ;
+        return $result;
+    }
     
    
 

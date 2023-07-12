@@ -52,6 +52,10 @@ class Ads extends CI_Controller {
         $data['avg_rev']=$this->ads_model->total_perbulan();
         $data['forecast']=$this->ads_model->total_forecast();
 
+
+        $data['slaba_liberte']=$this->ads_model->sum_laba_partner(13);
+        $data['slaba_rumpita']=$this->ads_model->sum_laba_partner(14);
+
         $this->load->view('backend/ads',$data);
         }
         else{

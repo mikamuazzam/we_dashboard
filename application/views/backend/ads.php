@@ -22,17 +22,8 @@
                         else $rupiah= $value->laba;
                         
                         $total=$total+$rupiah;
-                    ?>
-                    <div class="col-md-5 col-lg-4 col-xlg-4">
-                        <div class="card card-info card-info">
-                            <div class="box bg-info text-center">    
-                                <h5 class="font-light text-white">
-                                <?php echo $value->kurs.' '.number_format($value->laba,2);?>
-                                </h5>    
-                            </div>
-                        </div>
-                    </div>
-                    <?php endforeach;?> 
+                   
+                     endforeach;?> 
                     
                     <div class="col-md-5 col-lg-4 col-xlg-4">
                         <div class="card card-info card-info">
@@ -45,6 +36,19 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="col-md-5 col-lg-4 col-xlg-4">
+                        <div class="card card-warning card-warning">
+                            <div class="box bg-warning text-center">    
+                                <h5 class="font-light text-white">
+                                 Total 
+                                 <?php echo 'Rp. '.number_format($slaba_rumpita+$slaba_liberte,0);?>
+                                </h5>  
+                                  
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
                     
                 <div class="row ">
@@ -124,6 +128,32 @@
                             </h6>  
                             </div>
                             <img src="<?php echo base_url();?>assets/images/trivia.jpeg" style="width:100% ;height:22px;">
+                        </div>
+                    </div>
+                    <!-- Column -->
+
+                    <!-- Column -->
+                    <div class="col-md-5 col-lg-2 col-xlg-2">
+                        <div class="card card-warning card-warning">
+                        <div class="box bg-warning text-center">
+                            <h6 class="font-light text-white">
+                                <?php echo 'Rp. '.number_format($slaba_liberte,0);?>
+                            </h6>  
+                            </div>
+                            <img src="<?php echo base_url();?>assets/images/liberte.jpg" style="width:100% ;height:22px;">
+                        </div>
+                    </div>
+                    <!-- Column -->
+
+                    <!-- Column -->
+                    <div class="col-md-5 col-lg-2 col-xlg-2">
+                        <div class="card card-warning card-warning">
+                        <div class="box bg-warning text-center">
+                            <h6 class="font-light text-white">
+                                <?php echo 'Rp. '.number_format($slaba_rumpita,0);?>
+                            </h6>  
+                            </div>
+                            <img src="<?php echo base_url();?>assets/images/rumpita.jpg" style="width:100% ;height:22px;">
                         </div>
                     </div>
                     <!-- Column -->
