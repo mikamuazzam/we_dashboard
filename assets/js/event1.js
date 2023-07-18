@@ -33,6 +33,11 @@ function number_format(number, decimals, dec_point, thousands_sep) {
 function load_chart()
 {
 	
+	$('#myModal2').modal('show');	
+	$('#myModal2').load(base_url+'/chat');
+
+	
+
 	get_list_acara(1,'weblist1');
 	get_list_acara(2,'weblist2');
 	get_list_acara(3,'weblist3');
@@ -45,7 +50,7 @@ function load_chart()
 	sum_rev(2);
 	sum_rev(3);
 	//test_pie();
-    
+   
 }
 
 
@@ -111,20 +116,25 @@ function get_list_acara_det(event_id,tema,bulanid)
 		info: false,
 		searching: false,
 		responsive: true,
-		"createdRow": function( row, data, dataIndex){
-		
-			$(row).css({"background-color":data['warna'] })
-		
-		},
 		
 		columns: [
 			
 			{ data: "nama", title: "Name" },
 			{ data: "bm", title: "BM" },
 			{ data: "progress", title: "Progress" },
-			{ data: "null", title: "" ,defaultContent: '<button>>></button>'}
+			{ data: "null", title: "" }
 		],
-		
+		columnDefs: [{
+			// puts a button in the last column
+			targets: [-1], render: function (a, b, data, d) {
+				if (data.workflowid == 2 && data.partnerid == 6) {
+					return "";
+				}
+				else {
+					return "<button type='button'>>></button>";
+				}
+			}
+		}],
 		processing: true,
 		serverSide: true,
 		ajax: {
@@ -175,11 +185,6 @@ function get_list_acara_partner(event_id,tema,bulanid)
 		info: false,
 		searching: false,
 		responsive: true,
-		"createdRow": function( row, data, dataIndex){
-		
-			$(row).css({"background-color":data['warna'] })
-		
-		},
 		
 		columns: [
 			
@@ -485,6 +490,113 @@ function get_sales(productid,tema,sales)
 	$("#det_sales").modal('show');
 }
 
+function get_potensi(eventid,tema,potensi)
+{
+	get_list_potensi(eventid);
+	$("#tema_event").text(tema);
+	$("#potensi_all").text(potensi);
+	$("#det_potensi").modal('show');
+}
+
+function get_budget(eventid,tema,budget)
+{
+	get_list_budget(eventid);
+	$("#tema_event").text(tema);
+	$("#budget_all").text(budget);
+	$("#det_budget").modal('show');
+}
+
+function get_list_potensi(eventid)
+{
+	$("#potensi_det").DataTable({
+		destroy: true,
+		paging: false,
+		info: false,
+		searching: false,
+		responsive: true,
+		columns: [
+			{  
+				"data": null,
+				"class": "align-top",
+				"orderable": false,
+				"searchable": false,
+				"render": function (data, type, row, meta) {
+					return meta.row + meta.settings._iDisplayStart + 1;
+				}  
+			},
+			{ data: "company_name", title: "Partner" },
+			{ data: "potensi", title: "Nominal" } 
+		],
+		columnDefs: [
+			{
+				"targets": 2, // your case first column
+				"className": "text-right"
+		   },
+		],
+		processing: true,
+		serverSide: true,
+		ajax: {
+			data :{event_id:eventid},
+			url: base_url+"/event/det_potensi",
+			type: 'get',
+			dataType: 'json',
+			dataSrc:""
+		},
+	});
+
+
+}
+
+function get_list_budget(eventid)
+{
+	$("#budget_det").DataTable({
+		destroy: true,
+		paging: false,
+		info: false,
+		searching: false,
+		responsive: true,
+		columns: [
+			{  
+				"data": null,
+				"class": "align-top",
+				"orderable": false,
+				"searchable": false,
+				"render": function (data, type, row, meta) {
+					return meta.row + meta.settings._iDisplayStart + 1;
+				}  
+			},
+			{ data: "budget", title: "Keterangan" },
+			{ data: "nominal", title: "Nominal" } 
+		],
+		columnDefs: [
+			{
+				"targets": 2, // your case first column
+				"className": "text-right"
+		   },
+		],
+		processing: true,
+		serverSide: true,
+		ajax: {
+			data :{event_id:eventid},
+			url: base_url+"/event/det_budget",
+			type: 'get',
+			dataType: 'json',
+			dataSrc:""
+		},
+	});
+
+
+}
+
+
+function get_deal(productid,tema,sales)
+{
+	get_list_deal(productid);
+	$("#tema_event1").text(tema);
+	$("#deal_all").text(sales);
+	$("#det_deal").modal('show');
+}
+
 function get_list_sales(prodid)
 {
 	$("#sales_det").DataTable({
@@ -526,6 +638,90 @@ function get_list_sales(prodid)
 
 }
 
+function get_list_sales(prodid)
+{
+	$("#sales_det").DataTable({
+		destroy: true,
+		paging: false,
+		info: false,
+		searching: false,
+		responsive: true,
+		columns: [
+			{  
+				"data": null,
+				"class": "align-top",
+				"orderable": false,
+				"searchable": false,
+				"render": function (data, type, row, meta) {
+					return meta.row + meta.settings._iDisplayStart + 1;
+				}  
+			},
+			{ data: "company_name", title: "Partner" },
+			{ data: "sales", title: "Nominal" } 
+		],
+		columnDefs: [
+			{
+				"targets": 2, // your case first column
+				"className": "text-right"
+		   },
+		],
+		processing: true,
+		serverSide: true,
+		ajax: {
+			data :{prod_id:prodid},
+			url: base_url+"/event/det_sales",
+			type: 'post',
+			dataType: 'json',
+			dataSrc:""
+		},
+	});
+
+
+}
+
+function get_list_deal(prodid)
+{
+	$("#deal_det").DataTable({
+		destroy: true,
+		paging: false,
+		info: false,
+		searching: false,
+		responsive: true,
+		columns: [
+			{  
+				"data": null,
+				"class": "align-top",
+				"orderable": false,
+				"searchable": false,
+				"render": function (data, type, row, meta) {
+					return meta.row + meta.settings._iDisplayStart + 1;
+				}  
+			},
+			{ data: "company_name", title: "Partner" },
+			{ data: "sales", title: "Nominal" } 
+		],
+		columnDefs: [
+			{
+				"targets": 2, // your case first column
+				"className": "text-right"
+		   },
+		],
+		processing: true,
+		serverSide: true,
+		ajax: {
+			data :{prod_id:prodid},
+			url: base_url+"/event/det_deal",
+			type: 'post',
+			dataType: 'json',
+			dataSrc:""
+		},
+	});
+
+
+}
+
+
+
 function get_list_eval(eventid)
 {
 	$("#eval_det").DataTable({
@@ -560,5 +756,20 @@ function get_list_eval(eventid)
 	});
 
 
+}
+
+function send_chat (user_id) {
+	var pesan = $("#pesan").val();
+	$.ajax({
+        type: 'get',
+		data :{user_id:user_id,msg:pesan},
+		url: base_url+"/event/send_chat",
+        cache: false,
+        success: function(data) {
+            /*window.location = base_url+"/event"; */
+			$('#isichat').load(base_url+'/chat');
+			
+        }
+    });
 }
 
