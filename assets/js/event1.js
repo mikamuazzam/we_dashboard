@@ -34,7 +34,7 @@ function load_chart()
 {
 	
 	$('#myModal2').modal('show');	
-	$('#myModal2').load(base_url+'/chat');
+	
 
 	
 

@@ -1,5 +1,13 @@
 <?php $this->load->view('backend/header'); ?>
 <?php $this->load->view('backend/sidebar'); ?>
+<link href="<?php echo base_url(); ?>assets/css/chat.css" rel="stylesheet" media='all'>
+<script>
+$(function() {
+   
+   $('#isian').scrollTop($('#isian')[0].scrollHeight);
+  
+});
+</script>
       <div class="page-wrapper">
             <br>
             <!-- ============================================================== -->
@@ -679,13 +687,101 @@
              
         
         <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
-            
+            <div class="modal-dialog" style="position: fixed;  margin: auto;  width: 320px;    height: 70%;       right: 0px;  bottom : 0px; " role="document">   
+            <div class="modal-content" >
+                <div class="modal-header" style=" background-color: #3CC3EB;" > <h5>Chat</h5>
+                    <button type="button"  class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body" id="isian" >
+                <div id="chatBox" ></div>
+                </div>
+                <div class="modal-footer">
+                        <form id="chatForm" action="#">
+                            <textarea class="form-control" name="message" id="message" rows="2" cols="50" placeholder="Type your message"></textarea>
+                            <input type="submit" value="Send"> <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </form>
+                </div>
+            </div>
+
+            </div>
         </div>
-       
         <div style="display: flex; justify-content: flex-end">
             <footer class="footer" style="position:fixed; "> <span style="float:right;"><button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal2">Chat </button></span></footer>                                                        
         </div>
 <script src="<?php echo base_url(); ?>assets/js/event1.js"></script>              
 <script>
-</script>                                               
+        $(document).ready(function() {
+
+            $('#isian').scrollTop($('#isian')[0].scrollHeight);
+            // Load initial chat messages
+            loadChatMessages();
+
+            // Periodically load new chat messages
+            setInterval(loadChatMessages, 1000);
+
+            // Submit chat message
+            $('#chatForm').submit(function(e) {
+                e.preventDefault();
+
+                
+                var message = $('#message').val();
+
+                saveChatMessage( message);
+
+                // Clear input fields
+                $('#message').val('');
+            });
+        });
+
+        // Function to load chat messages
+        function loadChatMessages() {
+            var user_id='<?= $this->session->userdata('user_log_id'); ?>';
+            $.ajax({
+                url: '<?= base_url('chat/getmessages') ?>',
+                dataType: 'json',
+                success: function(response) {
+                    var chatBox = $('#chatBox');
+                    chatBox.empty();
+
+                    for (var i = 0; i < response.length; i++) {
+                        var message = response[i].message;
+                        var em_image = response[i].em_image;
+                        var senderName = response[i].from;
+                        var createdAt = response[i].sent;
+                        var tgl =response[i].tgl;
+                        var jam =response[i].jam;
+                        var nama =response[i].first_name;
+                       
+                        var tgl_now = '<?= date ("Y-m-d");?>';
+                        if(tgl==tgl_now) {createdAt = jam ; }
+                        if(user_id != senderName){
+                        var chatMessage2 ='<div class="d-flex flex-row p-1"><img src="<?php echo base_url(); ?>assets/images/users/' + em_image + '" alt="'+nama+'" width="40" height="40" style=" border-radius: 50%;"><div class="chat ml-2 p-1" style="width: 300px; ">' + message +'<div style="text-align:right; font-size: 8px;">'+ createdAt +'</div></div></div>'
+                        }
+                        else
+                        {
+                            var chatMessage2 ='<div class="d-flex flex-row p-1"><div class="bg-white mr-2 p-1" style="width: 300px; text-align: right;"><span class="text-muted">' + message + '<div style="text-align:right; font-size: 8px;">'+ createdAt +'</div></div> </span><img src="<?php echo base_url(); ?>assets/images/users/' + em_image + '" alt="'+nama+'" width="40" height="40" style=" border-radius: 50%;">'
+                        }
+                        var chatMessage = '<p><strong>' + senderName + ':</strong> ' + message + ' (' + createdAt + ')</p>';
+                        chatBox.append(chatMessage2);
+                    }
+                }
+            });
+            $('#message').focus();
+        }
+
+        // Function to save chat message
+        function saveChatMessage( message) {
+            $.ajax({
+                url: '<?= base_url('chat/savemessage') ?>',
+                method: 'POST',
+                data: {
+                   
+                    message: message
+                },
+                success: function(response) {
+                    console.log('Chat message saved');
+                }
+            });
+        }
+    </script>                                               
 <?php $this->load->view('backend/footer'); ?>

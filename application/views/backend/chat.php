@@ -7,22 +7,12 @@ $(function() {
 });
 </script>
 <body>
-<div class="modal-dialog" style="position: fixed;  margin: auto;  width: 320px;    height: 70%;       right: 0px;  bottom : 0px; " role="document">
-            <div class="modal-content" >
-                <div class="modal-header" style=" background-color: #3CC3EB;" > <h5>Chat</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                </div>
-                <div class="modal-body" id="isian" >
+
+
+           
                     <div id="chatBox" ></div>      
-                </div>
-                <div class="modal-footer">
-                        <form id="chatForm" action="#">
-                            <textarea class="form-control" name="message" id="message" rows="2" cols="50" placeholder="Type your message"></textarea>
-                            <input type="submit" value="Send"> <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        </form>
-                </div>
-            </div>
-</div>
+              
+
     
     <script>
         $(document).ready(function() {
