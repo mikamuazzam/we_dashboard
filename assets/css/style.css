@@ -2543,6 +2543,7 @@ ul#themecolors li a.working:before {
 }
 
 .footer {
+    position: fixed;
     bottom: 0;
     color: #67757c;
     left: 0px;

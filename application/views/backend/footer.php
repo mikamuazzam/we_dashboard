@@ -1,6 +1,6 @@
             </div>
 
-            <footer class="footer"> © 2022 WE </footer>
+            <footer class="footer" > © 2022 WE </footer>
 
         </div>
 

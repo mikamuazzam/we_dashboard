@@ -33,6 +33,7 @@ class Event extends CI_Controller {
         $data['list_event2'] = $this->event_model->list_event2(2);
         $data['list_event3'] = $this->event_model->list_event2(3);
         $data['list_event4'] = $this->event_model->list_event2(4);
+        $data['list_chat'] = $this->event_model->list_chat();
         $this->load->view('backend/event',$data);
         }
         else{
@@ -94,6 +95,25 @@ class Event extends CI_Controller {
         $data= $this->event_model->det_sales($prod_id);
         echo json_encode($data);
     } 
+
+    function det_potensi()
+    {
+        $event_id=$_REQUEST['event_id'];
+
+        $this->load->model('event_model');
+        $data= $this->event_model->det_potensi($event_id);
+        echo json_encode($data);
+    } 
+
+    function det_budget()
+    {
+        $event_id=$_REQUEST['event_id'];
+
+        $this->load->model('event_model');
+        $data= $this->event_model->det_budget($event_id);
+        echo json_encode($data);
+    } 
+
     function det_deal()
     {
         $prod_id=$_REQUEST['prod_id'];
@@ -111,6 +131,23 @@ class Event extends CI_Controller {
         echo json_encode($data);
     } 
 
-    
+    function send_chat ()
+    {
+        $user_id=$_REQUEST['user_id'];
+        $pesan=$_REQUEST['msg'];
+
+        $this->load->model('event_model');
+        $data= $this->event_model->send_chat($user_id,$pesan);
+        echo json_encode($data);
+    }
+
+    function list_chat ()
+    {
+       
+
+        $this->load->model('event_model');
+        $data= $this->event_model->list_chat();
+        echo json_encode($data);
+    }
     
 }

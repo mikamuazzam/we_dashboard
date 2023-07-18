@@ -71,7 +71,9 @@
         if($month < 1) $month= 12;
         
         $where_partner = $this->get_partner();
-        $sql = "select b.name tipe_award,tema,schedule, budget,tipe_id,a.id as event_id,ROUND(bobot, 2) as persen ,
+        $sql = "select b.name tipe_award,tema,schedule, 
+                            case when partner_id not in(1,3,4,5) then budget else 
+                            pengeluaran end  as budget,tipe_id,a.id as event_id,ROUND(bobot, 2) as persen ,
                         case when DATEDIFF(schedule,CURRENT_DATE) > 0 then DATEDIFF(schedule,CURRENT_DATE) else 0 end as 'day',
                         case when DATEDIFF(schedule,CURRENT_DATE)  between 7 and 22 and  bobot <= 21 then 'red'
                             when DATEDIFF(schedule,CURRENT_DATE)  between 3 and 7  and bobot <= 60 then 'red'
@@ -83,7 +85,10 @@
                         when DATEDIFF(schedule,CURRENT_DATE)  between 1 and 3 then '90%'
                         when schedule < CURRENT_DATE then '100%'
                         else '5%' end as benchmark,
-                        sales,event_id,a.product_id as id_product,deal,prediksi_revenue as pred,nama_partner
+                        sales,event_id,a.product_id as id_product,deal,
+                        case when partner_id not in(1,3,4,5) then potensi else 
+                            prediksi_revenue end  as pred,
+                        nama_partner
                     from events a 
                     left join tipe_events b on b.id=a.tipe_id 
                     left join partners p on p.id=a.partner_id
@@ -97,6 +102,8 @@
                             where a.status = 'done' and a.workflow_id != 8 and a.status_id=1 group by 2) c on a.id=c.event_id 
                     left join (select sum(amount_po) as sales,id_product from deals where  id_stage in (3,5,6,7) group by 2) d on d.id_product=a.product_id
                     left join (select sum(size) as deal,id_product prodid from deals where  id_stage in (2) group by 2) g on g.prodid=a.product_id
+                    left join (select sum(potensi) as potensi,event_id as evnt_partner_id from potensi_revenue where status_id=1 group by 2) j on a.id=j.evnt_partner_id
+                    left join (select sum(nominal) as pengeluaran,event_id as evnt_budget_id from event_budget where status_id=1 group by 2) k on a.id=k.evnt_budget_id
                     where a.status_id=1 and month(schedule)=$month and year(schedule)=$tahun $where_partner order by schedule";  
         $db2 = $this->load->database('db2', TRUE);
         $query=$db2->query($sql); 
@@ -206,6 +213,36 @@
         return $query->result_array();
 
     }
+
+    public function det_potensi($event_id){
+        
+        
+        $sql = "SELECT company_name,FORMAT(sum(potensi),0) as potensi,event_id 
+                from potensi_revenue a
+                inner join companies b on a.company_id=b.id  where  status_id=1 and event_id=$event_id
+                 group by 1,3
+                        ";  
+        $db2 = $this->load->database('db2', TRUE);
+        $query=$db2->query($sql); 
+        return $query->result_array();
+
+    }
+
+    public function det_budget($event_id){
+        
+        
+        $sql = "SELECT jenis_pengeluaran budget,FORMAT(sum(nominal),0) as nominal,event_id 
+                from event_budget a
+                  where  status_id=1 and event_id=$event_id
+                 group by 1,3
+                        ";  
+        $db2 = $this->load->database('db2', TRUE);
+        $query=$db2->query($sql); 
+        return $query->result_array();
+
+    }
+
+
     public function det_deal($product_id){
         
         
@@ -230,7 +267,24 @@
 
     }
     
+    public function list_chat(){
+        
+       
+        $sql = "SELECT a.id,a.from,a.to,a.message,a.sent,b.first_name,b.em_image
+         from chat a inner join employee b on a.from = b.id order by sent ";  
+        $query=$this->db->query($sql); 
+         return $query->result();
 
+    }
+    public function  send_chat($user_id,$pesan){
+        
+       
+        $sql = "insert into chat (`from`,message,sent) value('$user_id','$pesan',CURRENT_TIMESTAMP())";  
+        $query=$this->db->query($sql); 
+         return 'ok';
+
+    }
+   
 }
 
 

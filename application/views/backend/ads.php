@@ -49,6 +49,17 @@
                         </div>
                     </div>
 
+                    <div class="col-md-5 col-lg-4 col-xlg-4">
+                        <div class="card card-primary card-primary">
+                            <div class="box bg-primary text-center">    
+                                <h5 class="font-light text-white">
+                                 Total 
+                                 <?php echo 'Rp. '.number_format($slaba_rumpita+$slaba_liberte+$total,0);?>
+                                </h5>  
+                                  
+                            </div>
+                        </div>
+                    </div> 
                 </div>
                     
                 <div class="row ">
@@ -170,7 +181,7 @@
                             <div class="card-body" >
                             
                             <div id="ChartAdsTigaContent">
-                            <canvas id="ChartAdsTiga" height="100px" ></canvas>  
+                            <canvas id="ChartAdsTiga" height="150px" ></canvas>  
                             </div>
                             </div>
                         </div>
@@ -178,7 +189,27 @@
                     <div class="col-md-4" >
                         <div class="card">
                             <div class="card-body" >
-                            <h6 class="card-title">Average Revenue (last 3 month) </h6>
+                            
+
+                                <h6 class="card-title"> This Month's Revenue Forecast </h6>
+                                <div class="card card-info card-info">
+                                    <div class="box bg-info text-center">
+                                        <h6 class="font-light text-white">
+                                            <?php echo 'Rp. '.number_format($forecast,0);?>
+                                        </h6>  
+                                    </div>
+                                </div>
+
+                                <h6 class="card-title"> This Month's Revenue Forecast </h6>
+                                <div class="card card-warning card-warning">
+                                    <div class="box bg-warning text-center">
+                                        <h6 class="font-light text-white">
+                                            <?php echo 'Rp. '.number_format($forecast2,0);?>
+                                        </h6>  
+                                    </div>
+                                </div>
+
+                                <h6 class="card-title">Average Revenue (last 3 month) </h6>
                                 <div class="card card-info card-info">
                                     <div class="box bg-info text-center">
                                         <h6 class="font-light text-white">
@@ -194,14 +225,6 @@
                                     </div>
                                 </div>
 
-                                <h6 class="card-title"> This Month's Revenue Forecast </h6>
-                                <div class="card card-info card-info">
-                                    <div class="box bg-info text-center">
-                                        <h6 class="font-light text-white">
-                                            <?php echo 'Rp. '.number_format($forecast,0);?>
-                                        </h6>  
-                                    </div>
-                                </div>
                             </div>
                            
                         </div>  

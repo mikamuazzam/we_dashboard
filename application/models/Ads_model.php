@@ -240,11 +240,21 @@
         return $result;
     }
 
+    public function total_forecast2(){
+        $sql = "SELECT  ((sum(pageview)*7)*60 / 100) / DAYOFMONTH(CURRENT_DATE)  as forecast 
+            FROM traffic 
+                where  month(tanggal)=month(CURRENT_DATE) and year(tanggal)=year(CURRENT_DATE) ;";
+        $query=$this->db->query($sql);
+        $result = $query->row();
+        $result= $result->forecast *30;
+        return $result;
+    }
+
     public function sum_laba_partner($website){
 
         $sql = "SELECT (sum(pageview)*7)*60 /100 as laba
             FROM traffic 
-                where  month(tanggal)=7 and year(tanggal)=2023 and website_id=$website";
+            where  month(tanggal)=month(CURRENT_DATE) and year(tanggal)=year(CURRENT_DATE) and website_id=$website";
         $query=$this->db->query($sql);
         $result = $query->row();
         $result= $result->laba ;

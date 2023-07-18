@@ -677,13 +677,48 @@
             </div>
         </div>
              
-        
-        <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
-            
+        <div class="container demo">
+        <div class="text-center">
+           
         </div>
-       
+        <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
+            <div class="modal-dialog" style=" overflow-y: auto; position: fixed;  margin: auto;   width: 320px;    height: 70%;       right: 0px;  bottom : 0px; role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container d-flex justify-content-center">
+                        <div class="card_chat mt-1" id="isichat">
+                            <?php foreach($list_chat as $value):  
+                                if($this->session->userdata('user_log_id') != $value->from) {
+                                ?>
+                                     <div class="d-flex flex-row p-1">
+                                            <img src="<?php echo base_url(); ?>assets/images/users/<?php echo $value->em_image; ?>" width="30" height="30" style=" border-radius: 50%;">
+                                            <div class="chat ml-2 p-1" style="width: 300px; "><?php echo $value->message; ?></div>
+                                        </div>
+                                  
+                           
+                                    <?php } else  { ?>
+                                        <div class="d-flex flex-row p-1">
+                                        <div class="bg-white mr-2 p-1" style="width: 300px; text-align: right;"><span class="text-muted"><?php echo $value->message; ?></span></div>
+                                        <img src="<?php echo base_url(); ?>assets/images/users/<?php echo $value->em_image; ?>" width="30" height="30" style=" border-radius: 50%;">
+                                    </div>
+                            <?php } endforeach ;?>
+                            <div class="d-flex flex-row p-3">
+                                <div > <textarea class="form-control" id="pesan" rows="2" cols="50" placeholder="Type your message"></textarea></div>
+                                <button  onclick="send_chat(<?php echo $this->session->userdata('user_log_id');?>)" ><font color="blue">Send</font></button>
+                            </div>
+                        
+                    </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
         <div style="display: flex; justify-content: flex-end">
-            <footer class="footer" style="position:fixed; "> <span style="float:right;"><button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal2">Chat </button></span></footer>                                                        
+            <footer class="footer" style="position:fixed; "> <button type="button" class="btn btn-demo" data-toggle="modal" data-target="#myModal2">Chat </button></footer>                                                        
         </div>
 <script src="<?php echo base_url(); ?>assets/js/event.js"></script>              
 <script>

@@ -132,7 +132,7 @@ function total_perbulan()
                 // Code to draw Chart
                 
                 document.getElementById("ChartAdsTigaContent").innerHTML = '&nbsp;';
-		        document.getElementById("ChartAdsTigaContent").innerHTML = '<canvas id="ChartAdsTiga" height="100px" ></canvas>';
+		        document.getElementById("ChartAdsTigaContent").innerHTML = '<canvas id="ChartAdsTiga" height="150px" ></canvas>';
 
                 var ctx = document.getElementById('ChartAdsTiga').getContext('2d');
                var myChart = new Chart(ctx, {

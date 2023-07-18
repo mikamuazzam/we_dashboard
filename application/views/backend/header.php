@@ -40,6 +40,8 @@ else
     
     <link href="<?php echo base_url(); ?>assets/css/style.css" rel="stylesheet" media="all">
     <link href="<?php echo base_url(); ?>assets/css/print.css" rel="stylesheet" media='print'>
+   
+
     <!-- You can change the theme colors from here -->
     <link href="<?php echo base_url(); ?>assets/css/colors/blue.css" id="theme" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/plugins/select2/dist/css/select2.min.css" rel="stylesheet" type="text/css" />
