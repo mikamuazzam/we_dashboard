@@ -708,7 +708,7 @@ $(function() {
         <div style="display: flex; justify-content: flex-end">
             <footer class="footer" style="position:fixed; "> <span style="float:right;"><button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal2">Chat </button></span></footer>                                                        
         </div>
-<script src="<?php echo base_url(); ?>assets/js/event1.js"></script>              
+<script src="<?php echo base_url(); ?>assets/js/event2.js"></script>              
 <script>
         $(document).ready(function() {
 
