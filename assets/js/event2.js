@@ -34,7 +34,7 @@ function load_chart()
 {
 	
 	$('#myModal2').modal('show');	
-	
+	$('#isian').load(base_url+'/chat');
 
 	
 

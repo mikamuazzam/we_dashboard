@@ -9,8 +9,13 @@ $(function() {
 <body>
 
 
-           
-                    <div id="chatBox" ></div>      
+                <form id="chatForm" action="#">
+                            <textarea class="form-control" name="message" id="message" rows="2" cols="50" placeholder="Type your message"></textarea>
+                            <input type="submit" value="Send"> 
+                </form>
+                <div id="chatBox" ></div>
+                
+                
               
 
     
