@@ -129,6 +129,6 @@
     </div>
        
      
-<script src="<?php echo base_url(); ?>assets/js/psikotes.js"></script>              
+<script src="<?php echo base_url(); ?>assets/js/psikotes2.js"></script>              
                               
 <?php $this->load->view('backend/footer'); ?>
