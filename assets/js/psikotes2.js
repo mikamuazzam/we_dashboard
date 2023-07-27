@@ -67,7 +67,7 @@ function show_data(isi)
 		detail_score('score3','Need to be Forceful');
 	
 		get_list_aspek('aspek1','Need for Change');
-		get_list_aspek('aspek2','Need to Control Others');
+		get_list_aspek('aspek2','Emotional Resistant');
 		get_list_aspek('aspek3','Need to be Forceful');
 	}
 	if(isi=='WORK STYLE')
