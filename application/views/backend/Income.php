@@ -51,7 +51,7 @@ $(function() {
                                             <tr >
                                                 <th align="left" style="border: 1px solid #CCC;" ></th>
                                                 <th  bgcolor="#089031" style="border: 1px solid #CCC;"><font color="white"><b>Wartaekonomi</b></font></th>
-                                                <th  bgcolor="#E78415" style="border: 1px solid #CCC;"><font color="white"><b>Promedia</b></font></th>
+                                                <th  bgcolor="#E78415" style="border: 1px solid #CCC;"><font color="white"><b><?php echo $this->session->userdata('name') ;?></b></font></th>
                                                 <th  bgcolor="#158BE7" style="border: 1px solid #CCC;"><font color="white"><b>Bersama</b></font></th> 
                                             </tr>
                                             
@@ -63,44 +63,50 @@ $(function() {
                                                 <td align="right"  bgcolor="#158BE7"><font color="white"></font></td>
                                             </tr>
                                             <tr><td align="right"><b>Pendapatan Award</b></td>
-                                                <td align="right"  bgcolor="#089031"><font color="white"><b>Rp. 2.000.000.000</b></font></td>
-                                                <td align="right"  bgcolor="#E78415"><font color="white"><b>Rp. 2.000.000.000</b></font></td>
+                                                <td align="right"  bgcolor="#089031"><font color="white"><b>Rp. 450.250.000</b></font></td>
+                                                <td align="right"  bgcolor="#E78415"><font color="white"><b>Rp. 50.000.000</b></font></td>
                                                 <td align="right"  bgcolor="#158BE7"><font color="white"></font></td>
                                             </tr>
                                             <tr><td align="right" >ppn 11%</td>
-                                                <td align="right"  bgcolor="#089031"><font color="white"><b>Rp. 220.000.000</b></font></td>
-                                                <td align="right"  bgcolor="#E78415"><font color="white"><b></b></font></td>
+                                                <td align="right"  bgcolor="#089031"><font color="white"><b>Rp. 40.563.063</b></font></td>
+                                                <td align="right"  bgcolor="#E78415"><font color="white"><b>Rp. 4.504.505</b></font></td>
                                                 <td align="right"  bgcolor="#158BE7"><font color="white"></font></td>
                                             </tr>
+                                           
                                             <tr>
                                                 <td align="right">pph 23 (2%)</td>
-                                                <td align="right"  bgcolor="#089031" ><font color="white"><b>Rp. 40.000.000</b></font></td>
+                                                <td align="right"  bgcolor="#089031" ><font color="white"><b></b></font></td>
                                                 <td align="right"  bgcolor="#E78415"><font color="white"><b></b></font></td>
                                                 <td align="right"  bgcolor="#158BE7"><font color="white"></font></td>
                                             </tr>
                                             <tr>
                                                 <td align="right"><b>Pendapatan Setelah Pajak</b></td>
-                                                <td align="right"  bgcolor="#089031"><font color="white"><b>Rp. 1.740.000.000</b></font></td>
-                                                <td align="right"  bgcolor="#E78415"><font color="white"><b>Rp. 2.000.000.000</b></font></td>
+                                                <td align="right"  bgcolor="#089031"><font color="white"><b>Rp. 409.686.937</b></font></td>
+                                                <td align="right"  bgcolor="#E78415"><font color="white"><b>Rp. 45.495.495</b></font></td>
                                                 <td align="right"  bgcolor="#158BE7"><font color="white"></font></td>
                                             </tr>
                                             <tr>
-                                                <td align="right">Fee Marketing (20%)</td>
-                                                <td align="right"  bgcolor="#089031"><font color="white"><b>Rp. 348.000.000</b></font></td>
-                                                <td align="right"  bgcolor="#E78415"><font color="white"><b>Rp. 400.000.000</b></font></td>
+                                                <td align="right">Fee Marketing (10%)</td>
+                                                <td align="right"  bgcolor="#089031"><font color="white"><b></b></font></td>
+                                                <td align="right"  bgcolor="#E78415"><font color="white"><b>Rp 4.549.550</b></font></td>
+                                                <td align="right"  bgcolor="#158BE7"><font color="white"></font></td>
+                                            </tr>
+                                            <tr><td align="right" >Fee Marketing (20%)</td>
+                                                <td align="right"  bgcolor="#089031"><font color="white"><b>Rp. 81.937.387</b></font></td>
+                                                <td align="right"  bgcolor="#E78415"><font color="white"><b></b></font></td>
                                                 <td align="right"  bgcolor="#158BE7"><font color="white"></font></td>
                                             </tr>
                                             <tr>
                                                 <td align="right"><b>Pendapatan Bersih</b></td>
-                                                <td align="right"  bgcolor="#089031"><font color="white"><b>Rp. 1.392.000.000</b></font></td>
-                                                <td align="right"  bgcolor="#E78415"><font color="white"><b>Rp. 1.600.000.000</b></font></td>
+                                                <td align="right"  bgcolor="#089031"><font color="white"><b>Rp. 327.749.550</b></font></td>
+                                                <td align="right"  bgcolor="#E78415"><font color="white"><b>Rp. 40.945.946</b></font></td>
                                                 <td align="right"  bgcolor="#158BE7"><font color="white"></font></td>
                                             </tr>
                                             <tr>
                                                 <td align="right"><b>Total Pendapatan Bersih</b></td>
                                                 <td align="right"  bgcolor="#089031"><font color="white"></font></td>
                                                 <td align="right"  bgcolor="#E78415"><font color="white"></font></td>
-                                                <td align="right"  bgcolor="#158BE7"><font color="white"><b>Rp. 2.920.000.000</b></font></td>
+                                                <td align="right"  bgcolor="#158BE7"><font color="white"><b>Rp.368.695.495</b></font></td>
                                             </tr>
                                             <tr>
                                                 <td align="right" colspan="4" bgcolor="#FFF"></td>
@@ -112,29 +118,48 @@ $(function() {
                                                 <td align="right"  bgcolor="#158BE7"><font color="white"></font></td>
                                             </tr>
                                             <tr>
-                                                <td align="right">Hotel</td>
+                                                <td align="right">Pullman Hotel</td>
                                                 <td align="right"  bgcolor="#089031"><font color="white"></font></td>
                                                 <td align="right"  bgcolor="#E78415"><font color="white"></font></td>
-                                                <td align="right"  bgcolor="#158BE7"><font color="white"><b>Rp. 200.000.000</b></font></td>
+                                                <td align="right"  bgcolor="#158BE7"><font color="white"><b>Rp. 100.756.000</b></font></td>
                                             </tr>
                                             <tr>
-                                                <td align="right">Vendor</td>
+                                                <td align="right">Vendor </td>
                                                 <td align="right"  bgcolor="#089031"><font color="white"></font></td>
                                                 <td align="right"  bgcolor="#E78415"><font color="white"></font></td>
-                                                <td align="right"  bgcolor="#158BE7"><font color="white"><b>Rp. 100.000.000</b></font></td>
+                                                <td align="right"  bgcolor="#158BE7"><font color="white"><b>Rp. 50.000.000</b></font></td>
                                             </tr>
-                                           
+                                            
                                             <tr>
-                                                <td align="right">Nara sumber</td>
+                                                <td align="right">Moderator,Nara sumber dan MC</td>
                                                 <td align="right"  bgcolor="#089031"><font color="white"></font></td>
                                                 <td align="right"  bgcolor="#E78415"><font color="white"></font></td>
-                                                <td align="right"  bgcolor="#158BE7"><font color="white"><b>Rp. 20.000.000</b></font></td>
+                                                <td align="right"  bgcolor="#158BE7"><font color="white"><b>Rp. 10.000.000</b></font></td>
                                             </tr>
+                                            <tr>
+                                                <td align="right">Operasional</td>
+                                                <td align="right"  bgcolor="#089031"><font color="white"></font></td>
+                                                <td align="right"  bgcolor="#E78415"><font color="white"></font></td>
+                                                <td align="right"  bgcolor="#158BE7"><font color="white"><b>Rp. 9.850.000</b></font></td>
+                                            </tr>
+                                            <tr>
+                                                <td align="right">Media</td>
+                                                <td align="right"  bgcolor="#089031"><font color="white"></font></td>
+                                                <td align="right"  bgcolor="#E78415"><font color="white"></font></td>
+                                                <td align="right"  bgcolor="#158BE7"><font color="white"><b>Rp. 4.000.000</b></font></td>
+                                            </tr>
+                                            <tr>
+                                                <td align="right">Hampers</td>
+                                                <td align="right"  bgcolor="#089031"><font color="white"></font></td>
+                                                <td align="right"  bgcolor="#E78415"><font color="white"></font></td>
+                                                <td align="right"  bgcolor="#158BE7"><font color="white"><b>Rp. 1.950.000</b></font></td>
+                                            </tr>
+
                                             <tr>
                                                 <td align="right"><b>Total Cost</b></td>
                                                 <td align="right"  bgcolor="#089031"><font color="white"></font></td>
                                                 <td align="right"  bgcolor="#E78415"><font color="white"></font></td>
-                                                <td align="right"  bgcolor="#158BE7"><font color="white"><b>Rp. 320.000.000</b></font></td>
+                                                <td align="right"  bgcolor="#158BE7"><font color="white"><b>Rp. 176.556.000</b></font></td>
                                             </tr>
                                             <tr>
                                                 <td align="right" colspan="4" bgcolor="#FFF"></td>
@@ -149,25 +174,25 @@ $(function() {
                                                 <td align="right">Margin Bersama</td>
                                                 <td align="right"  bgcolor="#089031"><font color="white"></font></td>
                                                 <td align="right"  bgcolor="#E78415"><font color="white"></font></td>
-                                                <td align="right"  bgcolor="#158BE7"><font color="white"><b>Rp. 2.672.000.000</b></font></td>
+                                                <td align="right"  bgcolor="#158BE7"><font color="white"><b>Rp. 192.339.495</b></font></td>
                                             </tr>
                                             <tr>
                                                 <td align="right">Margin Produksi</td>
-                                                <td align="right"  bgcolor="#089031"><font color="white"><b>Rp. 1.336.000.000</b></font></td>
-                                                <td align="right"  bgcolor="#E78415"><font color="white"><b>Rp. 1.336.000.000</b></font></td>
+                                                <td align="right"  bgcolor="#089031"><font color="white"><b>Rp. 153.871.596</b></font></td>
+                                                <td align="right"  bgcolor="#E78415"><font color="white"><b>Rp. 38.467.889</b></font></td>
                                                 <td align="right"  bgcolor="#158BE7"><font color="white"></font></td>
                                             </tr>
                                            
                                             <tr>
                                                 <td align="right">Fee Marketing</td>
-                                                <td align="right"  bgcolor="#089031"><font color="white"><b>Rp. 348.000.000</b></font></td>
-                                                <td align="right"  bgcolor="#E78415"><font color="white"><b>Rp. 400.000.000</b></font></td>
+                                                <td align="right"  bgcolor="#089031"><font color="white"><b></b></font></td>
+                                                <td align="right"  bgcolor="#E78415"><font color="white"><b>Rp. 4.549.550</b></font></td>
                                                 <td align="right"  bgcolor="#158BE7"><font color="white"></font></td>
                                             </tr>
                                             <tr>
                                                 <td align="right"><b>Margin Total</b></td>
-                                                <td align="right"  bgcolor="#089031"><font color="white"><b>Rp. 1.684.000.000</b></font></td>
-                                                <td align="right"  bgcolor="#E78415"><font color="white"><b>Rp. 1.736.000.000</b></font></td>
+                                                <td align="right"  bgcolor="#089031"><font color="white"><b>Rp. 153.871.596</b></font></td>
+                                                <td align="right"  bgcolor="#E78415"><font color="white"><b>Rp. 43.017.449</b></font></td>
                                                 <td align="right"  bgcolor="#158BE7"><font color="white"></font></td>
                                             </tr>
                                         </tbody>

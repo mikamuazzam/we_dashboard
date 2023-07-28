@@ -12,7 +12,7 @@
         
        
 
-        $sql = "SELECT tema,id,schedule from events where status_id=1 and partner_id=6 ";  
+        $sql = "SELECT tema,id,schedule from events where status_id=1 and id=29 ";  
         $db2 = $this->load->database('db2', TRUE);
         $query=$db2->query($sql); 
          return $query->result();
