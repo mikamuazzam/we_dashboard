@@ -131,7 +131,7 @@ $(function() {
                                             </tr>
                                             
                                             <tr>
-                                                <td align="right">Moderator,Nara sumber dan MC</td>
+                                                <td align="right">Moderator, Narasumber dan MC</td>
                                                 <td align="right"  bgcolor="#089031"><font color="white"></font></td>
                                                 <td align="right"  bgcolor="#E78415"><font color="white"></font></td>
                                                 <td align="right"  bgcolor="#158BE7"><font color="white"><b>Rp. 10.000.000</b></font></td>
@@ -179,7 +179,7 @@ $(function() {
                                             <tr>
                                                 <td align="right">Margin Produksi</td>
                                                 <td align="right"  bgcolor="#089031"><font color="white"><b>Rp. 153.871.596</b></font></td>
-                                                <td align="right"  bgcolor="#E78415"><font color="white"><b>Rp. 38.467.889</b></font></td>
+                                                <td align="right"  bgcolor="#E78415"><font color="white"><b>Rp. 38.467.899</b></font></td>
                                                 <td align="right"  bgcolor="#158BE7"><font color="white"></font></td>
                                             </tr>
                                            
