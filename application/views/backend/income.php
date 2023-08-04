@@ -103,10 +103,10 @@ $(function() {
                                                 <td align="right"  bgcolor="#158BE7"><font color="white"></font></td>
                                             </tr>
                                             <tr>
-                                                <td align="right"><b>Total Pendapatan Bersih</b></td>
+                                                <td align="right"><font size="2px"><b>Total Pendapatan Bersih</b></font></td>
                                                 <td align="right"  bgcolor="#089031"><font color="white"></font></td>
                                                 <td align="right"  bgcolor="#E78415"><font color="white"></font></td>
-                                                <td align="right"  bgcolor="#158BE7"><font color="white"><b>Rp.368.695.495</b></font></td>
+                                                <td align="right"  bgcolor="#158BE7"><h6><font color="white">Rp.368.695.495</font></h6></td>
                                             </tr>
                                             <tr>
                                                 <td align="right" colspan="4" bgcolor="#FFF"></td>
@@ -121,7 +121,7 @@ $(function() {
                                                 <td align="right">Pullman Hotel</td>
                                                 <td align="right"  bgcolor="#089031"><font color="white"></font></td>
                                                 <td align="right"  bgcolor="#E78415"><font color="white"></font></td>
-                                                <td align="right"  bgcolor="#158BE7"><font color="white"><b>Rp. 100.756.000</b></font></td>
+                                                <td align="right"  bgcolor="#158BE7"><font color="white"><b>Rp. 109.156.000</b></font></td>
                                             </tr>
                                             <tr>
                                                 <td align="right">Vendor </td>
@@ -156,10 +156,10 @@ $(function() {
                                             </tr>
 
                                             <tr>
-                                                <td align="right"><b>Total Cost</b></td>
+                                                <td align="right"><font size="2px"><b>Total Cost</b></font></td>
                                                 <td align="right"  bgcolor="#089031"><font color="white"></font></td>
                                                 <td align="right"  bgcolor="#E78415"><font color="white"></font></td>
-                                                <td align="right"  bgcolor="#158BE7"><font color="white"><b>Rp. 176.556.000</b></font></td>
+                                                <td align="right"  bgcolor="#158BE7"><font color="white"><h6><font color="white">Rp. 184.956.000</font></h6></font></td>
                                             </tr>
                                             <tr>
                                                 <td align="right" colspan="4" bgcolor="#FFF"></td>
@@ -171,15 +171,15 @@ $(function() {
                                                 <td align="right"  bgcolor="#158BE7"><font color="white"></font></td>
                                             </tr>
                                             <tr>
-                                                <td align="right">Margin Bersama</td>
+                                                <td align="right"><font size="2px"><b>Margin Bersama</b></font></td>
                                                 <td align="right"  bgcolor="#089031"><font color="white"></font></td>
                                                 <td align="right"  bgcolor="#E78415"><font color="white"></font></td>
-                                                <td align="right"  bgcolor="#158BE7"><font color="white"><b>Rp. 192.339.495</b></font></td>
+                                                <td align="right"  bgcolor="#158BE7"><font color="white"><h6><font color="white">Rp. 183.739.495</font></h6></td>
                                             </tr>
                                             <tr>
                                                 <td align="right">Margin Produksi</td>
-                                                <td align="right"  bgcolor="#089031"><font color="white"><b>Rp. 153.871.596</b></font></td>
-                                                <td align="right"  bgcolor="#E78415"><font color="white"><b>Rp. 38.467.899</b></font></td>
+                                                <td align="right"  bgcolor="#089031"><font color="white"><b>Rp. 146.991.596</b></font></td>
+                                                <td align="right"  bgcolor="#E78415"><font color="white"><b>Rp. 36.747.899</b></font></td>
                                                 <td align="right"  bgcolor="#158BE7"><font color="white"></font></td>
                                             </tr>
                                            
@@ -190,9 +190,9 @@ $(function() {
                                                 <td align="right"  bgcolor="#158BE7"><font color="white"></font></td>
                                             </tr>
                                             <tr>
-                                                <td align="right"><b>Margin Total</b></td>
-                                                <td align="right"  bgcolor="#089031"><font color="white"><b>Rp. 153.871.596</b></font></td>
-                                                <td align="right"  bgcolor="#E78415"><font color="white"><b>Rp. 43.017.449</b></font></td>
+                                                <td align="right"><font size="2px"><b>Margin Masing Masing</b></font></td>
+                                                <td align="right"  bgcolor="#089031"><font color="white"><h6><font color="white">Rp. 146.991.596</font></h6></td>
+                                                <td align="right"  bgcolor="#E78415"><font color="white"><h6><font color="white">Rp. 41.297.449</font></h6></td>
                                                 <td align="right"  bgcolor="#158BE7"><font color="white"></font></td>
                                             </tr>
                                         </tbody>
