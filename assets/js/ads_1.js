@@ -49,7 +49,204 @@ function load_chart()
     ads_view_partner(bulan,tahun,partner);
     monthly_rupiah(bulan,tahun);
     total_perbulan();
+    total_perbulan_partner();
+    target_rev_partner(13,'liberte');
+    target_rev_partner(14,'rumpita');
 }
+
+function target_rev_partner(partner_id,chartid)
+{
+        // chart monthly
+        $.ajax({
+            data :{partner_id:partner_id},
+            url : base_url+"/ads/target_rev_partner",
+            type : "GET",
+            success : function(data)
+            {
+                data = JSON.parse(data);  
+                const labeldt = [];
+                const val_dt= [];
+                const target_dt= [];
+              
+               
+                for (var dt of data) {
+                    var cb = dt.bulan;
+                    labeldt.push(cb)
+
+                    var get_data=  dt.pencapaian;
+                    val_dt.push(get_data)  
+                    
+                    var get_target=  parseInt(dt.target) || 0;
+                    target_dt.push(get_target)  
+                }
+                var myData = {
+                    labels:labeldt,
+                    datasets: [{
+                       label:'Target ',
+                        fill: false,
+                        backgroundColor: '#F5B347',
+                        data: target_dt,
+                        lineTension: 0,
+                        borderWidth: 1
+                    },
+                    {
+                        label:'Pencapaian ',
+                         fill: false,
+                         backgroundColor: '#B9670A',
+                         data: val_dt,
+                         lineTension: 0,
+                         borderWidth: 1
+                     }]
+                    
+                };
+        
+                var myoption = {
+                   
+                    title: {
+                            display: true,
+                            text: 'Target Vs Rev (Juta) ' + chartid
+                        }
+                    ,
+                    tooltips: {
+                        enabled: true
+                    },
+                    legend: {
+                        position: 'bottom'
+                    },
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                            beginAtZero: true,
+                            max:20
+                            },
+                        }],
+                        xAxes: [{
+                            barThickness :20
+                        }]
+                        },
+                        animation: {
+                                    duration: 1,
+                                    onComplete: function () {
+                                        var chartInstance = this.chart,
+                                            ctx = chartInstance.ctx;
+                                            ctx.textAlign = 'center';
+                                            ctx.fillStyle = "rgba(0, 0, 0, 1)";
+                                            ctx.textBaseline = 'bottom';
+                                            // Loop through each data in the datasets
+                                            this.data.datasets.forEach(function (dataset, i) {
+                                                var meta = chartInstance.controller.getDatasetMeta(i);
+                                                meta.data.forEach(function (bar, index) {
+                                                    var data = dataset.data[index];
+                                                    ctx.fillText(data, bar._model.x, bar._model.y - 5);
+                                                });
+                                            });
+                                        }
+                                    }
+                };
+                // Code to draw Chart
+                
+                document.getElementById(chartid+"Content").innerHTML = '&nbsp;';
+                document.getElementById(chartid+"Content").innerHTML = '<canvas id="'+chartid+'" height="150px" ></canvas>';
+                
+                var ctx = document.getElementById(chartid).getContext('2d');
+               var myChart = new Chart(ctx, {
+                    type: 'bar',        // Define chart type
+                    data: myData,    	// Chart data
+                    options: myoption 	// Chart Options [This is optional paramenter use to add some extra things in the chart].
+                });
+        }
+        });
+}  
+function total_perbulan_partner()
+{
+        // chart monthly
+        $.ajax({
+            url : base_url+"/ads/total_perbulan_partner",
+            type : "GET",
+            success : function(data)
+            {
+                data = JSON.parse(data);  
+                const labeldt = [];
+                const val_dt= [];
+             
+              
+               
+                for (var dt of data) {
+                    var cb = dt.bulan;
+                    labeldt.push(cb)
+
+                    var get_data=  parseInt(dt.pencapaian) || 0;
+                    val_dt.push(get_data)   
+                }
+                var myData = {
+                    labels:labeldt,
+                    datasets: [{
+                       label:'Total ',
+                        fill: false,
+                        backgroundColor: '#F5B347',
+                        data: val_dt,
+                        lineTension: 0,
+                        borderWidth: 1
+                    }]
+                    
+                };
+        
+                var myoption = {
+                   
+                    title: {
+                            display: true,
+                            text: 'Revenue per last 3 Month (Juta)'
+                        }
+                    ,
+                    tooltips: {
+                        enabled: true
+                    },
+                    legend: {
+                        position: 'bottom'
+                    },
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                            beginAtZero: true
+                            },
+                        }],
+                        xAxes: [{
+                            barThickness :30
+                        }]
+                        },
+                        animation: {
+                                    duration: 1,
+                                    onComplete: function () {
+                                        var chartInstance = this.chart,
+                                            ctx = chartInstance.ctx;
+                                            ctx.textAlign = 'center';
+                                            ctx.fillStyle = "rgba(0, 0, 0, 1)";
+                                            ctx.textBaseline = 'bottom';
+                                            // Loop through each data in the datasets
+                                            this.data.datasets.forEach(function (dataset, i) {
+                                                var meta = chartInstance.controller.getDatasetMeta(i);
+                                                meta.data.forEach(function (bar, index) {
+                                                    var data = dataset.data[index];
+                                                    ctx.fillText(data, bar._model.x, bar._model.y - 5);
+                                                });
+                                            });
+                                        }
+                                    }
+                };
+                // Code to draw Chart
+                
+                document.getElementById("ChartAdsTigaPartnerContent").innerHTML = '&nbsp;';
+		        document.getElementById("ChartAdsTigaPartnerContent").innerHTML = '<canvas id="ChartAdsTigaPartner" height="130px" ></canvas>';
+
+                var ctx = document.getElementById('ChartAdsTigaPartner').getContext('2d');
+               var myChart = new Chart(ctx, {
+                    type: 'bar',        // Define chart type
+                    data: myData,    	// Chart data
+                    options: myoption 	// Chart Options [This is optional paramenter use to add some extra things in the chart].
+                });
+        }
+        });
+}   
 
 function total_perbulan()
 {
@@ -132,7 +329,7 @@ function total_perbulan()
                 // Code to draw Chart
                 
                 document.getElementById("ChartAdsTigaContent").innerHTML = '&nbsp;';
-		        document.getElementById("ChartAdsTigaContent").innerHTML = '<canvas id="ChartAdsTiga" height="100px" ></canvas>';
+		        document.getElementById("ChartAdsTigaContent").innerHTML = '<canvas id="ChartAdsTiga" height="130px" ></canvas>';
 
                 var ctx = document.getElementById('ChartAdsTiga').getContext('2d');
                var myChart = new Chart(ctx, {
