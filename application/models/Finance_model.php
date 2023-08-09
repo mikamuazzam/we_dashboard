@@ -16,7 +16,7 @@
         else
          $filter="and a.inv_date >='2022-10-31'";
 
-            $sql="SELECT count(*)as jum,sum(a.amount_po) as amount
+            $sql="SELECT count(*)as jum,sum(a.based_value) as amount
                     from invoices a where status_data=1 
                     and inv_status_id=$status $filter group by inv_status_id";
         
@@ -33,13 +33,13 @@
 		$search = '%'.$this->input->post('search[value]').'%';
         if(!empty($search)) $filter=" and (d.name like '%$search%' or e.company_name like '%$search%' or c.name like '%$search%')"; else $filter='';
 
-        $sql = "SELECT e.company_name,d.name as productname, a.amount_po,a.inv_number,
+        $sql = "SELECT e.company_name,d.name as productname, a.based_value amount_po,a.inv_number,
                     a.created_at,a.inv_date ,c.name as status_inv, a.inv_desc remarks,exp_inv_date,a.inv_status_id  FROM `invoices` a 
                     inner join deals b on a.deals_id=b.id 
                     inner join inv_status c on c.id=a.inv_status_id 
                     inner join products d on d.id= a.product_id
                     inner join companies e on b.id_company = e. id
-                    where status_data=1  $filter and  (inv_status_id = 1 and  a.created_at >='2022-10-31' ) or (inv_status_id > 1 and a.inv_date >='2022-10-31') 
+                    where status_data=1  $filter and  ((inv_status_id = 1 and  a.created_at >='2022-10-31' ) or (inv_status_id > 1 and a.inv_date >='2022-10-31'))
                 LIMIT $limit OFFSET $offset ";
         $db2 = $this->load->database('db2', TRUE);
         $query=$db2->query($sql);
@@ -50,7 +50,7 @@
     }
     public function inv_pie(){
         
-        $sql = "SELECT count(*)as jum,sum(a.amount_po) as amount,b.name 
+        $sql = "SELECT count(*)as jum,sum(a.based_value) as amount,b.name 
                 from invoices a
                 inner join inv_status b on a.inv_status_id=b.id where status_data=1 
                         and (inv_status_id=1 and a.created_at >='2022-10-31') or( a.inv_date >='2022-10-31') 
