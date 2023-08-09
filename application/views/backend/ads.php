@@ -245,52 +245,7 @@
                         </div>  
                     </div>
             </div>
-            <div class="row">
-                    <div class="col-md-6">
-                        <div class="card">
-                            <div class="card-body" >
-                                <h6 class="card-title"> This Month's Revenue Forecast </h6>
-                                <div class="card card-info card-info">
-                                    <div class="box bg-info text-center">
-                                        <h6 class="font-light text-white">
-                                            <?php echo 'Rp. '.number_format($forecast2,0);?>
-                                        </h6>  
-                                    </div>
-                                </div>
-
-                                <h6 class="card-title">Average Revenue (last 3 month) </h6>
-                                <div class="card card-info card-info">
-                                    <div class="box bg-info text-center">
-                                        <h6 class="font-light text-white">
-                                        <?php $total =0; 
-                                            foreach($avg_rev as $value):
-                                                $avg=$value->laba;
-                                            
-                                            $total=$total+$avg;
-                                            endforeach;
-                                        ?>
-                                            <?php echo 'Rp. '.number_format(($total/3)*1000000,0);?>
-                                        </h6>  
-                                    </div>
-                                </div>
-
-                                <div id="ChartAdsTigaContent">
-                                <canvas id="ChartAdsTiga" height="130px" ></canvas>  
-                                </div>
-                            </div>
-                        </div>
-                    </div>  
-                    <div class="col-md-6" >
-                        <div class="card">
-                            <div class="card-body" >
-                                
-                                <div id="ChartAdsTigaPartnerContent">
-                                <canvas id="ChartAdsTigaPartner" height="130px" ></canvas>  
-                                </div>
-                            </div>
-                        </div>  
-                    </div>
-            </div>
+            
             <div class="row">
                     <div class="col-lg-12">
                         <div class="card">
