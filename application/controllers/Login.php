@@ -43,6 +43,8 @@ class Login extends CI_Controller {
 			redirect(base_url() . 'psikotes');
 		else  if ($this->session->userdata('user_login_access') == 1 and $this->session->userdata('dept')==12) 
 			redirect(base_url() . 'income');
+			else  if ($this->session->userdata('user_login_access') == 1 and $this->session->userdata('dept')==13) 
+			redirect(base_url() . 'finance');
 		else
 			redirect(base_url() . 'dashboard');
             $data=array();

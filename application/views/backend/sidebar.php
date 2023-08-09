@@ -55,6 +55,10 @@
                         <?php if ($dep_id==11  ) { ?>  
                             <li> <a href="<?php echo base_url(); ?>psikotes" ><i class="ti-pulse"></i><span class="hide-menu">Psikotes </span></a></li>    
                         <?php }?>
+
+                        <?php if ($dep_id==13  ) { ?>  
+                            <li> <a href="<?php echo base_url(); ?>finance" ><i class="ti-money"></i><span class="hide-menu">finance </span></a></li>
+                        <?php }?>
                         <?php if ($dep_id==9 ) { ?>  
                             <li> <a href="<?php echo base_url(); ?>income" ><i class="ti-briefcase"></i><span class="hide-menu">Project Income </span></a></li> 
                         <?php }?>

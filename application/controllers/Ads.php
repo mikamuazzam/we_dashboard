@@ -50,6 +50,7 @@ class Ads extends CI_Controller {
         $data['slot_partner_list']=$this->ads_model->slot_partner_list();
         $data['nilai_kurs']=$this->ads_model->get_kurs();
         $data['avg_rev']=$this->ads_model->total_perbulan();
+        $data['avg_rev2']=$this->ads_model->total_perbulan_partner();
         $data['forecast']=$this->ads_model->total_forecast();
 
 
@@ -151,6 +152,13 @@ class Ads extends CI_Controller {
         
         $this->load->model('ads_model');
         $data= $this->ads_model->total_perbulan();
+        echo json_encode($data);
+    }
+    function total_perbulan_partner()
+    {
+        
+        $this->load->model('ads_model');
+        $data= $this->ads_model->total_perbulan_partner();
         echo json_encode($data);
     }
     
