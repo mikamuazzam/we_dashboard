@@ -272,11 +272,11 @@
        return $query->result();
     }
 
-    public function total_perbulan_partner2(){
+    public function target_rev_partner($partner){
     
-        $sql="SELECT pencapaian ,target,bulan,tahun,website_name  FROM performance_web_partner a 
-                    inner join master_website b on a.website_id= b.id  
-                order by tahun,bulan desc limit 0,3
+        $sql="SELECT ROUND(pencapaian/1000000,2) pencapaian,ROUND(target/1000000,2) target,bulan,tahun,website_name  FROM performance_web_partner a 
+                    inner join master_website b on a.website_id= b.id   where website_id=$partner
+                order by tahun,bulan  limit 0,3
                ";
        $query=$this->db->query($sql);
        return $query->result();

@@ -161,6 +161,13 @@ class Ads extends CI_Controller {
         $data= $this->ads_model->total_perbulan_partner();
         echo json_encode($data);
     }
+    function target_rev_partner()
+    {
+        $partner=$_REQUEST['partner_id'];
+        $this->load->model('ads_model');
+        $data= $this->ads_model->target_rev_partner($partner);
+        echo json_encode($data);
+    }
     
     
 }

@@ -247,6 +247,28 @@
             </div>
             
             <div class="row">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body" >
+                               
+                                <div id="rumpitaContent">
+                                <canvas id="rumpita" height="150px" ></canvas>  
+                                </div>
+                            </div>
+                        </div>
+                    </div>  
+                    <div class="col-md-6" >
+                        <div class="card">
+                            <div class="card-body" >
+                                
+                                <div id="liberteContent">
+                                <canvas id="liberte" height="150px" ></canvas>  
+                                </div>
+                            </div>
+                        </div>  
+                    </div>
+            </div>
+            <div class="row">
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
