@@ -12,9 +12,9 @@
     function jum_inv($status)
     {
         
-        if($status==1) $filter="and a.created_at >='2022-10-31'";
+        if($status==1) $filter="and year(a.created_at) >=2023";
         else
-         $filter="and a.inv_date >='2022-10-31'";
+         $filter="and year(a.inv_date) >=2023";
 
             $sql="SELECT count(*)as jum,sum(a.based_value) as amount
                     from invoices a where status_data=1 
@@ -39,7 +39,7 @@
                     inner join inv_status c on c.id=a.inv_status_id 
                     inner join products d on d.id= a.product_id
                     inner join companies e on b.id_company = e. id
-                    where status_data=1  $filter and  ((inv_status_id = 1 and  a.created_at >='2022-10-31' ) or (inv_status_id > 1 and a.inv_date >='2022-10-31'))
+                    where status_data=1  $filter and  ((inv_status_id = 1 and  year(a.created_at) >=2023 ) or (inv_status_id > 1 and year(a.inv_date) >=2023))
                 LIMIT $limit OFFSET $offset ";
         $db2 = $this->load->database('db2', TRUE);
         $query=$db2->query($sql);
@@ -53,7 +53,7 @@
         $sql = "SELECT count(*)as jum,sum(a.based_value) as amount,b.name 
                 from invoices a
                 inner join inv_status b on a.inv_status_id=b.id where status_data=1 
-                        and (inv_status_id=1 and a.created_at >='2022-10-31') or( a.inv_date >='2022-10-31') 
+                        and (inv_status_id=1 and year(a.created_at) >=2023) or( year(a.inv_date) >=2023) 
                         group by b.name;";
         $db2 = $this->load->database('db2', TRUE);
         $query=$db2->query($sql);
