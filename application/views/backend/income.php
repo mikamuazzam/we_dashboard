@@ -178,7 +178,7 @@ $(function() {
                                             </tr>
                                             <tr>
                                                 <td align="right">Margin Produksi</td>
-                                                <td align="right"  bgcolor="#089031"><font color="white"><b>Rp. 138.256.822</b></font></td>
+                                                <td align="right"  bgcolor="#089031"><font color="white"><b>Rp. 138.296.822</b></font></td>
                                                 <td align="right"  bgcolor="#E78415"><font color="white"><b>Rp. 34.574.205</b></font></td>
                                                 <td align="right"  bgcolor="#158BE7"><font color="white"></font></td>
                                             </tr>
