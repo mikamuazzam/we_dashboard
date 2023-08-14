@@ -131,7 +131,7 @@ $(function() {
                                             </tr>
                                             
                                             <tr>
-                                                <td align="right">Moderator, Narasumber dan MC</td>
+                                                <td align="right">Moderator, Narasumber, MC dan Usher</td>
                                                 <td align="right"  bgcolor="#089031"><font color="white"></font></td>
                                                 <td align="right"  bgcolor="#E78415"><font color="white"></font></td>
                                                 <td align="right"  bgcolor="#158BE7"><font color="white"><b>Rp. 11.000.000</b></font></td>
