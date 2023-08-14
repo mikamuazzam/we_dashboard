@@ -18,7 +18,7 @@ $(function() {
                     <h5 class="text-themecolor"><i class="fa fa-braille" style="color:#1976d2"></i>
                         Event Dashboard </h5>
                     </div>
-                    
+                    <input type="hidden" id="dept_id" value="<?php echo $this->session->userdata('dept');?> ">
                 </div>
                 
                 <!-- ============================================================== -->
@@ -685,7 +685,7 @@ $(function() {
             </div>
         </div>
              
-        
+        <?php if($this->session->userdata('dept') == '9' || $this->session->userdata('dept') == '2' ) {?>
         <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
             <div class="modal-dialog" style="position: fixed;  margin: auto;  width: 320px;    height: 70%;       right: 0px;  bottom : 0px; " role="document">   
                 <div class="modal-content" >
@@ -699,9 +699,11 @@ $(function() {
                 </div>
             </div>
         </div>
+
         <div style="display: flex; justify-content: flex-end">
             <footer class="footer" style="position:fixed; "> <span style="float:right;"><button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal2">Chat </button></span></footer>                                                        
         </div>
+        <?php }?>
 <script src="<?php echo base_url(); ?>assets/js/event2.js"></script>              
                               
 <?php $this->load->view('backend/footer'); ?>

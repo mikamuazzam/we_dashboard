@@ -134,7 +134,7 @@ $(function() {
                                                 <td align="right">Moderator, Narasumber dan MC</td>
                                                 <td align="right"  bgcolor="#089031"><font color="white"></font></td>
                                                 <td align="right"  bgcolor="#E78415"><font color="white"></font></td>
-                                                <td align="right"  bgcolor="#158BE7"><font color="white"><b>Rp. 10.000.000</b></font></td>
+                                                <td align="right"  bgcolor="#158BE7"><font color="white"><b>Rp. 11.000.000</b></font></td>
                                             </tr>
                                             <tr>
                                                 <td align="right">Operasional</td>
@@ -159,7 +159,7 @@ $(function() {
                                                 <td align="right"><font size="2px"><b>Total Cost</b></font></td>
                                                 <td align="right"  bgcolor="#089031"><font color="white"></font></td>
                                                 <td align="right"  bgcolor="#E78415"><font color="white"></font></td>
-                                                <td align="right"  bgcolor="#158BE7"><font color="white"><h6><font color="white">Rp. 174.156.000</font></h6></font></td>
+                                                <td align="right"  bgcolor="#158BE7"><font color="white"><h6><font color="white">Rp. 175.156.000</font></h6></font></td>
                                             </tr>
                                             <tr>
                                                 <td align="right" colspan="4" bgcolor="#FFF"></td>
@@ -174,12 +174,12 @@ $(function() {
                                                 <td align="right"><font size="2px"><b>Margin Bersama</b></font></td>
                                                 <td align="right"  bgcolor="#089031"><font color="white"></font></td>
                                                 <td align="right"  bgcolor="#E78415"><font color="white"></font></td>
-                                                <td align="right"  bgcolor="#158BE7"><font color="white"><h6><font color="white">Rp. 172.871.027</font></h6></td>
+                                                <td align="right"  bgcolor="#158BE7"><font color="white"><h6><font color="white">Rp. 171.871.027</font></h6></td>
                                             </tr>
                                             <tr>
                                                 <td align="right">Margin Produksi</td>
-                                                <td align="right"  bgcolor="#089031"><font color="white"><b>Rp. 138.296.822</b></font></td>
-                                                <td align="right"  bgcolor="#E78415"><font color="white"><b>Rp. 34.574.205</b></font></td>
+                                                <td align="right"  bgcolor="#089031"><font color="white"><b>Rp. 137.496.822</b></font></td>
+                                                <td align="right"  bgcolor="#E78415"><font color="white"><b>Rp. 34.374.205</b></font></td>
                                                 <td align="right"  bgcolor="#158BE7"><font color="white"></font></td>
                                             </tr>
                                            
@@ -191,8 +191,8 @@ $(function() {
                                             </tr>
                                             <tr>
                                                 <td align="right"><font size="2px"><b>Margin Masing Masing</b></font></td>
-                                                <td align="right"  bgcolor="#089031"><font color="white"><h6><font color="white">Rp. 138.296.822</font></h6></td>
-                                                <td align="right"  bgcolor="#E78415"><font color="white"><h6><font color="white">Rp. 39.078.710</font></h6></td>
+                                                <td align="right"  bgcolor="#089031"><font color="white"><h6><font color="white">Rp. 137.496.822</font></h6></td>
+                                                <td align="right"  bgcolor="#E78415"><font color="white"><h6><font color="white">Rp. 38.878.710</font></h6></td>
                                                 <td align="right"  bgcolor="#158BE7"><font color="white"></font></td>
                                             </tr>
                                         </tbody>

@@ -32,11 +32,13 @@ function number_format(number, decimals, dec_point, thousands_sep) {
 
 function load_chart()
 {
+	var dep_id=$('#dept_id').val();
 	
-	$('#myModal2').modal('show');	
-	$('#isian').load(base_url+'/chat');
-
-	
+	if(dep_id == 2 || dep_id == 9)
+	{
+		$('#myModal2').modal('show');	
+		$('#isian').load(base_url+'/chat');
+	}
 
 	get_list_acara(1,'weblist1');
 	get_list_acara(2,'weblist2');
