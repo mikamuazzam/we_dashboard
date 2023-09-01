@@ -116,8 +116,7 @@ function target_rev_partner(partner_id,chartid)
                     scales: {
                         yAxes: [{
                             ticks: {
-                            beginAtZero: true,
-                            max:20
+                            beginAtZero: true
                             },
                         }],
                         xAxes: [{
