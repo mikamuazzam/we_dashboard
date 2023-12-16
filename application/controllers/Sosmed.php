@@ -56,7 +56,7 @@ class Sosmed extends CI_Controller {
 		'smtp_host' => 'ssl://smtp.gmail.com', 
 		'smtp_port' => 465, 
 		'smtp_user' => 'ndensme@gmail.com', 
-		'smtp_pass' => 'Mauliaihsan07',
+		'smtp_pass' => 'sfsedf',
         'smtp_crypto' => 'ssl'
 		); 		  
          $from_email = "ndensme@gmail.com"; 
