@@ -9,7 +9,7 @@
                     <div class="col-md-12 align-self-right">
                     <h5 class="text-themecolor"><i class="fa fa-braille" style="color:#1976d2"></i>
                         Social Media Ads This Month Revenue 
-                        <?php echo $email;?>
+                        
                     </h5>
                     </div>
                     

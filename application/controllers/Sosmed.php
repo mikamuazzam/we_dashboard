@@ -53,14 +53,17 @@ class Sosmed extends CI_Controller {
     function confirm_mail_send(){
 		$config = Array( 
 		'protocol' => 'smtp', 
-		'smtp_host' => 'smtp.gmail.com', 
+		'smtp_host' => 'ssl://smtp.gmail.com', 
 		'smtp_port' => 465, 
 		'smtp_user' => 'ndensme@gmail.com', 
-		'smtp_pass' => 'Mauliaihsan07'
+		'smtp_pass' => 'Mauliaihsan07',
+        'smtp_crypto' => 'ssl'
 		); 		  
          $from_email = "ndensme@gmail.com"; 
          $to_email = 'mikamuazzam@gmail.com'; 
    
+
+        
          //Load email library 
          $this->load->library('email',$config); 
    
