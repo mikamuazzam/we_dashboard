@@ -33,6 +33,7 @@ class Sosmed extends CI_Controller {
         $data['tiktok_we']=$this->sosmed_model->get_laba(12); 
         $data['sosmed_all']=$this->sosmed_model->get_laba_all(1); 
         $data['avg_rev']=$this->sosmed_model->total_perbulan();
+        $data['email']=$this->confirm_mail_send();
         $this->load->view('backend/sosmed',$data);
         }
         else{
@@ -49,7 +50,35 @@ class Sosmed extends CI_Controller {
         echo json_encode($data);
     }
    
-    
+    function confirm_mail_send(){
+		$config = Array( 
+		'protocol' => 'smtp', 
+		'smtp_host' => 'smtp.gmail.com', 
+		'smtp_port' => 465, 
+		'smtp_user' => 'ndensme@gmail.com', 
+		'smtp_pass' => 'Mauliaihsan07'
+		); 		  
+         $from_email = "ndensme@gmail.com"; 
+         $to_email = 'mikamuazzam@gmail.com'; 
+   
+         //Load email library 
+         $this->load->library('email',$config); 
+   
+         $this->email->from($from_email, 'Dotdev'); 
+         $this->email->to($to_email);
+         $this->email->subject('Confirm Your Account'); 
+		 $message	 =	"Confirm Your Account";
+		 $message	.=	"Click Here : ".base_url()."Confirm_Account?C=dd" .'</br>'; 
+         $this->email->message($message); 
+   
+         //Send mail 
+         if($this->email->send()){ 
+         	$this->session->set_flashdata('feedback','Kindly check your email To reset your password');
+		 }
+         else {
+         $this->session->set_flashdata("feedback","Error in sending Email."); 
+		 }			
+	}
     
     
 }
